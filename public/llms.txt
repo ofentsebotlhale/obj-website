@@ -1,0 +1,66 @@
+# OBX Studio — llms.txt
+
+Contemporary digital design and web development studio building custom websites, brand systems, and SEO-driven digital experiences for modern businesses.
+
+OBX Studio creates high-trust, performance-focused websites that combine strategy, design, and development into cohesive digital systems. We work with a limited number of clients to design and build websites that improve credibility, communicate value clearly, and support business growth.
+
+## Core Identity
+
+OBX Studio is a digital design and web development studio specializing in:
+
+- Custom website design and development
+- Brand identity systems
+- UX and digital strategy
+- SEO-optimized website structures
+- Performance-focused web experiences
+
+We build complete website systems from concept to launch.
+
+## Core Navigation
+
+- [Home Page](/) : Overview of OBX Studio, services, selected work, and positioning.
+- [Studio](/studio) : Information about the studio, process, philosophy, and approach.
+- [Work](/work) : Selected case studies and web design/development projects.
+- [Services](/services) : Overview of web design, web development, and full website builds.
+- [Web Design](/services/web-design) : UI/UX design, layout systems, and visual direction.
+- [Web Development](/services/web-development) : Frontend development, performance, and implementation.
+- [Blog](/blog) : Insights, articles, and educational content on web design, branding, and SEO.
+- [Contact](/contact) : Project inquiries and collaboration requests.
+- [Privacy Policy](/privacy) : Data usage and legal information.
+- [Terms](/terms) : Website usage terms and conditions.
+
+## Services
+
+OBX Studio delivers end-to-end digital systems:
+
+- **Web Design**: User-focused, conversion-driven website design combining layout systems, typography, and visual hierarchy.
+- **Web Development**: High-performance, responsive website development focused on speed, scalability, and accessibility.
+- **Full Website Builds**: Complete design + development execution from concept to deployment.
+- **Brand Identity**: Visual identity systems including logos, typography, and brand guidelines.
+- **UX & Strategy**: Information architecture, user flow design, and digital strategy planning.
+- **SEO Systems**: Technical SEO, semantic structure, metadata optimization, and content architecture for discoverability.
+
+## Work
+
+Selected projects include:
+
+- **OB Associates** (https://obassociates.netlify.app/) : Corporate website designed to build credibility and support lead generation for professional services.
+- **OBX Fash Studio** (https://obxfash.netlify.app/) : Interactive fashion concept combining visual storytelling and modern UI systems.
+
+## Content Strategy
+
+OBX Studio publishes educational content focused on:
+
+- Web design best practices
+- Website performance and optimization
+- SEO and digital visibility
+- Brand systems and identity design
+- Business website strategy
+
+## Contact
+
+All project inquiries can be submitted via the [Contact Page](/contact). Responses are typically provided within 24 hours.
+
+## Canonical Description
+
+OBX Studio builds custom websites, brand systems, and SEO-driven digital experiences for modern businesses.

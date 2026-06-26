@@ -1,0 +1,6 @@
+{
+  "name": "OBX Studio",
+"description": "OBX Studio creates custom websites and SEO-driven digital systems that help modern businesses grow, attract clients, and build credibility online.",
+"requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
