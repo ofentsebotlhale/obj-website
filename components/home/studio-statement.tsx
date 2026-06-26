@@ -16,11 +16,6 @@ export function StudioStatement() {
             We partner with ambitious teams to create digital experiences that perform flawlessly and leave a lasting impression.
           </h2>
         </Reveal>
-        <Reveal delay={0.2} className="mt-10 max-w-3xl">
-          <p className="font-sans text-lg md:text-xl leading-relaxed text-muted font-light">
-            Our approach combines deep strategic thinking with precise execution. We don't just build websites; we craft comprehensive digital platforms that actively support your business objectives. By focusing on both aesthetics and technical performance, we ensure your digital presence is as powerful as the services you provide. Let us help you navigate the complexities of the digital landscape with confidence and clarity.
-          </p>
-        </Reveal>
       </div>
     </section>
   )

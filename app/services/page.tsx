@@ -114,35 +114,32 @@ export default function ServicesPage() {
             <h2 className="font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl mb-8">
               Our Approach
             </h2>
-            <p className="font-sans text-lg leading-relaxed text-muted-foreground mb-6">
+            <p className="font-sans text-lg leading-relaxed text-muted-foreground mb-12">
               We follow a structured process to ensure every project is clear, efficient, and aligned with your goals.
-            </p>
-            <p className="font-sans text-lg leading-relaxed text-muted-foreground mb-12 max-w-3xl">
-              Building a successful website is not just about making things look pretty. It requires a deep understanding of your target audience, a clear strategy for content delivery, and robust technical execution. Our methodology ensures that we cover every critical aspect of your digital presence, from the initial discovery phase all the way through to final deployment and ongoing support.
             </p>
             <div className="flex flex-col gap-12 mb-20">
               <div>
-                <h3 className="font-mono text-sm uppercase tracking-widest text-foreground font-semibold mb-4">1. Strategy & Planning</h3>
+                <h3 className="font-mono text-sm uppercase tracking-widest text-foreground font-semibold mb-4">1. Strategy</h3>
                 <p className="font-sans text-lg leading-relaxed text-muted-foreground">
-                  We understand your business, audience, and objectives to define the direction of the project. This involves comprehensive market research, competitor analysis, and establishing a clear roadmap for achieving your specific goals.
+                  We understand your business, audience, and objectives to define the direction of the project.
                 </p>
               </div>
               <div>
-                <h3 className="font-mono text-sm uppercase tracking-widest text-foreground font-semibold mb-4">2. UX/UI Design</h3>
+                <h3 className="font-mono text-sm uppercase tracking-widest text-foreground font-semibold mb-4">2. Design</h3>
                 <p className="font-sans text-lg leading-relaxed text-muted-foreground">
-                  We create a visual system and user experience that reflects your brand and guides users effectively. We focus on clean layouts, intuitive navigation, and visually appealing design elements that build trust and encourage interaction.
+                  We create a visual system and user experience that reflects your brand and guides users effectively.
                 </p>
               </div>
               <div>
-                <h3 className="font-mono text-sm uppercase tracking-widest text-foreground font-semibold mb-4">3. Technical Development</h3>
+                <h3 className="font-mono text-sm uppercase tracking-widest text-foreground font-semibold mb-4">3. Development</h3>
                 <p className="font-sans text-lg leading-relaxed text-muted-foreground">
-                  We build the website into a fully functional, responsive, and performance-optimised product. Utilizing modern frameworks and best practices, we ensure your site is fast, secure, and easily scalable as your business grows.
+                  We build the website into a fully functional, responsive, and performance-optimised product.
                 </p>
               </div>
               <div>
-                <h3 className="font-mono text-sm uppercase tracking-widest text-foreground font-semibold mb-4">4. Testing & Launch</h3>
+                <h3 className="font-mono text-sm uppercase tracking-widest text-foreground font-semibold mb-4">4. Launch</h3>
                 <p className="font-sans text-lg leading-relaxed text-muted-foreground">
-                  We deploy and refine the website to ensure it is stable, fast, and ready for users. Rigorous testing across multiple devices and browsers guarantees a flawless experience for every single visitor.
+                  We deploy and refine the website to ensure it is stable, fast, and ready for users.
                 </p>
               </div>
             </div>

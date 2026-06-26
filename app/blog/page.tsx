@@ -52,9 +52,6 @@ export default function BlogListingPage() {
                 <p className="font-sans text-sm text-muted-foreground leading-relaxed max-w-sm">
                   We write to make sense of design systems, technology performance, and user strategies that drive measurable growth for digital businesses.
                 </p>
-                <p className="font-sans text-sm text-muted-foreground leading-relaxed max-w-sm mt-4">
-                  Explore our collection of in-depth articles where we share practical advice, industry trends, and technical tutorials. Whether you are looking to improve your site's conversion rate, understand the latest web development frameworks, or simply find inspiration for your next design project, you'll find valuable insights here.
-                </p>
               </Reveal>
               <div className="pt-4 border-t border-border/40 max-w-sm">
                 <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground block mb-2">Featured Topic</span>

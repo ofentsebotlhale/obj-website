@@ -7,31 +7,31 @@ const PROCESS_STEPS = [
   {
     n: '01',
     title: 'Discovery',
-    desc: 'Understanding your business, target audience, and project goals to set a clear direction. We take the time to thoroughly research your industry, analyze your competitors, and identify the key opportunities that will allow your brand to stand out in a crowded market.',
+    desc: 'Understanding your business, target audience, and project goals to set a clear direction.',
     tags: ['Research', 'Interviews', 'Audits'],
   },
   {
     n: '02',
     title: 'Strategy',
-    desc: 'Positioning, naming, and brand architecture that give the work a reason to exist. A solid strategy acts as the foundation for everything we build. We map out the user journey, structure the content hierarchy, and establish a clear plan for achieving your specific objectives.',
+    desc: 'Positioning, naming, and brand architecture that give the work a reason to exist.',
     tags: ['Positioning', 'Planning', 'Wireframing'],
   },
   {
     n: '03',
     title: 'Design',
-    desc: 'Editorial, accessible interfaces designed pixel-by-pixel for clarity and emotion. We create visually appealing designs that reflect your brand identity while ensuring that the interface is highly intuitive and user friendly across all devices and screen sizes.',
+    desc: 'Editorial, accessible interfaces designed pixel-by-pixel for clarity and emotion.',
     tags: ['UI/UX', 'Design Systems', 'Prototyping'],
   },
   {
     n: '04',
     title: 'Development',
-    desc: 'Fast, fluid, hardware-accelerated builds engineered for 60fps and great Core Web Vitals. Our development process focuses on writing clean, scalable code that results in high performing websites. We prioritize speed, security, and seamless interactions.',
+    desc: 'Fast, fluid, hardware-accelerated builds engineered for 60fps and great Core Web Vitals.',
     tags: ['Next.js', 'Motion', 'WebGL'],
   },
   {
     n: '05',
     title: 'Launch',
-    desc: 'Rollout, motion, and the details that make a release land with momentum. We carefully test every element to ensure a flawless launch. Beyond the initial release, we provide guidance and support to help your digital platform thrive and evolve over time.',
+    desc: 'Rollout, motion, and the details that make a release land with momentum.',
     tags: ['Testing', 'Deployment', 'Support'],
   },
 ]

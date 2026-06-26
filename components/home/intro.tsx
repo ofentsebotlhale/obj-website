@@ -15,15 +15,10 @@ export function Intro() {
         <div className="md:col-span-9 max-w-3xl">
           <Reveal>
             <p className="text-xl md:text-3xl font-heading text-foreground leading-[1.3] text-pretty">
-              OBX Studio is a focused web design practice creating thoughtful, high-performing websites for ambitious businesses. We work with a select number of clients at a time, allowing us to approach every project with care, precision, and attention to detail.
+              OBX Studio is a web design practice. We build thoughtful, high-performing websites for ambitious businesses. We take on a select number of clients to ensure precision in every project.
             </p>
           </Reveal>
-          <Reveal delay={0.1}>
-            <p className="mt-8 text-lg text-muted-foreground leading-relaxed text-pretty">
-              In a digital world overflowing with templates and generic solutions, we believe in the power of custom website creation. Your brand is unique, and your digital presence should reflect that. We combine beautiful, user friendly design elements with clean, scalable code to deliver platforms that not only look visually appealing but also drive real business results.
-            </p>
-          </Reveal>
-          <Reveal delay={0.2} className="mt-10">
+          <Reveal delay={0.1} className="mt-10">
             <Link
               href="/studio"
               className="group inline-flex items-center gap-3 rounded-full border border-border/50 bg-secondary/30 px-6 py-3 font-mono text-[11px] uppercase tracking-widest text-muted-foreground transition-all duration-300 hover:border-accent hover:bg-accent hover:text-background"

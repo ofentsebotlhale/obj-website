@@ -46,22 +46,17 @@ export default function StudioPage() {
           <div className="flex flex-col gap-8 md:col-span-8 md:max-w-3xl">
             <Reveal delay={0.1}>
               <p className="font-heading text-2xl font-light leading-relaxed tracking-tight text-foreground sm:text-3xl">
-                OBX Studio is a digital design and web development studio focused on creating modern websites for businesses that value quality, clarity, and long-term growth.
+                OBX Studio is a digital design and web development studio focused on creating modern websites for businesses that value quality and clarity.
               </p>
             </Reveal>
             <Reveal delay={0.2}>
               <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
-                We believe a website should be more than a digital brochure. It should represent a business professionally, create confidence in potential clients, and support meaningful business objectives. Our work combines strategy, design, and development to create websites that are both visually refined and commercially effective.
+                We believe a website should be more than a digital brochure. It must represent a business professionally, create confidence, and support meaningful objectives. Our work combines strategy, design, and development to create websites that are visually refined and commercially effective.
               </p>
             </Reveal>
             <Reveal delay={0.3}>
               <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
-                Based in Johannesburg, South Africa, we partner with professional service firms, growing businesses, and modern brands looking to elevate their online presence. In today's highly competitive digital landscape, having a fast, reliable, and user friendly website is crucial. We bring technical expertise and creative vision to every project, ensuring that your digital storefront accurately reflects the quality of your actual services.
-              </p>
-            </Reveal>
-            <Reveal delay={0.4}>
-              <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
-                Whether you need a complete website redesign, custom front-end development, or strategic branding, our team provides tailored solutions that align perfectly with your broader business goals. From initial wireframing to final launch, we carefully craft the user journey to optimize engagement, build trust, and ultimately convert casual visitors into loyal customers.
+                Based in Johannesburg, we partner with professional service firms, growing businesses, and modern brands. We bring technical expertise and creative vision to every project, ensuring your digital storefront accurately reflects the quality of your services.
               </p>
             </Reveal>
           </div>
@@ -140,17 +135,12 @@ export default function StudioPage() {
               <div className="flex flex-col gap-6 text-base leading-relaxed text-muted-foreground md:text-lg">
                 <Reveal delay={0.2}>
                   <p>
-                    OBX Studio was founded by Ofentse Lengwasa with a vision of helping businesses establish stronger digital foundations through thoughtful design and modern web experiences.
+                    OBX Studio was founded by Ofentse Lengwasa with a vision of helping businesses establish stronger digital foundations through thoughtful design.
                   </p>
                 </Reveal>
                 <Reveal delay={0.3}>
                   <p>
-                    Driven by a passion for design, technology, and problem-solving, he approaches every project with a focus on creating work that is both visually compelling and strategically effective. His philosophy is simple: great design should not only look exceptional—it should help businesses communicate more clearly and achieve their goals.
-                  </p>
-                </Reveal>
-                <Reveal delay={0.4}>
-                  <p>
-                    Today, OBX Studio continues to build websites that combine creativity, functionality, and purpose, helping businesses present themselves with confidence in an increasingly digital world.
+                    Driven by a passion for design and problem-solving, he approaches every project with a focus on creating work that is both visually compelling and strategically effective. Great design should not only look exceptional—it should help businesses communicate clearly.
                   </p>
                 </Reveal>
               </div>

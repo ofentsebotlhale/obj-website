@@ -70,9 +70,6 @@ export default function WebDesignPage() {
             <p className="font-sans text-lg leading-relaxed text-muted-foreground mb-6">
               We design custom website experiences tailored to your business goals, audience, and industry. Every design is created from scratch — no templates, no shortcuts.
             </p>
-            <p className="font-sans text-lg leading-relaxed text-muted-foreground mb-8 max-w-3xl">
-              We believe that true web design goes far beyond selecting attractive colors and typography. It requires a profound understanding of user psychology, information architecture, and the specific mechanics of digital interaction. Our process involves meticulously planning the user journey to ensure that visitors can effortlessly find the information they need and take the desired actions. We focus heavily on creating intuitive navigation structures, compelling calls to action, and accessible interfaces that cater to all users. By combining aesthetic excellence with strategic usability, we deliver designs that not only look professional but actively contribute to achieving your broader business objectives.
-            </p>
             <p className="font-sans text-lg leading-relaxed text-foreground font-medium mb-6">
               Our web design services include:
             </p>
@@ -101,25 +98,25 @@ export default function WebDesignPage() {
               <div>
                 <h3 className="font-mono text-sm uppercase tracking-widest text-foreground font-semibold mb-4">1. Understanding Your Business</h3>
                 <p className="font-sans text-lg leading-relaxed text-muted-foreground">
-                  We start by learning your brand, audience, and objectives. This ensures every design decision is intentional and aligned with your goals. We conduct thorough research to understand your market position and the unique value you offer.
+                  We start by learning your brand, audience, and objectives. This ensures every design decision is intentional and aligned with your goals.
                 </p>
               </div>
               <div>
                 <h3 className="font-mono text-sm uppercase tracking-widest text-foreground font-semibold mb-4">2. Structure & Wireframing</h3>
                 <p className="font-sans text-lg leading-relaxed text-muted-foreground">
-                  We define the structure of your website, focusing on clarity, content hierarchy, and user flow before any visual design begins. This critical step maps out the blueprint of the site, establishing logical pathways for navigation.
+                  We define the structure of your website, focusing on clarity, content hierarchy, and user flow before any visual design begins.
                 </p>
               </div>
               <div>
                 <h3 className="font-mono text-sm uppercase tracking-widest text-foreground font-semibold mb-4">3. Visual Design</h3>
                 <p className="font-sans text-lg leading-relaxed text-muted-foreground">
-                  We translate strategy into visual form — combining typography, spacing, colour, and layout to create a modern and professional interface. We meticulously craft the aesthetic elements to ensure they resonate perfectly with your brand identity.
+                  We translate strategy into visual form — combining typography, spacing, colour, and layout to create a modern and professional interface.
                 </p>
               </div>
               <div>
                 <h3 className="font-mono text-sm uppercase tracking-widest text-foreground font-semibold mb-4">4. Responsive Experience</h3>
                 <p className="font-sans text-lg leading-relaxed text-muted-foreground">
-                  Every design is optimized for desktop, tablet, and mobile to ensure a consistent and intuitive experience across all devices. We employ fluid layouts and scalable elements so your site performs flawlessly regardless of the screen size.
+                  Every design is optimized for desktop, tablet, and mobile to ensure a consistent and intuitive experience across all devices.
                 </p>
               </div>
             </div>
@@ -199,21 +196,6 @@ export default function WebDesignPage() {
             <p className="font-sans text-lg leading-relaxed text-muted-foreground mb-20">
               At OBX Studio, we design websites that not only look modern but also guide users toward meaningful action.
             </p>
-
-            <div className="bg-card/40 border border-border/50 rounded-xl p-8 md:p-12 mb-20">
-              <h2 className="font-heading text-2xl font-semibold tracking-tight text-foreground mb-6">
-                Web Design vs Web Development
-              </h2>
-              <p className="font-sans text-[15px] md:text-base leading-relaxed text-muted-foreground mb-6">
-                <strong className="text-foreground">Web design</strong> focuses on how your website looks and feels — layout, structure, branding, and user experience.
-              </p>
-              <p className="font-sans text-[15px] md:text-base leading-relaxed text-muted-foreground mb-6">
-                <strong className="text-foreground">Web development</strong> focuses on how the website functions — performance, interactivity, and technical implementation.
-              </p>
-              <p className="font-sans text-[15px] md:text-base leading-relaxed text-muted-foreground">
-                OBX Studio handles both, allowing your project to move smoothly from design into a fully built and deployed website.
-              </p>
-            </div>
           </Reveal>
         </div>
       </section>

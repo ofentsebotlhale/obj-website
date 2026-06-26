@@ -43,15 +43,9 @@ export default function ContactPage() {
 
           <div className="lg:col-span-4 lg:col-start-9">
             <Reveal className="mb-8">
-              <p className="text-pretty leading-relaxed text-muted-foreground mb-6">
-                Have a brief, a rough idea, or just a question? We read every message.
-                The more context you share, the better we can help. Whether you are looking to build a brand new custom website, redesign an existing digital platform, or simply explore the possibilities of modern web development, our team is ready to listen.
-              </p>
-              <p className="text-pretty leading-relaxed text-muted-foreground mb-6">
-                We believe that every successful project begins with a clear conversation. We encourage you to share your core business goals, target audience, and any specific design elements or functional requirements you have in mind. Understanding your unique needs allows us to tailor our approach and propose solutions that will deliver the best results.
-              </p>
               <p className="text-pretty leading-relaxed text-muted-foreground">
-                We typically respond to all inquiries within one to two business days. We look forward to hearing about your vision and discussing how we can collaborate to create a highly effective, visually appealing, and user friendly digital experience for your brand.
+                Have a brief, a rough idea, or just a question? We read every message.
+                The more context you share, the better we can help.
               </p>
             </Reveal>
             <dl className="grid grid-cols-1 gap-px overflow-hidden rounded-md border border-border bg-border">

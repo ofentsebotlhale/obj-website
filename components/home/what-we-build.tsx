@@ -5,27 +5,27 @@ import { Reveal } from '@/components/anim/reveal'
 const ITEMS = [
   {
     title: 'Business Websites',
-    description: 'Professional websites designed to build trust and generate enquiries. We create compelling digital storefronts that effectively communicate your value proposition, showcase your services, and establish your brand as an industry leader. Every page is optimized to guide potential clients toward taking meaningful action.',
+    description: 'Professional websites designed to build trust and generate enquiries.',
   },
   {
-    title: 'E-Commerce Websites',
-    description: 'Online stores built for seamless shopping experiences. We develop intuitive, secure, and visually appealing e-commerce platforms that make browsing and purchasing effortless. From product displays to checkout, we focus on maximizing conversions and minimizing cart abandonment.',
+    title: 'E-Commerce',
+    description: 'Online stores built for seamless shopping experiences.',
   },
   {
     title: 'Landing Pages',
-    description: 'Focused pages designed to convert traffic into leads. Whether for a specific marketing campaign, a new product launch, or a special promotion, we craft highly targeted landing pages. These pages feature clear messaging, persuasive design elements, and strong calls to action.',
+    description: 'Focused pages designed to convert traffic into leads.',
   },
   {
-    title: 'Website Redesigns',
-    description: 'Modern redesigns that improve performance and user experience. If your current website is outdated, slow, or difficult to navigate, we can transform it. We maintain your existing content while completely overhauling the visual design, underlying code, and overall user journey.',
+    title: 'Redesigns',
+    description: 'Modern redesigns that improve performance and user experience.',
   },
   {
-    title: 'Custom Web Solutions',
-    description: 'Tailored functionality built around specific business needs. Sometimes a standard website isn\'t enough. We engineer custom web applications, specialized booking systems, and unique interactive tools that solve complex business problems and streamline your daily operations.',
+    title: 'Custom Web Apps',
+    description: 'Tailored functionality built around specific business needs.',
   },
   {
-    title: 'Website Maintenance',
-    description: 'Ongoing support, updates, and improvements. A successful website requires continuous care. We provide reliable maintenance services to ensure your platform remains secure, fast, and up-to-date with the latest web standards, giving you complete peace of mind.',
+    title: 'Maintenance',
+    description: 'Ongoing support, updates, and improvements.',
   },
 ]
 
