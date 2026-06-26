@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: post.title,
+    title: post.seoTitle || `${post.title} | OBX Studio`,
     description: post.excerpt,
     alternates: {
       canonical: `/blog/${post.slug}`,

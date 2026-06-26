@@ -7,6 +7,7 @@ export interface BlogPoint {
 export interface BlogPost {
   slug: string
   title: string
+  seoTitle?: string
   excerpt: string
   date: string
   readingTime: string
@@ -21,6 +22,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: '10-signs-your-business-website-is-losing-clients',
     title: '10 Signs Your Business Website Is Losing Clients',
+    seoTitle: '10 Signs Your Website Is Losing Clients & How to Fix It | OBX Studio',
     excerpt: 'Your website is often the first impression potential clients get. Is it doing its job well, or is it driving valuable opportunities away?',
     date: 'June 18, 2026',
     readingTime: '5 min read',
@@ -84,6 +86,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'web-design-johannesburg-what-businesses-should-look-for',
     title: 'Web Design Johannesburg: What Businesses Should Look For',
+    seoTitle: 'Web Design Johannesburg: Complete Guide for Local Businesses | OBX',
     excerpt: 'Planning to scale in South Africa’s economic hub? Discover the vital pillars to evaluate when choosing a local Johannesburg web design partner.',
     date: 'June 19, 2026',
     readingTime: '5 min read',
@@ -147,6 +150,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'how-much-does-a-website-cost-in-south-africa',
     title: 'How Much Does a Website Cost in South Africa?',
+    seoTitle: 'Website Design Costs in South Africa: 2026 Pricing Guide | OBX Studio',
     excerpt: 'Planning your digital budget? Break down typical price points, recurring server/domain fees, and core factors governing web development costs in SA.',
     date: 'June 19, 2026',
     readingTime: '6 min read',
@@ -210,6 +214,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'the-ultimate-guide-to-creating-a-high-performing-website',
     title: 'The Ultimate Guide to Creating a High Performing Website',
+    seoTitle: 'How to Build a High-Performing Business Website | OBX Studio',
     excerpt: 'Learn how to create a visually appealing and user-friendly website that saves time, boosts user engagement, and helps you achieve your business goals.',
     date: 'June 26, 2026',
     readingTime: '6 min read',
@@ -263,6 +268,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'web-design-johannesburg-how-to-choose-high-quality-design-development-services',
     title: 'Web Design in Johannesburg: How to Choose High-Quality Design & Development Services',
+    seoTitle: 'Choosing Quality Web Design & Development Services in Johannesburg',
     excerpt: 'Navigate the market to find the best design services and secure a digital platform that drives tangible business results in Johannesburg.',
     date: 'June 26, 2026',
     readingTime: '5 min read',
