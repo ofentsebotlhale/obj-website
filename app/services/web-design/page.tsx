@@ -194,7 +194,7 @@ export default function WebDesignPage() {
               Good design builds trust, improves clarity, and helps users understand your value within seconds. Poor design creates friction, confusion, and lost opportunities.
             </p>
             <p className="font-sans text-lg leading-relaxed text-muted-foreground mb-20">
-              At OBX Studio, we design websites that not only look modern but also guide users toward meaningful action.
+              At OBX Studio, we design websites that not only look modern but also guide users toward meaningful action. Once the design is finalized, our <Link href="/services/web-development" className="text-accent underline hover:text-accent/80">web development</Link> team brings it to life.
             </p>
           </Reveal>
         </div>

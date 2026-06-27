@@ -127,13 +127,13 @@ export default function ServicesPage() {
               <div>
                 <h3 className="font-mono text-sm uppercase tracking-widest text-foreground font-semibold mb-4">2. Design</h3>
                 <p className="font-sans text-lg leading-relaxed text-muted-foreground">
-                  We create a visual system and user experience that reflects your brand and guides users effectively.
+                  We create a visual system and user experience that reflects your brand and guides users effectively. Read more about our <Link href="/services/web-design" className="text-accent underline hover:text-accent/80">web design services</Link>.
                 </p>
               </div>
               <div>
                 <h3 className="font-mono text-sm uppercase tracking-widest text-foreground font-semibold mb-4">3. Development</h3>
                 <p className="font-sans text-lg leading-relaxed text-muted-foreground">
-                  We build the website into a fully functional, responsive, and performance-optimised product.
+                  We build the website into a fully functional, responsive, and performance-optimised product. Read more about our <Link href="/services/web-development" className="text-accent underline hover:text-accent/80">web development services</Link>.
                 </p>
               </div>
               <div>

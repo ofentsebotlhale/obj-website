@@ -133,6 +133,17 @@ export default async function BlogPostPage({ params }: PageProps) {
                 <p className="font-sans text-sm md:text-base leading-relaxed text-muted-foreground pt-4 border-t border-border/20">
                   {post.closingText}
                 </p>
+
+                <div className="mt-12 bg-accent/5 p-6 rounded-md border border-accent/20">
+                  <h3 className="font-mono text-xs uppercase tracking-widest text-accent font-semibold mb-4">Need help with your website?</h3>
+                  <p className="font-sans text-sm md:text-base leading-relaxed text-muted-foreground mb-4">
+                    OBX Studio provides professional digital solutions tailored to your business. We build custom websites designed for performance and clarity.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Link href="/services/web-design" className="text-sm font-medium text-foreground underline hover:text-accent transition-colors">Web Design Services</Link>
+                    <Link href="/services/web-development" className="text-sm font-medium text-foreground underline hover:text-accent transition-colors">Web Development Services</Link>
+                  </div>
+                </div>
               </div>
             </div>
 

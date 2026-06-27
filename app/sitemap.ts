@@ -23,7 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${baseUrl}${page}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
-    priority: page === '' ? 1 : 0.8,
+    priority: page === '' ? 1 : ['/privacy', '/terms'].includes(page) ? 0.3 : 0.8,
   }))
 
   const blogPages = blogPosts.map((post) => ({
