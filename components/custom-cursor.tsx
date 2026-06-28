@@ -45,7 +45,7 @@ export function CustomCursor() {
 
   return (
     <motion.div
-      className="pointer-events-none fixed left-0 top-0 z-[100] hidden md:block"
+      className="pointer-events-none fixed left-0 top-0 z-[100] hidden md:block mix-blend-difference"
       style={{ x: cursorX, y: cursorY }}
       aria-hidden="true"
     >
@@ -55,14 +55,14 @@ export function CustomCursor() {
           width: label ? 88 : hovering ? 48 : 12,
           height: label ? 88 : hovering ? 48 : 12,
           backgroundColor: label
-            ? 'var(--color-accent)'
+            ? '#ffffff'
             : hovering
-              ? 'rgba(0,0,0,0.05)'
-              : 'var(--color-foreground)',
+              ? 'rgba(255,255,255,0.05)'
+              : '#ffffff',
           borderWidth: hovering && !label ? 1 : 0,
         }}
         transition={{ type: 'spring', damping: 22, stiffness: 300 }}
-        style={{ borderColor: 'rgba(0,0,0,0.3)', borderStyle: 'solid' }}
+        style={{ borderColor: 'rgba(255,255,255,0.3)', borderStyle: 'solid' }}
       >
         <AnimatePresence>
           {label && (
@@ -70,7 +70,7 @@ export function CustomCursor() {
               initial={{ opacity: 0, scale: 0.6 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.6 }}
-              className="font-mono text-[10px] font-medium uppercase tracking-wider text-accent-foreground"
+              className="font-mono text-[10px] font-medium uppercase tracking-wider text-black"
             >
               {label}
             </motion.span>

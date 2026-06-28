@@ -37,10 +37,10 @@ export function SiteNav() {
         transition={{ duration: 0.8, delay: pathname === '/' ? 2.5 : 0 }}
         className="fixed inset-x-0 top-0 z-50"
       >
-        <nav className="flex items-center justify-between px-5 py-5 md:px-10 md:py-7">
+        <nav className="flex items-center justify-between px-5 py-5 md:px-10 md:py-7 mix-blend-difference text-white">
           <Link
             href="/"
-            className="font-heading text-lg font-bold tracking-tight text-foreground min-h-[44px] min-w-[44px] flex items-center justify-center"
+            className="font-heading text-lg font-bold tracking-tight min-h-[44px] min-w-[44px] flex items-center justify-center"
             aria-label="OBX Studio home"
           >
             OBX Studio
@@ -49,7 +49,7 @@ export function SiteNav() {
           <div className="flex items-center gap-4">
             <Link
               href="/contact"
-              className="flex items-center justify-center min-h-[44px] rounded-full bg-primary px-5 sm:px-6 font-mono text-[10px] sm:text-[11px] uppercase tracking-widest text-primary-foreground transition-all hover:opacity-80"
+              className="flex items-center justify-center min-h-[44px] rounded-full bg-white px-5 sm:px-6 font-mono text-[10px] sm:text-[11px] uppercase tracking-widest text-black transition-all hover:opacity-80"
             >
               Contact Us
             </Link>
@@ -57,7 +57,7 @@ export function SiteNav() {
             <button
               type="button"
               onClick={() => setOpen((v) => !v)}
-              className="flex items-center justify-center min-h-[44px] min-w-[44px] rounded-full text-foreground transition-all hover:opacity-80"
+              className="flex items-center justify-center min-h-[44px] min-w-[44px] rounded-full transition-all hover:opacity-80"
               aria-expanded={open}
               aria-label="Toggle menu"
             >
