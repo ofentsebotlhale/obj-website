@@ -418,7 +418,7 @@ export function ContactForm() {
                     type="button"
                     onClick={handleNext}
                     disabled={isNextDisabled()}
-                    className="group flex w-fit items-center gap-3 rounded-full bg-primary px-7 py-4 min-h-[44px] font-mono text-xs uppercase tracking-widest text-primary-foreground transition-colors hover:bg-accent hover:text-accent-foreground disabled:opacity-50 disabled:cursor-not-allowed ml-auto"
+                    className="group flex w-fit items-center gap-3 rounded-full bg-primary px-7 py-4 min-h-[44px] font-mono text-xs uppercase tracking-widest text-primary-foreground transition-all hover:opacity-80 disabled:opacity-50 disabled:cursor-not-allowed ml-auto"
                   >
                     Next Step
                     <span className="transition-transform duration-300 group-hover:translate-x-1">
@@ -430,7 +430,7 @@ export function ContactForm() {
                     type="submit"
                     disabled={submitting || isNextDisabled()}
                     data-cursor={submitting ? "Sending..." : "Send"}
-                    className="group flex w-fit items-center gap-3 rounded-full bg-primary px-7 py-4 min-h-[44px] font-mono text-xs uppercase tracking-widest text-primary-foreground transition-colors hover:bg-accent hover:text-accent-foreground disabled:opacity-50 disabled:cursor-not-allowed ml-auto"
+                    className="group flex w-fit items-center gap-3 rounded-full bg-primary px-7 py-4 min-h-[44px] font-mono text-xs uppercase tracking-widest text-primary-foreground transition-all hover:opacity-80 disabled:opacity-50 disabled:cursor-not-allowed ml-auto"
                   >
                     {submitting ? 'Sending...' : 'Send Enquiry'}
                     <span className="transition-transform duration-300 group-hover:translate-x-1">

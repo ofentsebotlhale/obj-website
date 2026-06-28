@@ -35,11 +35,11 @@ export function SiteFooter() {
               <Link
                 href="/contact"
                 data-cursor="Say hi"
-                className="font-heading text-4xl font-semibold tracking-tight text-foreground transition-colors group-hover:text-accent sm:text-5xl md:text-6xl"
+                className="font-heading text-4xl font-semibold tracking-tight text-foreground transition-all duration-300 group-hover:opacity-60 sm:text-5xl md:text-6xl"
               >
                 Let&apos;s build something
               </Link>
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 text-accent transition-all duration-300 group-hover:bg-accent group-hover:text-background sm:h-16 sm:w-16">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-foreground/10 text-foreground transition-all duration-300 group-hover:bg-foreground group-hover:text-background sm:h-16 sm:w-16">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"

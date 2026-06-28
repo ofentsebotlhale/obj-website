@@ -15,7 +15,7 @@ export function Marquee({ reverse = false }: { reverse?: boolean }) {
             <span className="font-heading text-4xl font-semibold uppercase tracking-tight text-foreground md:text-6xl">
               {item}
             </span>
-            <span className="h-2 w-2 rounded-full bg-accent" aria-hidden="true" />
+            <span className="h-2 w-2 rounded-full bg-foreground" aria-hidden="true" />
           </span>
         ))}
       </div>
@@ -30,7 +30,7 @@ export function Marquee({ reverse = false }: { reverse?: boolean }) {
             <span className="font-heading text-4xl font-semibold uppercase tracking-tight text-foreground md:text-6xl">
               {item}
             </span>
-            <span className="h-2 w-2 rounded-full bg-accent" />
+            <span className="h-2 w-2 rounded-full bg-foreground" />
           </span>
         ))}
       </div>

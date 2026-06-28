@@ -123,7 +123,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                           key={i}
                           className="flex gap-3 text-foreground font-sans text-sm md:text-[15px] font-medium leading-relaxed"
                         >
-                          <span className="text-accent shrink-0 mt-0.5">✦</span>
+                          <span className="text-foreground shrink-0 mt-0.5">✦</span>
                           <span>{res}</span>
                         </li>
                       ))}
@@ -135,7 +135,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                           href={project.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-accent hover:text-foreground transition-colors"
+                          className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-foreground hover:opacity-80 transition-colors"
                         >
                           <span>Visit Live Website</span>
                           <span>↗</span>

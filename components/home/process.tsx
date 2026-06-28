@@ -64,7 +64,7 @@ export function Process() {
             >
               <div className="flex items-start justify-between">
                 <span className="font-mono text-xs text-muted-foreground">{s.n}</span>
-                <span className="h-2 w-2 rounded-full bg-accent" />
+                <span className="h-2 w-2 rounded-full bg-foreground" />
               </div>
               <div>
                 <h3 className="font-heading text-4xl font-semibold tracking-tight text-foreground md:text-6xl">

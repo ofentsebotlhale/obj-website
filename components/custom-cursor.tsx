@@ -57,12 +57,12 @@ export function CustomCursor() {
           backgroundColor: label
             ? 'var(--color-accent)'
             : hovering
-              ? 'rgba(245,245,247,0.12)'
+              ? 'rgba(0,0,0,0.05)'
               : 'var(--color-foreground)',
           borderWidth: hovering && !label ? 1 : 0,
         }}
         transition={{ type: 'spring', damping: 22, stiffness: 300 }}
-        style={{ borderColor: 'rgba(245,245,247,0.4)', borderStyle: 'solid' }}
+        style={{ borderColor: 'rgba(0,0,0,0.3)', borderStyle: 'solid' }}
       >
         <AnimatePresence>
           {label && (

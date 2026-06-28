@@ -94,7 +94,7 @@ export function Hero() {
           
           <Link
             href="/work"
-            className="group flex w-fit items-center gap-3 rounded-full bg-foreground px-6 py-3 min-h-[44px] font-mono text-[11px] uppercase tracking-widest text-background transition-all hover:bg-accent hover:text-accent-foreground"
+            className="group flex w-fit items-center gap-3 rounded-full bg-foreground px-6 py-3 min-h-[44px] font-mono text-[11px] uppercase tracking-widest text-background transition-all hover:opacity-80"
           >
             View projects
             <svg

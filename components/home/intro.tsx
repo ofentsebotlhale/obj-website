@@ -15,13 +15,13 @@ export function Intro() {
         <div className="md:col-span-9 max-w-3xl">
           <Reveal>
             <p className="text-xl md:text-3xl font-heading text-foreground leading-[1.3] text-pretty">
-              OBX Studio is a web design practice. We build thoughtful, high-performing websites for ambitious businesses. We take on a select number of clients to ensure precision in every project. See our <Link href="/services" className="text-accent underline hover:text-accent/80">services</Link>.
+              OBX Studio is a web design practice. We build thoughtful, high-performing websites for ambitious businesses. We take on a select number of clients to ensure precision in every project. See our <Link href="/services" className="text-foreground underline hover:opacity-80">services</Link>.
             </p>
           </Reveal>
           <Reveal delay={0.1} className="mt-10">
             <Link
               href="/studio"
-              className="group inline-flex items-center gap-3 rounded-full border border-border/50 bg-secondary/30 px-6 py-3 font-mono text-[11px] uppercase tracking-widest text-muted-foreground transition-all duration-300 hover:border-accent hover:bg-accent hover:text-background"
+              className="group inline-flex items-center gap-3 rounded-full border border-border/50 bg-secondary/30 px-6 py-3 font-mono text-[11px] uppercase tracking-widest text-muted-foreground transition-all duration-300 hover:border-foreground hover:bg-foreground hover:text-background"
             >
               Learn more about the studio
               <svg

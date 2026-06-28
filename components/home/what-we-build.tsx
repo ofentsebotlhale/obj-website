@@ -44,7 +44,7 @@ export function WhatWeBuild() {
             <Reveal key={i} delay={i * 0.1}>
               <div className="group flex h-full flex-col justify-between overflow-hidden rounded-2xl bg-background p-8 border border-border/50 hover:border-border transition-colors">
                 <div className="mb-12">
-                  <div className="mb-6 h-12 w-12 rounded-full bg-accent/20 flex items-center justify-center text-accent">
+                  <div className="mb-6 h-12 w-12 rounded-full bg-foreground/10 flex items-center justify-center text-foreground">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
