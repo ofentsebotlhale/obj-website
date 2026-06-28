@@ -133,5 +133,4 @@
 html {
   scrollbar-width: thin;
   scrollbar-color: oklch(0.3 0 0) transparent;
-  scroll-behavior: smooth;
 }
