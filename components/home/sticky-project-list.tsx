@@ -1,8 +1,9 @@
 'use client'
 
-import { motion } from 'motion/react'
+import { motion, useScroll, useTransform } from 'motion/react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRef } from 'react'
 import type { Project } from '@/lib/projects'
 import { Reveal, RevealWords } from '@/components/anim/reveal'
 
@@ -17,16 +18,27 @@ export function StickyProjectList({ items }: { items: Project[] }) {
 }
 
 function Card({ project, i }: { project: Project; i: number }) {
+  const ref = useRef<HTMLDivElement>(null)
+  
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 95%", "start 60%"]
+  })
+
+  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1])
+  const y = useTransform(scrollYProgress, [0, 1], [50, 0])
+  const scale = useTransform(scrollYProgress, [0, 1], [0.95, 1])
+
   return (
     <motion.div
+      ref={ref}
       className="sticky z-10 w-full overflow-hidden rounded-[2rem] border border-border bg-background shadow-sm mb-16 md:mb-32 group"
       style={{
         top: `calc(6rem + ${i * 1.5}rem)`,
+        opacity,
+        y,
+        scale
       }}
-      initial={{ opacity: 0, y: 50, scale: 0.95 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, margin: '-10% 0px' }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
     >
       <div className="relative min-h-[60vh] md:min-h-[85vh] flex flex-col justify-end">
         <div className="absolute inset-0 z-0 overflow-hidden bg-black">

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader } from "@/components/page-header";
 import { Reveal, RevealWords } from "@/components/anim/reveal";
-import { Services3D } from "@/components/services/services-3d";
 
 export const metadata: Metadata = {
   title: "Services | OBX Studio",
@@ -43,7 +42,6 @@ export default function ServicesPage() {
       />
 
       <section className="relative px-5 pb-20 md:px-10 md:pb-28">
-        <Services3D />
         <div className="mx-auto max-w-[1600px] relative z-10">
           <div className="max-w-4xl text-pretty">
             <h2 className="font-heading text-4xl font-medium leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-6xl">

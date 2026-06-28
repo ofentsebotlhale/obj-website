@@ -1,7 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { motion } from 'motion/react'
+import { motion, useScroll, useTransform } from 'motion/react'
+import { useRef } from 'react'
 
 const SOCIALS = [
   { label: 'Instagram', href: 'https://instagram.com' },
@@ -12,6 +13,16 @@ const SOCIALS = [
 
 export function SiteFooter() {
   const year = new Date().getFullYear()
+  const ref = useRef<HTMLDivElement>(null)
+  
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 95%", "start 60%"]
+  })
+
+  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1])
+  const y = useTransform(scrollYProgress, [0, 1], [40, 0])
+
   return (
     <footer className="relative overflow-hidden border-t border-border bg-background px-5 pb-8 pt-20 md:px-10">
       <div className="mx-auto max-w-[1600px]">
@@ -95,10 +106,8 @@ export function SiteFooter() {
 
         {/* Oversized wordmark */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-10%' }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          ref={ref}
+          style={{ opacity, y }}
           className="mt-16 select-none"
         >
           <h2 className="font-heading text-[22vw] font-bold leading-[0.8] tracking-tighter text-foreground md:text-[18vw]">

@@ -1,7 +1,7 @@
 'use client'
 
-import { motion } from 'motion/react'
-import type { ReactNode } from 'react'
+import { motion, useScroll, useTransform } from 'motion/react'
+import { useRef, type ReactNode } from 'react'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -16,12 +16,20 @@ export function Reveal({
   y?: number
   className?: string
 }) {
+  const ref = useRef<HTMLDivElement>(null)
+  
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 95%", "start 65%"]
+  })
+
+  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1])
+  const yTransform = useTransform(scrollYProgress, [0, 1], [y, 0])
+
   return (
     <motion.div
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-12%' }}
-      transition={{ duration: 0.8, ease: EASE, delay }}
+      ref={ref}
+      style={{ opacity, y: yTransform }}
       className={className}
     >
       {children}
@@ -43,25 +51,38 @@ export function RevealWords({
   delay?: number
   stagger?: number
 }) {
+  const ref = useRef<HTMLSpanElement>(null)
+  
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 95%", "end 65%"]
+  })
+
   const words = text.split(' ')
   return (
-    <span className={className}>
+    <span ref={ref} className={className}>
       <span className="sr-only">{text}</span>
       <span aria-hidden="true" className="contents">
-        {words.map((word, i) => (
-          <span key={i} className="inline-block overflow-hidden align-bottom pb-[0.2em] -mb-[0.2em]">
-            <motion.span
-              className={`inline-block origin-bottom ${wordClassName ?? ''}`}
-              initial={{ y: '110%' }}
-              whileInView={{ y: '0%' }}
-              viewport={{ once: true, margin: '-8%' }}
-              transition={{ duration: 0.9, ease: EASE, delay: delay + i * stagger }}
-            >
-              {word}
-              {i < words.length - 1 ? '\u00A0' : ''}
-            </motion.span>
-          </span>
-        ))}
+        {words.map((word, i) => {
+          const start = (i / words.length) * 0.5
+          const end = start + 0.5
+          // eslint-disable-next-line react-hooks/rules-of-hooks
+          const y = useTransform(scrollYProgress, [start, end], ["110%", "0%"])
+          // eslint-disable-next-line react-hooks/rules-of-hooks
+          const opacity = useTransform(scrollYProgress, [start, end], [0.3, 1])
+
+          return (
+            <span key={i} className="inline-block overflow-hidden align-bottom pb-[0.2em] -mb-[0.2em]">
+              <motion.span
+                className={`inline-block origin-bottom ${wordClassName ?? ''}`}
+                style={{ y, opacity }}
+              >
+                {word}
+                {i < words.length - 1 ? '\u00A0' : ''}
+              </motion.span>
+            </span>
+          )
+        })}
       </span>
     </span>
   )
