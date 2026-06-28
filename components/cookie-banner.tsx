@@ -90,10 +90,6 @@ export function CookieBanner() {
             {/* Context Information */}
             <div className="flex-1 space-y-2">
               <div className="flex items-center gap-3">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-foreground">
-                  ( Cookies )
-                </span>
-                <span className="h-1 w-1 rounded-full bg-border" />
                 <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">
                   OBX Studio
                 </span>

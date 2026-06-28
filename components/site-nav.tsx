@@ -49,7 +49,7 @@ export function SiteNav() {
           <div className="flex items-center gap-4">
             <Link
               href="/contact"
-              className="hidden sm:flex items-center justify-center min-h-[44px] rounded-full bg-primary px-6 font-mono text-[11px] uppercase tracking-widest text-primary-foreground transition-all hover:opacity-80"
+              className="flex items-center justify-center min-h-[44px] rounded-full bg-primary px-5 sm:px-6 font-mono text-[10px] sm:text-[11px] uppercase tracking-widest text-primary-foreground transition-all hover:opacity-80"
             >
               Contact Us
             </Link>
@@ -74,26 +74,35 @@ export function SiteNav() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 flex flex-col justify-center bg-background px-6 md:px-20"
+            className="fixed inset-0 z-40 flex flex-col items-end justify-center bg-background px-6 md:px-20"
           >
-            <ul className="flex flex-col gap-4">
-              {LINKS.map((link, i) => (
-                <motion.li
-                  key={link.href}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.08 * i + 0.1, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  <Link
-                    href={link.href}
-                    className="font-heading text-5xl font-semibold tracking-tight text-foreground md:text-7xl hover:opacity-70 transition-opacity"
+            <ul className="flex flex-col items-end gap-4">
+              {LINKS.map((link, i) => {
+                const isActive = pathname === link.href
+                return (
+                  <motion.li
+                    key={link.href}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.08 * i + 0.1, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    {link.label}
-                  </Link>
-                </motion.li>
-              ))}
+                    <Link
+                      href={link.href}
+                      className={cn(
+                        "font-heading text-5xl font-semibold tracking-tight md:text-7xl transition-opacity",
+                        isActive
+                          ? "text-muted-foreground pointer-events-none"
+                          : "text-foreground hover:opacity-70"
+                      )}
+                      aria-disabled={isActive}
+                    >
+                      {link.label}
+                    </Link>
+                  </motion.li>
+                )
+              })}
             </ul>
-            <p className="mt-16 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+            <p className="mt-16 text-right font-mono text-xs uppercase tracking-widest text-muted-foreground">
               hello@obxstudio.co.za
             </p>
           </motion.div>

@@ -52,9 +52,6 @@ export function Process() {
           <h2 className="font-heading text-2xl font-semibold tracking-tight text-foreground md:text-4xl">
             Process
           </h2>
-          <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
-            ( Drag the page )
-          </span>
         </div>
         <motion.div style={{ x }} className="flex gap-5 px-5 md:gap-8 md:px-10">
           {PROCESS_STEPS.map((s) => (
