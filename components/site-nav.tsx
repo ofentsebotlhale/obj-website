@@ -7,10 +7,11 @@ import { motion, AnimatePresence } from 'motion/react'
 import { cn } from '@/lib/utils'
 
 const LINKS = [
-  { href: '/work', label: 'Work' },
-  { href: '/studio', label: 'Studio' },
-  { href: '/services', label: 'Services' },
-  { href: '/contact', label: 'Contact' },
+  { href: '#studio', label: 'Studio' },
+  { href: '#work', label: 'Work' },
+  { href: '#services', label: 'Services' },
+  { href: '#blog', label: 'Blog' },
+  { href: '#contact', label: 'Contact' },
 ]
 
 export function SiteNav() {

@@ -33,7 +33,7 @@ export function SiteFooter() {
             </p>
             <div className="group mt-4 inline-flex items-center gap-4">
               <Link
-                href="/contact"
+                href="#contact"
                 data-cursor="Say hi"
                 className="font-heading text-4xl font-semibold tracking-tight text-foreground transition-colors group-hover:text-accent sm:text-5xl md:text-6xl"
               >
@@ -65,11 +65,11 @@ export function SiteFooter() {
                 <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground pb-2">
                   Sitemap
                 </span>
-                <Link href="/" className="text-sm text-foreground/80 transition-colors hover:text-foreground py-2 min-h-[44px] flex items-center">Index</Link>
-                <Link href="/work" className="text-sm text-foreground/80 transition-colors hover:text-foreground py-2 min-h-[44px] flex items-center">Work</Link>
-                <Link href="/studio" className="text-sm text-foreground/80 transition-colors hover:text-foreground py-2 min-h-[44px] flex items-center">Studio</Link>
-                <Link href="/blog" className="text-sm text-foreground/80 transition-colors hover:text-foreground py-2 min-h-[44px] flex items-center">Blog</Link>
-                <Link href="/contact" className="text-sm text-foreground/80 transition-colors hover:text-foreground py-2 min-h-[44px] flex items-center">Contact</Link>
+                <Link href="#hero" className="text-sm text-foreground/80 transition-colors hover:text-foreground py-2 min-h-[44px] flex items-center">Index</Link>
+                <Link href="#work" className="text-sm text-foreground/80 transition-colors hover:text-foreground py-2 min-h-[44px] flex items-center">Work</Link>
+                <Link href="#studio" className="text-sm text-foreground/80 transition-colors hover:text-foreground py-2 min-h-[44px] flex items-center">Studio</Link>
+                <Link href="#blog" className="text-sm text-foreground/80 transition-colors hover:text-foreground py-2 min-h-[44px] flex items-center">Blog</Link>
+                <Link href="#contact" className="text-sm text-foreground/80 transition-colors hover:text-foreground py-2 min-h-[44px] flex items-center">Contact</Link>
               </div>
               <div className="flex flex-col gap-1">
                 <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground pb-2">
