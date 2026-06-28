@@ -2,7 +2,7 @@
 
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Float, Octahedron, MeshDistortMaterial } from '@react-three/drei'
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import * as THREE from 'three'
 
 function AnimatedStudioShape() {
@@ -36,8 +36,11 @@ function AnimatedStudioShape() {
 }
 
 export function Studio3D() {
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
+  if (!mounted) return null
   return (
-    <div className="absolute inset-0 -z-10 opacity-20 pointer-events-none overflow-hidden">
+    <div className="absolute inset-0 z-0 opacity-20 pointer-events-none overflow-hidden">
       <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
         <AnimatedStudioShape />
       </Canvas>

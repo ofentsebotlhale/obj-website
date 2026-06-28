@@ -44,7 +44,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 2.0 }}
-        className="flex items-start justify-between font-mono text-[11px] uppercase tracking-widest text-muted-foreground"
+        className="relative z-10 flex items-start justify-between font-mono text-[11px] uppercase tracking-widest text-muted-foreground"
       >
         <span className="max-w-[14rem] leading-relaxed">
           Digital design & branding studio
@@ -57,7 +57,7 @@ export function Hero() {
       </motion.div>
 
       {/* Oversized wordmark */}
-      <div className="flex flex-col">
+      <div className="relative z-10 flex flex-col">
         <h1 className="font-heading text-[24vw] font-bold leading-[0.82] tracking-tighter text-foreground sm:text-[22vw] md:text-[19vw]">
           <Line text={LINE1} delay={0.15} />
           <span className="flex items-end justify-between gap-4">
@@ -80,7 +80,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 2.4 }}
-        className="flex flex-col sm:flex-row sm:items-end justify-between gap-6"
+        className="relative z-10 flex flex-col sm:flex-row sm:items-end justify-between gap-6"
       >
         <div className="flex flex-col sm:flex-row sm:items-end gap-6 sm:gap-10">
           <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-widest text-muted-foreground mr-auto sm:mr-0">
