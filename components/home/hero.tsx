@@ -114,9 +114,6 @@ export function Hero() {
             </svg>
           </Link>
         </div>
-        <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground hidden sm:block">
-          ( 01 — 04 )
-        </span>
       </motion.div>
     </section>
   )

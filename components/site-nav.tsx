@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { cn } from '@/lib/utils'
+import { Menu, X } from 'lucide-react'
 
 const LINKS = [
   { href: '/work', label: 'Work' },
@@ -45,38 +46,24 @@ export function SiteNav() {
             OBX Studio
           </Link>
 
-          {/* Desktop links */}
-          <ul className="hidden items-center gap-4 md:flex">
-            {LINKS.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="group relative flex items-center justify-center min-h-[44px] px-4 font-mono text-xs uppercase tracking-widest text-foreground"
-                >
-                  <span className="opacity-80 transition-opacity group-hover:opacity-100">
-                    {link.label}
-                  </span>
-                  <span
-                    className={cn(
-                      'absolute bottom-2 left-4 h-px w-[calc(100%-32px)] origin-left scale-x-0 bg-foreground transition-transform duration-300 group-hover:scale-x-100',
-                      pathname === link.href && 'scale-x-100',
-                    )}
-                  />
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/contact"
+              className="hidden sm:flex items-center justify-center min-h-[44px] rounded-full bg-primary px-6 font-mono text-[11px] uppercase tracking-widest text-primary-foreground transition-all hover:opacity-80"
+            >
+              Contact Us
+            </Link>
 
-          {/* Mobile toggle */}
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            className="flex items-center justify-center min-h-[44px] min-w-[44px] font-mono text-xs uppercase tracking-widest text-foreground md:hidden"
-            aria-expanded={open}
-            aria-label="Toggle menu"
-          >
-            {open ? 'Close' : 'Menu'}
-          </button>
+            <button
+              type="button"
+              onClick={() => setOpen((v) => !v)}
+              className="flex items-center justify-center min-h-[44px] min-w-[44px] rounded-full text-foreground transition-all hover:opacity-80"
+              aria-expanded={open}
+              aria-label="Toggle menu"
+            >
+              {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </nav>
       </motion.header>
 
@@ -87,9 +74,9 @@ export function SiteNav() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 flex flex-col justify-center bg-background px-6 md:hidden"
+            className="fixed inset-0 z-40 flex flex-col justify-center bg-background px-6 md:px-20"
           >
-            <ul className="flex flex-col gap-2">
+            <ul className="flex flex-col gap-4">
               {LINKS.map((link, i) => (
                 <motion.li
                   key={link.href}
@@ -99,14 +86,14 @@ export function SiteNav() {
                 >
                   <Link
                     href={link.href}
-                    className="font-heading text-5xl font-semibold tracking-tight text-foreground"
+                    className="font-heading text-5xl font-semibold tracking-tight text-foreground md:text-7xl hover:opacity-70 transition-opacity"
                   >
                     {link.label}
                   </Link>
                 </motion.li>
               ))}
             </ul>
-            <p className="mt-12 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+            <p className="mt-16 font-mono text-xs uppercase tracking-widest text-muted-foreground">
               hello@obxstudio.co.za
             </p>
           </motion.div>
