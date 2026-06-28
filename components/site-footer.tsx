@@ -5,10 +5,85 @@ import { motion, useScroll, useTransform } from 'motion/react'
 import { useRef } from 'react'
 
 const SOCIALS = [
-  { label: 'Instagram', href: 'https://instagram.com' },
-  { label: 'X / Twitter', href: 'https://x.com' },
-  { label: 'LinkedIn', href: 'https://linkedin.com' },
-  { label: 'Dribbble', href: 'https://dribbble.com' },
+  {
+    label: 'Instagram',
+    href: 'https://instagram.com',
+    icon: (props: any) => (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        {...props}
+      >
+        <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+      </svg>
+    )
+  },
+  {
+    label: 'X / Twitter',
+    href: 'https://x.com',
+    icon: (props: any) => (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        {...props}
+      >
+        <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+      </svg>
+    )
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://linkedin.com',
+    icon: (props: any) => (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        {...props}
+      >
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+        <rect width="4" height="12" x="2" y="9" />
+        <circle cx="4" cy="4" r="2" />
+      </svg>
+    )
+  },
+  {
+    label: 'Dribbble',
+    href: 'https://dribbble.com',
+    icon: (props: any) => (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        {...props}
+      >
+        <circle cx="12" cy="12" r="10" />
+        <path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94" />
+        <path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32" />
+        <path d="M8.56 2.75c4.37 6 6 9.42 8 17.72" />
+      </svg>
+    )
+  },
 ]
 
 export function SiteFooter() {
@@ -59,46 +134,41 @@ export function SiteFooter() {
             </div>
           </div>
 
-          <div className="md:col-span-5 md:flex md:justify-end">
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-10 gap-y-8">
-              <div className="flex flex-col gap-1">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground pb-2">
-                  Sitemap
+          <div className="md:col-span-5 md:flex md:justify-end mt-12 md:mt-0">
+            <div className="flex flex-col gap-10 sm:max-w-[320px]">
+              <div className="flex flex-col gap-4">
+                <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                  Navigation
                 </span>
-                <Link href="/" className="text-sm text-foreground/80 transition-colors hover:text-foreground py-2 min-h-[44px] flex items-center">Index</Link>
-                <Link href="/work" className="text-sm text-foreground/80 transition-colors hover:text-foreground py-2 min-h-[44px] flex items-center">Work</Link>
-                <Link href="/studio" className="text-sm text-foreground/80 transition-colors hover:text-foreground py-2 min-h-[44px] flex items-center">Studio</Link>
-                <Link href="/blog" className="text-sm text-foreground/80 transition-colors hover:text-foreground py-2 min-h-[44px] flex items-center">Blog</Link>
-                <Link href="/contact" className="text-sm text-foreground/80 transition-colors hover:text-foreground py-2 min-h-[44px] flex items-center">Contact</Link>
+                <div className="flex flex-wrap gap-2">
+                  <Link href="/" className="inline-flex items-center justify-center rounded-full bg-secondary/50 border border-border/50 px-5 min-h-[40px] font-mono text-[10px] uppercase tracking-widest text-foreground transition-all hover:bg-foreground hover:text-background">Index</Link>
+                  <Link href="/work" className="inline-flex items-center justify-center rounded-full bg-secondary/50 border border-border/50 px-5 min-h-[40px] font-mono text-[10px] uppercase tracking-widest text-foreground transition-all hover:bg-foreground hover:text-background">Work</Link>
+                  <Link href="/studio" className="inline-flex items-center justify-center rounded-full bg-secondary/50 border border-border/50 px-5 min-h-[40px] font-mono text-[10px] uppercase tracking-widest text-foreground transition-all hover:bg-foreground hover:text-background">Studio</Link>
+                  <Link href="/blog" className="inline-flex items-center justify-center rounded-full bg-secondary/50 border border-border/50 px-5 min-h-[40px] font-mono text-[10px] uppercase tracking-widest text-foreground transition-all hover:bg-foreground hover:text-background">Blog</Link>
+                  <Link href="/contact" className="inline-flex items-center justify-center rounded-full bg-secondary/50 border border-border/50 px-5 min-h-[40px] font-mono text-[10px] uppercase tracking-widest text-foreground transition-all hover:bg-foreground hover:text-background">Contact</Link>
+                </div>
               </div>
-              <div className="flex flex-col gap-1">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground pb-2">
-                  Social
+              <div className="flex flex-col gap-4">
+                <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                  Connect
                 </span>
-                {SOCIALS.map((s) => (
-                  <a
-                    key={s.label}
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-foreground/80 transition-colors hover:text-foreground py-2 min-h-[44px] flex items-center"
-                  >
-                    {s.label}
-                  </a>
-                ))}
-              </div>
-              <div className="flex flex-col gap-1">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground pb-2">
-                  Contact
-                </span>
-                <a
-                  href="mailto:hello@obxstudio.co.za"
-                  className="text-sm text-foreground/80 transition-colors hover:text-foreground py-2 min-h-[44px] flex items-center"
-                >
-                  hello@obxstudio.co.za
-                </a>
-                <span className="text-sm text-foreground/80 py-2">+{27} 60 375 9829</span>
-                <span className="text-sm text-foreground/80 py-2">Johannesburg, SA</span>
+                <div className="flex flex-wrap gap-3">
+                  {SOCIALS.map((s) => {
+                    const Icon = s.icon;
+                    return (
+                      <a
+                        key={s.label}
+                        href={s.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={s.label}
+                        className="flex h-12 w-12 items-center justify-center rounded-full bg-secondary/50 border border-border/50 text-foreground transition-all duration-300 hover:bg-foreground hover:text-background"
+                      >
+                        <Icon className="h-4 w-4" />
+                      </a>
+                    )
+                  })}
+                </div>
               </div>
             </div>
           </div>

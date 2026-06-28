@@ -15,7 +15,7 @@ export function Intro() {
         <div className="md:col-span-9 max-w-3xl">
           <Reveal>
             <p className="text-xl md:text-3xl font-heading text-foreground leading-[1.3] text-pretty">
-              OBX Studio is a web design practice. We build thoughtful, high-performing websites for ambitious businesses. We take on a select number of clients to ensure precision in every project. See our <Link href="/services" className="text-foreground underline hover:opacity-80">services</Link>.
+              OBX Studio is a web design practice. We build thoughtful, high-performing websites for ambitious businesses. We take on a select number of clients to ensure precision in every project.
             </p>
           </Reveal>
           <Reveal delay={0.1} className="mt-10">
