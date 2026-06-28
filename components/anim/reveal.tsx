@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useScroll, useTransform } from 'motion/react'
-import { useRef, type ReactNode } from 'react'
+import { useRef, useEffect, type ReactNode } from 'react'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -37,13 +37,10 @@ export function Reveal({
   )
 }
 
-/** Word-by-word entrance for editorial headings. */
+/** Bi-directional scroll-driven typewriter + fade + landing effect using native APIs */
 export function RevealWords({
   text,
   className,
-  wordClassName,
-  delay = 0,
-  stagger = 0.06,
 }: {
   text: string
   className?: string
@@ -51,39 +48,86 @@ export function RevealWords({
   delay?: number
   stagger?: number
 }) {
-  const ref = useRef<HTMLSpanElement>(null)
-  
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start 95%", "end 65%"]
-  })
+  const containerRef = useRef<HTMLSpanElement>(null)
+  const textRef = useRef<HTMLSpanElement>(null)
 
-  const words = text.split(' ')
+  useEffect(() => {
+    const container = containerRef.current
+    const textEl = textRef.current
+    if (!container || !textEl) return
+
+    let ticking = false
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const rect = container.getBoundingClientRect()
+          const windowHeight = window.innerHeight
+          
+          // Calculate progress percentage of the element relative to the viewport.
+          // Start when the top of the element is at 95% of viewport height.
+          // End when the top of the element is at 65% of viewport height.
+          const startY = windowHeight * 0.95
+          const endY = windowHeight * 0.65
+          const currentY = rect.top
+
+          let progress = (startY - currentY) / (startY - endY)
+          progress = Math.max(0, Math.min(1, progress))
+
+          // 1. Typewriter Effect
+          // Reveal character by character based on scroll progress
+          const charCount = Math.floor(progress * text.length)
+          const revealed = text.substring(0, charCount)
+          const hidden = text.substring(charCount)
+          
+          // Use native DOM manipulation for the split to avoid React re-renders
+          textEl.innerHTML = ''
+          textEl.appendChild(document.createTextNode(revealed))
+          
+          if (hidden.length > 0) {
+            const hiddenSpan = document.createElement('span')
+            hiddenSpan.style.opacity = '0'
+            hiddenSpan.textContent = hidden
+            textEl.appendChild(hiddenSpan)
+          }
+
+          // 2. Fading & Landing
+          // Layer the typing effect over opacity and translateY transforms
+          const opacity = 0.1 + progress * 0.9
+          const translateY = 40 * (1 - progress)
+
+          container.style.opacity = opacity.toString()
+          container.style.transform = `translateY(${translateY}px)`
+          
+          ticking = false
+        })
+        ticking = true
+      }
+    }
+
+    // Bind scroll and resize listeners
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    window.addEventListener('resize', handleScroll, { passive: true })
+    
+    // Trigger initial calculation
+    handleScroll()
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleScroll)
+    }
+  }, [text])
+
   return (
-    <span ref={ref} className={className}>
-      <span className="sr-only">{text}</span>
-      <span aria-hidden="true" className="contents">
-        {words.map((word, i) => {
-          const start = (i / words.length) * 0.5
-          const end = start + 0.5
-          // eslint-disable-next-line react-hooks/rules-of-hooks
-          const y = useTransform(scrollYProgress, [start, end], ["110%", "0%"])
-          // eslint-disable-next-line react-hooks/rules-of-hooks
-          const opacity = useTransform(scrollYProgress, [start, end], [0.3, 1])
-
-          return (
-            <span key={i} className="inline-block overflow-hidden align-bottom pb-[0.2em] -mb-[0.2em]">
-              <motion.span
-                className={`inline-block origin-bottom ${wordClassName ?? ''}`}
-                style={{ y, opacity }}
-              >
-                {word}
-                {i < words.length - 1 ? '\u00A0' : ''}
-              </motion.span>
-            </span>
-          )
-        })}
+    <span 
+      ref={containerRef} 
+      className={`inline-block ${className ?? ''}`}
+      style={{ opacity: 0, transform: 'translateY(40px)' }}
+    >
+      <span ref={textRef} aria-hidden="true">
+        {text}
       </span>
+      <span className="sr-only">{text}</span>
     </span>
   )
 }
