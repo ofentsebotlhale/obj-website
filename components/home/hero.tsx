@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useEffect } from 'react'
 import { motion } from 'motion/react'
+import { Hero3D } from '@/components/home/hero-3d'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 const LINE1 = 'OBX'
@@ -37,6 +38,7 @@ export function Hero() {
 
   return (
     <section className="relative flex min-h-[100svh] flex-col justify-between px-5 pb-10 pt-28 md:px-10 md:pt-32">
+      <Hero3D />
       {/* Top meta row */}
       <motion.div
         initial={{ opacity: 0 }}

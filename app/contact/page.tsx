@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { PageHeader } from '@/components/page-header'
 import { ContactForm } from '@/components/contact/contact-form'
 import { Reveal, RevealWords } from '@/components/anim/reveal'
+import { Contact3D } from '@/components/contact/contact-3d'
 
 export const metadata: Metadata = {
   title: 'Contact OBX Studio | Get in Touch with Our Team',
@@ -22,7 +23,8 @@ export default function ContactPage() {
     <>
       <PageHeader index="05 / 05" subtitle="Start a project" title="Contact Us" />
 
-      <section className="px-5 pb-20 md:px-10 md:pb-28">
+      <section className="relative px-5 pb-20 md:px-10 md:pb-28">
+        <Contact3D />
         <div className="mx-auto max-w-[1600px]">
           <div className="max-w-4xl text-pretty">
             <h2 className="font-heading text-4xl font-medium leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-6xl">
