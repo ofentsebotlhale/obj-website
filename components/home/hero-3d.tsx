@@ -48,7 +48,7 @@ export function Hero3D() {
   useEffect(() => setMounted(true), [])
   if (!mounted) return null
   return (
-    <div className="absolute inset-0 z-0 opacity-30 pointer-events-none">
+    <div className="fixed inset-0 z-0 opacity-30 pointer-events-none overflow-hidden">
       <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
         <AnimatedShapes />
       </Canvas>

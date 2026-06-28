@@ -14,7 +14,7 @@ export function PageHeader({
   subtitle: string
 }) {
   return (
-    <header className="px-5 pb-12 pt-36 md:px-10 md:pb-16 md:pt-44">
+    <header className="relative z-10 px-5 pb-12 pt-36 md:px-10 md:pb-16 md:pt-44">
       <div className="mx-auto max-w-[1600px]">
         <motion.div
           initial={{ opacity: 0 }}
