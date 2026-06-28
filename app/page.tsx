@@ -61,8 +61,44 @@ export default function HomePage() {
         <WhatWeBuild />
       </div>
 
-      <section id="studio" className="scroll-mt-0">
-        <PageHeader index="01 / 05" subtitle="Who we are" title="Studio" />
+      <section id="work" className="scroll-mt-0">
+        <PageHeader index="01 / 05" subtitle="Selected Projects" title="Our Work" />
+
+        {/* Hero Intro */}
+        <section className="px-5 pb-20 md:px-10 md:pb-28">
+          <div className="mx-auto max-w-[1600px]">
+            <div className="max-w-4xl text-pretty">
+              <h2 className="font-heading text-4xl font-medium leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-6xl">
+                <RevealWords
+                  text="A selection of websites and digital experiences designed to help businesses build credibility and attract clients."
+                  className="text-foreground"
+                />
+              </h2>
+            </div>
+          </div>
+        </section>
+
+        {/* Selected work */}
+        <section className="px-5 pb-28 md:px-10 md:pb-40">
+          <div className="mx-auto max-w-[1600px]">
+            <Reveal className="mb-10 flex items-end justify-between">
+              <h2 className="font-heading text-2xl font-semibold tracking-tight text-foreground md:text-4xl">
+                Selected Highlights
+              </h2>
+            </Reveal>
+            <StickyProjectList items={projects.slice(0, 4)} />
+          </div>
+        </section>
+
+        <section className="px-5 pb-28 md:px-10 mt-16">
+          <div className="mx-auto max-w-[1600px]">
+            <AsymmetricalProjectList items={projects} />
+          </div>
+        </section>
+      </section>
+
+      <section id="studio" className="scroll-mt-0 border-t border-border">
+        <PageHeader index="02 / 05" subtitle="Who we are" title="Studio" />
 
         {/* Hero Intro */}
         <section className="relative px-5 pb-20 md:px-10 md:pb-28">
@@ -193,42 +229,6 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-      </section>
-
-      <section id="work" className="scroll-mt-0 border-t border-border">
-        <PageHeader index="02 / 05" subtitle="Selected Projects" title="Our Work" />
-
-        {/* Hero Intro */}
-        <section className="px-5 pb-20 md:px-10 md:pb-28">
-          <div className="mx-auto max-w-[1600px]">
-            <div className="max-w-4xl text-pretty">
-              <h2 className="font-heading text-4xl font-medium leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-6xl">
-                <RevealWords
-                  text="A selection of websites and digital experiences designed to help businesses build credibility and attract clients."
-                  className="text-foreground"
-                />
-              </h2>
-            </div>
-          </div>
-        </section>
-
-        {/* Selected work */}
-        <section className="px-5 pb-28 md:px-10 md:pb-40">
-          <div className="mx-auto max-w-[1600px]">
-            <Reveal className="mb-10 flex items-end justify-between">
-              <h2 className="font-heading text-2xl font-semibold tracking-tight text-foreground md:text-4xl">
-                Selected Highlights
-              </h2>
-            </Reveal>
-            <StickyProjectList items={projects.slice(0, 4)} />
-          </div>
-        </section>
-
-        <section className="px-5 pb-28 md:px-10 mt-16">
-          <div className="mx-auto max-w-[1600px]">
-            <AsymmetricalProjectList items={projects} />
           </div>
         </section>
       </section>
@@ -426,7 +426,7 @@ export default function HomePage() {
 
               {/* Main blog timeline list */}
               <div className="lg:col-span-8 space-y-12">
-                {blogPosts.map((post) => (
+                {blogPosts.slice(0, 3).map((post) => (
                   <Link
                     key={post.slug}
                     href={`/blog/${post.slug}`}
@@ -467,6 +467,16 @@ export default function HomePage() {
                       </div>
                   </Link>
                 ))}
+                
+                <div className="pt-4 flex justify-start">
+                  <Link
+                    href="/blog"
+                    className="group flex w-fit items-center gap-3 rounded-full border border-border/50 bg-secondary/50 px-6 py-3 min-h-[44px] font-mono text-[11px] uppercase tracking-widest text-muted-foreground transition-all hover:border-accent/50 hover:bg-accent/10 hover:text-accent"
+                  >
+                    View all articles
+                    <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  </Link>
+                </div>
               </div>
 
             </div>

@@ -68,6 +68,7 @@ export function SiteFooter() {
                 <Link href="#hero" className="text-sm text-foreground/80 transition-colors hover:text-foreground py-2 min-h-[44px] flex items-center">Index</Link>
                 <Link href="#work" className="text-sm text-foreground/80 transition-colors hover:text-foreground py-2 min-h-[44px] flex items-center">Work</Link>
                 <Link href="#studio" className="text-sm text-foreground/80 transition-colors hover:text-foreground py-2 min-h-[44px] flex items-center">Studio</Link>
+                <Link href="#services" className="text-sm text-foreground/80 transition-colors hover:text-foreground py-2 min-h-[44px] flex items-center">Services</Link>
                 <Link href="#blog" className="text-sm text-foreground/80 transition-colors hover:text-foreground py-2 min-h-[44px] flex items-center">Blog</Link>
                 <Link href="#contact" className="text-sm text-foreground/80 transition-colors hover:text-foreground py-2 min-h-[44px] flex items-center">Contact</Link>
               </div>
