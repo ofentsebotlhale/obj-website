@@ -34,8 +34,8 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  colorScheme: 'dark',
-  themeColor: '#000000',
+  colorScheme: 'light',
+  themeColor: '#FFFFFF',
 }
 
 export default function RootLayout({
@@ -46,7 +46,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} dark bg-background`}
+      className={`${geistSans.variable} ${geistMono.variable} light bg-background`}
     >
       <head>
         {/* Content Security Policy for XSS mitigation */}

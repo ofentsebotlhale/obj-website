@@ -33,26 +33,26 @@
 }
 
 :root {
-  color-scheme: dark;
-  /* Pure black background, obsidian cards, off-white text, slate mono, electric blue accent */
-  --background: oklch(0 0 0);
-  --foreground: oklch(0.965 0.002 250);
-  --card: oklch(0.16 0.004 270);
-  --card-foreground: oklch(0.965 0.002 250);
-  --popover: oklch(0.16 0.004 270);
-  --popover-foreground: oklch(0.965 0.002 250);
-  --primary: oklch(0.965 0.002 250);
-  --primary-foreground: oklch(0 0 0);
-  --secondary: oklch(0.2 0.004 270);
-  --secondary-foreground: oklch(0.965 0.002 250);
-  --muted: oklch(0.18 0.004 270);
-  --muted-foreground: oklch(0.7 0.012 270);
-  --accent: oklch(0.58 0.21 258);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.62 0.21 25);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 14%);
-  --ring: oklch(0.58 0.21 258);
+  color-scheme: light;
+  /* Pure White background, Alabaster cards, Deep Charcoal text, Pitch Black Headings/CTAs, Ash Gray muted */
+  --background: #FFFFFF;
+  --foreground: #2B2B2B;
+  --card: #F7F7F7;
+  --card-foreground: #2B2B2B;
+  --popover: #F7F7F7;
+  --popover-foreground: #2B2B2B;
+  --primary: #000000;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F7F7F7;
+  --secondary-foreground: #2B2B2B;
+  --muted: #F7F7F7;
+  --muted-foreground: #8E8E93;
+  --accent: #F7F7F7;
+  --accent-foreground: #000000;
+  --destructive: #EF4444;
+  --border: #E5E5E5;
+  --input: #E5E5E5;
+  --ring: #000000;
   --radius: 0.25rem;
 }
 
