@@ -35,9 +35,9 @@ export function SiteNav() {
         initial={pathname === '/' ? { opacity: 0 } : { opacity: 1 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: pathname === '/' ? 2.5 : 0 }}
-        className="fixed inset-x-0 top-0 z-50"
+        className="fixed inset-x-0 top-0 z-50 mix-blend-difference text-white pointer-events-none"
       >
-        <nav className="flex items-center justify-between px-5 py-5 md:px-10 md:py-7 mix-blend-difference text-white">
+        <nav className="flex items-center justify-between px-5 py-5 md:px-10 md:py-7 pointer-events-auto">
           <Link
             href="/"
             className="font-heading text-lg font-bold tracking-tight min-h-[44px] min-w-[44px] flex items-center justify-center"
