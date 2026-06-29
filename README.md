@@ -1,11 +1,9 @@
+# OBX Studio
 
-  # Minimal Black Web Agency Site
+OBX Studio creates custom websites and SEO-driven digital systems that help modern businesses grow, attract clients, and build credibility online.
 
-  This is a code bundle for Minimal Black Web Agency Site. The original project is available at https://www.figma.com/design/9RLx8nrhlckJNX7etZZRSO/Minimal-Black-Web-Agency-Site.
+## Running the code
 
-  ## Running the code
+Run `npm i` to install the dependencies.
 
-  Run `npm i` to install the dependencies.
-
-  Run `npm run dev` to start the development server.
-  
+Run `npm run dev` to start the development server.
