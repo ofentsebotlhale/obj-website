@@ -56,11 +56,16 @@ export function Hero() {
 
       {/* Oversized wordmark */}
       <div className="relative z-10 flex flex-col">
-        <h1 className="font-heading text-[24vw] font-bold leading-[0.82] tracking-tighter text-foreground sm:text-[22vw] md:text-[19vw]">
-          <Line text={LINE1} delay={0.15} />
-          <span className="flex items-end justify-between gap-4">
-            <Line text={LINE2} delay={0.28} />
-            <motion.span
+        <h1 className="sr-only">OBX Studio</h1>
+        <div className="font-heading text-[24vw] font-bold leading-[0.82] tracking-tighter text-foreground sm:text-[22vw] md:text-[19vw]">
+          <div aria-hidden="true">
+            <Line text={LINE1} delay={0.15} />
+          </div>
+          <div className="flex items-end justify-between gap-4">
+            <div aria-hidden="true">
+              <Line text={LINE2} delay={0.28} />
+            </div>
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 2.2, ease: EASE }}
@@ -68,9 +73,9 @@ export function Hero() {
             >
               We craft brands, interfaces, and high-performance digital experiences
               for the ambitious.
-            </motion.span>
-          </span>
-        </h1>
+            </motion.p>
+          </div>
+        </div>
       </div>
 
       {/* Bottom row */}
