@@ -44,8 +44,8 @@ export default function ContactPage() {
           <div className="lg:col-span-4 lg:col-start-9">
             <Reveal className="mb-8">
               <p className="text-pretty leading-relaxed text-muted-foreground">
-                Have a brief, a rough idea, or just a question? We read every message.
-                The more context you share, the better we can help.
+                Have a brief, a rough idea, or just a question? We read every contact message.
+                The more context you share, the better we can help. Get in touch with our team today.
               </p>
             </Reveal>
             <dl className="grid grid-cols-1 gap-px overflow-hidden rounded-md border border-border bg-border">

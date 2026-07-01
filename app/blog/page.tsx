@@ -64,10 +64,9 @@ export default function BlogListingPage() {
             {/* Main blog timeline list */}
             <div className="lg:col-span-8 space-y-12">
               {blogPosts.map((post) => (
-                <Link
+                <article
                   key={post.slug}
-                  href={`/blog/${post.slug}`}
-                  className="group block border border-border/60 hover:border-accent bg-card/10 hover:bg-card/40 rounded-md p-8 md:p-10 transition-all duration-300"
+                  className="group relative block border border-border/60 hover:border-accent bg-card/10 hover:bg-card/40 rounded-md p-8 md:p-10 transition-all duration-300"
                 >
                     <div className="flex flex-col gap-4">
                       {/* Meta info */}
@@ -84,8 +83,10 @@ export default function BlogListingPage() {
 
                       {/* Main Title */}
                       <div className="flex items-start justify-between gap-6 mt-2">
-                        <h2 className="font-heading text-2xl md:text-3.5xl font-medium tracking-tight text-foreground group-hover:text-accent transition-colors duration-300">
-                          {post.title}
+                        <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-medium tracking-tight text-foreground group-hover:text-accent transition-colors duration-300">
+                          <Link href={`/blog/${post.slug}`} className="before:absolute before:inset-0">
+                            {post.title}
+                          </Link>
                         </h2>
                         <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border text-foreground group-hover:bg-accent group-hover:text-accent-foreground group-hover:border-accent transition-all duration-300">
                           <ArrowUpRight className="h-4 w-4" />
@@ -102,7 +103,7 @@ export default function BlogListingPage() {
                         <span>→</span>
                       </div>
                     </div>
-                </Link>
+                </article>
               ))}
             </div>
 

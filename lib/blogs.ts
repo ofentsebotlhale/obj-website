@@ -27,7 +27,7 @@ export const blogPosts: BlogPost[] = [
     date: 'June 18, 2026',
     readingTime: '5 min read',
     category: 'Website Strategy',
-    welcomeText: 'Welcome! If you’ve ever wondered whether your business website is truly pulling its weight, you’re not alone. Your website is often the first impression potential clients get, and if it’s not doing its job well, you might be losing valuable opportunities without even realizing it. Today, we’re diving into the telltale signs that your website could be driving clients away—and what you can do about it.',
+    welcomeText: 'Welcome! If you’ve ever wondered whether your business website is truly pulling its weight, you’re not alone. Your website is often the first impression potential clients get, and if it’s not doing its job well, you might be losing valuable opportunities without even realizing it. Today, we’re diving into the telltale signs that your website could be driving clients away—and how to fix them.',
     points: [
       {
         num: '01',
@@ -91,7 +91,7 @@ export const blogPosts: BlogPost[] = [
     date: 'June 19, 2026',
     readingTime: '5 min read',
     category: 'Local Strategy',
-    welcomeText: 'When selecting web design services in Johannesburg, businesses should focus on several key factors to ensure their website effectively supports growth and customer engagement. In a competitive market, a website isn’t just a digital brochure—it’s the engine of your brand.',
+    welcomeText: 'When selecting web design services in Johannesburg, businesses should focus on several key factors to ensure their website effectively supports growth and customer engagement. In a competitive market, a website isn’t just a digital brochure—it’s the engine of your brand. Read our complete guide to find out more.',
     points: [
       {
         num: '01',
@@ -151,11 +151,11 @@ export const blogPosts: BlogPost[] = [
     slug: 'how-much-does-a-website-cost-in-south-africa',
     title: 'How Much Does a Website Cost in South Africa?',
     seoTitle: 'Website Design Costs in South Africa: 2026 Pricing Guide | OBX Studio',
-    excerpt: 'Planning your digital budget? Break down typical price points, recurring server/domain fees, and core factors governing web development costs in SA.',
+    excerpt: 'Discover typical price points, recurring fees, and core factors governing website design costs in South Africa to help plan your digital budget.',
     date: 'June 19, 2026',
     readingTime: '6 min read',
     category: 'Digital Investment',
-    welcomeText: 'If you’re a business owner or entrepreneur in South Africa considering building a website, one of the first questions you probably have is: How much will it cost? The answer isn’t one-size-fits-all, as website costs can vary widely depending on several factors. Let’s break down the typical price ranges to help you plan your budget.',
+    welcomeText: 'If you’re a business owner or entrepreneur in South Africa considering building a website, one of the first questions you probably have is: How much will it cost? The answer isn’t one-size-fits-all, as website costs can vary widely depending on several factors. Let’s break down the typical price ranges in our 2026 pricing guide to help you plan your budget.',
     points: [
       {
         num: '01',
@@ -215,7 +215,7 @@ export const blogPosts: BlogPost[] = [
     slug: 'the-ultimate-guide-to-creating-a-high-performing-website',
     title: 'The Ultimate Guide to Creating a High Performing Website',
     seoTitle: 'How to Build a High-Performing Business Website | OBX Studio',
-    excerpt: 'Learn how to create a visually appealing and user-friendly website that saves time, boosts user engagement, and helps you achieve your business goals.',
+    excerpt: 'Learn to create a visually appealing, user-friendly website that saves time, boosts engagement, and helps you achieve your business goals.',
     date: 'June 26, 2026',
     readingTime: '6 min read',
     category: 'Website Strategy',
@@ -372,7 +372,7 @@ export const blogPosts: BlogPost[] = [
     slug: 'website-design-costs-key-influencing-factors-explained',
     title: 'Website Design Costs: Key Influencing Factors Explained',
     seoTitle: 'Website Design Costs: Key Influencing Factors Explained | OBX Studio',
-    excerpt: 'Discover the key factors influencing website design costs to make informed budgeting decisions. Learn how pricing varies in South Africa and understand what impacts web development costs.',
+    excerpt: 'Discover what drives website design costs in South Africa. Learn pricing factors and budget for your project.',
     date: 'June 27, 2026',
     readingTime: '5 min read',
     category: 'Web Design',

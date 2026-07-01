@@ -4,8 +4,8 @@ import { PageHeader } from "@/components/page-header";
 import { Reveal, RevealWords } from "@/components/anim/reveal";
 
 export const metadata: Metadata = {
-  title: "Services | OBX Studio",
-  description: "OBX Studio provides end-to-end digital design and web development services focused on creating modern, high-performing websites for businesses.",
+  title: "Web Design & Development Services | OBX Studio",
+  description: "OBX Studio provides expert digital design and web development services, creating modern, high-performing websites to grow your business.",
   alternates: {
     canonical: "/services",
   },

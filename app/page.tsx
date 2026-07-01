@@ -13,7 +13,7 @@ import { projects } from '@/lib/projects'
 export const metadata: Metadata = {
   title: 'OBX Studio | Design, Branding & Development in South Africa',
   description:
-    'OBX Studio is a boutique digital agency based in South Africa, specializing in premium web design, custom branding, and scalable web development services.',
+    'OBX Studio is a boutique agency in South Africa, crafting premium web design, custom branding, and high-performance web development services.',
 }
 
 export default function HomePage() {

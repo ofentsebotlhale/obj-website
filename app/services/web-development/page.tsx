@@ -5,7 +5,7 @@ import { Reveal, RevealWords } from "@/components/anim/reveal";
 
 export const metadata: Metadata = {
   title: "Expert Web Development Services for Custom Websites",
-  description: "We develop high-performing custom websites that are visually appealing and user friendly. Let us create a website that helps you achieve your business goals.",
+  description: "We develop high-performing custom websites that are visually appealing and user-friendly. Let us build a solution to achieve your business goals.",
   alternates: {
     canonical: "/services/web-development",
   },
@@ -59,7 +59,7 @@ export default function WebDevelopmentPage() {
         <div className="mx-auto max-w-[1600px]">
           <Reveal>
             <p className="font-heading text-2xl font-light leading-relaxed tracking-tight text-foreground sm:text-3xl max-w-4xl mb-24">
-              We help you create a website that not only looks stunning but functions flawlessly. By focusing on your exact business goals, we deliver solutions that drive real results.
+              We help you create a custom website that not only looks stunning but functions flawlessly. As expert web developers, we focus on your exact business goals to deliver solutions that drive real results.
             </p>
           </Reveal>
 
