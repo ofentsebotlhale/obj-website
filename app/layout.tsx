@@ -54,7 +54,7 @@ export default function RootLayout({
           httpEquiv="Content-Security-Policy"
           content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://*.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://stats.g.doubleclick.net https://*.doubleclick.net https://formspree.io https://*.googlesyndication.com;"
         />
-        <meta name="ranknibbler-site-verification" content="8936626e0ecbef73e430012b9bff926a">
+        <meta name="ranknibbler-site-verification" content="8936626e0ecbef73e430012b9bff926a"/>
 
         {/* Preconnect to external assets */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
