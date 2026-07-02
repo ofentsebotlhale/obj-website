@@ -4,9 +4,6 @@ export const metadata: Metadata = {
   title: 'Terms and Conditions | OBX Studio',
   description:
     'Read the OBX Studio Terms and Conditions covering your use of our website and services.',
-  alternates: {
-    canonical: '/terms',
-  },
   openGraph: {
     title: 'Terms and Conditions | OBX Studio',
     description:

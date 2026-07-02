@@ -6,6 +6,20 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  async redirects() {
+    return [
+      {
+        source: '/blog/web-design-johannesburg-what-businesses-should-look-for',
+        destination: '/blog/web-design-johannesburg-how-to-choose-high-quality-design-development-services',
+        permanent: true,
+      },
+      {
+        source: '/blog/website-design-costs-key-influencing-factors-explained',
+        destination: '/blog/how-much-does-a-website-cost-in-south-africa',
+        permanent: true,
+      },
+    ]
+  },
   async headers() {
     return [
       {

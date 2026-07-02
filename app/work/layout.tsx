@@ -4,9 +4,6 @@ export const metadata: Metadata = {
   title: 'Our Work | Web Design Portfolio | OBX Studio',
   description:
     'Browse our portfolio of high-performance custom websites and digital platforms, featuring corporate solutions and interactive e-commerce layouts by OBX.',
-  alternates: {
-    canonical: '/work',
-  },
   openGraph: {
     title: 'Our Work | Web Design Portfolio | OBX Studio',
     description:

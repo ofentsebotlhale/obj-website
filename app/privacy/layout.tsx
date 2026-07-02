@@ -4,9 +4,6 @@ export const metadata: Metadata = {
   title: 'Privacy Policy | OBX Studio',
   description:
     'Read the OBX Studio privacy policy to learn how we protect your personal data, handle cookie consent, and maintain security across all digital systems.',
-  alternates: {
-    canonical: '/privacy',
-  },
   openGraph: {
     title: 'Privacy Policy | OBX Studio',
     description:

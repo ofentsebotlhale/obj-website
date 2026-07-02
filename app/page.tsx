@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   title: 'OBX Studio | Design, Branding & Development in South Africa',
   description:
     'OBX Studio is a boutique agency in South Africa, crafting premium web design, custom branding, and high-performance web development services.',
+  alternates: {
+    canonical: '/',
+  },
 }
 
 export default function HomePage() {

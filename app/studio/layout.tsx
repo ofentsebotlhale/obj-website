@@ -4,9 +4,6 @@ export const metadata: Metadata = {
   title: 'About OBX Studio | Web Design Agency',
   description:
     'Discover OBX Studio, an intentional Johannesburg web design practice crafting high-performance digital solutions built on focus, Figma, React, and quality.',
-  alternates: {
-    canonical: '/studio',
-  },
   openGraph: {
     title: 'About OBX Studio | Web Design Agency',
     description:

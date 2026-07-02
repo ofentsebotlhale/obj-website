@@ -4,9 +4,6 @@ export const metadata: Metadata = {
   title: 'Contact OBX Studio | Web Design & Development',
   description:
     'Get in touch with OBX Studio to build your next custom high-performance website. Initiate your project using our direct contact form or via email today.',
-  alternates: {
-    canonical: '/contact',
-  },
   openGraph: {
     title: 'Contact OBX Studio | Web Design & Development',
     description:
