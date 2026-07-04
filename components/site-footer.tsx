@@ -12,14 +12,10 @@ const SOCIALS = [
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        fill="currentColor"
         {...props}
       >
-        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.487-1.761-1.66-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
       </svg>
     )
   },
@@ -103,19 +99,17 @@ export function SiteFooter() {
             <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
               Have a project in mind?
             </p>
-            <div className="group mt-4 inline-flex items-center gap-4">
-              <Link
-                href="/contact"
-                data-cursor="Say hi"
+            <Link href="/contact" data-cursor="Say hi" className="group mt-4 inline-flex items-center gap-4">
+              <span
                 className="font-heading text-4xl font-semibold tracking-tight text-foreground transition-all duration-300 group-hover:opacity-60 sm:text-5xl md:text-6xl"
               >
                 Let&apos;s build something
-              </Link>
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-foreground/10 text-foreground transition-all duration-300 group-hover:bg-foreground group-hover:text-background sm:h-16 sm:w-16">
+              </span>
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-foreground/10 text-foreground transition-all duration-300 group-hover:bg-foreground group-hover:text-background sm:h-20 sm:w-20">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
+                  width="28"
+                  height="28"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -128,28 +122,28 @@ export function SiteFooter() {
                   <path d="M7 7h10v10" />
                 </svg>
               </div>
-            </div>
+            </Link>
           </div>
 
           <div className="md:col-span-5 md:flex md:justify-end mt-12 md:mt-0">
             <div className="flex flex-col gap-10 sm:max-w-[320px]">
               <div className="flex flex-col gap-4">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                <span className="font-mono text-[12px] uppercase tracking-widest text-muted-foreground">
                   Navigation
                 </span>
-                <div className="flex flex-wrap gap-2">
-                  <Link href="/" className="inline-flex items-center justify-center rounded-full bg-secondary/50 border border-border/50 px-5 min-h-[40px] font-mono text-[10px] uppercase tracking-widest text-foreground transition-all hover:bg-foreground hover:text-background">Index</Link>
-                  <Link href="/work" className="inline-flex items-center justify-center rounded-full bg-secondary/50 border border-border/50 px-5 min-h-[40px] font-mono text-[10px] uppercase tracking-widest text-foreground transition-all hover:bg-foreground hover:text-background">Work</Link>
-                  <Link href="/studio" className="inline-flex items-center justify-center rounded-full bg-secondary/50 border border-border/50 px-5 min-h-[40px] font-mono text-[10px] uppercase tracking-widest text-foreground transition-all hover:bg-foreground hover:text-background">Studio</Link>
-                  <Link href="/blog" className="inline-flex items-center justify-center rounded-full bg-secondary/50 border border-border/50 px-5 min-h-[40px] font-mono text-[10px] uppercase tracking-widest text-foreground transition-all hover:bg-foreground hover:text-background">Blog</Link>
-                  <Link href="/contact" className="inline-flex items-center justify-center rounded-full bg-secondary/50 border border-border/50 px-5 min-h-[40px] font-mono text-[10px] uppercase tracking-widest text-foreground transition-all hover:bg-foreground hover:text-background">Contact</Link>
+                <div className="flex flex-wrap gap-3">
+                  <Link href="/" className="inline-flex items-center justify-center rounded-full bg-foreground px-6 py-2 min-h-[48px] font-mono text-[13px] uppercase tracking-widest text-background transition-all hover:scale-105 hover:bg-accent hover:text-accent-foreground">Index</Link>
+                  <Link href="/work" className="inline-flex items-center justify-center rounded-full bg-foreground px-6 py-2 min-h-[48px] font-mono text-[13px] uppercase tracking-widest text-background transition-all hover:scale-105 hover:bg-accent hover:text-accent-foreground">Work</Link>
+                  <Link href="/studio" className="inline-flex items-center justify-center rounded-full bg-foreground px-6 py-2 min-h-[48px] font-mono text-[13px] uppercase tracking-widest text-background transition-all hover:scale-105 hover:bg-accent hover:text-accent-foreground">Studio</Link>
+                  <Link href="/blog" className="inline-flex items-center justify-center rounded-full bg-foreground px-6 py-2 min-h-[48px] font-mono text-[13px] uppercase tracking-widest text-background transition-all hover:scale-105 hover:bg-accent hover:text-accent-foreground">Blog</Link>
+                  <Link href="/contact" className="inline-flex items-center justify-center rounded-full bg-foreground px-6 py-2 min-h-[48px] font-mono text-[13px] uppercase tracking-widest text-background transition-all hover:scale-105 hover:bg-accent hover:text-accent-foreground">Contact</Link>
                 </div>
               </div>
               <div className="flex flex-col gap-4">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                <span className="font-mono text-[12px] uppercase tracking-widest text-muted-foreground">
                   Connect
                 </span>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-4">
                   {SOCIALS.map((s) => {
                     const Icon = s.icon;
                     return (
@@ -159,9 +153,9 @@ export function SiteFooter() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={s.label}
-                        className="flex h-12 w-12 items-center justify-center rounded-full bg-secondary/50 border border-border/50 text-foreground transition-all duration-300 hover:bg-foreground hover:text-background"
+                        className="flex h-14 w-14 items-center justify-center rounded-full bg-foreground text-background transition-all duration-300 hover:scale-105 hover:bg-accent hover:text-accent-foreground"
                       >
-                        <Icon className="h-4 w-4" />
+                        <Icon className="h-5 w-5" />
                       </a>
                     )
                   })}
