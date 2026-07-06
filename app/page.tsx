@@ -6,7 +6,7 @@ import { Intro } from '@/components/home/intro'
 import { Process } from '@/components/home/process'
 import { WhatWeBuild } from '@/components/home/what-we-build'
 import { StudioStatement } from '@/components/home/studio-statement'
-import { StickyProjectList } from '@/components/home/sticky-project-list'
+import { FeaturedWork } from '@/components/home/featured-work'
 import { Reveal } from '@/components/anim/reveal'
 import { projects } from '@/lib/projects'
 
@@ -79,7 +79,7 @@ export default function HomePage() {
               </svg>
             </Link>
           </Reveal>
-          <StickyProjectList items={projects.slice(0, 4)} />
+          <FeaturedWork items={projects.slice(0, 5)} />
         </div>
       </section>
 

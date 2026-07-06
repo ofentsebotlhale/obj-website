@@ -72,6 +72,12 @@ export function Hero() {
 
   return (
     <section className="relative flex min-h-[100svh] flex-col justify-between px-5 pb-10 pt-28 md:px-10 md:pt-32">
+      {/* Subtle grid pattern background */}
+      <div 
+        className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" 
+        style={{ backgroundImage: 'url(/grid-pattern.svg)', backgroundSize: '40px 40px' }} 
+      />
+
       {/* Top meta row */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -138,27 +144,35 @@ export function Hero() {
             Scroll to explore
           </div>
           
-          <Link
-            href="/work"
-            className="group flex w-fit items-center gap-4 rounded-full bg-foreground px-8 py-4 min-h-[56px] font-mono text-xs uppercase tracking-widest text-background transition-all hover:scale-105 active:scale-95"
-          >
-            View projects
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="transition-transform duration-300 group-hover:translate-x-1"
+          <div className="flex items-center gap-4">
+            <Link
+              href="/work"
+              className="group flex w-fit items-center gap-4 rounded-full bg-foreground px-8 py-4 min-h-[56px] font-mono text-xs uppercase tracking-widest text-background transition-all hover:scale-105 active:scale-95"
             >
-              <path d="M5 12h14" />
-              <path d="m12 5 7 7-7 7" />
-            </svg>
-          </Link>
+              View projects
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </Link>
+            <Link
+              href="/contact"
+              className="group flex w-fit items-center gap-4 rounded-full border border-border bg-transparent px-8 py-4 min-h-[56px] font-mono text-xs uppercase tracking-widest text-foreground transition-all hover:bg-secondary hover:scale-105 active:scale-95"
+            >
+              Contact Us
+            </Link>
+          </div>
         </div>
       </motion.div>
     </section>

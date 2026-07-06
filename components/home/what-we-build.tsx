@@ -1,31 +1,57 @@
 'use client'
 
 import { Reveal } from '@/components/anim/reveal'
+import Link from 'next/link'
+import { Briefcase, ShoppingCart, AppWindow, RefreshCcw, Layers, Wrench, ArrowRight } from 'lucide-react'
 
 const ITEMS = [
   {
-    title: 'Business Websites',
-    description: 'Professional websites designed to build trust and generate enquiries.',
-  },
-  {
-    title: 'E-Commerce',
-    description: 'Online stores built for seamless shopping experiences.',
-  },
-  {
+    num: '01',
     title: 'Landing Pages',
     description: 'Focused pages designed to convert traffic into leads.',
+    icon: AppWindow,
+    tier: 'Quick Turnaround',
+    href: '/work',
   },
   {
+    num: '02',
     title: 'Redesigns',
     description: 'Modern redesigns that improve performance and user experience.',
+    icon: RefreshCcw,
+    tier: 'Optimization',
+    href: '/work',
   },
   {
+    num: '03',
+    title: 'Business Websites',
+    description: 'Professional websites designed to build trust and generate enquiries.',
+    icon: Briefcase,
+    tier: 'Standard',
+    href: '/work',
+  },
+  {
+    num: '04',
+    title: 'E-Commerce',
+    description: 'Online stores built for seamless shopping experiences.',
+    icon: ShoppingCart,
+    tier: 'Advanced',
+    href: '/work',
+  },
+  {
+    num: '05',
     title: 'Custom Web Apps',
     description: 'Tailored functionality built around specific business needs.',
+    icon: Layers,
+    tier: 'Complex',
+    href: '/work',
   },
   {
+    num: '06',
     title: 'Maintenance',
     description: 'Ongoing support, updates, and improvements.',
+    icon: Wrench,
+    tier: 'Retainer',
+    href: '/work',
   },
 ]
 
@@ -40,36 +66,44 @@ export function WhatWeBuild() {
         </Reveal>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {ITEMS.map((item, i) => (
-            <Reveal key={i} delay={i * 0.1}>
-              <div className="group flex h-full flex-col justify-between overflow-hidden rounded-2xl bg-background p-8 border border-border/50 hover:border-border transition-colors">
-                <div className="mb-12">
-                  <div className="mb-6 h-12 w-12 rounded-full bg-foreground/10 flex items-center justify-center text-foreground">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="m22 2-7 20-4-9-9-4Z" />
-                      <path d="M22 2 11 13" />
-                    </svg>
+          {ITEMS.map((item, i) => {
+            const Icon = item.icon
+            return (
+              <Reveal key={i} delay={i * 0.1}>
+                <Link href={item.href} className="group block h-full outline-none">
+                  <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-2xl bg-background p-8 border border-border/50 hover:border-foreground/30 transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-lg">
+                    
+                    {/* Header: Icon & Number */}
+                    <div className="mb-12 flex items-start justify-between">
+                      <div className="h-12 w-12 rounded-full bg-foreground/5 flex items-center justify-center text-foreground transition-colors duration-300 group-hover:bg-accent/10 group-hover:text-accent">
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
+                        {item.num}
+                      </span>
+                    </div>
+
+                    {/* Content */}
+                    <div>
+                      <div className="mb-3 flex items-center justify-between">
+                        <h3 className="font-heading text-xl font-medium tracking-tight text-foreground">
+                          {item.title}
+                        </h3>
+                        <ArrowRight className="w-4 h-4 text-accent opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
+                      </div>
+                      <p className="text-muted-foreground leading-relaxed mb-6">
+                        {item.description}
+                      </p>
+                      <span className="inline-block rounded-full border border-border/50 bg-secondary/50 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-muted-foreground transition-colors duration-300 group-hover:border-accent/30 group-hover:text-accent">
+                        {item.tier}
+                      </span>
+                    </div>
+
                   </div>
-                  <h3 className="font-heading text-xl font-medium tracking-tight text-foreground mb-3">
-                    {item.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-              </div>
-            </Reveal>
-          ))}
+                </Link>
+              </Reveal>
+            )
+          })}
         </div>
       </div>
     </section>
