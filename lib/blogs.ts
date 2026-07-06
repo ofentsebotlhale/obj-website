@@ -85,67 +85,57 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'how-much-does-a-website-cost-in-south-africa',
-    title: 'How Much Does a Website Cost in South Africa?',
-    seoTitle: 'Website Design Costs in South Africa: 2026 Pricing Guide | OBX Studio',
-    excerpt: 'Discover typical price points, recurring fees, and core factors governing website design costs in South Africa to help plan your digital budget.',
+    title: 'How Much Does a Website Cost for a Professional Services Firm in South Africa? (2026 Guide)',
+    seoTitle: 'Website Costs for Professional Services Firms in SA (2026) | OBX Studio',
+    excerpt: 'A professional website for a South African law firm, architecture practice, or advisory business typically costs between R8,000 and R18,000. Here\'s what drives that cost.',
     date: 'June 19, 2026',
     readingTime: '6 min read',
     category: 'Digital Investment',
-    welcomeText: 'If you’re a business owner or entrepreneur in South Africa considering building a website, one of the first questions you probably have is: How much will it cost? The answer isn’t one-size-fits-all, as website costs can vary widely depending on several factors. Let’s break down the typical price ranges in our 2026 pricing guide to help you plan your budget.',
+    welcomeText: 'Quick answer: A professional website for a South African law firm, architecture practice, wealth management firm, or advisory business typically costs between R8,000 and R18,000 for a custom-built site, or R25,000+ for a full brand identity and website package. Template sites start lower (R2,000–R5,000) but rarely hold up for firms whose credibility depends on how they\'re perceived online. Written by Ofentse Botlhale, founder of OBX Studio, a Johannesburg-based studio building websites for trust-driven B2B firms — law practices, architects, wealth managers, and property developers.',
     points: [
       {
         num: '01',
-        title: 'Project Complexity',
-        content: 'Is it a simple informational site or a custom solution? The level of complexity is the primary driver of development time and strategic planning.'
+        title: 'Why generic pricing guides fail professional services',
+        content: 'Most "website cost South Africa" articles quote the same broad range — R2,000 to R100,000+ — because they\'re written for every type of business at once. Your website isn\'t a digital brochure. For a professional services firm, it\'s often the only "meeting" a prospective client has with you before they decide whether to trust you. That changes what you should actually be paying for.'
       },
       {
         num: '02',
-        title: 'Custom Design vs. Templates',
-        content: 'Using a generic template is cost-effective but limits your brand representation. Bespoke, tailored UI/UX design fits your business objectives perfectly but requires a larger initial investment.'
+        title: 'Website Redesign vs. Custom Build (R6,500 – R18,000)',
+        content: 'A redesign (R6,500–R15,000) works with your existing content and structure while improving design and performance. A full custom build (R8,000–R18,000) starts from scratch, including new information architecture and copy, ideal for firms needing a new site from the ground up.'
       },
       {
         num: '03',
-        title: 'Interactive Functionality',
-        content: 'Special features like real-time booking engines, client login portals, robust payment gateways, and custom database collections increase the scope and fee structure.'
+        title: 'Brand Identity & Art Direction (R3,000 – R12,000)',
+        content: 'For firms without a cohesive visual identity, a full brand package (R5,000–R12,000) establishes your credibility. If you only need to refine an existing design\'s look and feel, UI/UX Art Direction (R3,000–R8,000) elevates your online presence.'
       },
       {
         num: '04',
-        title: 'Basic Website Tier (ZAR 5,000 – ZAR 15,000)',
-        content: 'Usually best for small businesses or personal brands. These sites have a few pages (home, about, contact) with standard layout components.'
+        title: 'Price Driver: Trust signals, not page count',
+        content: 'A generic small business site sells you on pages: home, about, contact. A professional services site needs to do more work per page — case studies, credentials, testimonials, a bio that reads like it belongs to someone you\'d hire. That\'s design and copywriting time, not just page assembly.'
       },
       {
         num: '05',
-        title: 'Standard Business Website (ZAR 15,000 – ZAR 50,000)',
-        content: 'Features fully custom UI/UX, responsive layouts, content integration, and optimization for lead generation and brand authority.'
+        title: 'Price Driver: Custom design vs. templates',
+        content: 'A template can get a firm online quickly, but it rarely says anything specific about who you are. For a law firm competing against three other firms a client is comparing side by side, a templated site is a disadvantage before the client has even read a word.'
       },
       {
         num: '06',
-        title: 'E-commerce Platforms (ZAR 30,000 – ZAR 100,000+)',
-        content: 'Selling physically or digitally requires payment gateway integrations (like PayFast or Peach Payments), dynamic inventory systems, and transactional mailing.'
+        title: 'Price Driver: Functionality that matches your clients',
+        content: 'Booking systems, secure client portals, contact forms that route to the right partner — these aren\'t decorative. For firms where the first contact often happens after hours or on mobile, this functionality directly affects whether an enquiry becomes a client.'
       },
       {
         num: '07',
-        title: 'Advanced Web Applications (exceeding ZAR 100,000)',
-        content: 'Custom interactive apps, SaaS interfaces, and complex enterprise automation platforms that require extensive database logic and highly tailored security frameworks.'
+        title: 'Ongoing costs after launch',
+        content: 'Beyond the build: Domain registration is R150–R500/year (.co.za or .com). Hosting is R50–R2,000+/month depending on reliability. Maintenance and updates are often bundled into a monthly retainer (R1,500–R3,500/month) covering content changes, security patches, and technical upkeep.'
       },
       {
         num: '08',
-        title: 'Domain and Server Hosting Fees',
-        content: 'Ongoing infrastructure costs: expect ZAR 150 to ZAR 500 per year for domain registration (.co.za/.com) and ZAR 50 to ZAR 2,000+ per month for reliable SSD hosting.'
-      },
-      {
-        num: '09',
-        title: 'Continuous Support & Upkeep',
-        content: 'Regular bug fixes, CMS updates, plugin security patches, and periodic content changes usually carry modest monthly retainer or hourly maintenance fees.'
-      },
-      {
-        num: '10',
-        title: 'Developer Partner Selection',
-        content: 'Choosing between a DIY builder, a solo freelancer, or an established design agency. Your selection directly impacts design fidelity, code performance, and future scalability.'
+        title: 'Freelancer, agency, or boutique studio?',
+        content: 'DIY builders have the lowest cost but lack professionalism. Solo freelancers offer good value but capacity varies. Large agencies have full-service teams but pricing is built for big budgets. Boutique studios, like OBX Studio, sit perfectly between: dedicated attention and design-led work without agency overhead.'
       }
     ],
-    conclusionText: 'Building a website is an important investment for your business or personal brand. Understanding the costs upfront will help you make informed decisions and choose the right solution for your budget and goals.',
-    closingText: 'Whether you opt for a simple site or a full-scale online store, there are options available in South Africa to fit your needs. Chat with a local developer to gain precise quotes for your custom roadmap.'
+    conclusionText: 'Most small to mid-sized professional firms should budget R8,000–R18,000 for a custom-built site, plus R1,500–R3,500/month for ongoing maintenance. While a template website can work as a stopgap, firms whose business depends on being trusted quickly tend to see a template site cost them more in lost credibility than they saved upfront.',
+    closingText: 'Need a website that makes your firm easier to trust online? OBX Studio designs and builds websites for law firms, architects, wealth managers, and advisory firms across South Africa.'
   },
   {
     slug: 'the-ultimate-guide-to-creating-a-high-performing-website',
