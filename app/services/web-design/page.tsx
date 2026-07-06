@@ -83,7 +83,7 @@ export default function WebDesignPage() {
                 "Design systems and style direction"
               ].map((item, i) => (
                 <li key={i} className="flex gap-4 font-sans text-lg text-muted-foreground">
-                  <span className="text-accent mt-1">✦</span>
+                  <span className="text-foreground mt-1">✦</span>
                   <span>{item}</span>
                 </li>
               ))}
@@ -152,7 +152,7 @@ export default function WebDesignPage() {
                     "Consistent visual system across all pages"
                   ].map((item, i) => (
                     <li key={i} className="flex gap-4 font-sans text-[15px] leading-relaxed text-muted-foreground">
-                      <span className="text-accent mt-0.5">✦</span>
+                      <span className="text-foreground mt-0.5">✦</span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -174,7 +174,7 @@ export default function WebDesignPage() {
                     "Brands looking to improve credibility online"
                   ].map((item, i) => (
                     <li key={i} className="flex gap-4 font-sans text-[15px] leading-relaxed text-muted-foreground">
-                      <span className="text-accent mt-0.5">✦</span>
+                      <span className="text-foreground mt-0.5">✦</span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -194,7 +194,7 @@ export default function WebDesignPage() {
               Good design builds trust, improves clarity, and helps users understand your value within seconds. Poor design creates friction, confusion, and lost opportunities.
             </p>
             <p className="font-sans text-lg leading-relaxed text-muted-foreground mb-20">
-              At OBX Studio, we design websites that not only look modern but also guide users toward meaningful action. Once the design is finalized, our <Link href="/services/web-development" className="text-accent underline hover:text-accent/80">web development</Link> team brings it to life.
+              At OBX Studio, we design websites that not only look modern but also guide users toward meaningful action. Once the design is finalized, our <Link href="/services/web-development" className="text-foreground underline hover:text-foreground/80">web development</Link> team brings it to life.
             </p>
           </Reveal>
         </div>

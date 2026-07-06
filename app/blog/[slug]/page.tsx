@@ -87,7 +87,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           {/* Heading intro block */}
           <header className="mt-8 border-b border-border/80 pb-12">
             <div className="flex flex-wrap items-center gap-3 font-mono text-[10px] uppercase tracking-widest text-[#a3a3a3] mb-4">
-              <span className="text-accent font-semibold">{post.category}</span>
+              <span className="text-foreground font-semibold">{post.category}</span>
               <span>•</span>
               <span className="flex items-center gap-1">
                 <Calendar className="h-3 w-3" /> {post.date}
@@ -115,7 +115,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 {post.points.map((point) => (
                   <div key={point.num} className="space-y-3 scroll-mt-24">
                     <h2 className="text-xl md:text-2xl font-semibold tracking-tight text-foreground flex items-baseline gap-3">
-                      <span className="font-mono text-xs text-accent font-semibold">{point.num}</span>
+                      <span className="font-mono text-xs text-foreground font-semibold">{point.num}</span>
                       {point.title}
                     </h2>
                     <p className="pl-7 text-sm md:text-base leading-relaxed text-muted-foreground">
@@ -134,14 +134,14 @@ export default async function BlogPostPage({ params }: PageProps) {
                   {post.closingText}
                 </p>
 
-                <div className="mt-12 bg-accent/5 p-6 rounded-md border border-accent/20">
-                  <h3 className="font-mono text-xs uppercase tracking-widest text-accent font-semibold mb-4">Need help with your website?</h3>
+                <div className="mt-12 bg-foreground/5 p-6 rounded-md border border-foreground/20">
+                  <h3 className="font-mono text-xs uppercase tracking-widest text-foreground font-semibold mb-4">Need help with your website?</h3>
                   <p className="font-sans text-sm md:text-base leading-relaxed text-muted-foreground mb-4">
                     OBX Studio provides professional digital solutions tailored to your business. We build custom websites designed for performance and clarity.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Link href="/services/web-design" className="text-sm font-medium text-foreground underline hover:text-accent transition-colors">Web Design Services</Link>
-                    <Link href="/services/web-development" className="text-sm font-medium text-foreground underline hover:text-accent transition-colors">Web Development Services</Link>
+                    <Link href="/services/web-design" className="text-sm font-medium text-foreground underline hover:text-foreground transition-colors">Web Design Services</Link>
+                    <Link href="/services/web-development" className="text-sm font-medium text-foreground underline hover:text-foreground transition-colors">Web Development Services</Link>
                   </div>
                 </div>
               </div>
@@ -152,7 +152,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               <div className="sticky top-28 space-y-8 bg-card/20 border border-border/60 rounded-md p-6">
                 <div>
                   <h3 className="font-mono text-[10px] uppercase tracking-widest text-[#a3a3a3] mb-4 flex items-center gap-2">
-                    <Hash className="h-3 w-3 text-accent" /> Article Summary
+                    <Hash className="h-3 w-3 text-foreground" /> Article Summary
                   </h3>
                   <p className="font-sans text-xs text-muted-foreground leading-relaxed">
                     A comprehensive inspection Checklist highlighting conversion killers on consumer-facing websites with suggestions on building immediate stakeholder trust.

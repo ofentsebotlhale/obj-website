@@ -55,7 +55,7 @@ export default function BlogListingPage() {
               </Reveal>
               <div className="pt-4 border-t border-border/40 max-w-sm">
                 <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground block mb-2">Featured Topic</span>
-                <span className="rounded-full bg-accent/10 border border-accent/20 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-accent font-semibold inline-block">
+                <span className="rounded-full bg-foreground/5 border border-foreground/20 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-foreground font-semibold inline-block">
                   Conversion Strategy
                 </span>
               </div>
@@ -71,7 +71,7 @@ export default function BlogListingPage() {
                     <div className="flex flex-col gap-4">
                       {/* Meta info */}
                       <div className="flex flex-wrap items-center justify-between gap-4 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                        <span className="text-accent font-semibold">
+                        <span className="text-foreground font-semibold">
                           {post.category}
                         </span>
                         <div className="flex items-center gap-3">
@@ -83,12 +83,12 @@ export default function BlogListingPage() {
 
                       {/* Main Title */}
                       <div className="flex items-start justify-between gap-6 mt-2">
-                        <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-medium tracking-tight text-foreground group-hover:text-accent transition-colors duration-300">
+                        <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-medium tracking-tight text-foreground group-hover:text-foreground transition-colors duration-300">
                           <Link href={`/blog/${post.slug}`} className="before:absolute before:inset-0">
                             {post.title}
                           </Link>
                         </h2>
-                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border text-foreground group-hover:bg-accent group-hover:text-accent-foreground group-hover:border-accent transition-all duration-300">
+                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-foreground/30 text-foreground group-hover:bg-accent group-hover:text-accent-foreground group-hover:border-accent transition-all duration-300">
                           <ArrowUpRight className="h-4 w-4" />
                         </span>
                       </div>

@@ -127,7 +127,7 @@ export function CookieBanner() {
                           structural layout.
                         </span>
                       </div>
-                      <span className="font-mono text-[10px] uppercase text-muted-foreground tracking-widest px-2.5 py-1 bg-secondary/50 border border-border">
+                      <span className="font-mono text-[10px] uppercase text-muted-foreground tracking-widest px-2.5 py-1 bg-secondary/50 border border-foreground/20">
                         Required
                       </span>
                     </div>
@@ -154,7 +154,7 @@ export function CookieBanner() {
                         className={`font-mono text-[10px] uppercase tracking-widest px-3 py-1 border transition-all duration-300 ${
                           preferences.analytics
                             ? "bg-foreground border-foreground text-background"
-                            : "bg-transparent border-border text-muted-foreground hover:text-foreground"
+                            : "bg-transparent border-foreground/30 text-muted-foreground hover:text-foreground"
                         }`}
                       >
                         {preferences.analytics ? "Enabled" : "Disabled"}

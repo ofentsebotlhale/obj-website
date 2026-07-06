@@ -59,7 +59,7 @@ export default function HomePage() {
             <Link
               href="/work"
               data-cursor="All"
-              className="group flex items-center gap-2 rounded-full border border-border/50 bg-secondary/50 px-5 py-2.5 font-mono text-[11px] uppercase tracking-widest text-muted-foreground transition-all duration-300 hover:border-accent/50 hover:bg-accent/10 hover:text-accent"
+              className="group flex items-center gap-2 rounded-full border border-foreground/30 bg-secondary/50 px-5 py-2.5 font-mono text-[11px] uppercase tracking-widest text-muted-foreground transition-all duration-300 hover:border-foreground/40 hover:bg-foreground/5 hover:text-foreground"
             >
               View all
               <svg

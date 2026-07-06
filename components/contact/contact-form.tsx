@@ -322,7 +322,7 @@ export function ContactForm() {
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="rounded-md border border-red-500/30 bg-red-500/5 p-4 text-xs font-mono uppercase tracking-wider text-red-500"
+                className="rounded-md border border-red-500/30 bg-red-500/5 p-4 text-xs font-mono uppercase tracking-wider text-red-600"
               >
                 ⚠ Error: {error}
               </motion.div>
@@ -407,7 +407,7 @@ export function ContactForm() {
                   <button
                     type="button"
                     onClick={handlePrev}
-                    className="flex w-fit items-center gap-3 rounded-full border border-border px-7 py-4 min-h-[44px] font-mono text-xs uppercase tracking-widest text-foreground transition-colors hover:bg-muted"
+                    className="flex w-fit items-center gap-3 rounded-full border border-foreground/30 px-7 py-4 min-h-[44px] font-mono text-xs uppercase tracking-widest text-foreground transition-colors hover:bg-muted"
                   >
                     Back
                   </button>

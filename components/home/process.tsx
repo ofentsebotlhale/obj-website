@@ -74,7 +74,7 @@ export function Process() {
                   {s.tags.map((t) => (
                     <span
                       key={t}
-                      className="rounded-full border border-border px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-muted-foreground"
+                      className="rounded-full border border-foreground/20 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-muted-foreground"
                     >
                       {t}
                     </span>

@@ -26,12 +26,12 @@ export function FeaturedWork({ items }: { items: Project[] }) {
                 className="object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/20" />
             </div>
             
             <div className="relative z-10 p-8 md:p-12 lg:p-16 flex flex-col justify-end w-full lg:w-3/4">
               <div className="mb-6 flex items-baseline gap-5 md:mb-8 md:gap-8">
-                <span className="font-mono text-xs uppercase tracking-widest text-accent bg-accent/20 px-3 py-1 rounded-full border border-accent/30">
+                <span className="font-mono text-xs uppercase tracking-widest text-white bg-white/20 px-3 py-1 rounded-full border border-white/30">
                   Featured Case
                 </span>
               </div>
@@ -40,7 +40,7 @@ export function FeaturedWork({ items }: { items: Project[] }) {
                 {heroProject.title}
               </h3>
               
-              <p className="font-sans text-lg leading-relaxed text-white/80 sm:text-xl md:text-2xl line-clamp-2 md:line-clamp-3 mb-8 max-w-3xl">
+              <p className="font-sans text-lg leading-relaxed text-white/90 sm:text-xl md:text-2xl line-clamp-2 md:line-clamp-3 mb-8 max-w-3xl">
                 {heroProject.overview}
               </p>
               
@@ -82,14 +82,14 @@ export function FeaturedWork({ items }: { items: Project[] }) {
                       className="object-cover transition-transform duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-black/30" />
                   </div>
                   
                   <div className="relative z-10 p-6 md:p-8 flex flex-col justify-end w-full">
                     <h3 className="font-heading text-2xl font-semibold tracking-tight text-white md:text-3xl mb-3">
                       {project.title}
                     </h3>
-                    <p className="font-sans text-sm leading-relaxed text-white/70 line-clamp-2 mb-6">
+                    <p className="font-sans text-sm leading-relaxed text-white/90 line-clamp-2 mb-6">
                       {project.overview}
                     </p>
                     <div className="flex flex-wrap gap-2">

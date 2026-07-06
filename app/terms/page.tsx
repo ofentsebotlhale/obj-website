@@ -208,8 +208,8 @@ export default function TermsPage() {
                 <div className="pt-2 font-mono text-xs space-y-1 block text-foreground">
                   <p className="font-semibold text-sm font-sans text-foreground">OBX Studio</p>
                   <p>Johannesburg, South Africa</p>
-                  <p>Email: <a href="mailto:hello@obxstudio.co.za" className="underline hover:text-accent transition-colors">hello@obxstudio.co.za</a></p>
-                  <p>Website: <a href="https://obxstudio.co.za" target="_blank" rel="noopener noreferrer" className="underline hover:text-accent transition-colors">www.obxstudio.co.za</a></p>
+                  <p>Email: <a href="mailto:hello@obxstudio.co.za" className="underline hover:text-foreground transition-colors">hello@obxstudio.co.za</a></p>
+                  <p>Website: <a href="https://obxstudio.co.za" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground transition-colors">www.obxstudio.co.za</a></p>
                   <p className="pt-4 font-sans text-muted-foreground text-sm">
                     If you have any questions regarding these Terms and Conditions, please contact us using the details above.
                   </p>

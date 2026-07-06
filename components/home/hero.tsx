@@ -112,7 +112,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 2.2, ease: EASE }}
               className="mb-[2vw] hidden max-w-sm flex-col gap-3 md:flex"
             >
-              <span className="font-mono text-[10px] uppercase tracking-widest text-foreground/50 flex items-center gap-2">
+              <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground flex items-center gap-2">
                 <span className="h-[1px] w-4 bg-foreground/50 inline-block" />
                 What we do
               </span>
@@ -168,7 +168,7 @@ export function Hero() {
             </Link>
             <Link
               href="/contact"
-              className="group flex w-fit items-center gap-4 rounded-full border border-border bg-transparent px-8 py-4 min-h-[56px] font-mono text-xs uppercase tracking-widest text-foreground transition-all hover:bg-secondary hover:scale-105 active:scale-95"
+              className="group flex w-fit items-center gap-4 rounded-full border border-foreground/30 bg-transparent px-8 py-4 min-h-[56px] font-mono text-xs uppercase tracking-widest text-foreground transition-all hover:bg-secondary hover:scale-105 active:scale-95"
             >
               Contact Us
             </Link>

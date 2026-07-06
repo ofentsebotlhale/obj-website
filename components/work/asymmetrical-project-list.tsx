@@ -39,7 +39,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             />
           </div>
           <div className="absolute inset-0 bg-black/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100 flex items-center justify-center">
-            <span className="font-mono text-xs uppercase tracking-widest text-white backdrop-blur-md bg-black/30 px-6 py-3 rounded-full">
+            <span className="font-mono text-xs uppercase tracking-widest text-white backdrop-blur-md bg-black/70 px-6 py-3 rounded-full">
               {isExpanded ? 'Close Case' : 'View Case'}
             </span>
           </div>
@@ -78,7 +78,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                   {project.services.map((s) => (
                     <span
                       key={s}
-                      className="rounded-full border border-border px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-foreground bg-muted/30"
+                      className="rounded-full border border-foreground/20 px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-foreground bg-muted/30"
                     >
                       {s}
                     </span>

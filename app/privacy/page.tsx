@@ -257,8 +257,8 @@ export default function PrivacyPage() {
                 <p>If you have questions about this Privacy Policy or how your information is handled, please contact:</p>
                 <div className="pt-2 font-mono text-xs space-y-1 block text-foreground">
                   <p className="font-semibold text-sm font-sans text-foreground">OBX Studio</p>
-                  <p>Email: <a href="mailto:hello@obxstudio.co.za" className="underline hover:text-accent transition-colors">hello@obxstudio.co.za</a></p>
-                  <p>Website: <a href="https://obxstudio.co.za" target="_blank" rel="noopener noreferrer" className="underline hover:text-accent transition-colors">obxstudio.co.za</a></p>
+                  <p>Email: <a href="mailto:hello@obxstudio.co.za" className="underline hover:text-foreground transition-colors">hello@obxstudio.co.za</a></p>
+                  <p>Website: <a href="https://obxstudio.co.za" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground transition-colors">obxstudio.co.za</a></p>
                 </div>
               </div>
             </Reveal>

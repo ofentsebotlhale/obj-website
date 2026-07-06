@@ -66,42 +66,42 @@ export default function ServicesPage() {
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-              <div className="bg-card/40 border border-border/50 rounded-xl p-8 transition-colors hover:border-accent/50 hover:bg-accent/5 flex flex-col h-full">
+              <div className="bg-card/40 border border-border/50 rounded-xl p-8 transition-colors hover:border-foreground/20 hover:bg-foreground/5 flex flex-col h-full">
                 <h3 className="font-heading text-2xl font-semibold tracking-tight text-foreground mb-4">Web Design</h3>
                 <p className="font-sans text-base leading-relaxed text-muted-foreground mb-8 flex-grow">
                   We design clean, structured, and user-focused websites that communicate clearly and build trust. Every design is tailored to your brand, audience, and business goals.
                 </p>
                 <Link
                   href="/services/web-design"
-                  className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-accent hover:text-foreground transition-colors mt-auto"
+                  className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-foreground hover:text-foreground transition-colors mt-auto"
                 >
                   <span>Explore Design</span>
                   <span>↗</span>
                 </Link>
               </div>
 
-              <div className="bg-card/40 border border-border/50 rounded-xl p-8 transition-colors hover:border-accent/50 hover:bg-accent/5 flex flex-col h-full">
+              <div className="bg-card/40 border border-border/50 rounded-xl p-8 transition-colors hover:border-foreground/20 hover:bg-foreground/5 flex flex-col h-full">
                 <h3 className="font-heading text-2xl font-semibold tracking-tight text-foreground mb-4">Web Development</h3>
                 <p className="font-sans text-base leading-relaxed text-muted-foreground mb-8 flex-grow">
                   We develop fast, responsive, and scalable websites built for performance and usability. Every build is optimised for speed, responsiveness, and real-world usage.
                 </p>
                 <Link
                   href="/services/web-development"
-                  className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-accent hover:text-foreground transition-colors mt-auto"
+                  className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-foreground hover:text-foreground transition-colors mt-auto"
                 >
                   <span>Explore Development</span>
                   <span>↗</span>
                 </Link>
               </div>
 
-              <div className="bg-card/40 border border-border/50 rounded-xl p-8 transition-colors hover:border-accent/50 hover:bg-accent/5 flex flex-col h-full">
+              <div className="bg-card/40 border border-border/50 rounded-xl p-8 transition-colors hover:border-foreground/20 hover:bg-foreground/5 flex flex-col h-full">
                 <h3 className="font-heading text-2xl font-semibold tracking-tight text-foreground mb-4">Full Website Build</h3>
                 <p className="font-sans text-base leading-relaxed text-muted-foreground mb-8 flex-grow">
                   For clients who want a complete solution, we handle both design and development — delivering a fully finished website from initial concept to final launch.
                 </p>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-accent hover:text-foreground transition-colors mt-auto"
+                  className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-foreground hover:text-foreground transition-colors mt-auto"
                 >
                   <span>Start a Project</span>
                   <span>↗</span>
@@ -127,13 +127,13 @@ export default function ServicesPage() {
               <div>
                 <h3 className="font-mono text-sm uppercase tracking-widest text-foreground font-semibold mb-4">2. Design</h3>
                 <p className="font-sans text-lg leading-relaxed text-muted-foreground">
-                  We create a visual system and user experience that reflects your brand and guides users effectively. Read more about our <Link href="/services/web-design" className="text-accent underline hover:text-accent/80">web design services</Link>.
+                  We create a visual system and user experience that reflects your brand and guides users effectively. Read more about our <Link href="/services/web-design" className="text-foreground underline hover:text-foreground/80">web design services</Link>.
                 </p>
               </div>
               <div>
                 <h3 className="font-mono text-sm uppercase tracking-widest text-foreground font-semibold mb-4">3. Development</h3>
                 <p className="font-sans text-lg leading-relaxed text-muted-foreground">
-                  We build the website into a fully functional, responsive, and performance-optimised product. Read more about our <Link href="/services/web-development" className="text-accent underline hover:text-accent/80">web development services</Link>.
+                  We build the website into a fully functional, responsive, and performance-optimised product. Read more about our <Link href="/services/web-development" className="text-foreground underline hover:text-foreground/80">web development services</Link>.
                 </p>
               </div>
               <div>
@@ -163,7 +163,7 @@ export default function ServicesPage() {
                     "Companies upgrading outdated websites"
                   ].map((item, i) => (
                     <li key={i} className="flex gap-4 font-sans text-[15px] leading-relaxed text-muted-foreground">
-                      <span className="text-accent mt-0.5">✦</span>
+                      <span className="text-foreground mt-0.5">✦</span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -190,7 +190,7 @@ export default function ServicesPage() {
                     "long-term scalability"
                   ].map((item, i) => (
                     <li key={i} className="flex gap-4 font-sans text-[15px] leading-relaxed text-muted-foreground">
-                      <span className="text-accent mt-0.5">✦</span>
+                      <span className="text-foreground mt-0.5">✦</span>
                       <span>{item}</span>
                     </li>
                   ))}

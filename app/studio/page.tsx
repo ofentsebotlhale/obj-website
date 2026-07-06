@@ -52,7 +52,7 @@ export default function StudioPage() {
             </Reveal>
             <Reveal delay={0.2}>
               <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
-                We believe a website should be more than a digital brochure. It must represent a business professionally, create confidence, and support meaningful objectives. Our work combines <Link href="/services" className="text-accent underline hover:text-accent/80">strategy, design, and development</Link> to create websites that are visually refined and commercially effective.
+                We believe a website should be more than a digital brochure. It must represent a business professionally, create confidence, and support meaningful objectives. Our work combines <Link href="/services" className="text-foreground underline hover:text-foreground/80">strategy, design, and development</Link> to create websites that are visually refined and commercially effective.
               </p>
             </Reveal>
             <Reveal delay={0.3}>

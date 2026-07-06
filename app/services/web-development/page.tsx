@@ -67,10 +67,10 @@ export default function WebDevelopmentPage() {
             <Reveal delay={0.1}>
               <div className="mb-16">
                 <p className="mb-6">
-                  Every page we build focuses on clarity and speed. When a visitor lands on your site, they form an opinion in seconds. If the site is slow or confusing, they will leave. That is why we build high-performing websites. They load quickly, guide the user smoothly, and highlight your product or service effectively. For the visual aspects of this process, see our <Link href="/services/web-design" className="text-accent underline hover:text-accent/80">web design</Link> service.
+                  Every page we build focuses on clarity and speed. When a visitor lands on your site, they form an opinion in seconds. If the site is slow or confusing, they will leave. That is why we build high-performing websites. They load quickly, guide the user smoothly, and highlight your product or service effectively. For the visual aspects of this process, see our <Link href="/services/web-design" className="text-foreground underline hover:text-foreground/80">web design</Link> service.
                 </p>
                 <p className="mb-6">
-                  We manage the technical details so you can save time and focus on your business. <Link href="/contact" className="text-accent underline hover:text-accent/80">Get in touch</Link> to start your project.
+                  We manage the technical details so you can save time and focus on your business. <Link href="/contact" className="text-foreground underline hover:text-foreground/80">Get in touch</Link> to start your project.
                 </p>
               </div>
             </Reveal>

@@ -50,12 +50,12 @@ function Card({ project, i }: { project: Project; i: number }) {
             className="object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-black/30" />
         </div>
         
         <div className="relative z-10 p-8 md:p-12 lg:p-16 flex flex-col justify-end w-full lg:w-3/4">
           <div className="mb-6 flex items-baseline gap-5 md:mb-10 md:gap-8">
-            <span className="font-mono text-sm tracking-widest text-white/70">0{i + 1}</span>
+            <span className="font-mono text-sm tracking-widest text-white/90">0{i + 1}</span>
             <h3 className="font-heading text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
               <RevealWords text={project.title} stagger={0.05} />
             </h3>
@@ -63,7 +63,7 @@ function Card({ project, i }: { project: Project; i: number }) {
           
           <div className="flex flex-col gap-8">
             <Reveal delay={0.2}>
-              <p className="font-sans text-xl leading-relaxed text-white/80 sm:text-2xl md:text-3xl line-clamp-3">
+              <p className="font-sans text-xl leading-relaxed text-white/90 sm:text-2xl md:text-3xl line-clamp-3">
                 {project.overview}
               </p>
             </Reveal>
@@ -71,7 +71,7 @@ function Card({ project, i }: { project: Project; i: number }) {
             <div className="flex flex-col gap-6 sm:flex-row sm:items-end justify-between mt-4">
               <Reveal delay={0.3}>
                 <div>
-                  <span className="mb-4 block font-mono text-[11px] uppercase tracking-widest text-white/60">
+                  <span className="mb-4 block font-mono text-[11px] uppercase tracking-widest text-white/90">
                     Services
                   </span>
                   <div className="flex flex-wrap gap-2">

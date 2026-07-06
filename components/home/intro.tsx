@@ -22,7 +22,7 @@ export function Intro() {
             <Reveal delay={0.1} className="mt-10">
               <Link
                 href="/studio"
-                className="group inline-flex items-center gap-3 rounded-full border border-border/50 bg-secondary/30 px-6 py-3 font-mono text-[11px] uppercase tracking-widest text-foreground transition-all duration-300 hover:border-foreground hover:bg-foreground hover:text-background"
+                className="group inline-flex items-center gap-3 rounded-full border border-foreground/30 bg-secondary/30 px-6 py-3 font-mono text-[11px] uppercase tracking-widest text-foreground transition-all duration-300 hover:border-foreground hover:bg-foreground hover:text-background"
               >
                 Learn more about the studio
                 <svg

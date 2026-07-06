@@ -71,11 +71,11 @@ export function WhatWeBuild() {
             return (
               <Reveal key={i} delay={i * 0.1}>
                 <Link href={item.href} className="group block h-full outline-none">
-                  <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-2xl bg-background p-8 border border-border/50 hover:border-foreground/30 transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-lg">
+                  <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-2xl bg-background p-8 border border-border hover:border-foreground/30 transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-lg">
                     
                     {/* Header: Icon & Number */}
                     <div className="mb-12 flex items-start justify-between">
-                      <div className="h-12 w-12 rounded-full bg-foreground/5 flex items-center justify-center text-foreground transition-colors duration-300 group-hover:bg-accent/10 group-hover:text-accent">
+                      <div className="h-12 w-12 rounded-full bg-foreground/5 flex items-center justify-center text-foreground transition-colors duration-300 group-hover:bg-foreground/10 group-hover:text-foreground">
                         <Icon className="w-5 h-5" />
                       </div>
                       <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
@@ -89,12 +89,12 @@ export function WhatWeBuild() {
                         <h3 className="font-heading text-xl font-medium tracking-tight text-foreground">
                           {item.title}
                         </h3>
-                        <ArrowRight className="w-4 h-4 text-accent opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
+                        <ArrowRight className="w-4 h-4 text-foreground opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
                       </div>
                       <p className="text-muted-foreground leading-relaxed mb-6">
                         {item.description}
                       </p>
-                      <span className="inline-block rounded-full border border-border/50 bg-secondary/50 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-muted-foreground transition-colors duration-300 group-hover:border-accent/30 group-hover:text-accent">
+                      <span className="inline-block rounded-full border border-foreground/20 bg-secondary px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-muted-foreground transition-colors duration-300 group-hover:border-foreground/40 group-hover:text-foreground">
                         {item.tier}
                       </span>
                     </div>
