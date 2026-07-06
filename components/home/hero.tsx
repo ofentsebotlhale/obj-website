@@ -1,24 +1,59 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion } from 'motion/react'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 const LINE1 = 'OBX'
 const LINE2 = 'STUDIO'
 
-function Line({ text, delay }: { text: string; delay: number }) {
+function MagneticChar({ children, delay }: { children: React.ReactNode, delay: number }) {
+  const ref = useRef<HTMLSpanElement>(null)
+  const [position, setPosition] = useState({ x: 0, y: 0 })
+
+  const handleMouse = (e: React.MouseEvent<HTMLSpanElement>) => {
+    if (!ref.current) return
+    const { clientX, clientY } = e
+    const { height, width, left, top } = ref.current.getBoundingClientRect()
+    const middleX = clientX - (left + width / 2)
+    const middleY = clientY - (top + height / 2)
+    setPosition({ x: middleX * 0.4, y: middleY * 0.4 })
+  }
+
+  const reset = () => {
+    setPosition({ x: 0, y: 0 })
+  }
+
   return (
-    <span className="block overflow-hidden">
+    <motion.span
+      ref={ref}
+      onMouseMove={handleMouse}
+      onMouseLeave={reset}
+      animate={{ x: position.x, y: position.y }}
+      transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 0.1 }}
+      className="inline-block origin-center cursor-default select-none hover:text-foreground/80 transition-colors duration-300"
+    >
       <motion.span
         className="block"
         initial={{ y: '110%' }}
         animate={{ y: '0%' }}
         transition={{ duration: 1, ease: EASE, delay }}
       >
-        {text}
+        {children}
       </motion.span>
+    </motion.span>
+  )
+}
+
+function Line({ text, delay }: { text: string; delay: number }) {
+  return (
+    <span className="flex overflow-hidden pb-8 -mb-8">
+      {text.split('').map((char, i) => (
+        <MagneticChar key={i} delay={delay + i * 0.03}>
+          {char === ' ' ? '\u00A0' : char}
+        </MagneticChar>
+      ))}
     </span>
   )
 }
@@ -48,7 +83,7 @@ export function Hero() {
           Digital design & branding studio
         </span>
         <span className="hidden text-right leading-relaxed sm:block">
-          Est. 2018
+          Est. 2026
           <br />
           Johannesburg — South Africa
         </span>
@@ -65,15 +100,21 @@ export function Hero() {
             <div aria-hidden="true">
               <Line text={LINE2} delay={0.28} />
             </div>
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 2.2, ease: EASE }}
-              className="mb-[2vw] hidden max-w-xs text-pretty font-sans text-sm font-normal leading-relaxed tracking-normal text-muted-foreground md:block"
+              className="mb-[2vw] hidden max-w-sm flex-col gap-3 md:flex"
             >
-              We craft brands, interfaces, and high-performance digital experiences
-              for the ambitious.
-            </motion.p>
+              <span className="font-mono text-[10px] uppercase tracking-widest text-foreground/50 flex items-center gap-2">
+                <span className="h-[1px] w-4 bg-foreground/50 inline-block" />
+                What we do
+              </span>
+              <p className="text-pretty font-sans text-base font-medium leading-relaxed tracking-normal text-foreground/90">
+                We craft brands, interfaces, and high-performance digital experiences
+                for the ambitious.
+              </p>
+            </motion.div>
           </div>
         </div>
       </div>
@@ -86,7 +127,7 @@ export function Hero() {
         className="relative z-10 flex flex-col sm:flex-row sm:items-end justify-between gap-6"
       >
         <div className="flex flex-col sm:flex-row sm:items-end gap-6 sm:gap-10">
-          <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-widest text-muted-foreground mr-auto sm:mr-0">
+          <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-widest text-muted-foreground mr-auto sm:mr-0 mb-2 sm:mb-0">
             <motion.span
               animate={{ y: [0, 6, 0] }}
               transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
@@ -99,13 +140,13 @@ export function Hero() {
           
           <Link
             href="/work"
-            className="group flex w-fit items-center gap-3 rounded-full bg-foreground px-6 py-3 min-h-[44px] font-mono text-[11px] uppercase tracking-widest text-background transition-all hover:opacity-80"
+            className="group flex w-fit items-center gap-4 rounded-full bg-foreground px-8 py-4 min-h-[56px] font-mono text-xs uppercase tracking-widest text-background transition-all hover:scale-105 active:scale-95"
           >
             View projects
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="14"
-              height="14"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"

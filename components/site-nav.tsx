@@ -49,7 +49,7 @@ export function SiteNav() {
           <div className="flex items-center gap-4">
             <Link
               href="/contact"
-              className="flex items-center justify-center min-h-[44px] rounded-full bg-white px-5 sm:px-6 font-mono text-[10px] sm:text-[11px] uppercase tracking-widest text-black transition-all hover:opacity-80"
+              className="flex items-center justify-center min-h-[44px] rounded-full border border-white/30 px-5 sm:px-6 font-mono text-[10px] sm:text-[11px] uppercase tracking-widest text-white transition-all hover:bg-white hover:text-black"
             >
               Contact Us
             </Link>
