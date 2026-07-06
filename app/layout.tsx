@@ -23,6 +23,11 @@ export const metadata: Metadata = {
     'OBX Studio is a boutique digital studio crafting premium brand identities, editorial interfaces, and high-performance web experiences.',
   keywords: ['design studio', 'branding agency', 'web development', 'UI/UX', 'OBX Studio'],
   metadataBase: new URL('https://obxstudio.co.za'),
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
   openGraph: {
     title: 'OBX Studio',
     description: 'A few skilled humans doing the work of many.',
