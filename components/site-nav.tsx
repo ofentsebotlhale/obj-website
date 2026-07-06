@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'motion/react'
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'motion/react'
 import { cn } from '@/lib/utils'
 import { Menu, X } from 'lucide-react'
 
@@ -17,6 +17,25 @@ const LINKS = [
 export function SiteNav() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
+  const [hidden, setHidden] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  
+  const { scrollY } = useScroll()
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() ?? 0
+    if (latest > previous && latest > 150) {
+      setHidden(true)
+    } else {
+      setHidden(false)
+    }
+
+    if (latest > 20) {
+      setScrolled(true)
+    } else {
+      setScrolled(false)
+    }
+  })
 
   useEffect(() => {
     setOpen(false)
@@ -33,35 +52,58 @@ export function SiteNav() {
     <>
       <motion.header 
         initial={pathname === '/' ? { opacity: 0 } : { opacity: 1 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: pathname === '/' ? 2.5 : 0 }}
-        className="fixed inset-x-0 top-0 z-[90] mix-blend-difference text-white pointer-events-none"
+        animate={{ 
+          opacity: 1, 
+          y: hidden && !open ? '-100%' : '0%' 
+        }}
+        transition={{ 
+          opacity: { duration: 0.8, delay: pathname === '/' ? 2.5 : 0 },
+          y: { duration: 0.3, ease: 'easeInOut' }
+        }}
+        className={cn(
+          "fixed inset-x-0 top-0 z-[90] transition-colors duration-300 pointer-events-auto",
+          scrolled && !open 
+            ? "bg-background/95 backdrop-blur-md border-b border-border/50 text-foreground" 
+            : "bg-transparent text-foreground",
+          open ? "text-foreground" : ""
+        )}
       >
-        <nav className="flex items-center justify-between px-5 py-5 md:px-10 md:py-7 pointer-events-auto">
+        <nav className={cn(
+          "flex items-center justify-between px-5 transition-all duration-300 md:px-10",
+          scrolled && !open ? "py-3 md:py-4" : "py-5 md:py-7"
+        )}>
           <Link
             href="/"
-            className="font-heading text-lg font-bold tracking-tight min-h-[44px] min-w-[44px] flex items-center justify-center"
+            className={cn(
+              "font-heading font-bold tracking-tight min-h-[44px] flex items-center justify-center transition-all duration-300",
+              scrolled && !open ? "text-base scale-95 origin-left" : "text-lg scale-100 origin-left"
+            )}
             aria-label="OBX Studio home"
           >
             OBX Studio
           </Link>
-
           <div className="flex items-center gap-4">
             <Link
               href="/contact"
-              className="flex items-center justify-center min-h-[44px] rounded-full border border-white/30 px-5 sm:px-6 font-mono text-[10px] sm:text-[11px] uppercase tracking-widest text-white transition-all hover:bg-white hover:text-black"
+              className="flex items-center justify-center min-h-[44px] rounded-full bg-foreground px-5 sm:px-6 font-mono text-[10px] sm:text-[11px] uppercase tracking-widest text-background transition-transform hover:scale-105 active:scale-95"
             >
               Contact Us
             </Link>
-
             <button
               type="button"
               onClick={() => setOpen((v) => !v)}
-              className="flex items-center justify-center min-h-[44px] min-w-[44px] rounded-full transition-all hover:opacity-80"
+              className="flex items-center justify-center min-h-[44px] min-w-[44px] rounded-full transition-transform hover:scale-105 active:scale-95"
               aria-expanded={open}
               aria-label="Toggle menu"
             >
-              {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              <div className="relative w-6 h-6 flex items-center justify-center">
+                <span className={cn("absolute transition-all duration-300", open ? "opacity-0 rotate-90 scale-50" : "opacity-100 rotate-0 scale-100")}>
+                  <Menu className="w-6 h-6" />
+                </span>
+                <span className={cn("absolute transition-all duration-300", open ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-90 scale-50")}>
+                  <X className="w-6 h-6" />
+                </span>
+              </div>
             </button>
           </div>
         </nav>
@@ -73,7 +115,7 @@ export function SiteNav() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="fixed inset-0 z-40 flex flex-col items-end justify-center bg-background px-6 md:px-20"
           >
             <ul className="flex flex-col items-end gap-4">
@@ -82,9 +124,10 @@ export function SiteNav() {
                 return (
                   <motion.li
                     key={link.href}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.08 * i + 0.1, ease: [0.22, 1, 0.36, 1] }}
+                    initial={{ opacity: 0, x: 40 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 20 }}
+                    transition={{ delay: 0.08 * i + 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                   >
                     <Link
                       href={link.href}
@@ -102,9 +145,14 @@ export function SiteNav() {
                 )
               })}
             </ul>
-            <p className="mt-16 text-right font-mono text-xs uppercase tracking-widest text-muted-foreground">
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+              className="mt-16 text-right font-mono text-xs uppercase tracking-widest text-muted-foreground"
+            >
               hello@obxstudio.co.za
-            </p>
+            </motion.p>
           </motion.div>
         )}
       </AnimatePresence>
