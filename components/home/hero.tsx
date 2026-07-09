@@ -99,13 +99,13 @@ export function Hero() {
       </motion.div>
 
       {/* Oversized wordmark */}
-      <div className="relative z-10 flex flex-col items-center pt-[320px] sm:pt-[260px] md:pt-[200px] lg:pt-[120px]">
+      <div className="relative z-10 flex w-full flex-col items-start">
         <h1 className="sr-only">OBX Studio</h1>
-        <div className="flex flex-col items-center font-heading text-[24vw] font-bold leading-[0.82] tracking-tighter text-foreground sm:text-[22vw] md:text-[19vw]">
+        <div className="flex flex-col items-start font-heading text-[24vw] font-bold leading-[0.82] tracking-tighter text-foreground sm:text-[22vw] md:text-[19vw]">
           <div aria-hidden="true">
             <Line text={LINE1} delay={0.15} />
           </div>
-          <div className="flex items-center justify-center gap-4">
+          <div className="flex items-center justify-start gap-4">
             <div aria-hidden="true">
               <Line text={LINE2} delay={0.28} />
             </div>
