@@ -6,6 +6,7 @@ import { SmoothScroll } from '@/components/smooth-scroll'
 import { CustomCursor } from '@/components/custom-cursor'
 import { SiteNav } from '@/components/site-nav'
 import { SiteFooter } from '@/components/site-footer'
+import { CookieBanner } from '@/components/cookie-banner'
 import { FirebaseAnalytics } from '@/components/firebase-analytics'
 import { LayoutWrapper } from '@/components/layout-wrapper'
 import { AnalyticsLoader } from '@/components/analytics-loader'
@@ -56,6 +57,7 @@ export default function RootLayout({
           content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://*.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://www.clarity.ms https://*.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://stats.g.doubleclick.net https://*.doubleclick.net https://formspree.io https://*.googlesyndication.com https://www.clarity.ms https://*.clarity.ms;"
         />
         <meta name="ranknibbler-site-verification" content="8936626e0ecbef73e430012b9bff926a"/>
+
         {/* Preconnect to external assets */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
@@ -78,10 +80,8 @@ export default function RootLayout({
             style={{ display: 'none', visibility: 'hidden' }}
           ></iframe>
         </noscript>
-
         <AnalyticsLoader />
         <FirebaseAnalytics />
-
         <a 
           href="#main-content" 
           className="focus:fixed focus:left-6 focus:top-6 focus:translate-y-0 focus:z-[9999] bg-background text-foreground border border-border/60 py-2.5 px-5 rounded font-mono text-xs uppercase tracking-widest pointer-events-none focus:pointer-events-auto transition-transform"
@@ -93,7 +93,6 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        
         <CustomCursor />
         <LayoutWrapper>
           <SmoothScroll>
@@ -104,7 +103,8 @@ export default function RootLayout({
             <SiteFooter />
           </SmoothScroll>
         </LayoutWrapper>
-              </body>
+        <CookieBanner />
+      </body>
     </html>
   )
 }

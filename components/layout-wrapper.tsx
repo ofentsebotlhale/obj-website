@@ -1,6 +1,6 @@
+'use client'
 
-
-
+import { useEffect } from 'react'
 
 export function LayoutWrapper({ children }: { children: React.ReactNode }) {
   // Just return children directly without the global loading screen overlay,

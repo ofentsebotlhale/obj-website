@@ -71,7 +71,7 @@ export function Hero() {
   }, [])
 
   return (
-    <section className="relative flex min-h-[100svh] flex-col px-5 pb-8 pt-32 md:px-10 md:pt-36">
+    <section className="relative flex min-h-[100svh] flex-col justify-between px-5 pb-10 pt-28 md:px-10 md:pt-32">
       {/* Subtle grid pattern background */}
       <div 
         className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" 
@@ -83,7 +83,7 @@ export function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 2.2, ease: EASE }}
-        className="relative z-10 flex flex-col gap-6 max-w-sm flex-none md:ml-auto md:text-right md:items-end"
+        className="relative z-10 flex flex-col gap-6 max-w-sm"
       >
         <p className="text-pretty font-sans text-xl sm:text-2xl font-medium leading-relaxed tracking-normal text-foreground">
           We craft brands, interfaces, and high-performance digital experiences for the ambitious.
@@ -112,7 +112,7 @@ export function Hero() {
       </motion.div>
 
       {/* Oversized wordmark */}
-      <div className="relative z-10 flex flex-col flex-grow justify-center py-12 md:py-20">
+      <div className="relative z-10 flex flex-col">
         <h1 className="sr-only">OBX Studio</h1>
         <div className="font-heading text-[24vw] font-bold leading-[0.82] tracking-tighter text-foreground sm:text-[22vw] md:text-[19vw]">
           <div aria-hidden="true">
@@ -131,7 +131,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 2.4 }}
-        className="relative z-10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 font-mono text-[11px] uppercase tracking-widest text-muted-foreground flex-none"
+        className="relative z-10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 font-mono text-[11px] uppercase tracking-widest text-muted-foreground"
       >
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-3">
