@@ -99,7 +99,7 @@ export function Hero() {
       </motion.div>
 
       {/* Oversized wordmark */}
-      <div className="relative z-10 flex flex-col my-auto mt-24 sm:mt-16 md:mt-0">
+      <div className="relative z-10 flex flex-col pt-[240px] md:pt-[200px] lg:pt-[120px]">
         <h1 className="sr-only">OBX Studio</h1>
         <div className="font-heading text-[24vw] font-bold leading-[0.82] tracking-tighter text-foreground sm:text-[22vw] md:text-[19vw]">
           <div aria-hidden="true">
