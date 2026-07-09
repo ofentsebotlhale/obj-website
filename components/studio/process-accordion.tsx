@@ -60,7 +60,7 @@ function Card({ step, i }: { step: any; i: number }) {
     >
       <div className="flex min-h-[40vh] flex-col justify-between md:min-h-[55vh]">
         <div className="mb-12 flex items-baseline gap-5 md:mb-20 md:gap-8">
-          <span className="font-mono text-sm tracking-widest text-muted-foreground">{step.n}</span>
+          <span className="font-mono text-sm tracking-widest text-foreground">{step.n}</span>
           <h3 className="font-heading text-5xl font-semibold tracking-tight text-foreground sm:text-6xl md:text-[8rem] md:leading-[0.9]">
             <RevealWords text={step.title} stagger={0.08} />
           </h3>
@@ -68,13 +68,13 @@ function Card({ step, i }: { step: any; i: number }) {
         
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-8">
           <div className="md:col-span-8 md:pl-14">
-            <p className="text-xl leading-relaxed text-muted-foreground sm:text-2xl md:text-4xl md:leading-snug">
+            <p className="text-xl leading-relaxed text-foreground sm:text-2xl md:text-4xl md:leading-snug">
               <RevealWords text={step.desc} delay={0.2} stagger={0.015} />
             </p>
           </div>
           <div className="md:col-span-4 md:text-right">
             <Reveal delay={0.4}>
-              <span className="mb-6 block font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+              <span className="mb-6 block font-mono text-[11px] uppercase tracking-widest text-foreground">
                 Deliverables
               </span>
               <ul className="flex flex-wrap gap-2 md:justify-end">

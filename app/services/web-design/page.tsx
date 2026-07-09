@@ -67,7 +67,7 @@ export default function WebDesignPage() {
             <h2 className="font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl mb-8">
               What We Do
             </h2>
-            <p className="font-sans text-lg leading-relaxed text-muted-foreground mb-6">
+            <p className="font-sans text-lg leading-relaxed text-foreground mb-6">
               We design custom website experiences tailored to your business goals, audience, and industry. Every design is created from scratch — no templates, no shortcuts.
             </p>
             <p className="font-sans text-lg leading-relaxed text-foreground font-medium mb-6">
@@ -82,7 +82,7 @@ export default function WebDesignPage() {
                 "Landing page design",
                 "Design systems and style direction"
               ].map((item, i) => (
-                <li key={i} className="flex gap-4 font-sans text-lg text-muted-foreground">
+                <li key={i} className="flex gap-4 font-sans text-lg text-foreground">
                   <span className="text-foreground mt-1">✦</span>
                   <span>{item}</span>
                 </li>
@@ -97,25 +97,25 @@ export default function WebDesignPage() {
             <div className="flex flex-col gap-12 mb-20">
               <div>
                 <h3 className="font-mono text-sm uppercase tracking-widest text-foreground font-semibold mb-4">1. Understanding Your Business</h3>
-                <p className="font-sans text-lg leading-relaxed text-muted-foreground">
+                <p className="font-sans text-lg leading-relaxed text-foreground">
                   We start by learning your brand, audience, and objectives. This ensures every design decision is intentional and aligned with your goals.
                 </p>
               </div>
               <div>
                 <h3 className="font-mono text-sm uppercase tracking-widest text-foreground font-semibold mb-4">2. Structure & Wireframing</h3>
-                <p className="font-sans text-lg leading-relaxed text-muted-foreground">
+                <p className="font-sans text-lg leading-relaxed text-foreground">
                   We define the structure of your website, focusing on clarity, content hierarchy, and user flow before any visual design begins.
                 </p>
               </div>
               <div>
                 <h3 className="font-mono text-sm uppercase tracking-widest text-foreground font-semibold mb-4">3. Visual Design</h3>
-                <p className="font-sans text-lg leading-relaxed text-muted-foreground">
+                <p className="font-sans text-lg leading-relaxed text-foreground">
                   We translate strategy into visual form — combining typography, spacing, colour, and layout to create a modern and professional interface.
                 </p>
               </div>
               <div>
                 <h3 className="font-mono text-sm uppercase tracking-widest text-foreground font-semibold mb-4">4. Responsive Experience</h3>
-                <p className="font-sans text-lg leading-relaxed text-muted-foreground">
+                <p className="font-sans text-lg leading-relaxed text-foreground">
                   Every design is optimized for desktop, tablet, and mobile to ensure a consistent and intuitive experience across all devices.
                 </p>
               </div>
@@ -126,13 +126,13 @@ export default function WebDesignPage() {
             <h2 className="font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl mb-8">
               From Design to a Complete Website
             </h2>
-            <p className="font-sans text-lg leading-relaxed text-muted-foreground mb-6">
+            <p className="font-sans text-lg leading-relaxed text-foreground mb-6">
               At OBX Studio, web design is the foundation of a complete digital product.
             </p>
-            <p className="font-sans text-lg leading-relaxed text-muted-foreground mb-6">
+            <p className="font-sans text-lg leading-relaxed text-foreground mb-6">
               Once the design phase is complete, we can extend the project into full development and launch. This means your website moves seamlessly from concept to a fully functional, live product without the need to coordinate separate teams.
             </p>
-            <p className="font-sans text-lg leading-relaxed text-muted-foreground mb-20">
+            <p className="font-sans text-lg leading-relaxed text-foreground mb-20">
               We handle both design and development to ensure consistency, performance, and a smooth execution from start to finish.
             </p>
           </Reveal>
@@ -151,7 +151,7 @@ export default function WebDesignPage() {
                     "High-fidelity design files ready for development",
                     "Consistent visual system across all pages"
                   ].map((item, i) => (
-                    <li key={i} className="flex gap-4 font-sans text-[15px] leading-relaxed text-muted-foreground">
+                    <li key={i} className="flex gap-4 font-sans text-[15px] leading-relaxed text-foreground">
                       <span className="text-foreground mt-0.5">✦</span>
                       <span>{item}</span>
                     </li>
@@ -173,7 +173,7 @@ export default function WebDesignPage() {
                     "Established businesses needing a redesign",
                     "Brands looking to improve credibility online"
                   ].map((item, i) => (
-                    <li key={i} className="flex gap-4 font-sans text-[15px] leading-relaxed text-muted-foreground">
+                    <li key={i} className="flex gap-4 font-sans text-[15px] leading-relaxed text-foreground">
                       <span className="text-foreground mt-0.5">✦</span>
                       <span>{item}</span>
                     </li>
@@ -187,14 +187,14 @@ export default function WebDesignPage() {
             <h2 className="font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl mb-8">
               Why Good Web Design Matters
             </h2>
-            <p className="font-sans text-lg leading-relaxed text-muted-foreground mb-6">
+            <p className="font-sans text-lg leading-relaxed text-foreground mb-6">
               Your website is often the first impression people have of your business.
             </p>
-            <p className="font-sans text-lg leading-relaxed text-muted-foreground mb-6">
+            <p className="font-sans text-lg leading-relaxed text-foreground mb-6">
               Good design builds trust, improves clarity, and helps users understand your value within seconds. Poor design creates friction, confusion, and lost opportunities.
             </p>
-            <p className="font-sans text-lg leading-relaxed text-muted-foreground mb-20">
-              At OBX Studio, we design websites that not only look modern but also guide users toward meaningful action. Once the design is finalized, our <Link href="/services/web-development" className="text-foreground underline hover:text-foreground/80">web development</Link> team brings it to life.
+            <p className="font-sans text-lg leading-relaxed text-foreground mb-20">
+              At OBX Studio, we design websites that not only look modern but also guide users toward meaningful action. Once the design is finalized, our <Link href="/services/web-development" className="text-foreground underline hover:text-foreground">web development</Link> team brings it to life.
             </p>
           </Reveal>
         </div>
@@ -204,7 +204,7 @@ export default function WebDesignPage() {
       <section className="px-5 py-28 md:px-10 md:py-40 bg-card/20 border-t border-border">
         <div className="mx-auto max-w-[1600px] text-center flex flex-col items-center justify-center">
           <Reveal>
-            <p className="font-mono text-sm uppercase tracking-widest text-muted-foreground mb-6">
+            <p className="font-mono text-sm uppercase tracking-widest text-foreground mb-6">
               Ready to Build Your Website?
             </p>
             <h2 className="font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl md:text-6xl mb-12 max-w-3xl mx-auto">

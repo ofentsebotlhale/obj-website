@@ -40,7 +40,7 @@ export default function StudioPage() {
       <section className="border-t border-border px-5 py-24 md:px-10 md:py-32">
         <div className="mx-auto grid max-w-[1600px] grid-cols-1 gap-12 md:grid-cols-12">
           <Reveal className="md:col-span-4">
-            <div className="sticky top-28 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+            <div className="sticky top-28 font-mono text-[11px] uppercase tracking-widest text-foreground">
               ( Who We Are )
             </div>
           </Reveal>
@@ -51,12 +51,12 @@ export default function StudioPage() {
               </p>
             </Reveal>
             <Reveal delay={0.2}>
-              <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
-                We believe a website should be more than a digital brochure. It must represent a business professionally, create confidence, and support meaningful objectives. Our work combines <Link href="/services" className="text-foreground underline hover:text-foreground/80">strategy, design, and development</Link> to create websites that are visually refined and commercially effective.
+              <p className="text-base leading-relaxed text-foreground md:text-lg">
+                We believe a website should be more than a digital brochure. It must represent a business professionally, create confidence, and support meaningful objectives. Our work combines <Link href="/services" className="text-foreground underline hover:text-foreground">strategy, design, and development</Link> to create websites that are visually refined and commercially effective.
               </p>
             </Reveal>
             <Reveal delay={0.3}>
-              <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
+              <p className="text-base leading-relaxed text-foreground md:text-lg">
                 Based in Johannesburg, we partner with professional service firms, growing businesses, and modern brands. We bring technical expertise and creative vision to every project, ensuring your digital storefront accurately reflects the quality of your services.
               </p>
             </Reveal>
@@ -97,7 +97,7 @@ export default function StudioPage() {
         <div className="mx-auto max-w-[1600px]">
           <div className="grid grid-cols-1 gap-12 md:grid-cols-12 mb-16">
             <Reveal className="md:col-span-4">
-              <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+              <span className="font-mono text-[11px] uppercase tracking-widest text-foreground">
                 ( Our Approach )
               </span>
             </Reveal>
@@ -119,7 +119,7 @@ export default function StudioPage() {
           <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
             <Reveal className="md:col-span-4">
               <div className="sticky top-28">
-                <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground block mb-2">
+                <span className="font-mono text-[11px] uppercase tracking-widest text-foreground block mb-2">
                   ( Team )
                 </span>
                 <h3 className="font-heading text-2xl font-semibold tracking-tight text-foreground">
@@ -133,7 +133,7 @@ export default function StudioPage() {
                   Ofentse Lengwasa
                 </h4>
               </Reveal>
-              <div className="flex flex-col gap-6 text-base leading-relaxed text-muted-foreground md:text-lg">
+              <div className="flex flex-col gap-6 text-base leading-relaxed text-foreground md:text-lg">
                 <Reveal delay={0.2}>
                   <p>
                     OBX Studio was founded by Ofentse Lengwasa with a vision of helping businesses establish stronger digital foundations through thoughtful design.

@@ -96,7 +96,7 @@ export function CookieBanner() {
               </div>
 
               {!showPreferences ? (
-                <p className="text-sm font-light leading-relaxed text-muted-foreground select-none">
+                <p className="text-sm font-light leading-relaxed text-foreground select-none">
                   We collect cookie data regarding website interactions to
                   analyze and elevate our physical-to-digital representations.
                   Rejecting limits tracking. Learn more in our{" "}
@@ -111,7 +111,7 @@ export function CookieBanner() {
                 </p>
               ) : (
                 <div className="space-y-4 pt-2">
-                  <p className="text-xs text-muted-foreground uppercase tracking-wider font-mono">
+                  <p className="text-xs text-foreground uppercase tracking-wider font-mono">
                     Configure Privacy Settings
                   </p>
 
@@ -122,12 +122,12 @@ export function CookieBanner() {
                         <span className="text-sm font-medium text-foreground block">
                           Essential Data
                         </span>
-                        <span className="text-xs text-muted-foreground">
+                        <span className="text-xs text-foreground">
                           Required for secure navigation, core assets and
                           structural layout.
                         </span>
                       </div>
-                      <span className="font-mono text-[10px] uppercase text-muted-foreground tracking-widest px-2.5 py-1 bg-secondary/50 border border-foreground/20">
+                      <span className="font-mono text-[10px] uppercase text-foreground tracking-widest px-2.5 py-1 bg-secondary/50 border border-foreground/20">
                         Required
                       </span>
                     </div>
@@ -138,7 +138,7 @@ export function CookieBanner() {
                         <span className="text-sm font-medium text-foreground block">
                           Performance &amp; Analytics
                         </span>
-                        <span className="text-xs text-muted-foreground">
+                        <span className="text-xs text-foreground">
                           Allows anonymous telemetry compilation via Google
                           Analytics.
                         </span>
@@ -154,7 +154,7 @@ export function CookieBanner() {
                         className={`font-mono text-[10px] uppercase tracking-widest px-3 py-1 border transition-all duration-300 ${
                           preferences.analytics
                             ? "bg-foreground border-foreground text-background"
-                            : "bg-transparent border-foreground/30 text-muted-foreground hover:text-foreground"
+                            : "bg-transparent border-foreground text-foreground hover:bg-foreground hover:text-background"
                         }`}
                       >
                         {preferences.analytics ? "Enabled" : "Disabled"}
@@ -180,7 +180,7 @@ export function CookieBanner() {
                     <button
                       id="cookie-btn-preferences"
                       onClick={() => setShowPreferences(true)}
-                      className="group relative px-2 py-2.5 min-h-[44px] min-w-[44px] font-mono text-[10px] uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-300"
+                      className="group relative px-2 py-2.5 min-h-[44px] min-w-[44px] font-mono text-[10px] uppercase tracking-widest text-foreground hover:opacity-70 transition-colors duration-300"
                     >
                       <span>Customize</span>
                       <span className="absolute bottom-1 left-2 h-px w-[calc(100%-16px)] scale-x-0 bg-muted-foreground origin-left transition-transform duration-300 group-hover:scale-x-100" />
@@ -188,7 +188,7 @@ export function CookieBanner() {
                     <button
                       id="cookie-btn-reject"
                       onClick={handleRejectAll}
-                      className="px-2 py-2.5 min-h-[44px] min-w-[44px] font-mono text-[10px] uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-300"
+                      className="px-2 py-2.5 min-h-[44px] min-w-[44px] font-mono text-[10px] uppercase tracking-widest text-foreground hover:opacity-70 transition-colors duration-300"
                     >
                       Only Essential
                     </button>
@@ -206,7 +206,7 @@ export function CookieBanner() {
                   <button
                     id="cookie-btn-back"
                     onClick={() => setShowPreferences(false)}
-                    className="group relative self-center px-4 py-2.5 min-h-[44px] min-w-[44px] font-mono text-[10px] uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-300"
+                    className="group relative self-center px-4 py-2.5 min-h-[44px] min-w-[44px] font-mono text-[10px] uppercase tracking-widest text-foreground hover:opacity-70 transition-colors duration-300"
                   >
                     &larr; Back
                   </button>

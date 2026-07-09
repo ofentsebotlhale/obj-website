@@ -78,7 +78,7 @@ export function WhatWeBuild() {
                       <div className="h-12 w-12 rounded-full bg-foreground/5 flex items-center justify-center text-foreground transition-colors duration-300 group-hover:bg-foreground/10 group-hover:text-foreground">
                         <Icon className="w-5 h-5" />
                       </div>
-                      <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
+                      <span className="font-mono text-xs uppercase tracking-widest text-foreground transition-colors duration-300 group-hover:text-foreground">
                         {item.num}
                       </span>
                     </div>
@@ -91,10 +91,10 @@ export function WhatWeBuild() {
                         </h3>
                         <ArrowRight className="w-4 h-4 text-foreground opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
                       </div>
-                      <p className="text-muted-foreground leading-relaxed mb-6">
+                      <p className="text-foreground leading-relaxed mb-6">
                         {item.description}
                       </p>
-                      <span className="inline-block rounded-full border border-foreground/20 bg-secondary px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-muted-foreground transition-colors duration-300 group-hover:border-foreground/40 group-hover:text-foreground">
+                      <span className="inline-block rounded-full border border-foreground/20 bg-secondary px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-foreground transition-colors duration-300 group-hover:border-foreground/40 group-hover:text-foreground">
                         {item.tier}
                       </span>
                     </div>

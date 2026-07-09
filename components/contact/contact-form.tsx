@@ -327,7 +327,7 @@ export function ContactForm() {
                 ⚠ Error: {error}
               </motion.div>
             )}
-            <p className="text-xs text-muted-foreground">
+            <p className="text-xs text-foreground">
               By submitting this form, you agree to our privacy policy and terms.
             </p>
           </motion.div>
@@ -366,7 +366,7 @@ export function ContactForm() {
             <h2 className="mt-6 font-heading text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
               Message received.
             </h2>
-            <p className="mt-3 max-w-md text-pretty leading-relaxed text-muted-foreground">
+            <p className="mt-3 max-w-md text-pretty leading-relaxed text-foreground">
               Thanks{form.name ? `, ${form.name.split(' ')[0]}` : ''} — we&apos;ll be in
               touch within two business days.
             </p>
@@ -378,7 +378,7 @@ export function ContactForm() {
                 setForm({ name: '', email: '', company: '', need: '', budget: '', timeline: '', message: '' })
                 setError(null)
               }}
-              className="mt-8 font-mono text-[11px] uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground"
+              className="mt-8 font-mono text-[11px] uppercase tracking-widest text-foreground transition-colors hover:opacity-70"
             >
               ← Send another
             </button>

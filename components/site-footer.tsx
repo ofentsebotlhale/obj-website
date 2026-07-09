@@ -96,7 +96,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-[1600px]">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
           <div className="md:col-span-7">
-            <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+            <p className="font-mono text-xs uppercase tracking-widest text-foreground">
               Have a project in mind?
             </p>
             <Link href="/contact" data-cursor="Say hi" className="group mt-4 inline-flex items-center gap-4">
@@ -128,7 +128,7 @@ export function SiteFooter() {
           <div className="md:col-span-5 md:flex md:justify-end mt-12 md:mt-0">
             <div className="flex flex-col gap-10 sm:max-w-[320px]">
               <div className="flex flex-col gap-4">
-                <span className="font-mono text-[12px] uppercase tracking-widest text-muted-foreground">
+                <span className="font-mono text-[12px] uppercase tracking-widest text-foreground">
                   Navigation
                 </span>
                 <div className="flex flex-wrap gap-3">
@@ -140,7 +140,7 @@ export function SiteFooter() {
                 </div>
               </div>
               <div className="flex flex-col gap-4">
-                <span className="font-mono text-[12px] uppercase tracking-widest text-muted-foreground">
+                <span className="font-mono text-[12px] uppercase tracking-widest text-foreground">
                   Connect
                 </span>
                 <div className="flex flex-wrap gap-4">

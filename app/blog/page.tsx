@@ -44,17 +44,17 @@ export default function BlogListingPage() {
             {/* Left sidebar info or categories teaser */}
             <div className="lg:col-span-4 space-y-6">
               <Reveal>
-                <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground mr-3">
+                <span className="font-mono text-[11px] uppercase tracking-widest text-foreground mr-3">
                   ( Insights Hub )
                 </span>
               </Reveal>
               <Reveal>
-                <p className="font-sans text-sm text-muted-foreground leading-relaxed max-w-sm">
+                <p className="font-sans text-sm text-foreground leading-relaxed max-w-sm">
                   We write to make sense of design systems, technology performance, and user strategies that drive measurable growth for digital businesses.
                 </p>
               </Reveal>
               <div className="pt-4 border-t border-border/40 max-w-sm">
-                <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground block mb-2">Featured Topic</span>
+                <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-foreground block mb-2">Featured Topic</span>
                 <span className="rounded-full bg-foreground/5 border border-foreground/20 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-foreground font-semibold inline-block">
                   Conversion Strategy
                 </span>
@@ -70,7 +70,7 @@ export default function BlogListingPage() {
                 >
                     <div className="flex flex-col gap-4">
                       {/* Meta info */}
-                      <div className="flex flex-wrap items-center justify-between gap-4 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                      <div className="flex flex-wrap items-center justify-between gap-4 font-mono text-[10px] uppercase tracking-widest text-foreground">
                         <span className="text-foreground font-semibold">
                           {post.category}
                         </span>
@@ -94,7 +94,7 @@ export default function BlogListingPage() {
                       </div>
 
                       {/* Excerpt */}
-                      <p className="font-sans text-sm md:text-base text-muted-foreground leading-relaxed mt-2 max-w-2xl">
+                      <p className="font-sans text-sm md:text-base text-foreground leading-relaxed mt-2 max-w-2xl">
                         {post.excerpt}
                       </p>
 

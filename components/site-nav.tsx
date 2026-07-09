@@ -130,7 +130,7 @@ export function SiteNav() {
                       className={cn(
                         "font-heading text-5xl font-semibold tracking-tight md:text-7xl transition-opacity",
                         isActive
-                          ? "text-muted-foreground pointer-events-none"
+                          ? "text-foreground pointer-events-none underline underline-offset-8"
                           : "text-foreground hover:opacity-70"
                       )}
                       aria-disabled={isActive}
@@ -145,7 +145,7 @@ export function SiteNav() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.5 }}
-              className="mt-16 text-right font-mono text-xs uppercase tracking-widest text-muted-foreground"
+              className="mt-16 text-right font-mono text-xs uppercase tracking-widest text-foreground"
             >
               hello@obxstudio.co.za
             </motion.p>

@@ -63,14 +63,14 @@ export default function WebDevelopmentPage() {
             </p>
           </Reveal>
 
-          <div className="max-w-4xl text-lg leading-relaxed text-muted-foreground font-sans">
+          <div className="max-w-4xl text-lg leading-relaxed text-foreground font-sans">
             <Reveal delay={0.1}>
               <div className="mb-16">
                 <p className="mb-6">
-                  Every page we build focuses on clarity and speed. When a visitor lands on your site, they form an opinion in seconds. If the site is slow or confusing, they will leave. That is why we build high-performing websites. They load quickly, guide the user smoothly, and highlight your product or service effectively. For the visual aspects of this process, see our <Link href="/services/web-design" className="text-foreground underline hover:text-foreground/80">web design</Link> service.
+                  Every page we build focuses on clarity and speed. When a visitor lands on your site, they form an opinion in seconds. If the site is slow or confusing, they will leave. That is why we build high-performing websites. They load quickly, guide the user smoothly, and highlight your product or service effectively. For the visual aspects of this process, see our <Link href="/services/web-design" className="text-foreground underline hover:text-foreground">web design</Link> service.
                 </p>
                 <p className="mb-6">
-                  We manage the technical details so you can save time and focus on your business. <Link href="/contact" className="text-foreground underline hover:text-foreground/80">Get in touch</Link> to start your project.
+                  We manage the technical details so you can save time and focus on your business. <Link href="/contact" className="text-foreground underline hover:text-foreground">Get in touch</Link> to start your project.
                 </p>
               </div>
             </Reveal>
@@ -96,7 +96,7 @@ export default function WebDevelopmentPage() {
       <section className="px-5 py-28 md:px-10 md:py-40 bg-card/20 border-t border-border">
         <div className="mx-auto max-w-[1600px] text-center flex flex-col items-center justify-center">
           <Reveal>
-            <p className="font-mono text-sm uppercase tracking-widest text-muted-foreground mb-6">
+            <p className="font-mono text-sm uppercase tracking-widest text-foreground mb-6">
               Ready to Build Your Website?
             </p>
             <h2 className="font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl md:text-6xl mb-12 max-w-3xl mx-auto">

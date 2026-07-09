@@ -78,7 +78,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           {/* Back button link */}
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-300"
+            className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-foreground hover:text-foreground transition-colors duration-300"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             <span>Back to Insights</span>
@@ -118,7 +118,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                       <span className="font-mono text-xs text-foreground font-semibold">{point.num}</span>
                       {point.title}
                     </h2>
-                    <p className="pl-7 text-sm md:text-base leading-relaxed text-muted-foreground">
+                    <p className="pl-7 text-sm md:text-base leading-relaxed text-foreground">
                       {point.content}
                     </p>
                   </div>
@@ -127,16 +127,16 @@ export default async function BlogPostPage({ params }: PageProps) {
 
               {/* Conclusion and parting words */}
               <div className="mt-16 border-t border-border/60 pt-10 space-y-6">
-                <p className="font-sans text-sm md:text-base leading-relaxed text-foreground/90 font-medium">
+                <p className="font-sans text-sm md:text-base leading-relaxed text-foreground font-medium">
                   {post.conclusionText}
                 </p>
-                <p className="font-sans text-sm md:text-base leading-relaxed text-muted-foreground pt-4 border-t border-border/20">
+                <p className="font-sans text-sm md:text-base leading-relaxed text-foreground pt-4 border-t border-border/20">
                   {post.closingText}
                 </p>
 
                 <div className="mt-12 bg-foreground/5 p-6 rounded-md border border-foreground/20">
                   <h3 className="font-mono text-xs uppercase tracking-widest text-foreground font-semibold mb-4">Need help with your website?</h3>
-                  <p className="font-sans text-sm md:text-base leading-relaxed text-muted-foreground mb-4">
+                  <p className="font-sans text-sm md:text-base leading-relaxed text-foreground mb-4">
                     OBX Studio provides professional digital solutions tailored to your business. We build custom websites designed for performance and clarity.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
@@ -154,14 +154,14 @@ export default async function BlogPostPage({ params }: PageProps) {
                   <h3 className="font-mono text-[10px] uppercase tracking-widest text-[#a3a3a3] mb-4 flex items-center gap-2">
                     <Hash className="h-3 w-3 text-foreground" /> Article Summary
                   </h3>
-                  <p className="font-sans text-xs text-muted-foreground leading-relaxed">
+                  <p className="font-sans text-xs text-foreground leading-relaxed">
                     A comprehensive inspection Checklist highlighting conversion killers on consumer-facing websites with suggestions on building immediate stakeholder trust.
                   </p>
                 </div>
                 
                 <div className="border-t border-border/40 pt-6">
                   <h4 className="font-sans text-xs font-semibold text-foreground mb-3">Key Solutions</h4>
-                  <ul className="space-y-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                  <ul className="space-y-2 font-mono text-[10px] uppercase tracking-widest text-foreground">
                     <li>✓ Prioritize Core Web Vitals</li>
                     <li>✓ Modernize UI Design Standards</li>
                     <li>✓ Optimise Responsive Performance</li>

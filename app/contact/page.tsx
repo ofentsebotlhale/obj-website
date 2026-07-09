@@ -43,7 +43,7 @@ export default function ContactPage() {
 
           <div className="lg:col-span-4 lg:col-start-9">
             <Reveal className="mb-8">
-              <p className="text-pretty leading-relaxed text-muted-foreground">
+              <p className="text-pretty leading-relaxed text-foreground">
                 Have a brief, a rough idea, or just a question? We read every contact message.
                 The more context you share, the better we can help. Get in touch with our team today.
               </p>

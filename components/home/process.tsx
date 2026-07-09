@@ -60,21 +60,21 @@ export function Process() {
               className="flex h-[58vh] w-[80vw] shrink-0 flex-col justify-between rounded-md border border-border bg-card p-6 sm:w-[60vw] md:w-[34vw] md:p-10"
             >
               <div className="flex items-start justify-between">
-                <span className="font-mono text-xs text-muted-foreground">{s.n}</span>
+                <span className="font-mono text-xs text-foreground">{s.n}</span>
                 <span className="h-2 w-2 rounded-full bg-foreground" />
               </div>
               <div>
                 <h3 className="font-heading text-4xl font-semibold tracking-tight text-foreground md:text-6xl">
                   {s.title}
                 </h3>
-                <p className="mt-5 max-w-sm text-pretty leading-relaxed text-muted-foreground">
+                <p className="mt-5 max-w-sm text-pretty leading-relaxed text-foreground">
                   {s.desc}
                 </p>
                 <div className="mt-6 flex flex-wrap gap-2">
                   {s.tags.map((t) => (
                     <span
                       key={t}
-                      className="rounded-full border border-foreground/20 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-muted-foreground"
+                      className="rounded-full border border-foreground/20 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-foreground"
                     >
                       {t}
                     </span>

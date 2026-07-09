@@ -46,7 +46,7 @@ export function Intro() {
           <div className="flex items-center border-l-2 border-accent/20 pl-6 lg:pl-10">
             <Reveal delay={0.2}>
               <blockquote className="space-y-4">
-                <p className="font-heading text-2xl md:text-3xl font-medium leading-[1.2] text-foreground/90 italic text-pretty">
+                <p className="font-heading text-2xl md:text-3xl font-medium leading-[1.2] text-foreground italic text-pretty">
                   "Your website is often the only meeting a prospective client has with you before they decide whether to trust you."
                 </p>
                 <footer className="font-mono text-xs uppercase tracking-widest text-muted-foreground">

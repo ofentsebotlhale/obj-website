@@ -72,7 +72,7 @@ export default function WorkPage() {
       <section className="px-5 py-28 md:px-10 md:py-40">
         <div className="mx-auto max-w-[1600px] text-center flex flex-col items-center justify-center">
           <Reveal>
-            <p className="font-mono text-sm uppercase tracking-widest text-muted-foreground mb-6">
+            <p className="font-mono text-sm uppercase tracking-widest text-foreground mb-6">
               Have a project in mind?
             </p>
             <h2 className="font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl md:text-7xl mb-12 max-w-3xl mx-auto">

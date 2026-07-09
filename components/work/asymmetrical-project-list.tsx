@@ -58,7 +58,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
         <Reveal delay={0.2}>
           <div className="flex items-center justify-between">
-            <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+            <span className="font-mono text-[11px] uppercase tracking-widest text-foreground">
               {project.category}
             </span>
           </div>
@@ -90,7 +90,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                     <p className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground mb-3">
                       Overview
                     </p>
-                    <p className="font-sans text-base leading-relaxed text-foreground/90">
+                    <p className="font-sans text-base leading-relaxed text-foreground">
                       {project.overview}
                     </p>
                   </div>
@@ -99,7 +99,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                     <p className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground mb-3">
                       Challenge
                     </p>
-                    <p className="font-sans text-base leading-relaxed text-muted-foreground">
+                    <p className="font-sans text-base leading-relaxed text-foreground">
                       {project.problem}
                     </p>
                   </div>
@@ -108,7 +108,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                     <p className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground mb-3">
                       Solution
                     </p>
-                    <p className="font-sans text-base leading-relaxed text-muted-foreground">
+                    <p className="font-sans text-base leading-relaxed text-foreground">
                       {project.solution}
                     </p>
                   </div>
