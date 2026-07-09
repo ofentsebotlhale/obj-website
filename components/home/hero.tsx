@@ -1,5 +1,6 @@
 'use client'
 
+import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import { motion } from 'motion/react'
@@ -89,25 +90,11 @@ export function Hero() {
           We craft brands, interfaces, and high-performance digital experiences for the ambitious.
         </p>
         <Link
-          href="/work"
+          href="/contact"
           className="group flex w-fit items-center gap-4 rounded-full bg-foreground px-8 py-4 min-h-[56px] font-mono text-xs uppercase tracking-widest text-background transition-all hover:scale-105 active:scale-95"
         >
-          View projects
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="transition-transform duration-300 group-hover:translate-x-1"
-          >
-            <path d="M5 12h14" />
-            <path d="m12 5 7 7-7 7" />
-          </svg>
+          Chat With Us
+          <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
         </Link>
       </motion.div>
 
@@ -134,28 +121,21 @@ export function Hero() {
         className="relative z-10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 font-mono text-[11px] uppercase tracking-widest text-muted-foreground"
       >
         <div className="flex flex-col gap-2">
-          <div className="flex items-center gap-3">
-            <motion.span
-              animate={{ y: [0, 6, 0] }}
-              transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-              className="inline-block"
-            >
-              ↓
-            </motion.span>
-            Scroll to explore
-          </div>
           <span className="leading-relaxed">
             Digital design & branding studio
           </span>
+          <span>Johannesburg — South Africa</span>
         </div>
         
         <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 text-left sm:text-right mt-4 sm:mt-0">
           <div className="flex gap-4">
-            <a href="https://www.linkedin.com/company/obxstudio/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">LinkedIn</a>
-            <a href="https://www.instagram.com/obxstudio_/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Instagram</a>
+            <a href="https://www.linkedin.com/company/obxstudio/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="https://www.instagram.com/obxstudio_/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
           </div>
-          <span className="hidden sm:inline-block text-foreground/30">/</span>
-          <span>Johannesburg — South Africa</span>
         </div>
       </motion.div>
     </section>

@@ -85,12 +85,6 @@ export function SiteNav() {
             OBX Studio
           </Link>
           <div className="flex items-center gap-4">
-            <Link
-              href="/contact"
-              className="flex items-center justify-center min-h-[44px] rounded-full bg-foreground px-5 sm:px-6 font-mono text-[10px] sm:text-[11px] uppercase tracking-widest text-background transition-transform hover:scale-105 active:scale-95"
-            >
-              Contact Us
-            </Link>
             <button
               type="button"
               onClick={() => setOpen((v) => !v)}
