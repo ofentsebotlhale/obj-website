@@ -30,7 +30,7 @@ export function SiteNav() {
       setHidden(false)
     }
 
-    if (latest > 20) {
+    if (latest > 50) {
       setScrolled(true)
     } else {
       setScrolled(false)
@@ -63,7 +63,7 @@ export function SiteNav() {
         className={cn(
           "fixed inset-x-0 top-0 z-[90] transition-colors duration-300 pointer-events-auto",
           scrolled && !open 
-            ? "bg-background/95 backdrop-blur-md border-b border-border/50 text-foreground" 
+            ? "bg-background border-b border-border/30 text-foreground" 
             : "bg-transparent text-foreground",
           open ? "text-foreground" : ""
         )}
@@ -75,8 +75,10 @@ export function SiteNav() {
           <Link
             href="/"
             className={cn(
-              "font-heading font-bold tracking-tight min-h-[44px] flex items-center justify-center transition-all duration-300",
-              scrolled && !open ? "text-base scale-95 origin-left" : "text-lg scale-100 origin-left"
+              "font-heading font-bold tracking-tight min-h-[44px] flex items-center justify-center transition-all duration-300 ease-out",
+              (pathname === '/' && !scrolled && !open) 
+                ? "opacity-0 translate-y-[10px] pointer-events-none" 
+                : "opacity-100 translate-y-0 text-base scale-95 origin-left"
             )}
             aria-label="OBX Studio home"
           >

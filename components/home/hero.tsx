@@ -80,19 +80,35 @@ export function Hero() {
 
       {/* Top meta row */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 2.0 }}
-        className="relative z-10 flex items-start justify-between font-mono text-[11px] uppercase tracking-widest text-muted-foreground"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 2.2, ease: EASE }}
+        className="relative z-10 flex flex-col gap-6 max-w-sm"
       >
-        <span className="max-w-[14rem] leading-relaxed">
-          Digital design & branding studio
-        </span>
-        <span className="hidden text-right leading-relaxed sm:block">
-          Est. 2026
-          <br />
-          Johannesburg — South Africa
-        </span>
+        <p className="text-pretty font-sans text-xl sm:text-2xl font-medium leading-relaxed tracking-normal text-foreground">
+          We craft brands, interfaces, and high-performance digital experiences for the ambitious.
+        </p>
+        <Link
+          href="/work"
+          className="group flex w-fit items-center gap-4 rounded-full bg-foreground px-8 py-4 min-h-[56px] font-mono text-xs uppercase tracking-widest text-background transition-all hover:scale-105 active:scale-95"
+        >
+          View projects
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="transition-transform duration-300 group-hover:translate-x-1"
+          >
+            <path d="M5 12h14" />
+            <path d="m12 5 7 7-7 7" />
+          </svg>
+        </Link>
       </motion.div>
 
       {/* Oversized wordmark */}
@@ -106,21 +122,6 @@ export function Hero() {
             <div aria-hidden="true">
               <Line text={LINE2} delay={0.28} />
             </div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 2.2, ease: EASE }}
-              className="mb-[2vw] hidden max-w-sm flex-col gap-3 md:flex"
-            >
-              <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground flex items-center gap-2">
-                <span className="h-[1px] w-4 bg-foreground/50 inline-block" />
-                What we do
-              </span>
-              <p className="text-pretty font-sans text-base font-medium leading-relaxed tracking-normal text-foreground/90">
-                We craft brands, interfaces, and high-performance digital experiences
-                for the ambitious.
-              </p>
-            </motion.div>
           </div>
         </div>
       </div>
@@ -130,10 +131,10 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 2.4 }}
-        className="relative z-10 flex flex-col sm:flex-row sm:items-end justify-between gap-6"
+        className="relative z-10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 font-mono text-[11px] uppercase tracking-widest text-muted-foreground"
       >
-        <div className="flex flex-col sm:flex-row sm:items-end gap-6 sm:gap-10">
-          <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-widest text-muted-foreground mr-auto sm:mr-0 mb-2 sm:mb-0">
+        <div className="flex flex-col gap-2">
+          <div className="flex items-center gap-3">
             <motion.span
               animate={{ y: [0, 6, 0] }}
               transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
@@ -143,36 +144,18 @@ export function Hero() {
             </motion.span>
             Scroll to explore
           </div>
-          
-          <div className="flex items-center gap-4">
-            <Link
-              href="/work"
-              className="group flex w-fit items-center gap-4 rounded-full bg-foreground px-8 py-4 min-h-[56px] font-mono text-xs uppercase tracking-widest text-background transition-all hover:scale-105 active:scale-95"
-            >
-              View projects
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="transition-transform duration-300 group-hover:translate-x-1"
-              >
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-            </Link>
-            <Link
-              href="/contact"
-              className="group flex w-fit items-center gap-4 rounded-full border border-foreground/30 bg-transparent px-8 py-4 min-h-[56px] font-mono text-xs uppercase tracking-widest text-foreground transition-all hover:bg-secondary hover:scale-105 active:scale-95"
-            >
-              Contact Us
-            </Link>
+          <span className="leading-relaxed">
+            Digital design & branding studio
+          </span>
+        </div>
+        
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 text-left sm:text-right mt-4 sm:mt-0">
+          <div className="flex gap-4">
+            <a href="https://www.linkedin.com/company/obxstudio/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">LinkedIn</a>
+            <a href="https://www.instagram.com/obxstudio_/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Instagram</a>
           </div>
+          <span className="hidden sm:inline-block text-foreground/30">/</span>
+          <span>Johannesburg — South Africa</span>
         </div>
       </motion.div>
     </section>
