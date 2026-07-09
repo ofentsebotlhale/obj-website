@@ -72,7 +72,7 @@ export function Hero() {
   }, [])
 
   return (
-    <section className="relative flex min-h-[100svh] flex-col justify-between px-5 pb-10 pt-28 md:px-10 md:pt-32">
+    <section className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden px-5 md:px-10">
       {/* Subtle grid pattern background */}
       <div 
         className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" 
@@ -84,22 +84,22 @@ export function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 2.2, ease: EASE }}
-        className="relative z-10 flex flex-col gap-6 max-w-sm"
+        className="absolute left-5 right-16 top-5 z-10 flex max-w-sm flex-col gap-6 md:left-10 md:right-auto md:top-7"
       >
-        <p className="text-pretty font-sans text-xl sm:text-2xl font-medium leading-relaxed tracking-normal text-foreground">
+        <p className="text-pretty font-sans text-xl font-medium leading-relaxed tracking-normal text-foreground sm:text-2xl pt-2">
           We craft brands, interfaces, and high-performance digital experiences for the ambitious.
         </p>
         <Link
           href="/contact"
-          className="group flex w-fit items-center gap-4 rounded-full bg-foreground px-8 py-4 min-h-[56px] font-mono text-xs uppercase tracking-widest text-background transition-all hover:scale-105 active:scale-95"
+          className="group flex min-h-[56px] w-fit items-center gap-4 rounded-full bg-foreground px-8 py-4 font-mono text-xs uppercase tracking-widest text-background transition-all hover:scale-105 active:scale-95"
         >
           Chat With Us
-          <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+          <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
         </Link>
       </motion.div>
 
       {/* Oversized wordmark */}
-      <div className="relative z-10 flex flex-col">
+      <div className="relative z-10 flex flex-col my-auto mt-24 sm:mt-16 md:mt-0">
         <h1 className="sr-only">OBX Studio</h1>
         <div className="font-heading text-[24vw] font-bold leading-[0.82] tracking-tighter text-foreground sm:text-[22vw] md:text-[19vw]">
           <div aria-hidden="true">
@@ -118,7 +118,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 2.4 }}
-        className="relative z-10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 font-mono text-[11px] uppercase tracking-widest text-muted-foreground"
+        className="absolute bottom-10 left-5 right-5 z-10 flex flex-col items-start justify-between gap-6 font-mono text-[11px] uppercase tracking-widest text-muted-foreground sm:flex-row sm:items-end md:left-10 md:right-10"
       >
         <div className="flex flex-col gap-2">
           <span className="leading-relaxed">
