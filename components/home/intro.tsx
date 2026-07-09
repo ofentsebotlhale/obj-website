@@ -5,8 +5,8 @@ import { Reveal } from '@/components/anim/reveal'
 
 export function Intro() {
   return (
-    <section className="px-5 py-28 md:px-10 md:py-40">
-      <div className="mx-auto grid max-w-[1600px] grid-cols-1 gap-12 md:grid-cols-12">
+    <section className="flex min-h-[100svh] flex-col justify-center px-5 py-28 md:px-10 md:py-40">
+      <div className="mx-auto grid w-full max-w-[1600px] grid-cols-1 gap-12 md:grid-cols-12">
         <Reveal className="md:col-span-3">
           <h2 className="font-heading text-2xl font-semibold tracking-tight text-foreground md:text-4xl">
             Studio

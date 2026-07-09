@@ -99,13 +99,13 @@ export function Hero() {
       </motion.div>
 
       {/* Oversized wordmark */}
-      <div className="relative z-10 flex flex-col pt-[240px] md:pt-[200px] lg:pt-[120px]">
+      <div className="relative z-10 flex flex-col items-center pt-[320px] sm:pt-[260px] md:pt-[200px] lg:pt-[120px]">
         <h1 className="sr-only">OBX Studio</h1>
-        <div className="font-heading text-[24vw] font-bold leading-[0.82] tracking-tighter text-foreground sm:text-[22vw] md:text-[19vw]">
+        <div className="flex flex-col items-center font-heading text-[24vw] font-bold leading-[0.82] tracking-tighter text-foreground sm:text-[22vw] md:text-[19vw]">
           <div aria-hidden="true">
             <Line text={LINE1} delay={0.15} />
           </div>
-          <div className="flex items-end justify-between gap-4">
+          <div className="flex items-center justify-center gap-4">
             <div aria-hidden="true">
               <Line text={LINE2} delay={0.28} />
             </div>
@@ -118,22 +118,21 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 2.4 }}
-        className="absolute bottom-10 left-5 right-5 z-10 flex flex-col items-start justify-between gap-6 font-mono text-[11px] uppercase tracking-widest text-muted-foreground sm:flex-row sm:items-end md:left-10 md:right-10"
+        className="absolute bottom-10 left-5 right-5 z-10 flex flex-row items-end justify-between gap-4 font-mono text-[10px] uppercase tracking-widest text-muted-foreground sm:text-[11px] md:left-10 md:right-10"
       >
         <div className="flex flex-col gap-2">
           <span className="leading-relaxed">
-            Digital design & branding studio
+            Web Design Studio in Johannesburg
           </span>
-          <span>Johannesburg — South Africa</span>
         </div>
         
-        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 text-left sm:text-right mt-4 sm:mt-0 text-foreground">
-          <div className="flex gap-4">
+        <div className="flex flex-row items-center gap-4 text-foreground">
+          <div className="flex gap-3 sm:gap-4">
             <a href="https://www.linkedin.com/company/obxstudio/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity" aria-label="LinkedIn">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="sm:h-5 sm:w-5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
             </a>
             <a href="https://www.instagram.com/obxstudio_/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity" aria-label="Instagram">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="sm:h-5 sm:w-5"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
             </a>
           </div>
         </div>
