@@ -19,6 +19,7 @@ export function SiteNav() {
   const [open, setOpen] = useState(false)
   const [hidden, setHidden] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+
   
   const { scrollY } = useScroll()
 
