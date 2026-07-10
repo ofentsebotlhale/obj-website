@@ -84,17 +84,17 @@ export function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 2.2, ease: EASE }}
-        className="absolute left-5 right-16 top-5 z-10 flex max-w-sm flex-col gap-6 md:left-10 md:right-auto md:top-7"
+        className="absolute left-5 right-16 top-5 z-10 flex max-w-sm flex-col gap-5 md:left-10 md:right-auto md:top-7"
       >
-        <p className="text-pretty font-sans text-xl font-medium leading-relaxed tracking-normal text-foreground sm:text-2xl pt-2">
+        <p className="text-pretty font-sans text-lg font-medium leading-relaxed tracking-normal text-foreground sm:text-[1.375rem] pt-2">
           We craft brands, interfaces, and high-performance digital experiences for the ambitious.
         </p>
         <Link
           href="/contact"
-          className="group flex min-h-[56px] w-fit items-center gap-4 rounded-full bg-foreground px-8 py-4 font-mono text-xs uppercase tracking-widest text-background transition-all hover:scale-105 active:scale-95"
+          className="group flex min-h-[48px] w-fit items-center gap-3 rounded-full bg-foreground px-6 py-3 font-mono text-[11px] uppercase tracking-widest text-background transition-all hover:scale-105 active:scale-95"
         >
           Chat With Us
-          <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+          <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
         </Link>
       </motion.div>
 

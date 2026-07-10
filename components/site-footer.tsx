@@ -171,8 +171,8 @@ export function SiteFooter() {
           style={{ opacity, y }}
           className="mt-16 select-none"
         >
-          <h2 className="font-heading text-[22vw] font-bold leading-[0.8] tracking-tighter text-foreground md:text-[18vw]">
-            OBX
+          <h2 className="font-heading text-[18vw] font-bold leading-[0.8] tracking-tighter text-foreground md:text-[12vw]">
+            OBX STUDIO
           </h2>
         </motion.div>
 
