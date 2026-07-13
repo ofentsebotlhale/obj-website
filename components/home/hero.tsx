@@ -10,31 +10,8 @@ const LINE1 = 'OBX'
 const LINE2 = 'STUDIO'
 
 function MagneticChar({ children, delay }: { children: React.ReactNode, delay: number }) {
-  const ref = useRef<HTMLSpanElement>(null)
-  const [position, setPosition] = useState({ x: 0, y: 0 })
-
-  const handleMouse = (e: React.MouseEvent<HTMLSpanElement>) => {
-    if (!ref.current) return
-    const { clientX, clientY } = e
-    const { height, width, left, top } = ref.current.getBoundingClientRect()
-    const middleX = clientX - (left + width / 2)
-    const middleY = clientY - (top + height / 2)
-    setPosition({ x: middleX * 0.4, y: middleY * 0.4 })
-  }
-
-  const reset = () => {
-    setPosition({ x: 0, y: 0 })
-  }
-
   return (
-    <motion.span
-      ref={ref}
-      onMouseMove={handleMouse}
-      onMouseLeave={reset}
-      animate={{ x: position.x, y: position.y }}
-      transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 0.1 }}
-      className="inline-block origin-center cursor-default select-none transition-colors duration-300"
-    >
+    <span className="inline-block origin-center cursor-default select-none transition-colors duration-300">
       <motion.span
         className="block"
         initial={{ y: '110%' }}
@@ -43,7 +20,7 @@ function MagneticChar({ children, delay }: { children: React.ReactNode, delay: n
       >
         {children}
       </motion.span>
-    </motion.span>
+    </span>
   )
 }
 
@@ -86,12 +63,12 @@ export function Hero() {
         transition={{ duration: 0.8, delay: 2.2, ease: EASE }}
         className="absolute left-5 right-16 top-5 z-10 flex max-w-sm flex-col gap-5 md:left-10 md:right-auto md:top-7"
       >
-        <p className="text-pretty font-sans text-lg font-medium leading-relaxed tracking-normal text-foreground sm:text-[1.375rem] pt-2">
+        <p className="text-pretty font-sans text-lg font-medium leading-snug tracking-normal text-foreground sm:text-[1.375rem] pt-2">
           We craft brands, interfaces, and high-performance digital experiences for the ambitious.
         </p>
         <Link
           href="/contact"
-          className="group flex min-h-[48px] w-fit items-center gap-3 rounded-full bg-foreground px-6 py-3 font-mono text-[11px] uppercase tracking-widest text-background transition-all hover:scale-105 active:scale-95"
+          className="group flex min-h-[40px] w-fit items-center gap-3 rounded-full bg-foreground px-5 py-2.5 font-mono text-[10px] uppercase tracking-widest text-background transition-all hover:scale-105 active:scale-95"
         >
           Chat With Us
           <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />

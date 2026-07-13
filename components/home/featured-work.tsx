@@ -24,7 +24,7 @@ export function FeaturedWork({ items }: { items: Project[] }) {
           <div key={project.slug} className={`flex flex-col gap-5 ${project.colSpan}`}>
             <Reveal delay={i * 0.1}>
               <Link href={`/work#${project.slug}`} className="group block w-full outline-none">
-                <div className="relative w-full overflow-hidden rounded-2xl bg-black aspect-[4/3] md:aspect-[4/3] lg:aspect-[16/10] transition-transform duration-500 hover:scale-[0.98]">
+                <div className="relative w-full overflow-hidden rounded-none bg-black aspect-[4/3] md:aspect-[4/3] lg:aspect-[16/10] transition-transform duration-500 hover:scale-[0.98]">
                   <Image
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}

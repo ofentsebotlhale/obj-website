@@ -45,7 +45,7 @@ export default function HomePage() {
       />
       <Hero />
       
-      <div className="bg-gradient-to-b from-background via-background via-[50%] to-foreground">
+      <div className="bg-gradient-to-b from-background via-background via-[25%] to-foreground">
         <Intro />
 
         {/* Selected work */}
