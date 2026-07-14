@@ -2,7 +2,8 @@
 
 import React, { useState } from 'react'
 import Image from 'next/image'
-import { motion, AnimatePresence } from 'motion/react'
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
 import { Reveal, RevealWords } from '@/components/anim/reveal'
 import type { Project } from '@/lib/projects'
 
@@ -16,6 +17,32 @@ export function AsymmetricalProjectList({ items }: { items: Project[] }) {
   )
 }
 
+function ParallaxImage({ src, alt, priority = false }: { src: string, alt: string, priority?: boolean }) {
+  const ref = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  })
+  
+  const y = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"])
+
+  return (
+    <div ref={ref} className="absolute inset-0 z-0 overflow-hidden">
+      <motion.div style={{ y }} className="absolute inset-[-15%]">
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-cover transition-transform duration-1000 group-hover:scale-105"
+          priority={priority}
+          loading={priority ? undefined : "lazy"}
+        />
+      </motion.div>
+    </div>
+  )
+}
+
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const [isExpanded, setIsExpanded] = useState(false)
 
@@ -25,20 +52,11 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
     <div className={`flex flex-col gap-6 ${isOdd ? 'md:mt-32' : 'md:mb-32'}`}>
       <Reveal>
         <div 
-          className="group relative w-full overflow-hidden rounded-[2rem] bg-muted cursor-pointer"
+          className="group relative w-full overflow-hidden rounded-[2rem] bg-muted cursor-pointer aspect-video"
           onClick={() => setIsExpanded(!isExpanded)}
         >
-          <div className="relative w-full aspect-video">
-            <Image
-              src={project.image || "/placeholder.svg"}
-              alt={project.title}
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover transition-transform duration-1000 group-hover:scale-105"
-              loading="lazy"
-            />
-          </div>
-          <div className="absolute inset-0 bg-black/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100 flex items-center justify-center">
+          <ParallaxImage src={project.image || "/placeholder.svg"} alt={project.title} priority={index < 2} />
+          <div className="absolute inset-0 bg-black/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100 flex items-center justify-center z-10">
             <span className="font-mono text-xs uppercase tracking-widest text-white backdrop-blur-md bg-black/70 px-6 py-3 rounded-full">
               {isExpanded ? 'Close Case' : 'View Case'}
             </span>

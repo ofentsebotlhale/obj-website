@@ -3,7 +3,7 @@ import { blogPosts } from '@/lib/blogs'
 import fs from 'fs'
 import path from 'path'
 
-export const dynamic = 'force-static'
+
 
 function getLastModified(pagePath: string) {
   try {

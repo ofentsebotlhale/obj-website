@@ -1,36 +1,12 @@
+#!/bin/bash
+mv components/home/featured-work.tsx components/home/featured-work.tsx.bak
+cat << 'INNER_EOF' > components/home/featured-work.tsx
 'use client'
 
-import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Project } from '@/lib/projects'
 import { Reveal } from '@/components/anim/reveal'
-
-function ParallaxImage({ src, alt, priority }: { src: string, alt: string, priority: boolean }) {
-  const ref = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  })
-  
-  const y = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"])
-
-  return (
-    <div ref={ref} className="absolute inset-0 z-0 overflow-hidden">
-      <motion.div style={{ y }} className="absolute inset-[-15%]">
-        <Image
-          src={src}
-          alt={alt}
-          fill
-          sizes="(max-width: 768px) 100vw, 60vw"
-          className="object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90"
-          priority={priority}
-        />
-      </motion.div>
-    </div>
-  )
-}
 
 export function FeaturedWork({ items }: { items: Project[] }) {
   if (!items || items.length === 0) return null
@@ -52,10 +28,13 @@ export function FeaturedWork({ items }: { items: Project[] }) {
             <Reveal delay={i * 0.1}>
               <Link href={`/work#${project.slug}`} className="group block w-full outline-none">
                 <div className="relative w-full overflow-hidden rounded-none bg-black aspect-[4/3] md:aspect-[4/3] lg:aspect-[16/10] transition-transform duration-500 hover:scale-[0.98]">
-                  <ParallaxImage 
-                    src={project.image || "/placeholder.svg"} 
-                    alt={project.title} 
-                    priority={i === 0} 
+                  <Image
+                    src={project.image || "/placeholder.svg"}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 60vw"
+                    className="object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90"
+                    priority={i === 0}
                   />
                 </div>
               </Link>
@@ -93,4 +72,6 @@ export function FeaturedWork({ items }: { items: Project[] }) {
     </div>
   )
 }
-
+INNER_EOF
+npm run build
+mv components/home/featured-work.tsx.bak components/home/featured-work.tsx

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Inter, JetBrains_Mono } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
 import { SmoothScroll } from '@/components/smooth-scroll'
@@ -11,8 +11,8 @@ import { FirebaseAnalytics } from '@/components/firebase-analytics'
 import { LayoutWrapper } from '@/components/layout-wrapper'
 import { AnalyticsLoader } from '@/components/analytics-loader'
 
-const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
-const geistMono = Geist_Mono({
+const geistSans = Inter({ variable: '--font-geist-sans', subsets: ['latin'] })
+const geistMono = JetBrains_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
 })
@@ -53,15 +53,15 @@ export default function RootLayout({
       <head>
         {/* Content Security Policy for XSS mitigation */}
         <meta
+          key="csp"
           httpEquiv="Content-Security-Policy"
           content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://*.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://www.clarity.ms https://*.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://stats.g.doubleclick.net https://*.doubleclick.net https://formspree.io https://*.googlesyndication.com https://www.clarity.ms https://*.clarity.ms;"
         />
-        <meta name="ranknibbler-site-verification" content="8936626e0ecbef73e430012b9bff926a"/>
-
+        <meta key="ranknibbler" name="ranknibbler-site-verification" content="8936626e0ecbef73e430012b9bff926a"/>
         {/* Preconnect to external assets */}
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="preconnect" href="https://www.google-analytics.com" />
-        <Script id="clarity-script" strategy="afterInteractive" type="text/javascript">
+        <link key="gtm-preconnect" rel="preconnect" href="https://www.googletagmanager.com" />
+        <link key="ga-preconnect" rel="preconnect" href="https://www.google-analytics.com" />
+        <Script key="clarity-script" id="clarity-script" strategy="afterInteractive" type="text/javascript">
           {`
             (function(c,l,a,r,i,t,y){
                 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};

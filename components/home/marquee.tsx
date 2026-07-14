@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'motion/react'
+import { motion } from 'framer-motion'
 
 const ITEMS = ['OBX STUDIO', 'UI / UX', 'DEVELOPMENT', 'BRANDING', 'MOTION', 'STRATEGY']
 

@@ -3,7 +3,7 @@
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
-import { motion } from 'motion/react'
+import { motion } from 'framer-motion'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 const LINE1 = 'OBX'
