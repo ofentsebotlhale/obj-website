@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Reveal, RevealWords } from '@/components/anim/reveal'
 import type { Project } from '@/lib/projects'
+import { ParallaxImage } from '@/components/anim/parallax-image'
 
 export function AsymmetricalProjectList({ items }: { items: Project[] }) {
   return (
@@ -28,14 +29,12 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           className="group relative w-full overflow-hidden rounded-[2rem] bg-muted cursor-pointer"
           onClick={() => setIsExpanded(!isExpanded)}
         >
-          <div className="relative w-full aspect-video">
-            <Image
+          <div className="relative w-full aspect-video overflow-hidden">
+            <ParallaxImage
               src={project.image || "/placeholder.svg"}
               alt={project.title}
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
+              priority={index < 2}
               className="object-cover transition-transform duration-1000 group-hover:scale-105"
-              loading="lazy"
             />
           </div>
           <div className="absolute inset-0 bg-black/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100 flex items-center justify-center">

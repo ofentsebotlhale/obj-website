@@ -1,11 +1,11 @@
 'use client'
 
 import { motion, useScroll, useTransform } from 'framer-motion'
-import Image from 'next/image'
 import Link from 'next/link'
 import { useRef } from 'react'
 import type { Project } from '@/lib/projects'
 import { Reveal, RevealWords } from '@/components/anim/reveal'
+import { ParallaxImage } from '@/components/anim/parallax-image'
 
 export function StickyProjectList({ items }: { items: Project[] }) {
   return (
@@ -42,15 +42,13 @@ function Card({ project, i }: { project: Project; i: number }) {
     >
       <div className="relative min-h-[60vh] md:min-h-[85vh] flex flex-col justify-end">
         <div className="absolute inset-0 z-0 overflow-hidden bg-black">
-          <Image
+          <ParallaxImage
             src={project.image || "/placeholder.svg"}
             alt={project.title}
-            fill
-            sizes="100vw"
+            priority={i === 0}
             className="object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90"
-            loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-black/30 z-[1]" />
         </div>
         
         <div className="relative z-10 p-8 md:p-12 lg:p-16 flex flex-col justify-end w-full lg:w-3/4">

@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
 import { PageHeader } from '@/components/page-header'
 import { ProcessAccordion } from '@/components/studio/process-accordion'
 import { Reveal, RevealWords } from '@/components/anim/reveal'
+import { ParallaxImage } from '@/components/anim/parallax-image'
 
 export const metadata: Metadata = {
   title: 'About OBX Studio | Web Design & Development Johannesburg',
@@ -69,23 +69,17 @@ export default function StudioPage() {
         <Reveal className="mx-auto max-w-[1600px]">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="relative aspect-[4/3] overflow-hidden rounded-md border border-border bg-muted">
-              <Image
+              <ParallaxImage
                 src="/studio/studio-wire-1.avif"
                 alt="OBX Studio workspace detail 1"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover opacity-90 saturate-50 transition-all duration-700 hover:scale-105 hover:saturate-100"
-                loading="lazy"
               />
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-md border border-border bg-muted">
-              <Image
+              <ParallaxImage
                 src="/studio/studio-wire-2.avif"
                 alt="OBX Studio workspace detail 2"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover opacity-90 saturate-50 transition-all duration-700 hover:scale-105 hover:saturate-100"
-                loading="lazy"
               />
             </div>
           </div>
