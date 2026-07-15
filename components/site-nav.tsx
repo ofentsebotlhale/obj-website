@@ -55,7 +55,7 @@ export function SiteNav() {
         className={cn(
           "fixed inset-x-0 top-0 z-[90] transition-all duration-500 pointer-events-auto",
           scrolled && !open 
-            ? "bg-background/45 backdrop-blur-md border-b border-border/10 text-foreground" 
+            ? "bg-transparent border-b border-border/10 text-foreground" 
             : "bg-transparent text-foreground",
           open ? "text-foreground" : ""
         )}
