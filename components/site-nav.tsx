@@ -17,19 +17,11 @@ const LINKS = [
 export function SiteNav() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
-  const [hidden, setHidden] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   
   const { scrollY } = useScroll()
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    const previous = scrollY.getPrevious() ?? 0
-    if (latest > previous && latest > 150) {
-      setHidden(true)
-    } else {
-      setHidden(false)
-    }
-
     if (latest > 50) {
       setScrolled(true)
     } else {
@@ -54,16 +46,16 @@ export function SiteNav() {
         initial={pathname === '/' ? { opacity: 0 } : { opacity: 1 }}
         animate={{ 
           opacity: 1, 
-          y: hidden && !open ? '-100%' : '0%' 
+          y: '0%' 
         }}
         transition={{ 
           opacity: { duration: 0.8, delay: pathname === '/' ? 2.5 : 0 },
           y: { duration: 0.3, ease: 'easeInOut' }
         }}
         className={cn(
-          "fixed inset-x-0 top-0 z-[90] transition-colors duration-300 pointer-events-auto",
+          "fixed inset-x-0 top-0 z-[90] transition-all duration-500 pointer-events-auto",
           scrolled && !open 
-            ? "bg-background border-b border-border/30 text-foreground" 
+            ? "bg-background/45 backdrop-blur-md border-b border-border/10 text-foreground" 
             : "bg-transparent text-foreground",
           open ? "text-foreground" : ""
         )}

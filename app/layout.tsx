@@ -51,6 +51,11 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} light bg-background`}
     >
       <head>
+        {/* Favicon configurations to force new SVG favicon */}
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/favicon.svg" />
+
         {/* Content Security Policy for XSS mitigation */}
         <meta
           key="csp"
