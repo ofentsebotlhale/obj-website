@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Hero } from '@/components/home/hero'
 import { Intro } from '@/components/home/intro'
+import { ScrollGradient } from '@/components/anim/scroll-gradient'
 import { BeliefStatement } from '@/components/home/belief-statement'
 import { WhatWeDesign } from '@/components/home/what-we-design'
 import { StudioAbout } from '@/components/home/studio-about'
@@ -50,7 +51,7 @@ export default function HomePage() {
       <Intro />
 
       {/* Gradient transition starting from the end of Section 1 leading into Section 2 */}
-      <div className="h-48 md:h-72 bg-gradient-to-b from-background to-foreground" />
+      <ScrollGradient />
 
       {/* SECTION 2 — Selected Work */}
       <div className="bg-foreground text-background">
