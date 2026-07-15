@@ -23,7 +23,7 @@ export function FeaturedWork({ items }: { items: Project[] }) {
         {projects.map((project, i) => (
           <div key={project.slug} className={`flex flex-col gap-5 ${project.colSpan}`}>
             <Reveal delay={i * 0.1}>
-              <Link href={`/work#${project.slug}`} className="group block w-full outline-none">
+              <Link href={`/work/${project.slug}`} className="group block w-full outline-none">
                 <div className="relative w-full overflow-hidden rounded-none bg-black aspect-[4/3] md:aspect-[4/3] lg:aspect-[16/10] transition-transform duration-500 hover:scale-[0.98]">
                   <ParallaxImage 
                     src={project.image || "/placeholder.svg"} 
@@ -39,7 +39,7 @@ export function FeaturedWork({ items }: { items: Project[] }) {
                   <h3 className="font-heading text-2xl font-semibold tracking-tight sm:text-3xl">
                     {project.title}
                   </h3>
-                  <Link href={`/work#${project.slug}`} className="font-mono text-[10px] uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity">
+                  <Link href={`/work/${project.slug}`} className="font-mono text-[10px] uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity">
                     View Project
                   </Link>
                 </div>

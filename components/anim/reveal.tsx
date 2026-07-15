@@ -1,9 +1,7 @@
 'use client'
 
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef, useEffect, type ReactNode } from 'react'
-
-const EASE = [0.22, 1, 0.36, 1] as const
+import { motion } from 'framer-motion'
+import { type ReactNode } from 'react'
 
 export function Reveal({
   children,
@@ -16,20 +14,12 @@ export function Reveal({
   y?: number
   className?: string
 }) {
-  const ref = useRef<HTMLDivElement>(null)
-  
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start 95%", "start 65%"]
-  })
-
-  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1])
-  const yTransform = useTransform(scrollYProgress, [0, 1], [y, 0])
-
   return (
     <motion.div
-      ref={ref}
-      style={{ opacity, y: yTransform }}
+      initial={{ opacity: 0, y }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
+      transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
       className={className}
     >
       {children}
@@ -37,97 +27,64 @@ export function Reveal({
   )
 }
 
-/** Bi-directional scroll-driven typewriter + fade + landing effect using native APIs */
 export function RevealWords({
   text,
   className,
+  delay = 0,
+  stagger = 0.03,
 }: {
   text: string
   className?: string
-  wordClassName?: string
   delay?: number
   stagger?: number
 }) {
-  const containerRef = useRef<HTMLSpanElement>(null)
-  const textRef = useRef<HTMLSpanElement>(null)
+  const words = text.split(' ')
 
-  useEffect(() => {
-    const container = containerRef.current
-    const textEl = textRef.current
-    if (!container || !textEl) return
+  const container = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { 
+        staggerChildren: stagger, 
+        delayChildren: delay 
+      },
+    },
+  }
 
-    let ticking = false
-
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const rect = container.getBoundingClientRect()
-          const windowHeight = window.innerHeight
-          
-          // Calculate progress percentage of the element relative to the viewport.
-          // Start when the top of the element is at 95% of viewport height.
-          // End when the top of the element is at 65% of viewport height.
-          const startY = windowHeight * 0.95
-          const endY = windowHeight * 0.65
-          const currentY = rect.top
-
-          let progress = (startY - currentY) / (startY - endY)
-          progress = Math.max(0, Math.min(1, progress))
-
-          // 1. Typewriter Effect
-          // Reveal character by character based on scroll progress
-          const charCount = Math.floor(progress * text.length)
-          const revealed = text.substring(0, charCount)
-          const hidden = text.substring(charCount)
-          
-          // Use native DOM manipulation for the split to avoid React re-renders
-          textEl.innerHTML = ''
-          textEl.appendChild(document.createTextNode(revealed))
-          
-          if (hidden.length > 0) {
-            const hiddenSpan = document.createElement('span')
-            hiddenSpan.style.opacity = '0'
-            hiddenSpan.textContent = hidden
-            textEl.appendChild(hiddenSpan)
-          }
-
-          // 2. Fading & Landing
-          // Layer the typing effect over opacity and translateY transforms
-          const opacity = 0.1 + progress * 0.9
-          const translateY = 40 * (1 - progress)
-
-          container.style.opacity = opacity.toString()
-          container.style.transform = `translateY(${translateY}px)`
-          
-          ticking = false
-        })
-        ticking = true
-      }
-    }
-
-    // Bind scroll and resize listeners
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    window.addEventListener('resize', handleScroll, { passive: true })
-    
-    // Trigger initial calculation
-    handleScroll()
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-      window.removeEventListener('resize', handleScroll)
-    }
-  }, [text])
+  const child = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+    hidden: {
+      opacity: 0,
+      y: 15,
+    },
+  }
 
   return (
-    <span 
-      ref={containerRef} 
-      className={`inline-block ${className ?? ''}`}
-      style={{ opacity: 0, transform: 'translateY(40px)' }}
+    <motion.span
+      style={{ display: 'inline-flex', flexWrap: 'wrap', columnGap: '0.25em', rowGap: '0px' }}
+      variants={container}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
+      className={className}
     >
-      <span ref={textRef} aria-hidden="true">
-        {text}
-      </span>
-      <span className="sr-only">{text}</span>
-    </span>
+      {words.map((word, idx) => (
+        <motion.span
+          variants={child}
+          style={{ display: 'inline-block' }}
+          key={idx}
+        >
+          {word}
+        </motion.span>
+      ))}
+    </motion.span>
   )
 }
+

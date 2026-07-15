@@ -92,7 +92,7 @@ function Card({ project, i }: { project: Project; i: number }) {
               
               <Reveal delay={0.4}>
                 <Link
-                  href={`/work#${project.slug}`}
+                  href={`/work/${project.slug}`}
                   className="group/btn flex w-fit items-center gap-2 rounded-full bg-white px-6 py-3 min-h-[44px] font-mono text-[11px] uppercase tracking-widest text-black transition-all hover:bg-white/90"
                 >
                   View Case
