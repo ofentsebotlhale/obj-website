@@ -53,11 +53,11 @@ export function SiteNav() {
           y: { duration: 0.3, ease: 'easeInOut' }
         }}
         className={cn(
-          "fixed inset-x-0 top-0 z-[90] transition-all duration-500 pointer-events-auto",
+          "fixed inset-x-0 top-0 z-[90] transition-all duration-500 pointer-events-auto mix-blend-difference",
           scrolled && !open 
-            ? "bg-transparent border-b border-border/10 text-foreground" 
-            : "bg-transparent text-foreground",
-          open ? "text-foreground" : ""
+            ? "bg-transparent border-b border-white/10 text-white" 
+            : "bg-transparent text-white",
+          open ? "text-white" : ""
         )}
       >
         <nav className={cn(
