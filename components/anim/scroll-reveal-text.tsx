@@ -55,7 +55,7 @@ function Word({ children, progress, range }: WordProps) {
   
   return (
     <span className="relative inline-block mr-[0.25em] select-none">
-      <motion.span style={{ opacity }} className="relative text-black transition-colors duration-150">
+      <motion.span style={{ opacity }} className="relative text-current transition-colors duration-150">
         {children}
       </motion.span>
     </span>

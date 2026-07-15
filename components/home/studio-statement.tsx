@@ -8,13 +8,13 @@ export function StudioStatement() {
     <section className="flex min-h-[90svh] flex-col justify-center bg-foreground px-5 py-32 text-background md:px-10 md:py-48">
       <div className="mx-auto flex w-full max-w-5xl flex-col items-center text-center space-y-12">
         <Reveal className="max-w-4xl">
-          <h2 className="font-heading text-2xl font-light leading-relaxed tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-pretty">
+          <h2 className="font-heading text-2xl font-bold leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-pretty">
             We partner with businesses who understand that a website isn't a brochure — it's the first impression a client forms before they ever speak to you.
           </h2>
         </Reveal>
 
         <Reveal delay={0.2}>
-          <p className="font-heading text-xl font-light text-background/80 sm:text-2xl md:text-3xl">
+          <p className="font-heading text-xl font-semibold tracking-tight text-background/90 sm:text-2xl md:text-3xl">
             Let's make yours count.
           </p>
         </Reveal>

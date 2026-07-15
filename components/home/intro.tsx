@@ -10,7 +10,7 @@ export function Intro() {
           <div className="max-w-xl">
             <ScrollRevealText
               text="Your website is often the only meeting a prospective client has with you before they decide whether to trust you."
-              className="font-heading text-3xl font-light leading-relaxed tracking-tight text-black sm:text-4xl md:text-5xl lg:text-[3.2rem] text-pretty"
+              className="font-heading text-3xl font-bold leading-tight tracking-tight text-black sm:text-4xl md:text-5xl lg:text-[3.2rem] text-pretty"
               startOffset="start 80%"
               endOffset="end 55%"
             />
@@ -19,7 +19,7 @@ export function Intro() {
           <div className="max-w-xl lg:mt-80">
             <ScrollRevealText
               text="Whatever you're building — that first impression carries more weight than a portfolio, a pitch, or a referral."
-              className="font-heading text-3xl font-light leading-relaxed tracking-tight text-black sm:text-4xl md:text-5xl lg:text-[3.2rem] text-pretty"
+              className="font-heading text-3xl font-bold leading-tight tracking-tight text-black sm:text-4xl md:text-5xl lg:text-[3.2rem] text-pretty"
               startOffset="start 75%"
               endOffset="end 50%"
             />

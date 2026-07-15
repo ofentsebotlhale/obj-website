@@ -19,13 +19,13 @@ export function StudioAbout() {
         {/* Right Column: Content */}
         <div className="md:col-span-8 max-w-4xl space-y-10 md:space-y-14">
           <Reveal>
-            <p className="font-sans text-2xl md:text-4xl font-light leading-relaxed text-black text-pretty">
+            <p className="font-sans text-2xl md:text-4xl font-semibold leading-snug text-black text-pretty">
               OBX Studio is a boutique digital design practice based in Johannesburg. We build websites, brand identities, and digital experiences for businesses that want to be taken seriously online.
             </p>
           </Reveal>
 
           <Reveal delay={0.15}>
-            <p className="font-sans text-lg md:text-xl leading-relaxed text-black text-pretty">
+            <p className="font-sans text-lg md:text-xl font-medium leading-relaxed text-black text-pretty">
               We take on a limited number of clients at a time — not to seem exclusive, but because good work can't be rushed.
             </p>
           </Reveal>
