@@ -2,8 +2,9 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Hero } from '@/components/home/hero'
 import { Intro } from '@/components/home/intro'
-import { Process } from '@/components/home/process'
-import { WhatWeBuild } from '@/components/home/what-we-build'
+import { BeliefStatement } from '@/components/home/belief-statement'
+import { WhatWeDesign } from '@/components/home/what-we-design'
+import { StudioAbout } from '@/components/home/studio-about'
 import { StudioStatement } from '@/components/home/studio-statement'
 import { FeaturedWork } from '@/components/home/featured-work'
 import { Reveal } from '@/components/anim/reveal'
@@ -46,21 +47,27 @@ export default function HomePage() {
       <Hero />
       
       <div className="bg-gradient-to-b from-background via-background via-[25%] to-foreground">
+        {/* SECTION 1 — Trust Statement */}
         <Intro />
 
-        {/* Selected work */}
+        {/* SECTION 2 — Selected Work */}
         <section className="px-5 pb-28 md:px-10 md:pb-40 text-background">
           <div className="mx-auto max-w-[1600px]">
-            <Reveal className="mb-10 flex items-end justify-between">
-              <h2 className="font-heading text-2xl font-semibold tracking-tight md:text-4xl">
-                Selected Work
-              </h2>
+            <Reveal className="mb-12 md:mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+              <div className="space-y-2 max-w-2xl">
+                <h2 className="font-heading text-3xl font-semibold tracking-tight md:text-5xl text-background">
+                  Selected Work
+                </h2>
+                <p className="font-mono text-xs uppercase tracking-widest text-background/60">
+                  A few of the brands and businesses we've helped become easier to trust online.
+                </p>
+              </div>
               <Link
                 href="/work"
                 data-cursor="All"
-                className="group flex items-center gap-2 rounded-full border border-background/30 bg-background/10 px-5 py-2.5 font-mono text-[11px] uppercase tracking-widest text-background transition-all duration-300 hover:border-background hover:bg-background/20"
+                className="group inline-flex items-center gap-2 rounded-full border border-background/30 bg-background/10 px-5 py-2.5 font-mono text-[11px] uppercase tracking-widest text-background transition-all duration-300 hover:border-background hover:bg-background/20"
               >
-                View all
+                <span>View all</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="14"
@@ -83,11 +90,18 @@ export default function HomePage() {
         </section>
       </div>
 
-      <WhatWeBuild />
-      
-      <Process />
+      {/* SECTION 3 — Belief Statement */}
+      <BeliefStatement />
 
+      {/* SECTION 4 — What We Design */}
+      <WhatWeDesign />
+      
+      {/* SECTION 5 — Studio (About Us) */}
+      <StudioAbout />
+
+      {/* SECTION 9 — Closing CTA */}
       <StudioStatement />
     </>
   )
 }
+
