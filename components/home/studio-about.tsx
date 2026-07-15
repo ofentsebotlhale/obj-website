@@ -10,7 +10,7 @@ export function StudioAbout() {
         {/* Left Column: Label */}
         <div className="md:col-span-4">
           <Reveal className="sticky top-32">
-            <h2 className="font-mono text-xs uppercase tracking-widest text-foreground opacity-50">
+            <h2 className="font-mono text-xs uppercase tracking-widest text-black font-semibold">
               Studio
             </h2>
           </Reveal>
@@ -19,13 +19,13 @@ export function StudioAbout() {
         {/* Right Column: Content */}
         <div className="md:col-span-8 max-w-4xl space-y-10 md:space-y-14">
           <Reveal>
-            <p className="font-sans text-2xl md:text-4xl font-light leading-relaxed text-foreground text-pretty">
+            <p className="font-sans text-2xl md:text-4xl font-light leading-relaxed text-black text-pretty">
               OBX Studio is a boutique digital design practice based in Johannesburg. We build websites, brand identities, and digital experiences for businesses that want to be taken seriously online.
             </p>
           </Reveal>
 
           <Reveal delay={0.15}>
-            <p className="font-sans text-lg md:text-xl leading-relaxed text-foreground/70 text-pretty">
+            <p className="font-sans text-lg md:text-xl leading-relaxed text-black text-pretty">
               We take on a limited number of clients at a time — not to seem exclusive, but because good work can't be rushed.
             </p>
           </Reveal>
@@ -34,7 +34,7 @@ export function StudioAbout() {
             <div className="pt-4">
               <Link
                 href="/studio"
-                className="group inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-foreground hover:opacity-70 transition-opacity"
+                className="group inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-black hover:border-b hover:border-black transition-all"
               >
                 <span>Learn more about the studio</span>
                 <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>

@@ -17,7 +17,7 @@ export function WhatWeDesign() {
         {/* Left Column Label */}
         <div className="md:col-span-4">
           <Reveal className="sticky top-32">
-            <h2 className="font-mono text-xs uppercase tracking-widest text-foreground opacity-50">
+            <h2 className="font-mono text-xs uppercase tracking-widest text-black font-semibold">
               We design:
             </h2>
           </Reveal>
@@ -29,7 +29,7 @@ export function WhatWeDesign() {
             {ITEMS.map((item, i) => (
               <li key={i}>
                 <Reveal delay={i * 0.1}>
-                  <p className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-foreground/90 hover:text-foreground transition-colors duration-300">
+                  <p className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-black transition-colors duration-300">
                     {item}
                   </p>
                 </Reveal>
