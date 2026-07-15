@@ -17,32 +17,6 @@ export function StickyProjectList({ items }: { items: Project[] }) {
   )
 }
 
-function ParallaxImage({ src, alt, priority = false }: { src: string, alt: string, priority?: boolean }) {
-  const ref = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  })
-  
-  const y = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"])
-
-  return (
-    <div ref={ref} className="absolute inset-0 z-0 overflow-hidden">
-      <motion.div style={{ y }} className="absolute inset-[-15%]">
-        <Image
-          src={src}
-          alt={alt}
-          fill
-          sizes="100vw"
-          className="object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90"
-          priority={priority}
-          loading={priority ? undefined : "lazy"}
-        />
-      </motion.div>
-    </div>
-  )
-}
-
 function Card({ project, i }: { project: Project; i: number }) {
   const ref = useRef<HTMLDivElement>(null)
   
@@ -68,7 +42,14 @@ function Card({ project, i }: { project: Project; i: number }) {
     >
       <div className="relative min-h-[60vh] md:min-h-[85vh] flex flex-col justify-end">
         <div className="absolute inset-0 z-0 overflow-hidden bg-black">
-          <ParallaxImage src={project.image || "/placeholder.svg"} alt={project.title} priority={i === 0} />
+          <Image
+            src={project.image || "/placeholder.svg"}
+            alt={project.title}
+            fill
+            sizes="100vw"
+            className="object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90"
+            loading="lazy"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-black/30" />
         </div>
         
