@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Geist_Mono } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
 import { SmoothScroll } from '@/components/smooth-scroll'
@@ -12,10 +12,6 @@ import { LayoutWrapper } from '@/components/layout-wrapper'
 import { AnalyticsLoader } from '@/components/analytics-loader'
 
 const inter = Inter({ variable: '--font-inter', subsets: ['latin'] })
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-})
 
 export const metadata: Metadata = {
   title: 'OBX Studio — Design, Branding & Development',
@@ -48,7 +44,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${geistMono.variable} light bg-background`}
+      className={`${inter.variable} light bg-background`}
     >
       <head>
         {/* Favicon configurations to force new SVG favicon */}
