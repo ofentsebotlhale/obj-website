@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, JetBrains_Mono } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
 import { SmoothScroll } from '@/components/smooth-scroll'
@@ -12,7 +12,7 @@ import { LayoutWrapper } from '@/components/layout-wrapper'
 import { AnalyticsLoader } from '@/components/analytics-loader'
 
 const geistSans = Inter({ variable: '--font-geist-sans', subsets: ['latin'] })
-const geistMono = JetBrains_Mono({
+const geistMono = Inter({
   variable: '--font-geist-mono',
   subsets: ['latin'],
 })

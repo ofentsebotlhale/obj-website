@@ -169,7 +169,17 @@ export function ContactForm() {
         }),
       })
 
-      const result = await response.json()
+      const contentType = response.headers.get('content-type')
+      let result: any = {}
+      if (contentType && contentType.includes('application/json')) {
+        result = await response.json()
+      } else {
+        const text = await response.text()
+        if (!response.ok) {
+          throw new Error(`Server error (${response.status}): ${text.slice(0, 100)}...`)
+        }
+        result = { success: true }
+      }
 
       if (!response.ok) {
         throw new Error(result.error || 'Something went wrong while submitting the form.')
