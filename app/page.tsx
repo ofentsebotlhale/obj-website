@@ -4,6 +4,7 @@ import { Hero } from '@/components/home/hero'
 import { Intro } from '@/components/home/intro'
 import { ScrollGradient } from '@/components/anim/scroll-gradient'
 import { BeliefStatement } from '@/components/home/belief-statement'
+import { ShiftingHeading } from '@/components/home/shifting-heading'
 import { WhatWeDesign } from '@/components/home/what-we-design'
 import { StudioAbout } from '@/components/home/studio-about'
 import { StudioStatement } from '@/components/home/studio-statement'
@@ -58,13 +59,14 @@ export default function HomePage() {
 
       {/* SECTION 3 — Selected Work */}
       <div className="bg-foreground text-background">
-        <section className="px-4 pb-28 pt-24 md:px-6 md:pb-40 md:pt-36">
+        <section className="px-4 pb-28 pt-16 md:px-6 md:pb-40 md:pt-24">
           <div className="mx-auto max-w-[1600px]">
-            <Reveal className="mb-12 md:mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
-              <div className="space-y-4 max-w-2xl">
-                <h2 className="font-heading text-3xl font-semibold tracking-tight md:text-5xl text-background">
+            <ShiftingHeading text="Here's what that looks like in practice." />
+            <Reveal className="mb-12 md:mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6 pt-4">
+              <div className="space-y-2 max-w-2xl">
+                <h3 className="font-mono text-xs uppercase tracking-widest text-background/40">
                   Selected Work
-                </h2>
+                </h3>
                 <p className="font-sans text-sm text-background/60">
                   A few of the brands and businesses we&apos;ve helped become easier to trust online.
                 </p>

@@ -30,17 +30,20 @@ export function ScrollRevealText({
 
   const activeProgress = progress || scrollYProgress
   const words = text.split(' ')
+  const numWords = words.length
+  const overlapSpread = 3.5 // controls overlap amount and reveal speed
+  const divisor = numWords + (overlapSpread - 1)
 
   return (
     <p ref={containerRef} className={cn("relative", className)}>
       {words.map((word, i) => {
-        // Calculate the range for each word
+        // Calculate overlapping ranges for each word to reveal faster and smoother
         const start = range
-          ? range[0] + (i / words.length) * (range[1] - range[0])
-          : i / words.length
+          ? range[0] + (i / divisor) * (range[1] - range[0])
+          : i / divisor
         const end = range
-          ? range[0] + ((i + 1) / words.length) * (range[1] - range[0])
-          : (i + 1) / words.length
+          ? range[0] + ((i + overlapSpread) / divisor) * (range[1] - range[0])
+          : (i + overlapSpread) / divisor
         return (
           <Word key={i} progress={activeProgress} range={[start, end]}>
             {word}
