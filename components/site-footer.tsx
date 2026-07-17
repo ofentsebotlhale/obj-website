@@ -132,9 +132,10 @@ export function SiteFooter() {
                   Navigation
                 </span>
                 <div className="flex flex-wrap gap-3">
-                  <Link href="/" className="inline-flex items-center justify-center rounded-full bg-foreground px-6 py-2 min-h-[48px] font-mono text-[13px] uppercase tracking-widest text-background transition-all hover:scale-105 hover:bg-accent hover:text-accent-foreground">Index</Link>
+                  <Link href="/" className="inline-flex items-center justify-center rounded-full bg-foreground px-6 py-2 min-h-[48px] font-mono text-[13px] uppercase tracking-widest text-background transition-all hover:scale-105 hover:bg-accent hover:text-accent-foreground">Home</Link>
                   <Link href="/work" className="inline-flex items-center justify-center rounded-full bg-foreground px-6 py-2 min-h-[48px] font-mono text-[13px] uppercase tracking-widest text-background transition-all hover:scale-105 hover:bg-accent hover:text-accent-foreground">Work</Link>
                   <Link href="/studio" className="inline-flex items-center justify-center rounded-full bg-foreground px-6 py-2 min-h-[48px] font-mono text-[13px] uppercase tracking-widest text-background transition-all hover:scale-105 hover:bg-accent hover:text-accent-foreground">Studio</Link>
+                  <Link href="/services" className="inline-flex items-center justify-center rounded-full bg-foreground px-6 py-2 min-h-[48px] font-mono text-[13px] uppercase tracking-widest text-background transition-all hover:scale-105 hover:bg-accent hover:text-accent-foreground">Services</Link>
                   <Link href="/blog" className="inline-flex items-center justify-center rounded-full bg-foreground px-6 py-2 min-h-[48px] font-mono text-[13px] uppercase tracking-widest text-background transition-all hover:scale-105 hover:bg-accent hover:text-accent-foreground">Blog</Link>
                   <Link href="/contact" className="inline-flex items-center justify-center rounded-full bg-foreground px-6 py-2 min-h-[48px] font-mono text-[13px] uppercase tracking-widest text-background transition-all hover:scale-105 hover:bg-accent hover:text-accent-foreground">Contact</Link>
                 </div>

@@ -5,12 +5,14 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion'
 import { cn } from '@/lib/utils'
-import { Menu, X, Globe, Code, MessageCircle, Send, Mail } from 'lucide-react'
+import { Menu, X, Instagram, Linkedin, Facebook, MessageCircle, Mail } from 'lucide-react'
 
 const LINKS = [
+  { href: '/', label: 'Home' },
   { href: '/work', label: 'Work' },
   { href: '/studio', label: 'Studio' },
   { href: '/services', label: 'Services' },
+  { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' },
 ]
 
@@ -107,42 +109,42 @@ export function SiteNav() {
             className="fixed inset-0 z-40 flex flex-col items-end justify-center bg-background px-6 md:px-20 overflow-hidden"
           >
             {/* Cool Subtle Background Animation */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 opacity-40">
+            <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 opacity-100">
               <motion.div
-                className="absolute -top-[10%] -left-[10%] w-[60%] h-[60%] rounded-full bg-foreground/5 blur-[120px]"
+                className="absolute -top-[10%] -left-[10%] w-[65%] h-[65%] rounded-full bg-foreground/[0.09] blur-[90px]"
                 animate={{
-                  x: [0, 40, -20, 0],
-                  y: [0, -30, 50, 0],
-                  scale: [1, 1.1, 0.9, 1],
-                }}
-                transition={{
-                  duration: 25,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-              <motion.div
-                className="absolute top-[30%] right-[-10%] w-[70%] h-[70%] rounded-full bg-foreground/6 blur-[140px]"
-                animate={{
-                  x: [0, -50, 30, 0],
-                  y: [0, 40, -30, 0],
-                  scale: [1, 0.9, 1.1, 1],
-                }}
-                transition={{
-                  duration: 30,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-              <motion.div
-                className="absolute -bottom-[10%] left-[20%] w-[55%] h-[55%] rounded-full bg-foreground/5 blur-[100px]"
-                animate={{
-                  x: [0, 30, -30, 0],
-                  y: [0, -40, 20, 0],
-                  scale: [1, 1.15, 0.95, 1],
+                  x: [0, 50, -30, 0],
+                  y: [0, -40, 60, 0],
+                  scale: [1, 1.15, 0.85, 1],
                 }}
                 transition={{
                   duration: 20,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+              <motion.div
+                className="absolute top-[25%] right-[-15%] w-[75%] h-[75%] rounded-full bg-foreground/[0.11] blur-[100px]"
+                animate={{
+                  x: [0, -60, 40, 0],
+                  y: [0, 50, -35, 0],
+                  scale: [1, 0.9, 1.1, 1],
+                }}
+                transition={{
+                  duration: 24,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+              <motion.div
+                className="absolute -bottom-[10%] left-[15%] w-[60%] h-[60%] rounded-full bg-foreground/[0.07] blur-[80px]"
+                animate={{
+                  x: [0, 40, -40, 0],
+                  y: [0, -50, 30, 0],
+                  scale: [1, 1.12, 0.92, 1],
+                }}
+                transition={{
+                  duration: 18,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
@@ -210,10 +212,10 @@ export function SiteNav() {
 
                 <div className="flex gap-3">
                   {[
-                    { icon: Globe, href: "https://obxstudio.co.za", label: "Website" },
-                    { icon: Code, href: "https://github.com/obxstudio", label: "GitHub" },
+                    { icon: Instagram, href: "https://www.instagram.com/obxstudio_/", label: "Instagram" },
+                    { icon: Linkedin, href: "https://www.linkedin.com/company/obxstudio/", label: "LinkedIn" },
+                    { icon: Facebook, href: "https://www.facebook.com/share/1PKDMxQTLx/?mibextid=wwXIfr", label: "Facebook" },
                     { icon: MessageCircle, href: "https://wa.me/27760190339", label: "WhatsApp" },
-                    { icon: Send, href: "https://t.me/obxstudio", label: "Telegram" },
                   ].map((social, i) => {
                     const Icon = social.icon
                     return (

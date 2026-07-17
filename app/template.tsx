@@ -5,9 +5,11 @@ import { motion } from 'framer-motion'
 import type { ReactNode } from 'react'
 
 const ROUTE_LABELS: Record<string, string> = {
-  '/': 'Index',
+  '/': 'Home',
   '/work': 'Work',
   '/studio': 'Studio',
+  '/services': 'Services',
+  '/blog': 'Blog',
   '/contact': 'Contact',
 }
 
