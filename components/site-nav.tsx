@@ -108,48 +108,7 @@ export function SiteNav() {
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="fixed inset-0 z-40 flex flex-col items-end justify-center bg-background px-4 md:px-6 overflow-hidden"
           >
-            {/* Cool Subtle Background Animation */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 opacity-100">
-              <motion.div
-                className="absolute -top-[10%] -left-[10%] w-[65%] h-[65%] rounded-full bg-foreground/[0.09] blur-[90px]"
-                animate={{
-                  x: [0, 50, -30, 0],
-                  y: [0, -40, 60, 0],
-                  scale: [1, 1.15, 0.85, 1],
-                }}
-                transition={{
-                  duration: 20,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-              <motion.div
-                className="absolute top-[25%] right-[-15%] w-[75%] h-[75%] rounded-full bg-foreground/[0.11] blur-[100px]"
-                animate={{
-                  x: [0, -60, 40, 0],
-                  y: [0, 50, -35, 0],
-                  scale: [1, 0.9, 1.1, 1],
-                }}
-                transition={{
-                  duration: 24,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-              <motion.div
-                className="absolute -bottom-[10%] left-[15%] w-[60%] h-[60%] rounded-full bg-foreground/[0.07] blur-[80px]"
-                animate={{
-                  x: [0, 40, -40, 0],
-                  y: [0, -50, 30, 0],
-                  scale: [1, 1.12, 0.92, 1],
-                }}
-                transition={{
-                  duration: 18,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-            </div>
+
 
             <div className="relative z-10 flex flex-col items-end justify-center max-w-full">
               <ul className="flex flex-col items-end gap-3 md:gap-4">

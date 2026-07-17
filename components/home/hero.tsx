@@ -82,7 +82,7 @@ export function Hero() {
           <div aria-hidden="true">
             <Line text={LINE1} delay={0.15} />
           </div>
-          <div className="flex items-center justify-start pl-[12vw] sm:pl-[16vw] md:pl-[20vw]">
+          <div className="flex items-center justify-start gap-4">
             <div aria-hidden="true">
               <Line text={LINE2} delay={0.28} />
             </div>

@@ -172,9 +172,8 @@ export function SiteFooter() {
           style={{ opacity, y }}
           className="mt-16 select-none"
         >
-          <h2 className="font-heading text-[18vw] font-bold leading-[0.8] tracking-tighter text-foreground md:text-[12vw] flex flex-col items-start">
-            <span>OBX</span>
-            <span className="pl-[12vw] sm:pl-[16vw] md:pl-[20vw]">STUDIO</span>
+          <h2 className="font-heading text-[18vw] font-bold leading-[0.8] tracking-tighter text-foreground md:text-[12vw]">
+            OBX STUDIO
           </h2>
         </motion.div>
 
