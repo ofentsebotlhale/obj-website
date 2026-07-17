@@ -58,13 +58,10 @@ export default function HomePage() {
 
       {/* SECTION 3 — Selected Work */}
       <div className="bg-foreground text-background">
-        <section className="px-4 pb-28 pt-12 md:px-6 md:pb-40">
+        <section className="px-4 pb-28 pt-24 md:px-6 md:pb-40 md:pt-36">
           <div className="mx-auto max-w-[1600px]">
             <Reveal className="mb-12 md:mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
               <div className="space-y-4 max-w-2xl">
-                <span className="font-mono text-xs uppercase tracking-widest text-background/40 block">
-                  Here&apos;s what that looks like in practice.
-                </span>
                 <h2 className="font-heading text-3xl font-semibold tracking-tight md:text-5xl text-background">
                   Selected Work
                 </h2>
