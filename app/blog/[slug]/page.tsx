@@ -140,8 +140,18 @@ export default async function BlogPostPage({ params }: PageProps) {
                     OBX Studio provides professional digital solutions tailored to your business. We build custom websites designed for performance and clarity.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Link href="/services/web-design" className="text-sm font-medium text-foreground underline hover:text-foreground transition-colors">Web Design Services</Link>
-                    <Link href="/services/web-development" className="text-sm font-medium text-foreground underline hover:text-foreground transition-colors">Web Development Services</Link>
+                    <Link
+                      href="/services/web-design"
+                      className="inline-flex h-10 items-center justify-center rounded-full border border-foreground/30 px-5 font-sans text-xs font-medium uppercase tracking-widest text-foreground transition-all hover:bg-muted"
+                    >
+                      Web Design Services
+                    </Link>
+                    <Link
+                      href="/services/web-development"
+                      className="inline-flex h-10 items-center justify-center rounded-full bg-foreground px-5 font-sans text-xs font-medium uppercase tracking-widest text-background transition-all hover:scale-105 active:scale-95"
+                    >
+                      Web Development Services
+                    </Link>
                   </div>
                 </div>
               </div>

@@ -67,11 +67,25 @@ export default function WebDevelopmentPage() {
             <Reveal delay={0.1}>
               <div className="mb-16">
                 <p className="mb-6">
-                  Every page we build focuses on clarity and speed. When a visitor lands on your site, they form an opinion in seconds. If the site is slow or confusing, they will leave. That is why we build high-performing websites. They load quickly, guide the user smoothly, and highlight your product or service effectively. For the visual aspects of this process, see our <Link href="/services/web-design" className="text-foreground underline hover:text-foreground">web design</Link> service.
+                  Every page we build focuses on clarity and speed. When a visitor lands on your site, they form an opinion in seconds. If the site is slow or confusing, they will leave. That is why we build high-performing websites. They load quickly, guide the user smoothly, and highlight your product or service effectively.
                 </p>
-                <p className="mb-6">
-                  We manage the technical details so you can save time and focus on your business. <Link href="/contact" className="text-foreground underline hover:text-foreground">Get in touch</Link> to start your project.
+                <p className="mb-8">
+                  We manage the technical details so you can save time and focus on your business.
                 </p>
+                <div className="flex flex-wrap gap-4 mb-16">
+                  <Link
+                    href="/services/web-design"
+                    className="inline-flex h-11 items-center justify-center rounded-full border border-foreground/30 px-6 font-sans text-xs font-medium uppercase tracking-widest text-foreground transition-all hover:bg-muted"
+                  >
+                    View Web Design Services
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="inline-flex h-11 items-center justify-center rounded-full bg-foreground px-6 font-sans text-xs font-medium uppercase tracking-widest text-background transition-all hover:scale-105 active:scale-95"
+                  >
+                    Get in touch
+                  </Link>
+                </div>
               </div>
             </Reveal>
 

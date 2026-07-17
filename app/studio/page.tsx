@@ -51,9 +51,19 @@ export default function StudioPage() {
               </p>
             </Reveal>
             <Reveal delay={0.2}>
-              <p className="text-base leading-relaxed text-foreground md:text-lg">
-                We believe a website should be more than a digital brochure. It must represent a business professionally, create confidence, and support meaningful objectives. Our work combines <Link href="/services" className="text-foreground underline hover:text-foreground">strategy, design, and development</Link> to create websites that are visually refined and commercially effective.
-              </p>
+              <div className="space-y-6">
+                <p className="text-base leading-relaxed text-foreground md:text-lg">
+                  We believe a website should be more than a digital brochure. It must represent a business professionally, create confidence, and support meaningful objectives. Our work combines strategy, design, and development to create websites that are visually refined and commercially effective.
+                </p>
+                <div>
+                  <Link
+                    href="/services"
+                    className="inline-flex h-11 items-center justify-center rounded-full border border-foreground/30 px-6 font-sans text-xs font-medium uppercase tracking-widest text-foreground transition-all hover:bg-muted"
+                  >
+                    Explore Our Services
+                  </Link>
+                </div>
+              </div>
             </Reveal>
             <Reveal delay={0.3}>
               <p className="text-base leading-relaxed text-foreground md:text-lg">

@@ -193,9 +193,17 @@ export default function WebDesignPage() {
             <p className="font-sans text-lg leading-relaxed text-foreground mb-6">
               Good design builds trust, improves clarity, and helps users understand your value within seconds. Poor design creates friction, confusion, and lost opportunities.
             </p>
-            <p className="font-sans text-lg leading-relaxed text-foreground mb-20">
-              At OBX Studio, we design websites that not only look modern but also guide users toward meaningful action. Once the design is finalized, our <Link href="/services/web-development" className="text-foreground underline hover:text-foreground">web development</Link> team brings it to life.
+            <p className="font-sans text-lg leading-relaxed text-foreground mb-8">
+              At OBX Studio, we design websites that not only look modern but also guide users toward meaningful action. Once the design is finalized, our web development team brings it to life.
             </p>
+            <div className="mb-20">
+              <Link
+                href="/services/web-development"
+                className="inline-flex h-11 items-center justify-center rounded-full border border-foreground/30 px-6 font-sans text-xs font-medium uppercase tracking-widest text-foreground transition-all hover:bg-muted"
+              >
+                Learn about Web Development
+              </Link>
+            </div>
           </Reveal>
         </div>
       </section>

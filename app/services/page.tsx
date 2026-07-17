@@ -126,15 +126,27 @@ export default function ServicesPage() {
               </div>
               <div>
                 <h3 className="font-mono text-sm uppercase tracking-widest text-foreground font-semibold mb-4">2. Design</h3>
-                <p className="font-sans text-lg leading-relaxed text-foreground">
-                  We create a visual system and user experience that reflects your brand and guides users effectively. Read more about our <Link href="/services/web-design" className="text-foreground underline hover:text-foreground">web design services</Link>.
+                <p className="font-sans text-lg leading-relaxed text-foreground mb-4">
+                  We create a visual system and user experience that reflects your brand and guides users effectively.
                 </p>
+                <Link
+                  href="/services/web-design"
+                  className="inline-flex h-9 items-center justify-center rounded-full border border-foreground/30 px-5 font-sans text-xs font-medium uppercase tracking-widest text-foreground transition-all hover:bg-muted"
+                >
+                  View Web Design Services
+                </Link>
               </div>
               <div>
                 <h3 className="font-mono text-sm uppercase tracking-widest text-foreground font-semibold mb-4">3. Development</h3>
-                <p className="font-sans text-lg leading-relaxed text-foreground">
-                  We build the website into a fully functional, responsive, and performance-optimised product. Read more about our <Link href="/services/web-development" className="text-foreground underline hover:text-foreground">web development services</Link>.
+                <p className="font-sans text-lg leading-relaxed text-foreground mb-4">
+                  We build the website into a fully functional, responsive, and performance-optimised product.
                 </p>
+                <Link
+                  href="/services/web-development"
+                  className="inline-flex h-9 items-center justify-center rounded-full border border-foreground/30 px-5 font-sans text-xs font-medium uppercase tracking-widest text-foreground transition-all hover:bg-muted"
+                >
+                  View Web Development Services
+                </Link>
               </div>
               <div>
                 <h3 className="font-mono text-sm uppercase tracking-widest text-foreground font-semibold mb-4">4. Launch</h3>

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Geist_Mono } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
 import { SmoothScroll } from '@/components/smooth-scroll'
@@ -11,8 +11,8 @@ import { FirebaseAnalytics } from '@/components/firebase-analytics'
 import { LayoutWrapper } from '@/components/layout-wrapper'
 import { AnalyticsLoader } from '@/components/analytics-loader'
 
-const geistSans = Inter({ variable: '--font-geist-sans', subsets: ['latin'] })
-const geistMono = Inter({
+const inter = Inter({ variable: '--font-inter', subsets: ['latin'] })
+const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
 })
@@ -48,7 +48,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} light bg-background`}
+      className={`${inter.variable} ${geistMono.variable} light bg-background`}
     >
       <head>
         {/* Favicon configurations to force new SVG favicon */}

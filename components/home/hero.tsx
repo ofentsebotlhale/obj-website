@@ -63,7 +63,7 @@ export function Hero() {
         transition={{ duration: 0.8, delay: 2.2, ease: EASE }}
         className="absolute left-5 right-16 top-5 z-10 flex max-w-sm flex-col gap-5 md:left-10 md:right-auto md:top-7"
       >
-        <p className="text-pretty font-sans text-base font-medium leading-6 tracking-normal text-foreground pt-2">
+        <p className="text-pretty font-sans text-lg md:text-[22px] md:leading-8 font-medium tracking-normal text-foreground pt-2">
           We craft brands, interfaces, and high-performance digital experiences for the ambitious.
         </p>
         <Link

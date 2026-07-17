@@ -96,19 +96,22 @@ export function CookieBanner() {
               </div>
 
               {!showPreferences ? (
-                <p className="text-sm font-light leading-relaxed text-foreground select-none">
-                  We collect cookie data regarding website interactions to
-                  analyze and elevate our physical-to-digital representations.
-                  Rejecting limits tracking. Learn more in our{" "}
-                  <Link
-                    href="/privacy"
-                    className="text-foreground underline underline-offset-4 hover:opacity-70 transition-opacity font-medium"
-                    id="cookie-privacy-link"
-                  >
-                    Privacy Policy
-                  </Link>
-                  .
-                </p>
+                <div className="space-y-3">
+                  <p className="text-sm font-light leading-relaxed text-foreground select-none">
+                    We collect cookie data regarding website interactions to
+                    analyze and elevate our physical-to-digital representations.
+                    Rejecting limits tracking.
+                  </p>
+                  <div>
+                    <Link
+                      href="/privacy"
+                      className="inline-flex text-xs text-foreground underline underline-offset-4 hover:opacity-70 transition-opacity font-sans font-medium"
+                      id="cookie-privacy-link"
+                    >
+                      Read Privacy Policy
+                    </Link>
+                  </div>
+                </div>
               ) : (
                 <div className="space-y-4 pt-2">
                   <p className="text-xs text-foreground uppercase tracking-wider font-mono">

@@ -4,9 +4,9 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-heading: var(--font-geist-sans), 'Geist Fallback';
-  --font-sans: var(--font-geist-sans), 'Geist Fallback';
-  --font-mono: var(--font-geist-mono), 'Geist Mono Fallback';
+  --font-heading: var(--font-geist-mono), var(--font-inter), sans-serif;
+  --font-sans: var(--font-geist-mono), var(--font-inter), sans-serif;
+  --font-mono: var(--font-geist-mono), var(--font-inter), monospace;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -62,25 +62,35 @@
   }
   body {
     @apply bg-background text-foreground font-sans font-medium;
+    font-weight: 500;
   }
   html {
     @apply font-sans font-medium;
     -webkit-font-smoothing: antialiased;
+    font-weight: 500;
   }
   
-  /* Inter Bold for headings */
-  h1, h2, h3, h4, h5, h6, .font-heading {
-    @apply font-bold;
+  /* Inter Bold for headings and bold/semibold elements */
+  h1, h2, h3, h4, h5, h6, .font-heading, .font-semibold, .font-bold {
+    font-weight: 700 !important;
   }
 
-  /* Inter Regular for very small texts */
+  /* Inter Medium for standard text, body paragraphs, lists, links, buttons, and medium elements */
+  p, span, li, a, button, input, textarea, select, .font-medium {
+    font-weight: 500;
+  }
+
+  /* Inter Regular for very small texts or elements explicitly styled regular/light/thin */
   small,
   .text-xs,
   .text-\[10px\],
   .text-\[11px\],
   .text-\[12px\],
-  .text-\[13px\] {
-    @apply font-normal;
+  .text-\[13px\],
+  .font-normal,
+  .font-light,
+  .font-thin {
+    font-weight: 400 !important;
   }
 
   :focus-visible {
