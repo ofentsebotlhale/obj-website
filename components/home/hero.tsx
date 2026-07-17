@@ -49,7 +49,7 @@ export function Hero() {
   }, [])
 
   return (
-    <section className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden px-5 md:px-10">
+    <section className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden px-4 md:px-6">
       {/* Subtle grid pattern background */}
       <div 
         className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" 
@@ -61,7 +61,7 @@ export function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 2.2, ease: EASE }}
-        className="absolute left-5 right-16 top-5 z-10 flex max-w-sm flex-col gap-5 md:left-10 md:right-auto md:top-7"
+        className="absolute left-4 right-16 top-4 z-10 flex max-w-sm flex-col gap-5 md:left-6 md:right-auto md:top-6"
       >
         <p className="text-pretty font-sans text-lg md:text-[22px] md:leading-8 font-medium tracking-normal text-foreground pt-2">
           We craft brands, interfaces, and high-performance digital experiences for the ambitious.
@@ -82,7 +82,7 @@ export function Hero() {
           <div aria-hidden="true">
             <Line text={LINE1} delay={0.15} />
           </div>
-          <div className="flex items-center justify-start gap-4">
+          <div className="flex items-center justify-start pl-[12vw] sm:pl-[16vw] md:pl-[20vw]">
             <div aria-hidden="true">
               <Line text={LINE2} delay={0.28} />
             </div>
@@ -95,7 +95,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 2.4 }}
-        className="absolute bottom-10 left-5 right-5 z-10 flex flex-row items-end justify-between gap-4 font-mono text-[10px] uppercase tracking-widest text-muted-foreground sm:text-[11px] md:left-10 md:right-10"
+        className="absolute bottom-10 left-4 right-4 z-10 flex flex-row items-end justify-between gap-4 font-mono text-[10px] uppercase tracking-widest text-muted-foreground sm:text-[11px] md:left-6 md:right-6"
       >
         <div className="flex flex-col gap-2">
           <span className="leading-relaxed text-black font-sans font-medium">

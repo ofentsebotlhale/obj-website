@@ -63,7 +63,7 @@ export function SiteNav() {
         )}
       >
         <nav className={cn(
-          "flex items-center justify-between px-5 transition-all duration-300 md:px-10",
+          "flex items-center justify-between px-4 transition-all duration-300 md:px-6",
           scrolled && !open ? "py-3 md:py-4" : "py-5 md:py-7"
         )}>
           <Link
@@ -106,7 +106,7 @@ export function SiteNav() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-40 flex flex-col items-end justify-center bg-background px-6 md:px-20 overflow-hidden"
+            className="fixed inset-0 z-40 flex flex-col items-end justify-center bg-background px-4 md:px-6 overflow-hidden"
           >
             {/* Cool Subtle Background Animation */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 opacity-100">

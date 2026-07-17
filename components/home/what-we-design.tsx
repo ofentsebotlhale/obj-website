@@ -12,7 +12,7 @@ const ITEMS = [
 
 export function WhatWeDesign() {
   return (
-    <section className="px-5 py-32 md:py-48 md:px-10 bg-background text-foreground border-t border-border/10">
+    <section className="px-4 py-32 md:py-48 md:px-6 bg-background text-foreground border-t border-border/10">
       <div className="mx-auto max-w-[1600px] grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
         {/* Left Column Label */}
         <div className="md:col-span-4">

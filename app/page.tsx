@@ -55,7 +55,7 @@ export default function HomePage() {
 
       {/* SECTION 2 — Selected Work */}
       <div className="bg-foreground text-background">
-        <section className="px-5 pb-28 pt-12 md:px-10 md:pb-40">
+        <section className="px-4 pb-28 pt-12 md:px-6 md:pb-40">
           <div className="mx-auto max-w-[1600px]">
             <Reveal className="mb-12 md:mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
               <div className="space-y-2 max-w-2xl">

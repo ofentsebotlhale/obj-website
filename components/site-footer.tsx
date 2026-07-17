@@ -92,7 +92,7 @@ export function SiteFooter() {
   const y = useTransform(scrollYProgress, [0, 1], [40, 0])
 
   return (
-    <footer className="relative flex min-h-[100svh] flex-col justify-between overflow-hidden border-t border-border bg-background px-5 pb-8 pt-20 md:px-10">
+    <footer className="relative flex min-h-[100svh] flex-col justify-between overflow-hidden border-t border-border bg-background px-4 pb-8 pt-20 md:px-6">
       <div className="mx-auto w-full max-w-[1600px] flex-grow flex flex-col justify-between">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
           <div className="md:col-span-7">
@@ -172,8 +172,9 @@ export function SiteFooter() {
           style={{ opacity, y }}
           className="mt-16 select-none"
         >
-          <h2 className="font-heading text-[18vw] font-bold leading-[0.8] tracking-tighter text-foreground md:text-[12vw]">
-            OBX STUDIO
+          <h2 className="font-heading text-[18vw] font-bold leading-[0.8] tracking-tighter text-foreground md:text-[12vw] flex flex-col items-start">
+            <span>OBX</span>
+            <span className="pl-[12vw] sm:pl-[16vw] md:pl-[20vw]">STUDIO</span>
           </h2>
         </motion.div>
 
