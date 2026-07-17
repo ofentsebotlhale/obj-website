@@ -182,7 +182,6 @@ export function SiteFooter() {
             <div className="flex gap-4">
               <Link href="/privacy" className="hover:text-foreground transition-colors py-2 min-h-[44px] flex items-center">Privacy Policy</Link>
               <Link href="/terms" className="hover:text-foreground transition-colors py-2 min-h-[44px] flex items-center">Terms & Conditions</Link>
-              <Link href="/indexnow" className="hover:text-foreground transition-colors py-2 min-h-[44px] flex items-center">IndexNow Console</Link>
             </div>
           </div>
           <span className="py-2">A few skilled humans doing the work of many™</span>
