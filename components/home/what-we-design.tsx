@@ -18,7 +18,7 @@ export function WhatWeDesign() {
         <div className="md:col-span-4">
           <Reveal className="sticky top-32">
             <h2 className="font-mono text-xs uppercase tracking-widest text-black font-normal">
-              We design:
+              Built through:
             </h2>
           </Reveal>
         </div>

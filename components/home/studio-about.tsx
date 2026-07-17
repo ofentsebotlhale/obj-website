@@ -10,9 +10,14 @@ export function StudioAbout() {
         {/* Left Column: Label */}
         <div className="md:col-span-4">
           <Reveal className="sticky top-32">
-            <h2 className="font-mono text-xs uppercase tracking-widest text-black font-normal">
-              Studio
-            </h2>
+            <div className="space-y-1">
+              <span className="font-mono text-xs uppercase tracking-widest text-black/40 block">
+                The studio behind it.
+              </span>
+              <h2 className="font-mono text-xs uppercase tracking-widest text-black font-normal">
+                Studio
+              </h2>
+            </div>
           </Reveal>
         </div>
 

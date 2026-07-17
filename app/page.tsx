@@ -50,20 +50,26 @@ export default function HomePage() {
       {/* SECTION 1 — Trust Statement */}
       <Intro />
 
-      {/* Gradient transition starting from the end of Section 1 leading into Section 2 */}
+      {/* Gradient transition starting from the end of Section 1 leading into dark sections */}
       <ScrollGradient />
 
-      {/* SECTION 2 — Selected Work */}
+      {/* SECTION 2 — Belief Statement */}
+      <BeliefStatement />
+
+      {/* SECTION 3 — Selected Work */}
       <div className="bg-foreground text-background">
         <section className="px-4 pb-28 pt-12 md:px-6 md:pb-40">
           <div className="mx-auto max-w-[1600px]">
             <Reveal className="mb-12 md:mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
-              <div className="space-y-2 max-w-2xl">
+              <div className="space-y-4 max-w-2xl">
+                <span className="font-mono text-xs uppercase tracking-widest text-background/40 block">
+                  Here&apos;s what that looks like in practice.
+                </span>
                 <h2 className="font-heading text-3xl font-semibold tracking-tight md:text-5xl text-background">
                   Selected Work
                 </h2>
-                <p className="font-mono text-xs uppercase tracking-widest text-background/60">
-                  A few of the brands and businesses we've helped become easier to trust online.
+                <p className="font-sans text-sm text-background/60">
+                  A few of the brands and businesses we&apos;ve helped become easier to trust online.
                 </p>
               </div>
               <Link
@@ -93,9 +99,6 @@ export default function HomePage() {
           </div>
         </section>
       </div>
-
-      {/* SECTION 3 — Belief Statement */}
-      <BeliefStatement />
 
       {/* SECTION 4 — What We Design */}
       <WhatWeDesign />
