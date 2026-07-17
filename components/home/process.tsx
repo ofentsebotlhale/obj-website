@@ -49,7 +49,7 @@ export function Process() {
     <section ref={ref} className="relative h-[320vh] bg-background md:h-[400vh]">
       <div className="sticky top-0 flex h-[100svh] flex-col justify-center overflow-hidden">
         <div className="mb-10 flex items-end justify-between px-5 md:px-10">
-          <h2 className="font-heading text-2xl font-semibold tracking-tight text-foreground md:text-4xl">
+          <h2 className="font-heading text-2xl font-bold tracking-tight text-foreground md:text-4xl">
             Process
           </h2>
         </div>
@@ -64,7 +64,7 @@ export function Process() {
                 <span className="h-2 w-2 rounded-full bg-foreground" />
               </div>
               <div>
-                <h3 className="font-heading text-4xl font-semibold tracking-tight text-foreground md:text-6xl">
+                <h3 className="font-heading text-4xl font-bold tracking-tight text-foreground md:text-6xl">
                   {s.title}
                 </h3>
                 <p className="mt-5 max-w-sm text-pretty leading-relaxed text-foreground">

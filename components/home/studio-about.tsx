@@ -10,7 +10,7 @@ export function StudioAbout() {
         {/* Left Column: Label */}
         <div className="md:col-span-4">
           <Reveal className="sticky top-32">
-            <h2 className="font-mono text-xs uppercase tracking-widest text-black font-semibold">
+            <h2 className="font-mono text-xs uppercase tracking-widest text-black font-normal">
               Studio
             </h2>
           </Reveal>
@@ -19,7 +19,7 @@ export function StudioAbout() {
         {/* Right Column: Content */}
         <div className="md:col-span-8 max-w-4xl space-y-10 md:space-y-14">
           <Reveal>
-            <p className="font-sans text-2xl md:text-4xl font-semibold leading-snug text-black text-pretty">
+            <p className="font-sans text-2xl md:text-4xl font-bold leading-snug text-black text-pretty">
               OBX Studio is a boutique digital design practice based in Johannesburg. We build websites, brand identities, and digital experiences for businesses that want to be taken seriously online.
             </p>
           </Reveal>

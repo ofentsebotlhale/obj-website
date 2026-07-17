@@ -60,7 +60,7 @@ export function WhatWeBuild() {
     <section className="px-5 py-28 md:px-10 md:py-40 border-t border-border bg-secondary/20">
       <div className="mx-auto max-w-[1600px]">
         <Reveal className="mb-16">
-          <h2 className="font-heading text-2xl font-semibold tracking-tight text-foreground md:text-4xl">
+          <h2 className="font-heading text-2xl font-bold tracking-tight text-foreground md:text-4xl">
             What we build
           </h2>
         </Reveal>
@@ -86,7 +86,7 @@ export function WhatWeBuild() {
                     {/* Content */}
                     <div>
                       <div className="mb-3 flex items-center justify-between">
-                        <h3 className="font-heading text-xl font-medium tracking-tight text-foreground">
+                        <h3 className="font-heading text-xl font-bold tracking-tight text-foreground">
                           {item.title}
                         </h3>
                         <ArrowRight className="w-4 h-4 text-foreground opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />

@@ -36,7 +36,7 @@ export function FeaturedWork({ items }: { items: Project[] }) {
             <Reveal delay={i * 0.1 + 0.1}>
               <div className="flex flex-col gap-2">
                 <div className="flex items-center justify-between">
-                  <h3 className="font-heading text-2xl font-semibold tracking-tight sm:text-3xl">
+                  <h3 className="font-heading text-2xl font-bold tracking-tight sm:text-3xl">
                     {project.title}
                   </h3>
                   <Link href={`/work/${project.slug}`} className="font-mono text-[10px] uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity">

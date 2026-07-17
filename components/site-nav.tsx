@@ -120,7 +120,7 @@ export function SiteNav() {
                     <Link
                       href={link.href}
                       className={cn(
-                        "font-heading text-5xl font-semibold tracking-tight md:text-7xl transition-opacity",
+                        "font-heading text-5xl font-bold tracking-tight md:text-7xl transition-opacity",
                         isActive
                           ? "text-foreground pointer-events-none underline underline-offset-8"
                           : "text-foreground hover:opacity-70"

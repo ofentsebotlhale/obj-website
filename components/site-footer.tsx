@@ -101,7 +101,7 @@ export function SiteFooter() {
             </p>
             <Link href="/contact" data-cursor="Say hi" className="group mt-4 inline-flex items-center gap-4">
               <span
-                className="font-heading text-4xl font-semibold tracking-tight text-foreground transition-all duration-300 group-hover:opacity-60 sm:text-5xl md:text-6xl"
+                className="font-heading text-4xl font-bold tracking-tight text-foreground transition-all duration-300 group-hover:opacity-60 sm:text-5xl md:text-6xl"
               >
                 Let&apos;s build something
               </span>

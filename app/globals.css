@@ -61,12 +61,28 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans font-medium;
   }
   html {
-    @apply font-sans;
+    @apply font-sans font-medium;
     -webkit-font-smoothing: antialiased;
   }
+  
+  /* Inter Bold for headings */
+  h1, h2, h3, h4, h5, h6, .font-heading {
+    @apply font-bold;
+  }
+
+  /* Inter Regular for very small texts */
+  small,
+  .text-xs,
+  .text-\[10px\],
+  .text-\[11px\],
+  .text-\[12px\],
+  .text-\[13px\] {
+    @apply font-normal;
+  }
+
   :focus-visible {
     outline: 2px solid var(--color-ring);
     outline-offset: 3px;
