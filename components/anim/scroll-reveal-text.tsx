@@ -9,13 +9,17 @@ interface ScrollRevealTextProps {
   className?: string
   startOffset?: string
   endOffset?: string
+  progress?: MotionValue<number>
+  range?: [number, number]
 }
 
 export function ScrollRevealText({
   text,
   className,
   startOffset = "start 80%",
-  endOffset = "end 50%"
+  endOffset = "end 50%",
+  progress,
+  range,
 }: ScrollRevealTextProps) {
   const containerRef = useRef<HTMLParagraphElement>(null)
   
@@ -24,16 +28,21 @@ export function ScrollRevealText({
     offset: [startOffset, endOffset] as any,
   })
 
+  const activeProgress = progress || scrollYProgress
   const words = text.split(' ')
 
   return (
     <p ref={containerRef} className={cn("relative", className)}>
       {words.map((word, i) => {
         // Calculate the range for each word
-        const start = i / words.length
-        const end = (i + 1) / words.length
+        const start = range
+          ? range[0] + (i / words.length) * (range[1] - range[0])
+          : i / words.length
+        const end = range
+          ? range[0] + ((i + 1) / words.length) * (range[1] - range[0])
+          : (i + 1) / words.length
         return (
-          <Word key={i} progress={scrollYProgress} range={[start, end]}>
+          <Word key={i} progress={activeProgress} range={[start, end]}>
             {word}
           </Word>
         )
