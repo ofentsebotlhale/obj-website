@@ -165,28 +165,28 @@ export function SiteFooter() {
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Oversized wordmark */}
-        <motion.div
-          ref={ref}
-          style={{ opacity, y }}
-          className="mt-16 select-none"
-        >
-          <h2 className="font-heading text-[18vw] font-bold leading-[0.8] tracking-tighter text-foreground md:text-[12vw]">
-            OBX STUDIO
-          </h2>
-        </motion.div>
+      {/* Oversized wordmark - placed outside the max-w-[1600px] block for true screen-wide coverage */}
+      <motion.div
+        ref={ref}
+        style={{ opacity, y }}
+        className="w-full select-none overflow-hidden mt-16 -mx-4 md:-mx-6"
+      >
+        <h2 className="font-heading text-[18.2vw] font-black leading-[0.75] tracking-[-0.055em] text-foreground text-center uppercase whitespace-nowrap">
+          OBX STUDIO
+        </h2>
+      </motion.div>
 
-        <div className="mt-8 flex flex-col gap-4 border-t border-border pt-6 font-mono text-[11px] uppercase tracking-widest text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex flex-col gap-2 sm:flex-row sm:gap-6 items-center">
-            <span className="py-2">© {year} OBX Studio — All rights reserved</span>
-            <div className="flex gap-4">
-              <Link href="/privacy" className="hover:text-foreground transition-colors py-2 min-h-[44px] flex items-center">Privacy Policy</Link>
-              <Link href="/terms" className="hover:text-foreground transition-colors py-2 min-h-[44px] flex items-center">Terms & Conditions</Link>
-            </div>
+      <div className="mx-auto w-full max-w-[1600px] mt-8 flex flex-col gap-4 border-t border-border pt-6 font-mono text-[11px] uppercase tracking-widest text-muted-foreground sm:flex-row sm:items-center sm:justify-between px-4 md:px-0">
+        <div className="flex flex-col gap-2 sm:flex-row sm:gap-6 items-center">
+          <span className="py-2">© {year} OBX Studio — All rights reserved</span>
+          <div className="flex gap-4">
+            <Link href="/privacy" className="hover:text-foreground transition-colors py-2 min-h-[44px] flex items-center">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-foreground transition-colors py-2 min-h-[44px] flex items-center">Terms & Conditions</Link>
           </div>
-          <span className="py-2">A few skilled humans doing the work of many™</span>
         </div>
+        <span className="py-2">A few skilled humans doing the work of many™</span>
       </div>
     </footer>
   )
