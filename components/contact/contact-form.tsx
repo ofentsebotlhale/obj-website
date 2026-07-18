@@ -75,32 +75,39 @@ function SelectField({
   onChange: (v: string) => void
 }) {
   return (
-    <div className="relative border-b border-border focus-within:border-foreground pb-3 pt-7">
+    <div className="relative pb-2 pt-4">
       <label
-        htmlFor={id}
-        className="pointer-events-none absolute left-0 top-1 text-[10px] font-mono uppercase tracking-widest text-muted-foreground transition-all duration-300"
+        className="block mb-4 text-[10px] font-mono uppercase tracking-widest text-muted-foreground"
       >
         {label}
       </label>
-      <select
-        id={id}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="w-full appearance-none bg-transparent text-lg text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:rounded cursor-pointer"
-      >
-        <option value="" disabled hidden>
-          Select an option
-        </option>
-        {options.map((opt) => (
-          <option key={opt} value={opt} className="bg-background text-foreground">
-            {opt}
-          </option>
-        ))}
-      </select>
-      <div className="pointer-events-none absolute right-0 top-8 text-foreground">
-        <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
+      <div className="flex flex-wrap gap-2.5">
+        {options.map((opt) => {
+          const isSelected = value === opt
+          return (
+            <button
+              key={opt}
+              type="button"
+              onClick={() => onChange(opt)}
+              className={`relative inline-flex items-center justify-center px-4 py-2.5 rounded-full border text-xs sm:text-sm font-sans tracking-wide transition-all duration-300 min-h-[44px] cursor-pointer overflow-hidden ${
+                isSelected
+                  ? 'border-foreground font-semibold text-background'
+                  : 'bg-transparent text-foreground/80 border-border hover:border-foreground/50 hover:bg-foreground/5'
+              }`}
+            >
+              {isSelected && (
+                <motion.span
+                  layoutId={`active_indicator_${id}`}
+                  className="absolute inset-0 bg-foreground -z-10"
+                  transition={{ type: 'spring', stiffness: 350, damping: 28 }}
+                />
+              )}
+              <span className={isSelected ? 'text-background relative z-10' : 'relative z-10'}>
+                {opt}
+              </span>
+            </button>
+          )
+        })}
       </div>
     </div>
   )
@@ -279,7 +286,7 @@ export function ContactForm() {
             <h3 className="text-xl md:text-2xl font-heading text-foreground mb-4">
               Let&apos;s talk logistics. What is your estimated investment and ideal timeline?
             </h3>
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+            <div className="flex flex-col gap-6">
               <SelectField
                 id="budget"
                 label="Estimated Budget"

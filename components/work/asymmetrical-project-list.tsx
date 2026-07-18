@@ -8,7 +8,7 @@ import { ParallaxImage } from '@/components/anim/parallax-image'
 
 export function AsymmetricalProjectList({ items }: { items: Project[] }) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 lg:gap-24 relative">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 lg:gap-32 relative">
       {items.map((project, i) => (
         <ProjectCard key={project.slug} project={project} index={i} />
       ))}
@@ -20,7 +20,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   const isOdd = index % 2 !== 0
 
   return (
-    <div className={`flex flex-col gap-6 ${isOdd ? 'md:mt-32' : 'md:mb-32'}`}>
+    <div className={`flex flex-col gap-8 ${isOdd ? 'md:mt-44' : 'md:mb-44'}`}>
       <Reveal>
         <Link 
           href={`/work/${project.slug}`}

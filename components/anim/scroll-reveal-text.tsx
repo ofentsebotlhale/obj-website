@@ -40,7 +40,7 @@ export function ScrollRevealText({
       {words.map((word, wordIdx) => {
         const chars = Array.from(word)
         const renderedWord = (
-          <span key={wordIdx} className="relative inline-block mr-[0.25em] select-none whitespace-nowrap">
+          <span key={wordIdx} className="relative inline-block mr-[0.38em] select-none whitespace-nowrap">
             {chars.map((char, charIdx) => {
               const absoluteIndex = charIndexCounter
               charIndexCounter++

@@ -64,7 +64,7 @@ export default function ContactPage() {
           {/* Right Column: Contact form immediately visible */}
           <div className="lg:col-span-7 lg:pl-8">
             <Reveal>
-              <div className="rounded-xl border border-border bg-card p-6 md:p-10 shadow-sm">
+              <div className="w-full">
                 <ContactForm />
               </div>
             </Reveal>
