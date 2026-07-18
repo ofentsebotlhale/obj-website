@@ -23,7 +23,7 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16 items-start">
           
           {/* Left Column: Heading and info */}
-          <div className="order-2 lg:order-1 lg:col-span-5 space-y-8 lg:sticky lg:top-32">
+          <div className="lg:col-span-5 space-y-8 lg:sticky lg:top-32">
             <div className="space-y-4">
               <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
                 <span>Start a project</span>
@@ -62,7 +62,7 @@ export default function ContactPage() {
           </div>
 
           {/* Right Column: Contact form immediately visible */}
-          <div className="order-1 lg:order-2 lg:col-span-7 lg:pl-8">
+          <div className="lg:col-span-7 lg:pl-8">
             <Reveal>
               <div className="w-full">
                 <ContactForm />

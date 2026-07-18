@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { cn } from '@/lib/utils'
 
 interface ShiftingHeadingProps {
@@ -18,21 +18,9 @@ export function ShiftingHeading({ text, className }: ShiftingHeadingProps) {
     offset: ["start end", "center center"],
   })
 
-  // Create a spring-smoothed progress for buttery movement
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 70,
-    damping: 26,
-    restDelta: 0.001
-  })
-
-  // Define the reveal/slide range
-  const rangeStart = 0.1
-  const rangeEnd = 0.8
-  const totalDuration = rangeEnd - rangeStart
-
   // Animate alignment from center (left: 50%, x: -50%) to left-aligned (left: 0%, x: 0%)
-  const left = useTransform(smoothProgress, [rangeStart, rangeEnd], ["50%", "0%"])
-  const x = useTransform(smoothProgress, [rangeStart, rangeEnd], ["-50%", "0%"])
+  const left = useTransform(scrollYProgress, [0.4, 0.95], ["50%", "0%"])
+  const x = useTransform(scrollYProgress, [0.4, 0.95], ["-50%", "0%"])
 
   const words = text.split(' ')
   const totalChars = text.length
@@ -46,7 +34,7 @@ export function ShiftingHeading({ text, className }: ShiftingHeadingProps) {
         <motion.h2
           style={{ left, x }}
           className={cn(
-            "relative inline-block font-heading text-2xl font-bold leading-snug tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-white select-none whitespace-normal sm:whitespace-nowrap text-pretty",
+            "relative inline-block font-heading text-2xl font-bold leading-snug tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-white text-pretty select-none whitespace-normal md:whitespace-nowrap",
             className
           )}
         >
@@ -58,12 +46,16 @@ export function ShiftingHeading({ text, className }: ShiftingHeadingProps) {
                   const absoluteIndex = charIndexCounter
                   charIndexCounter++
 
-                  // Words/letters reveal sequentially in the defined range
+                  // Words/letters reveal sequentially in the first 40% of the scroll progress
+                  const rangeStart = 0.05
+                  const rangeEnd = 0.4
+                  const totalDuration = rangeEnd - rangeStart
+
                   const start = rangeStart + (absoluteIndex / divisor) * totalDuration
                   const end = rangeStart + ((absoluteIndex + overlapSpread) / divisor) * totalDuration
 
                   return (
-                    <Character key={charIdx} progress={smoothProgress} range={[start, end]}>
+                    <Character key={charIdx} progress={scrollYProgress} range={[start, end]}>
                       {char}
                     </Character>
                   )

@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
-import { motion, useScroll, useTransform, useSpring, MotionValue } from 'framer-motion'
+import { motion, useScroll, useTransform, MotionValue } from 'framer-motion'
 import { cn } from '@/lib/utils'
 
 interface ScrollRevealTextProps {
@@ -28,14 +28,7 @@ export function ScrollRevealText({
     offset: [startOffset, endOffset] as any,
   })
 
-  // Smooth progress using useSpring
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 80,
-    damping: 25,
-    restDelta: 0.001
-  })
-
-  const activeProgress = progress || smoothProgress
+  const activeProgress = progress || scrollYProgress
   const words = text.split(' ')
   const totalChars = text.length
   const overlapSpread = 12 // smooth letter overlap
