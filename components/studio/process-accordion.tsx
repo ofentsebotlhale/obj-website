@@ -1,13 +1,8 @@
 'use client'
 
-import { useRef, useLayoutEffect, useEffect } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
 import { Reveal, RevealWords } from '@/components/anim/reveal'
-
-gsap.registerPlugin(ScrollTrigger)
-
-const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
 const STEPS = [
   {
@@ -43,34 +38,24 @@ export function ProcessAccordion() {
 function Card({ step, i }: { step: any; i: number }) {
   const ref = useRef<HTMLDivElement>(null)
   
-  useIsomorphicLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(ref.current,
-        { opacity: 0, y: 50, scale: 0.95 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: ref.current,
-            start: 'top 95%',
-            end: 'top 60%',
-            scrub: true,
-          }
-        }
-      )
-    }, ref)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 95%", "start 60%"]
+  })
 
-    return () => ctx.revert()
-  }, [])
+  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1])
+  const y = useTransform(scrollYProgress, [0, 1], [50, 0])
+  const scale = useTransform(scrollYProgress, [0, 1], [0.95, 1])
 
   return (
-    <div
+    <motion.div
       ref={ref}
-      className="sticky z-10 w-full overflow-hidden rounded-[2rem] border border-border bg-background p-8 shadow-sm md:p-16 mb-16 md:mb-32 opacity-0"
+      className="sticky z-10 w-full overflow-hidden rounded-[2rem] border border-border bg-background p-8 shadow-sm md:p-16 mb-16 md:mb-32"
       style={{
         top: `calc(6rem + ${i * 1.5}rem)`,
+        opacity,
+        y,
+        scale
       }}
     >
       <div className="flex min-h-[40vh] flex-col justify-between md:min-h-[55vh]">
@@ -106,6 +91,6 @@ function Card({ step, i }: { step: any; i: number }) {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }

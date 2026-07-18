@@ -1,12 +1,7 @@
 'use client'
 
-import { useRef, useLayoutEffect, useEffect } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
-
-const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
+import { useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 
 const PROCESS_STEPS = [
   {
@@ -42,38 +37,23 @@ const PROCESS_STEPS = [
 ]
 
 export function Process() {
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const trackRef = useRef<HTMLDivElement>(null)
-
-  useIsomorphicLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(trackRef.current,
-        { x: '2%' },
-        {
-          x: '-72%',
-          ease: 'none',
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top top',
-            end: 'bottom bottom',
-            scrub: true,
-          }
-        }
-      )
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
+  const ref = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', 'end end'],
+  })
+  // Translate the track horizontally as the user scrolls through the tall section.
+  const x = useTransform(scrollYProgress, [0, 1], ['2%', '-72%'])
 
   return (
-    <section ref={sectionRef} className="relative h-[320vh] bg-background md:h-[400vh]">
+    <section ref={ref} className="relative h-[320vh] bg-background md:h-[400vh]">
       <div className="sticky top-0 flex h-[100svh] flex-col justify-center overflow-hidden">
         <div className="mb-10 flex items-end justify-between px-5 md:px-10">
           <h2 className="font-heading text-2xl font-bold tracking-tight text-foreground md:text-4xl">
             Process
           </h2>
         </div>
-        <div ref={trackRef} className="flex gap-5 px-5 md:gap-8 md:px-10">
+        <motion.div style={{ x }} className="flex gap-5 px-5 md:gap-8 md:px-10">
           {PROCESS_STEPS.map((s) => (
             <article
               key={s.n}
@@ -103,7 +83,7 @@ export function Process() {
               </div>
             </article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

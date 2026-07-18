@@ -1,9 +1,7 @@
 'use client'
 
-import { useState, useEffect, useRef, useLayoutEffect } from 'react'
-import { gsap } from 'gsap'
-
-const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
+import { useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 
 function Field({
   id,
@@ -98,7 +96,11 @@ function SelectField({
               }`}
             >
               {isSelected && (
-                <span className="absolute inset-0 bg-foreground -z-10" />
+                <motion.span
+                  layoutId={`active_indicator_${id}`}
+                  className="absolute inset-0 bg-foreground -z-10"
+                  transition={{ type: 'spring', stiffness: 350, damping: 28 }}
+                />
               )}
               <span className={isSelected ? 'text-background relative z-10' : 'relative z-10'}>
                 {opt}
@@ -126,39 +128,9 @@ export function ContactForm() {
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  const stepContainerRef = useRef<HTMLDivElement>(null)
-  const successRef = useRef<HTMLDivElement>(null)
-
   function set(key: keyof typeof form) {
     return (v: string) => setForm((f) => ({ ...f, [key]: v }))
   }
-
-  // Animate step transitions
-  useIsomorphicLayoutEffect(() => {
-    if (stepContainerRef.current) {
-      gsap.fromTo(stepContainerRef.current,
-        { opacity: 0, x: 20 },
-        { opacity: 1, x: 0, duration: 0.4, ease: 'power2.out', clearProps: 'all' }
-      )
-    }
-  }, [step])
-
-  // Animate success state
-  useIsomorphicLayoutEffect(() => {
-    if (sent && successRef.current) {
-      const ctx = gsap.context(() => {
-        gsap.fromTo(successRef.current,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }
-        )
-        gsap.fromTo('.success-icon',
-          { scale: 0 },
-          { scale: 1, duration: 0.5, ease: 'back.out(1.7)', delay: 0.1 }
-        )
-      }, successRef)
-      return () => ctx.revert()
-    }
-  }, [sent])
 
   function handleNext() {
     // Basic validation
@@ -166,33 +138,11 @@ export function ContactForm() {
     if (step === 3 && !form.need) return
     if (step === 4 && (!form.budget || !form.timeline)) return
     
-    // Animate out before changing step
-    if (stepContainerRef.current) {
-      gsap.to(stepContainerRef.current, {
-        opacity: 0,
-        x: -20,
-        duration: 0.3,
-        ease: 'power2.in',
-        onComplete: () => setStep(s => s + 1)
-      })
-    } else {
-      setStep(s => s + 1)
-    }
+    setStep(s => s + 1)
   }
 
   function handlePrev() {
-    // Animate out before changing step
-    if (stepContainerRef.current) {
-      gsap.to(stepContainerRef.current, {
-        opacity: 0,
-        x: 20,
-        duration: 0.3,
-        ease: 'power2.in',
-        onComplete: () => setStep(s => Math.max(1, s - 1))
-      })
-    } else {
-      setStep(s => Math.max(1, s - 1))
-    }
+    setStep(s => Math.max(1, s - 1))
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -242,17 +192,7 @@ export function ContactForm() {
         throw new Error(result.error || 'Something went wrong while submitting the form.')
       }
 
-      // Fade out form before showing success
-      if (stepContainerRef.current) {
-        gsap.to(stepContainerRef.current, {
-          opacity: 0,
-          y: -20,
-          duration: 0.3,
-          onComplete: () => setSent(true)
-        })
-      } else {
-        setSent(true)
-      }
+      setSent(true)
     } catch (err: any) {
       console.error('Form submission failed:', err)
       setError(err?.message || 'Failed to submit the message. Please try again.')
@@ -265,7 +205,13 @@ export function ContactForm() {
     switch (step) {
       case 1:
         return (
-          <div className="flex flex-col gap-8">
+          <motion.div
+            key="step1"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            className="flex flex-col gap-8"
+          >
             <h3 className="text-xl md:text-2xl font-heading text-foreground mb-4">
               Let&apos;s build something exceptional. Who are we talking to?
             </h3>
@@ -279,11 +225,17 @@ export function ContactForm() {
                 onChange={set('email')}
               />
             </div>
-          </div>
+          </motion.div>
         )
       case 2:
         return (
-          <div className="flex flex-col gap-8">
+          <motion.div
+            key="step2"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            className="flex flex-col gap-8"
+          >
             <h3 className="text-xl md:text-2xl font-heading text-foreground mb-4">
               Great to meet you. What company or website are you representing?
             </h3>
@@ -293,11 +245,17 @@ export function ContactForm() {
               value={form.company}
               onChange={set('company')}
             />
-          </div>
+          </motion.div>
         )
       case 3:
         return (
-          <div className="flex flex-col gap-8">
+          <motion.div
+            key="step3"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            className="flex flex-col gap-8"
+          >
             <h3 className="text-xl md:text-2xl font-heading text-foreground mb-4">
               What can we help you create?
             </h3>
@@ -314,11 +272,17 @@ export function ContactForm() {
                 'Something else'
               ]}
             />
-          </div>
+          </motion.div>
         )
       case 4:
         return (
-          <div className="flex flex-col gap-8">
+          <motion.div
+            key="step4"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            className="flex flex-col gap-8"
+          >
             <h3 className="text-xl md:text-2xl font-heading text-foreground mb-4">
               Let&apos;s talk logistics. What is your estimated investment and ideal timeline?
             </h3>
@@ -350,11 +314,17 @@ export function ContactForm() {
                 ]}
               />
             </div>
-          </div>
+          </motion.div>
         )
       case 5:
         return (
-          <div className="flex flex-col gap-8">
+          <motion.div
+            key="step5"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            className="flex flex-col gap-8"
+          >
             <h3 className="text-xl md:text-2xl font-heading text-foreground mb-4">
               Tell us a bit more about your business and goals.
             </h3>
@@ -366,14 +336,18 @@ export function ContactForm() {
               onChange={set('message')}
             />
             {error && (
-              <div className="rounded-md border border-red-500/30 bg-red-500/5 p-4 text-xs font-mono uppercase tracking-wider text-red-600">
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="rounded-md border border-red-500/30 bg-red-500/5 p-4 text-xs font-mono uppercase tracking-wider text-red-600"
+              >
                 ⚠ Error: {error}
-              </div>
+              </motion.div>
             )}
             <p className="text-xs text-foreground">
               By submitting this form, you agree to our privacy policy and terms.
             </p>
-          </div>
+          </motion.div>
         )
       default:
         return null
@@ -390,93 +364,102 @@ export function ContactForm() {
 
   return (
     <div className="relative">
-      {sent ? (
-        <div
-          ref={successRef}
-          className="flex min-h-[24rem] flex-col items-start justify-center opacity-0"
-        >
-          <span className="success-icon flex h-14 w-14 items-center justify-center rounded-full bg-accent text-2xl text-accent-foreground">
-            ✓
-          </span>
-          <h2 className="mt-6 font-heading text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
-            Message received.
-          </h2>
-          <p className="mt-3 max-w-md text-pretty leading-relaxed text-foreground">
-            Thanks{form.name ? `, ${form.name.split(' ')[0]}` : ''} — we&apos;ll be in
-            touch within two business days.
-          </p>
-          <button
-            type="button"
-            onClick={() => {
-              setSent(false)
-              setStep(1)
-              setForm({ name: '', email: '', company: '', need: '', budget: '', timeline: '', message: '' })
-              setError(null)
-            }}
-            className="mt-8 font-mono text-[11px] uppercase tracking-widest text-foreground transition-colors hover:opacity-70"
+      <AnimatePresence mode="wait">
+        {sent ? (
+          <motion.div
+            key="success"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex min-h-[24rem] flex-col items-start justify-center"
           >
-            ← Send another
-          </button>
-        </div>
-      ) : (
-        <div className="flex flex-col min-h-[24rem]">
-          {/* Progress indicator */}
-          <div className="flex items-center gap-2 mb-8">
-            {[1, 2, 3, 4, 5].map((i) => (
-              <div 
-                key={i} 
-                className={`h-1 flex-1 rounded-full transition-colors duration-300 ${
-                  i <= step ? 'bg-foreground' : 'bg-muted'
-                }`}
-              />
-            ))}
+            <motion.span
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ type: 'spring', damping: 14, stiffness: 200, delay: 0.1 }}
+              className="flex h-14 w-14 items-center justify-center rounded-full bg-accent text-2xl text-accent-foreground"
+            >
+              ✓
+            </motion.span>
+            <h2 className="mt-6 font-heading text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
+              Message received.
+            </h2>
+            <p className="mt-3 max-w-md text-pretty leading-relaxed text-foreground">
+              Thanks{form.name ? `, ${form.name.split(' ')[0]}` : ''} — we&apos;ll be in
+              touch within two business days.
+            </p>
+            <button
+              type="button"
+              onClick={() => {
+                setSent(false)
+                setStep(1)
+                setForm({ name: '', email: '', company: '', need: '', budget: '', timeline: '', message: '' })
+                setError(null)
+              }}
+              className="mt-8 font-mono text-[11px] uppercase tracking-widest text-foreground transition-colors hover:opacity-70"
+            >
+              ← Send another
+            </button>
+          </motion.div>
+        ) : (
+          <div className="flex flex-col min-h-[24rem]">
+            {/* Progress indicator */}
+            <div className="flex items-center gap-2 mb-8">
+              {[1, 2, 3, 4, 5].map((i) => (
+                <div 
+                  key={i} 
+                  className={`h-1 flex-1 rounded-full transition-colors duration-300 ${
+                    i <= step ? 'bg-foreground' : 'bg-muted'
+                  }`}
+                />
+              ))}
+            </div>
+
+            <form onSubmit={step === 5 ? handleSubmit : (e) => e.preventDefault()} className="flex-1 flex flex-col">
+              <AnimatePresence mode="wait">
+                {renderStepContent()}
+              </AnimatePresence>
+
+              <div className="mt-auto pt-12 flex items-center gap-4">
+                {step > 1 && (
+                  <button
+                    type="button"
+                    onClick={handlePrev}
+                    className="flex w-fit items-center gap-3 rounded-full border border-foreground/30 px-7 py-4 min-h-[44px] font-mono text-xs uppercase tracking-widest text-foreground transition-colors hover:bg-muted"
+                  >
+                    Back
+                  </button>
+                )}
+                
+                {step < 5 ? (
+                  <button
+                    type="button"
+                    onClick={handleNext}
+                    disabled={isNextDisabled()}
+                    className="group flex w-fit items-center gap-3 rounded-full bg-primary px-7 py-4 min-h-[44px] font-mono text-xs uppercase tracking-widest text-primary-foreground transition-all hover:opacity-80 disabled:opacity-50 disabled:cursor-not-allowed ml-auto"
+                  >
+                    Next Step
+                    <span className="transition-transform duration-300 group-hover:translate-x-1">
+                      →
+                    </span>
+                  </button>
+                ) : (
+                  <button
+                    type="submit"
+                    disabled={submitting || isNextDisabled()}
+                    data-cursor={submitting ? "Sending..." : "Send"}
+                    className="group flex w-fit items-center gap-3 rounded-full bg-primary px-7 py-4 min-h-[44px] font-mono text-xs uppercase tracking-widest text-primary-foreground transition-all hover:opacity-80 disabled:opacity-50 disabled:cursor-not-allowed ml-auto"
+                  >
+                    {submitting ? 'Sending...' : 'Send Enquiry'}
+                    <span className="transition-transform duration-300 group-hover:translate-x-1">
+                      →
+                    </span>
+                  </button>
+                )}
+              </div>
+            </form>
           </div>
-
-          <form onSubmit={step === 5 ? handleSubmit : (e) => e.preventDefault()} className="flex-1 flex flex-col">
-            <div ref={stepContainerRef}>
-              {renderStepContent()}
-            </div>
-
-            <div className="mt-auto pt-12 flex items-center gap-4">
-              {step > 1 && (
-                <button
-                  type="button"
-                  onClick={handlePrev}
-                  className="flex w-fit items-center gap-3 rounded-full border border-foreground/30 px-7 py-4 min-h-[44px] font-mono text-xs uppercase tracking-widest text-foreground transition-colors hover:bg-muted"
-                >
-                  Back
-                </button>
-              )}
-              
-              {step < 5 ? (
-                <button
-                  type="button"
-                  onClick={handleNext}
-                  disabled={isNextDisabled()}
-                  className="group flex w-fit items-center gap-3 rounded-full bg-primary px-7 py-4 min-h-[44px] font-mono text-xs uppercase tracking-widest text-primary-foreground transition-all hover:opacity-80 disabled:opacity-50 disabled:cursor-not-allowed ml-auto"
-                >
-                  Next Step
-                  <span className="transition-transform duration-300 group-hover:translate-x-1">
-                    →
-                  </span>
-                </button>
-              ) : (
-                <button
-                  type="submit"
-                  disabled={submitting || isNextDisabled()}
-                  data-cursor={submitting ? "Sending..." : "Send"}
-                  className="group flex w-fit items-center gap-3 rounded-full bg-primary px-7 py-4 min-h-[44px] font-mono text-xs uppercase tracking-widest text-primary-foreground transition-all hover:opacity-80 disabled:opacity-50 disabled:cursor-not-allowed ml-auto"
-                >
-                  {submitting ? 'Sending...' : 'Send Enquiry'}
-                  <span className="transition-transform duration-300 group-hover:translate-x-1">
-                    →
-                  </span>
-                </button>
-              )}
-            </div>
-          </form>
-        </div>
-      )}
+        )}
+      </AnimatePresence>
     </div>
   )
 }

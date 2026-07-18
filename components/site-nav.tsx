@@ -2,15 +2,10 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useEffect, useState, useRef, useLayoutEffect } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useEffect, useState } from 'react'
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import { Menu, X, Instagram, Linkedin, Facebook, MessageCircle, Mail } from 'lucide-react'
-
-gsap.registerPlugin(ScrollTrigger)
-
-const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
 const LINKS = [
   { href: '/', label: 'Home' },
@@ -74,11 +69,19 @@ function MenuLinks({ pathname }: { pathname: string }) {
         const isThisHovered = hoveredIndex === i
         
         return (
-          <li
+          <motion.li
             key={link.href}
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 15 }}
+            transition={{ 
+              delay: 0.05 * i + 0.1, 
+              duration: 0.45, 
+              ease: [0.215, 0.61, 0.355, 1] 
+            }}
             onMouseEnter={() => setHoveredIndex(i)}
             onMouseLeave={() => setHoveredIndex(null)}
-            className="menu-link-item block opacity-0 translate-x-[30px]"
+            className="block"
           >
             <Link
               href={link.href}
@@ -96,12 +99,13 @@ function MenuLinks({ pathname }: { pathname: string }) {
                 {link.label}
               </span>
               {isActive && (
-                <span 
+                <motion.span 
+                  layoutId="menuActiveIndicator"
                   className="absolute -left-6 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-white hidden lg:block"
                 />
               )}
             </Link>
-          </li>
+          </motion.li>
         )
       })}
     </ul>
@@ -113,42 +117,15 @@ export function SiteNav() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   
-  const headerRef = useRef<HTMLElement>(null)
-  const menuRef = useRef<HTMLDivElement>(null)
-  const tlRef = useRef<gsap.core.Timeline>(null)
+  const { scrollY } = useScroll()
 
-  useIsomorphicLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      // Header initial animation
-      gsap.fromTo(headerRef.current,
-        { opacity: pathname === '/' ? 0 : 1 },
-        { opacity: 1, duration: 0.8, delay: pathname === '/' ? 2.5 : 0 }
-      )
-      
-      // Scroll detection
-      ScrollTrigger.create({
-        start: 'top -50',
-        onUpdate: (self) => setScrolled(self.isActive)
-      })
-
-      // Setup menu timeline
-      tlRef.current = gsap.timeline({ paused: true })
-        .to(menuRef.current, { autoAlpha: 1, duration: 0.4, ease: 'power3.inOut' })
-        .to('.menu-link-item', { opacity: 1, x: 0, duration: 0.45, stagger: 0.05, ease: 'back.out(1.2)' }, "-=0.2")
-    }, headerRef)
-
-    return () => ctx.revert()
-  }, [pathname])
-
-  useIsomorphicLayoutEffect(() => {
-    if (tlRef.current) {
-      if (open) {
-        tlRef.current.play()
-      } else {
-        tlRef.current.reverse()
-      }
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (latest > 50) {
+      setScrolled(true)
+    } else {
+      setScrolled(false)
     }
-  }, [open])
+  })
 
   useEffect(() => {
     setOpen(false)
@@ -163,8 +140,16 @@ export function SiteNav() {
 
   return (
     <>
-      <header 
-        ref={headerRef}
+      <motion.header 
+        initial={pathname === '/' ? { opacity: 0 } : { opacity: 1 }}
+        animate={{ 
+          opacity: 1, 
+          y: '0%' 
+        }}
+        transition={{ 
+          opacity: { duration: 0.8, delay: pathname === '/' ? 2.5 : 0 },
+          y: { duration: 0.3, ease: 'easeInOut' }
+        }}
         className={cn(
           "fixed inset-x-0 top-0 z-[90] transition-all duration-500 pointer-events-auto mix-blend-difference",
           scrolled && !open 
@@ -208,126 +193,133 @@ export function SiteNav() {
             </button>
           </div>
         </nav>
-      </header>
+      </motion.header>
 
-      <div
-        ref={menuRef}
-        className="fixed inset-0 z-40 flex flex-col justify-center bg-[#0a0a0a] px-6 md:px-12 lg:px-24 overflow-y-auto invisible opacity-0"
-      >
-        <div className="w-full max-w-[1500px] mx-auto py-24 lg:py-32 flex-grow flex flex-col justify-center">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-center w-full">
-            
-            {/* Left Column - Studio Info (Hidden on mobile, elegant on lg) */}
-            <div className="hidden lg:flex lg:col-span-5 flex-col justify-between h-full min-h-[350px] pr-12 text-left">
-              <div className="space-y-4">
-                <h3 className="font-heading text-2xl font-bold tracking-tight text-white">
-                  OBX Studio
-                </h3>
-                <p className="font-sans text-sm text-neutral-400 max-w-xs leading-relaxed">
-                  We craft brands, interfaces, and high-performance digital experiences for ambitious partners worldwide.
-                </p>
-              </div>
-
-              <div className="space-y-8 pt-8 border-t border-white/10">
-                <div className="space-y-2">
-                  <span className="font-mono text-[10px] uppercase tracking-widest text-neutral-500 block">Location</span>
-                  <p className="font-sans text-sm text-neutral-300">Johannesburg, South Africa</p>
-                  <LiveClock />
-                </div>
-
-                <div className="space-y-1">
-                  <span className="font-mono text-[10px] uppercase tracking-widest text-neutral-500 block">General Inquiries</span>
-                  <a 
-                    href="mailto:hello@obxstudio.co.za" 
-                    className="font-sans text-base text-neutral-200 hover:text-white transition-colors underline underline-offset-4 decoration-neutral-700 hover:decoration-white"
-                  >
-                    hello@obxstudio.co.za
-                  </a>
-                </div>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-0 z-40 flex flex-col justify-center bg-[#0a0a0a] px-6 md:px-12 lg:px-24 overflow-y-auto"
+          >
+            <div className="w-full max-w-[1500px] mx-auto py-24 lg:py-32 flex-grow flex flex-col justify-center">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-center w-full">
                 
-                <div className="space-y-2">
-                  <span className="font-mono text-[10px] uppercase tracking-widest text-neutral-500 block">Connect</span>
-                  <div className="flex gap-4">
-                    {[
-                      { icon: Instagram, href: "https://www.instagram.com/obxstudio_/", label: "Instagram" },
-                      { icon: Linkedin, href: "https://www.linkedin.com/company/obxstudio/", label: "LinkedIn" },
-                      { icon: Facebook, href: "https://www.facebook.com/share/1PKDMxQTLx/?mibextid=wwXIfr", label: "Facebook" },
-                      { icon: MessageCircle, href: "https://wa.me/27760190339", label: "WhatsApp" },
-                    ].map((social) => {
-                      const Icon = social.icon
-                      return (
-                        <a
-                          key={social.label}
-                          href={social.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-neutral-400 hover:text-white transition-colors duration-200"
-                          aria-label={social.label}
-                        >
-                          <Icon className="h-4 w-4" />
-                        </a>
-                      )
-                    })}
+                {/* Left Column - Studio Info (Hidden on mobile, elegant on lg) */}
+                <div className="hidden lg:flex lg:col-span-5 flex-col justify-between h-full min-h-[350px] pr-12 text-left">
+                  <div className="space-y-4">
+                    <h3 className="font-heading text-2xl font-bold tracking-tight text-white">
+                      OBX Studio
+                    </h3>
+                    <p className="font-sans text-sm text-neutral-400 max-w-xs leading-relaxed">
+                      We craft brands, interfaces, and high-performance digital experiences for ambitious partners worldwide.
+                    </p>
+                  </div>
+
+                  <div className="space-y-8 pt-8 border-t border-white/10">
+                    <div className="space-y-2">
+                      <span className="font-mono text-[10px] uppercase tracking-widest text-neutral-500 block">Location</span>
+                      <p className="font-sans text-sm text-neutral-300">Johannesburg, South Africa</p>
+                      <LiveClock />
+                    </div>
+
+                    <div className="space-y-1">
+                      <span className="font-mono text-[10px] uppercase tracking-widest text-neutral-500 block">General Inquiries</span>
+                      <a 
+                        href="mailto:hello@obxstudio.co.za" 
+                        className="font-sans text-base text-neutral-200 hover:text-white transition-colors underline underline-offset-4 decoration-neutral-700 hover:decoration-white"
+                      >
+                        hello@obxstudio.co.za
+                      </a>
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <span className="font-mono text-[10px] uppercase tracking-widest text-neutral-500 block">Connect</span>
+                      <div className="flex gap-4">
+                        {[
+                          { icon: Instagram, href: "https://www.instagram.com/obxstudio_/", label: "Instagram" },
+                          { icon: Linkedin, href: "https://www.linkedin.com/company/obxstudio/", label: "LinkedIn" },
+                          { icon: Facebook, href: "https://www.facebook.com/share/1PKDMxQTLx/?mibextid=wwXIfr", label: "Facebook" },
+                          { icon: MessageCircle, href: "https://wa.me/27760190339", label: "WhatsApp" },
+                        ].map((social) => {
+                          const Icon = social.icon
+                          return (
+                            <a
+                              key={social.label}
+                              href={social.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-neutral-400 hover:text-white transition-colors duration-200"
+                              aria-label={social.label}
+                            >
+                              <Icon className="h-4 w-4" />
+                            </a>
+                          )
+                        })}
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
 
-            {/* Right Column - Nav Links */}
-            <div className="col-span-1 lg:col-span-7 flex flex-col items-start lg:items-end w-full">
-              <MenuLinks pathname={pathname} />
-              
-              {/* Subtle Divider for mobile only */}
-              <div className="w-full h-[1px] bg-white/10 my-8 lg:hidden" />
-              
-              {/* Mobile footer details (visible only on mobile) */}
-              <div className="flex flex-col gap-6 lg:hidden w-full text-left">
-                <div className="flex flex-col gap-1">
-                  <LiveClock />
-                  <p className="font-mono text-[10px] text-neutral-500 tracking-widest">
-                    JOHANNESBURG, SOUTH AFRICA
-                  </p>
-                </div>
-                
-                <div className="flex flex-col gap-2">
-                  <span className="font-mono text-[10px] uppercase tracking-widest text-neutral-500">Say Hello</span>
-                  <a 
-                    href="mailto:hello@obxstudio.co.za" 
-                    className="font-sans text-sm text-neutral-200 hover:text-white transition-colors"
-                  >
-                    hello@obxstudio.co.za
-                  </a>
-                </div>
-
-                <div className="flex gap-4">
-                  {[
-                    { icon: Instagram, href: "https://www.instagram.com/obxstudio_/", label: "Instagram" },
-                    { icon: Linkedin, href: "https://www.linkedin.com/company/obxstudio/", label: "LinkedIn" },
-                    { icon: Facebook, href: "https://www.facebook.com/share/1PKDMxQTLx/?mibextid=wwXIfr", label: "Facebook" },
-                    { icon: MessageCircle, href: "https://wa.me/27760190339", label: "WhatsApp" },
-                  ].map((social) => {
-                    const Icon = social.icon
-                    return (
-                      <a
-                        key={social.label}
-                        href={social.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-neutral-400 hover:text-white transition-colors"
-                        aria-label={social.label}
+                {/* Right Column - Nav Links */}
+                <div className="col-span-1 lg:col-span-7 flex flex-col items-start lg:items-end w-full">
+                  <MenuLinks pathname={pathname} />
+                  
+                  {/* Subtle Divider for mobile only */}
+                  <div className="w-full h-[1px] bg-white/10 my-8 lg:hidden" />
+                  
+                  {/* Mobile footer details (visible only on mobile) */}
+                  <div className="flex flex-col gap-6 lg:hidden w-full text-left">
+                    <div className="flex flex-col gap-1">
+                      <LiveClock />
+                      <p className="font-mono text-[10px] text-neutral-500 tracking-widest">
+                        JOHANNESBURG, SOUTH AFRICA
+                      </p>
+                    </div>
+                    
+                    <div className="flex flex-col gap-2">
+                      <span className="font-mono text-[10px] uppercase tracking-widest text-neutral-500">Say Hello</span>
+                      <a 
+                        href="mailto:hello@obxstudio.co.za" 
+                        className="font-sans text-sm text-neutral-200 hover:text-white transition-colors"
                       >
-                        <Icon className="h-4 w-4" />
+                        hello@obxstudio.co.za
                       </a>
-                    )
-                  })}
+                    </div>
+
+                    <div className="flex gap-4">
+                      {[
+                        { icon: Instagram, href: "https://www.instagram.com/obxstudio_/", label: "Instagram" },
+                        { icon: Linkedin, href: "https://www.linkedin.com/company/obxstudio/", label: "LinkedIn" },
+                        { icon: Facebook, href: "https://www.facebook.com/share/1PKDMxQTLx/?mibextid=wwXIfr", label: "Facebook" },
+                        { icon: MessageCircle, href: "https://wa.me/27760190339", label: "WhatsApp" },
+                      ].map((social) => {
+                        const Icon = social.icon
+                        return (
+                          <a
+                            key={social.label}
+                            href={social.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-neutral-400 hover:text-white transition-colors"
+                            aria-label={social.label}
+                          >
+                            <Icon className="h-4 w-4" />
+                          </a>
+                        )
+                      })}
+                    </div>
+                  </div>
+
                 </div>
+
               </div>
-
             </div>
-
-          </div>
-        </div>
-      </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   )
 }
