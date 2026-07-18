@@ -8,7 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { cn } from '@/lib/utils'
 import { Menu, X, Instagram, Linkedin, Facebook, MessageCircle, Mail } from 'lucide-react'
 
-// gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger)
 
 const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
@@ -134,8 +134,8 @@ export function SiteNav() {
       // Setup menu timeline
       tlRef.current = gsap.timeline({ paused: true })
         .to(menuRef.current, { autoAlpha: 1, duration: 0.4, ease: 'power3.inOut' })
-        .to(gsap.utils.toArray('.menu-link-item', menuRef.current), { opacity: 1, x: 0, duration: 0.45, stagger: 0.05, ease: 'back.out(1.2)' }, "-=0.2")
-    })
+        .to('.menu-link-item', { opacity: 1, x: 0, duration: 0.45, stagger: 0.05, ease: 'back.out(1.2)' }, "-=0.2")
+    }, headerRef)
 
     return () => ctx.revert()
   }, [pathname])

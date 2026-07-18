@@ -62,6 +62,15 @@ export default function RootLayout({
         {/* Preconnect to external assets */}
         <link key="gtm-preconnect" rel="preconnect" href="https://www.googletagmanager.com" />
         <link key="ga-preconnect" rel="preconnect" href="https://www.google-analytics.com" />
+        <Script key="clarity-script" id="clarity-script" strategy="afterInteractive" type="text/javascript">
+          {`
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "xi2vrc5k39");
+          `}
+        </Script>
       </head>
       <body className="font-sans antialiased noise-overlay custom-cursor-active">
         <noscript>
@@ -72,8 +81,8 @@ export default function RootLayout({
             style={{ display: 'none', visibility: 'hidden' }}
           ></iframe>
         </noscript>
-        {/* <AnalyticsLoader /> */}
-        {/* <FirebaseAnalytics /> */}
+        <AnalyticsLoader />
+        <FirebaseAnalytics />
         <a 
           href="#main-content" 
           className="focus:fixed focus:left-6 focus:top-6 focus:translate-y-0 focus:z-[9999] bg-background text-foreground border border-border/60 py-2.5 px-5 rounded font-mono text-xs uppercase tracking-widest pointer-events-none focus:pointer-events-auto transition-transform"
@@ -85,17 +94,17 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        {/* <CustomCursor /> */}
-        {/* <LayoutWrapper> */}
-          {/* <SmoothScroll> */}
-            {/* <SiteNav /> */}
+        <CustomCursor />
+        <LayoutWrapper>
+          <SmoothScroll>
+            <SiteNav />
             <main id="main-content" className="relative">
               {children}
             </main>
-            {/* <SiteFooter /> */}
-          {/* </SmoothScroll> */}
-        {/* </LayoutWrapper> */}
-        {/* <CookieBanner /> */}
+            <SiteFooter />
+          </SmoothScroll>
+        </LayoutWrapper>
+        <CookieBanner />
       </body>
     </html>
   )
