@@ -165,7 +165,7 @@ export function SiteNav() {
           <Link
             href="/"
             className={cn(
-              "font-heading font-black tracking-tight min-h-[44px] flex items-center justify-center transition-all duration-300 ease-out",
+              "font-heading font-bold tracking-tight min-h-[44px] flex items-center justify-center transition-all duration-300 ease-out",
               (pathname === '/' && !scrolled && !open) 
                 ? "opacity-0 translate-y-[10px] pointer-events-none" 
                 : "opacity-100 translate-y-0 text-base scale-95 origin-left"

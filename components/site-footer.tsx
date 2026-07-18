@@ -167,13 +167,13 @@ export function SiteFooter() {
         </div>
       </div>
 
-      {/* Oversized wordmark - stretched to fit perfectly within the overflow-hidden footer container */}
+      {/* Oversized wordmark - strictly bounded to prevent any horizontal scroll on mobile */}
       <motion.div
         ref={ref}
         style={{ opacity, y }}
-        className="w-[calc(100%+2rem)] md:w-[calc(100%+3rem)] -mx-4 md:-mx-6 select-none overflow-hidden mt-16"
+        className="w-full max-w-full select-none overflow-hidden mt-16 mx-0"
       >
-        <h2 className="font-heading text-[17.5vw] md:text-[18vw] font-black leading-[0.75] tracking-[-0.05em] text-foreground text-center uppercase whitespace-nowrap">
+        <h2 className="font-heading text-[13.5vw] md:text-[18vw] font-black leading-[0.75] tracking-[-0.05em] text-foreground text-center uppercase whitespace-nowrap">
           OBX STUDIO
         </h2>
       </motion.div>

@@ -61,11 +61,11 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground font-sans font-medium;
+    @apply bg-background text-foreground font-sans font-medium overflow-x-hidden w-full;
     font-weight: 500;
   }
   html {
-    @apply font-sans font-medium;
+    @apply font-sans font-medium overflow-x-hidden w-full;
     -webkit-font-smoothing: antialiased;
     font-weight: 500;
   }

@@ -11,9 +11,9 @@ const LINE2 = 'STUDIO'
 
 function MagneticChar({ children, delay }: { children: React.ReactNode, delay: number }) {
   return (
-    <span className="inline-block origin-center cursor-default select-none transition-colors duration-300">
+    <span className="inline-block origin-center cursor-default select-none transition-colors duration-300 font-black">
       <motion.span
-        className="block"
+        className="block font-black"
         initial={{ y: '110%' }}
         animate={{ y: '0%' }}
         transition={{ duration: 1, ease: EASE, delay }}
@@ -26,7 +26,7 @@ function MagneticChar({ children, delay }: { children: React.ReactNode, delay: n
 
 function Line({ text, delay }: { text: string; delay: number }) {
   return (
-    <span className="flex overflow-hidden pb-8 -mb-8">
+    <span className="flex overflow-hidden pb-8 -mb-8 font-black">
       {text.split('').map((char, i) => (
         <MagneticChar key={i} delay={delay + i * 0.03}>
           {char === ' ' ? '\u00A0' : char}
