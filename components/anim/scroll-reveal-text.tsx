@@ -30,46 +30,60 @@ export function ScrollRevealText({
 
   const activeProgress = progress || scrollYProgress
   const words = text.split(' ')
-  const numWords = words.length
-  const overlapSpread = 3.5 // controls overlap amount and reveal speed
-  const divisor = numWords + (overlapSpread - 1)
+  const totalChars = text.length
+  const overlapSpread = 12 // smooth letter overlap
+  const divisor = totalChars + (overlapSpread - 1)
+  let charIndexCounter = 0
 
   return (
     <p ref={containerRef} className={cn("relative", className)}>
-      {words.map((word, i) => {
-        // Calculate overlapping ranges for each word to reveal faster and smoother
-        const start = range
-          ? range[0] + (i / divisor) * (range[1] - range[0])
-          : i / divisor
-        const end = range
-          ? range[0] + ((i + overlapSpread) / divisor) * (range[1] - range[0])
-          : (i + overlapSpread) / divisor
-        return (
-          <Word key={i} progress={activeProgress} range={[start, end]}>
-            {word}
-          </Word>
+      {words.map((word, wordIdx) => {
+        const chars = Array.from(word)
+        const renderedWord = (
+          <span key={wordIdx} className="relative inline-block mr-[0.25em] select-none whitespace-nowrap">
+            {chars.map((char, charIdx) => {
+              const absoluteIndex = charIndexCounter
+              charIndexCounter++
+              
+              const start = range
+                ? range[0] + (absoluteIndex / divisor) * (range[1] - range[0])
+                : absoluteIndex / divisor
+              const end = range
+                ? range[0] + ((absoluteIndex + overlapSpread) / divisor) * (range[1] - range[0])
+                : (absoluteIndex + overlapSpread) / divisor
+
+              return (
+                <Character key={charIdx} progress={activeProgress} range={[start, end]}>
+                  {char}
+                </Character>
+              )
+            })}
+          </span>
         )
+        
+        // Count the space character between words (if not the last word)
+        if (wordIdx < words.length - 1) {
+          charIndexCounter++
+        }
+        
+        return renderedWord
       })}
     </p>
   )
 }
 
-interface WordProps {
+interface CharacterProps {
   children: string
   progress: MotionValue<number>
   range: [number, number]
 }
 
-function Word({ children, progress, range }: WordProps) {
-  // Map progress to opacity.
-  // We use [0.1, 1] as requested ("starts completely faded out e.g., 10% opacity, seamless transition to 100%")
+function Character({ children, progress, range }: CharacterProps) {
   const opacity = useTransform(progress, range, [0.1, 1])
   
   return (
-    <span className="relative inline-block mr-[0.25em] select-none">
-      <motion.span style={{ opacity }} className="relative text-current transition-colors duration-150">
-        {children}
-      </motion.span>
-    </span>
+    <motion.span style={{ opacity }} className="relative text-current transition-colors duration-150">
+      {children}
+    </motion.span>
   )
 }

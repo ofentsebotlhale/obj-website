@@ -23,9 +23,10 @@ export function ShiftingHeading({ text, className }: ShiftingHeadingProps) {
   const x = useTransform(scrollYProgress, [0.4, 0.95], ["-50%", "0%"])
 
   const words = text.split(' ')
-  const numWords = words.length
-  const overlapSpread = 3.5
-  const divisor = numWords + (overlapSpread - 1)
+  const totalChars = text.length
+  const overlapSpread = 12 // smooth letter overlap
+  const divisor = totalChars + (overlapSpread - 1)
+  let charIndexCounter = 0
 
   return (
     <div ref={containerRef} className="relative w-full py-12 md:py-16 overflow-hidden">
@@ -37,20 +38,37 @@ export function ShiftingHeading({ text, className }: ShiftingHeadingProps) {
             className
           )}
         >
-          {words.map((word, i) => {
-            // Words reveal sequentially in the first 40% of the scroll progress
-            const rangeStart = 0.05
-            const rangeEnd = 0.4
-            const totalDuration = rangeEnd - rangeStart
+          {words.map((word, wordIdx) => {
+            const chars = Array.from(word)
+            const renderedWord = (
+              <span key={wordIdx} className="relative inline-block mr-[0.25em] select-none whitespace-nowrap">
+                {chars.map((char, charIdx) => {
+                  const absoluteIndex = charIndexCounter
+                  charIndexCounter++
 
-            const start = rangeStart + (i / divisor) * totalDuration
-            const end = rangeStart + ((i + overlapSpread) / divisor) * totalDuration
+                  // Words/letters reveal sequentially in the first 40% of the scroll progress
+                  const rangeStart = 0.05
+                  const rangeEnd = 0.4
+                  const totalDuration = rangeEnd - rangeStart
 
-            return (
-              <Word key={i} progress={scrollYProgress} range={[start, end]}>
-                {word}
-              </Word>
+                  const start = rangeStart + (absoluteIndex / divisor) * totalDuration
+                  const end = rangeStart + ((absoluteIndex + overlapSpread) / divisor) * totalDuration
+
+                  return (
+                    <Character key={charIdx} progress={scrollYProgress} range={[start, end]}>
+                      {char}
+                    </Character>
+                  )
+                })}
+              </span>
             )
+
+            // Count the space character between words (if not the last word)
+            if (wordIdx < words.length - 1) {
+              charIndexCounter++
+            }
+
+            return renderedWord
           })}
         </motion.h2>
       </div>
@@ -58,19 +76,17 @@ export function ShiftingHeading({ text, className }: ShiftingHeadingProps) {
   )
 }
 
-interface WordProps {
+interface CharacterProps {
   children: string
   progress: any
   range: [number, number]
 }
 
-function Word({ children, progress, range }: WordProps) {
+function Character({ children, progress, range }: CharacterProps) {
   const opacity = useTransform(progress, range, [0.1, 1])
   return (
-    <span className="relative inline-block mr-[0.25em]">
-      <motion.span style={{ opacity }} className="relative text-current">
-        {children}
-      </motion.span>
-    </span>
+    <motion.span style={{ opacity }} className="relative text-current">
+      {children}
+    </motion.span>
   )
 }
