@@ -165,7 +165,7 @@ export function SiteNav() {
           <Link
             href="/"
             className={cn(
-              "font-heading font-bold tracking-tight min-h-[44px] flex items-center justify-center transition-all duration-300 ease-out",
+              "font-heading font-black tracking-tight min-h-[44px] flex items-center justify-center transition-all duration-300 ease-out",
               (pathname === '/' && !scrolled && !open) 
                 ? "opacity-0 translate-y-[10px] pointer-events-none" 
                 : "opacity-100 translate-y-0 text-base scale-95 origin-left"
@@ -210,7 +210,7 @@ export function SiteNav() {
                 {/* Left Column - Studio Info (Hidden on mobile, elegant on lg) */}
                 <div className="hidden lg:flex lg:col-span-5 flex-col justify-between h-full min-h-[350px] pr-12 text-left">
                   <div className="space-y-4">
-                    <h3 className="font-heading text-2xl font-bold tracking-tight text-white">
+                    <h3 className="font-heading text-2xl font-black tracking-tight text-white">
                       OBX Studio
                     </h3>
                     <p className="font-sans text-sm text-neutral-400 max-w-xs leading-relaxed">

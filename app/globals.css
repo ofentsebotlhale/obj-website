@@ -71,8 +71,24 @@
   }
   
   /* Inter Bold for headings and bold/semibold elements */
-  h1, h2, h3, h4, h5, h6, .font-heading, .font-semibold, .font-bold {
+  h1, h2, h3, h4, h5, h6, .font-heading {
+    font-weight: 700;
+  }
+  
+  .font-bold {
     font-weight: 700 !important;
+  }
+  
+  .font-semibold {
+    font-weight: 600 !important;
+  }
+  
+  .font-extrabold {
+    font-weight: 800 !important;
+  }
+  
+  .font-black {
+    font-weight: 900 !important;
   }
 
   /* Inter Medium for standard text, body paragraphs, lists, links, buttons, and medium elements */

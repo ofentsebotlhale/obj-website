@@ -78,7 +78,7 @@ export function Hero() {
       {/* Oversized wordmark */}
       <div className="relative z-10 flex w-full flex-col items-start">
         <h1 className="sr-only">OBX Studio</h1>
-        <div className="flex flex-col items-start font-heading text-[24vw] font-bold leading-[0.82] tracking-tighter text-foreground sm:text-[22vw] md:text-[19vw]">
+        <div className="flex flex-col items-start font-heading text-[24vw] font-black leading-[0.82] tracking-tighter text-foreground sm:text-[22vw] md:text-[19vw]">
           <div aria-hidden="true">
             <Line text={LINE1} delay={0.15} />
           </div>
