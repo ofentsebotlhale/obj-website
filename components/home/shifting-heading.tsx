@@ -30,10 +30,9 @@ export function ShiftingHeading({ text, className }: ShiftingHeadingProps) {
   const rangeEnd = 0.8
   const totalDuration = rangeEnd - rangeStart
 
-  // Keep the left offset at the horizontal center (50%)
-  // Slide x from 0% (first character centered) to -100% (last character centered)
-  const left = "50%"
-  const x = useTransform(smoothProgress, [rangeStart, rangeEnd], ["0%", "-100%"])
+  // Animate alignment from center (left: 50%, x: -50%) to left-aligned (left: 0%, x: 0%)
+  const left = useTransform(smoothProgress, [rangeStart, rangeEnd], ["50%", "0%"])
+  const x = useTransform(smoothProgress, [rangeStart, rangeEnd], ["-50%", "0%"])
 
   const words = text.split(' ')
   const totalChars = text.length
@@ -47,7 +46,7 @@ export function ShiftingHeading({ text, className }: ShiftingHeadingProps) {
         <motion.h2
           style={{ left, x }}
           className={cn(
-            "relative inline-block font-heading text-2xl font-bold leading-snug tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-white select-none whitespace-nowrap",
+            "relative inline-block font-heading text-2xl font-bold leading-snug tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-white select-none whitespace-normal sm:whitespace-nowrap text-pretty",
             className
           )}
         >

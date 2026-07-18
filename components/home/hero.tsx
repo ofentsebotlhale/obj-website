@@ -11,9 +11,9 @@ const LINE2 = 'STUDIO'
 
 function MagneticChar({ children, delay }: { children: React.ReactNode, delay: number }) {
   return (
-    <span className="inline-block origin-center cursor-default select-none transition-colors duration-300 font-black">
+    <span className="inline-block origin-center cursor-default select-none transition-colors duration-300 font-semibold">
       <motion.span
-        className="block font-black"
+        className="block font-semibold"
         initial={{ y: '110%' }}
         animate={{ y: '0%' }}
         transition={{ duration: 1, ease: EASE, delay }}
@@ -26,7 +26,7 @@ function MagneticChar({ children, delay }: { children: React.ReactNode, delay: n
 
 function Line({ text, delay }: { text: string; delay: number }) {
   return (
-    <span className="flex overflow-hidden pb-8 -mb-8 font-black">
+    <span className="flex overflow-hidden pb-8 -mb-8 font-semibold">
       {text.split('').map((char, i) => (
         <MagneticChar key={i} delay={delay + i * 0.03}>
           {char === ' ' ? '\u00A0' : char}
@@ -78,7 +78,7 @@ export function Hero() {
       {/* Oversized wordmark */}
       <div className="relative z-10 flex w-full flex-col items-start">
         <h1 className="sr-only">OBX Studio</h1>
-        <div className="flex flex-col items-start font-heading text-[24vw] font-black leading-[0.82] tracking-tighter text-foreground sm:text-[22vw] md:text-[19vw]">
+        <div className="flex flex-col items-start font-heading text-[24vw] font-semibold leading-[0.82] tracking-tighter text-foreground sm:text-[22vw] md:text-[19vw]">
           <div aria-hidden="true">
             <Line text={LINE1} delay={0.15} />
           </div>
