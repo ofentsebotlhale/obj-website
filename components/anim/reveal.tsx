@@ -1,7 +1,13 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { useRef, useLayoutEffect, useEffect } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { type ReactNode } from 'react'
+
+gsap.registerPlugin(ScrollTrigger)
+
+const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
 export function Reveal({
   children,
@@ -14,16 +20,34 @@ export function Reveal({
   y?: number
   className?: string
 }) {
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  useIsomorphicLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(containerRef.current,
+        { opacity: 0, y },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          delay,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top 110%',
+            once: true,
+          }
+        }
+      )
+    }, containerRef)
+
+    return () => ctx.revert()
+  }, [y, delay])
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
-      transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
-      className={className}
-    >
+    <div ref={containerRef} className={className}>
       {children}
-    </motion.div>
+    </div>
   )
 }
 
@@ -38,53 +62,48 @@ export function RevealWords({
   delay?: number
   stagger?: number
 }) {
+  const containerRef = useRef<HTMLSpanElement>(null)
   const words = text.split(' ')
 
-  const container = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { 
-        staggerChildren: stagger, 
-        delayChildren: delay 
-      },
-    },
-  }
+  useIsomorphicLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo('.reveal-word',
+        { opacity: 0, y: 15 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: 'power3.out',
+          stagger: stagger,
+          delay,
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top 110%',
+            once: true,
+          }
+        }
+      )
+    }, containerRef)
 
-  const child = {
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-    hidden: {
-      opacity: 0,
-      y: 15,
-    },
-  }
+    return () => ctx.revert()
+  }, [delay, stagger])
 
   return (
-    <motion.span
+    <span
+      ref={containerRef}
       style={{ display: 'inline-flex', flexWrap: 'wrap', columnGap: '0.25em', rowGap: '0px' }}
-      variants={container}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
       className={className}
     >
       {words.map((word, idx) => (
-        <motion.span
-          variants={child}
+        <span
+          className="reveal-word"
           style={{ display: 'inline-block' }}
           key={idx}
         >
           {word}
-        </motion.span>
+        </span>
       ))}
-    </motion.span>
+    </span>
   )
 }
 

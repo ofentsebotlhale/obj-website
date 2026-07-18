@@ -1,8 +1,13 @@
 'use client'
 
 import Link from 'next/link'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, useLayoutEffect, useEffect } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
+
+const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
 const SOCIALS = [
   {
@@ -81,15 +86,28 @@ const SOCIALS = [
 
 export function SiteFooter() {
   const year = new Date().getFullYear()
-  const ref = useRef<HTMLDivElement>(null)
+  const wordmarkRef = useRef<HTMLDivElement>(null)
   
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start 95%", "start 60%"]
-  })
+  useIsomorphicLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(wordmarkRef.current,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: wordmarkRef.current,
+            start: 'top 95%',
+            end: 'top 60%',
+            scrub: true,
+          }
+        }
+      )
+    }, wordmarkRef)
 
-  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1])
-  const y = useTransform(scrollYProgress, [0, 1], [40, 0])
+    return () => ctx.revert()
+  }, [])
 
   return (
     <footer className="relative flex min-h-[100svh] flex-col justify-between overflow-hidden border-t border-border bg-background px-4 pb-8 pt-20 md:px-6">
@@ -168,15 +186,14 @@ export function SiteFooter() {
       </div>
 
       {/* Oversized wordmark - stretched to fit perfectly within the overflow-hidden footer container */}
-      <motion.div
-        ref={ref}
-        style={{ opacity, y }}
-        className="w-[calc(100%+2rem)] md:w-[calc(100%+3rem)] -mx-4 md:-mx-6 select-none overflow-hidden mt-16"
+      <div
+        ref={wordmarkRef}
+        className="w-[calc(100%+2rem)] md:w-[calc(100%+3rem)] -mx-4 md:-mx-6 select-none overflow-hidden mt-16 opacity-0"
       >
         <h2 className="font-heading text-[17.5vw] md:text-[18vw] font-black leading-[0.75] tracking-[-0.05em] text-foreground text-center uppercase whitespace-nowrap">
           OBX STUDIO
         </h2>
-      </motion.div>
+      </div>
 
       <div className="mx-auto w-full max-w-[1600px] mt-8 flex flex-col gap-4 border-t border-border pt-6 font-mono text-[11px] uppercase tracking-widest text-muted-foreground sm:flex-row sm:items-center sm:justify-between px-4 md:px-0">
         <div className="flex flex-col gap-2 sm:flex-row sm:gap-6 items-center">

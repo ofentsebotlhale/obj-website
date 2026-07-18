@@ -1,8 +1,13 @@
 'use client'
 
-import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef, useLayoutEffect, useEffect } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Image from 'next/image'
+
+gsap.registerPlugin(ScrollTrigger)
+
+const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
 interface ParallaxImageProps {
   src: string
@@ -21,17 +26,32 @@ export function ParallaxImage({
   containerClassName = "absolute inset-0 z-0 overflow-hidden",
   yOffset = ["-15%", "15%"],
 }: ParallaxImageProps) {
-  const ref = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  })
+  const containerRef = useRef<HTMLDivElement>(null)
+  const imageRef = useRef<HTMLDivElement>(null)
 
-  const y = useTransform(scrollYProgress, [0, 1], yOffset)
+  useIsomorphicLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(imageRef.current,
+        { y: yOffset[0] },
+        {
+          y: yOffset[1],
+          ease: 'none',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true,
+          }
+        }
+      )
+    }, containerRef)
+
+    return () => ctx.revert()
+  }, [yOffset])
 
   return (
-    <div ref={ref} className={containerClassName}>
-      <motion.div style={{ y }} className="absolute inset-[-15%]">
+    <div ref={containerRef} className={containerClassName}>
+      <div ref={imageRef} className="absolute inset-[-15%]">
         <Image
           src={src}
           alt={alt}
@@ -41,7 +61,7 @@ export function ParallaxImage({
           priority={priority}
           referrerPolicy="no-referrer"
         />
-      </motion.div>
+      </div>
     </div>
   )
 }

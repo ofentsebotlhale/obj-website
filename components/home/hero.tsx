@@ -2,42 +2,33 @@
 
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
-import { useEffect, useRef, useState } from 'react'
-import { motion } from 'framer-motion'
+import { useEffect, useRef, useLayoutEffect } from 'react'
+import { gsap } from 'gsap'
 
-const EASE = [0.22, 1, 0.36, 1] as const
 const LINE1 = 'OBX'
 const LINE2 = 'STUDIO'
+const EASE = 'power3.out'
 
-function MagneticChar({ children, delay }: { children: React.ReactNode, delay: number }) {
-  return (
-    <span className="inline-block origin-center cursor-default select-none transition-colors duration-300">
-      <motion.span
-        className="block"
-        initial={{ y: '110%' }}
-        animate={{ y: '0%' }}
-        transition={{ duration: 1, ease: EASE, delay }}
-      >
-        {children}
-      </motion.span>
-    </span>
-  )
-}
+const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
-function Line({ text, delay }: { text: string; delay: number }) {
+function Line({ text }: { text: string }) {
   return (
     <span className="flex overflow-hidden pb-8 -mb-8">
       {text.split('').map((char, i) => (
-        <MagneticChar key={i} delay={delay + i * 0.03}>
-          {char === ' ' ? '\u00A0' : char}
-        </MagneticChar>
+        <span key={i} className="magnetic-char inline-block origin-center cursor-default select-none transition-colors duration-300">
+          <span className="block translate-y-[110%]">
+            {char === ' ' ? '\u00A0' : char}
+          </span>
+        </span>
       ))}
     </span>
   )
 }
 
 export function Hero() {
-  useEffect(() => {
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  useIsomorphicLayoutEffect(() => {
     document.body.style.overflow = 'hidden'
     const t = setTimeout(() => {
       document.body.style.overflow = ''
@@ -48,8 +39,40 @@ export function Hero() {
     }
   }, [])
 
+  useIsomorphicLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline()
+      
+      // Animate the main text lines
+      tl.to('.magnetic-char > span', {
+        y: '0%',
+        duration: 1,
+        ease: [0.22, 1, 0.36, 1],
+        stagger: 0.03,
+        delay: 0.15
+      })
+
+      // Top meta row
+      tl.fromTo('.hero-top-row',
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.8, ease: EASE },
+        2.2 // Absolute delay 2.2s
+      )
+
+      // Bottom meta row
+      tl.fromTo('.hero-bottom-row',
+        { opacity: 0 },
+        { opacity: 1, duration: 0.8, ease: EASE },
+        2.4 // Absolute delay 2.4s
+      )
+
+    }, containerRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <section className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden px-4 md:px-6">
+    <section ref={containerRef} className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden px-4 md:px-6">
       {/* Subtle grid pattern background */}
       <div 
         className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" 
@@ -57,11 +80,8 @@ export function Hero() {
       />
 
       {/* Top meta row */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 2.2, ease: EASE }}
-        className="absolute left-4 right-16 top-4 z-10 flex max-w-sm flex-col gap-5 md:left-6 md:right-auto md:top-6"
+      <div
+        className="hero-top-row opacity-0 absolute left-4 right-16 top-4 z-10 flex max-w-sm flex-col gap-5 md:left-6 md:right-auto md:top-6"
       >
         <p className="text-pretty font-sans text-lg md:text-[22px] leading-[24px] md:leading-[24px] font-medium tracking-normal text-foreground pt-2">
           We craft brands, interfaces, and high-performance digital experiences for the ambitious.
@@ -73,29 +93,26 @@ export function Hero() {
           Chat With Us
           <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
         </Link>
-      </motion.div>
+      </div>
 
       {/* Oversized wordmark */}
       <div className="relative z-10 flex w-full flex-col items-start">
         <h1 className="sr-only">OBX Studio</h1>
         <div className="flex flex-col items-start font-heading text-[24vw] font-bold leading-[0.82] tracking-tighter text-foreground sm:text-[22vw] md:text-[19vw]">
           <div aria-hidden="true">
-            <Line text={LINE1} delay={0.15} />
+            <Line text={LINE1} />
           </div>
           <div className="flex items-center justify-start gap-4">
             <div aria-hidden="true">
-              <Line text={LINE2} delay={0.28} />
+              <Line text={LINE2} />
             </div>
           </div>
         </div>
       </div>
 
       {/* Bottom row */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 2.4 }}
-        className="absolute bottom-10 left-4 right-4 z-10 flex flex-row items-end justify-between gap-4 font-mono text-[10px] uppercase tracking-widest text-muted-foreground sm:text-[11px] md:left-6 md:right-6"
+      <div
+        className="hero-bottom-row opacity-0 absolute bottom-10 left-4 right-4 z-10 flex flex-row items-end justify-between gap-4 font-mono text-[10px] uppercase tracking-widest text-muted-foreground sm:text-[11px] md:left-6 md:right-6"
       >
         <div className="flex flex-col gap-2">
           <span className="leading-relaxed text-black font-sans font-medium">
@@ -113,7 +130,7 @@ export function Hero() {
             </a>
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   )
 }
