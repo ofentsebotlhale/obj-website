@@ -202,7 +202,7 @@ export function SiteNav() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-40 flex flex-col justify-center bg-[#0a0a0a] px-6 md:px-12 lg:px-24 overflow-y-auto"
+            className="fixed inset-0 z-40 flex flex-col justify-center bg-black px-6 md:px-12 lg:px-24 overflow-y-auto"
           >
             <div className="w-full max-w-[1500px] mx-auto py-24 lg:py-32 flex-grow flex flex-col justify-center">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-center w-full">
