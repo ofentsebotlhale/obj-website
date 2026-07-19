@@ -20,9 +20,13 @@ export const metadata: Metadata = {
   keywords: ['design studio', 'branding agency', 'web development', 'UI/UX', 'OBX Studio'],
   metadataBase: new URL('https://obxstudio.co.za'),
   icons: {
-    icon: '/favicon.svg',
-    shortcut: '/favicon.svg',
-    apple: '/favicon.svg',
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml', sizes: 'any' },
+    ],
+    shortcut: ['/favicon.svg'],
+    apple: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
   },
   openGraph: {
     title: 'OBX Studio',
@@ -47,11 +51,6 @@ export default function RootLayout({
       className={`${inter.variable} light bg-background`}
     >
       <head>
-        {/* Favicon configurations to force new SVG favicon */}
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/favicon.svg" />
-
         {/* Content Security Policy for XSS mitigation */}
         <meta
           key="csp"
