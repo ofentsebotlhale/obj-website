@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { ContactForm } from '@/components/contact/contact-form'
+import { ContactFormWrapper } from '@/components/contact/contact-form-wrapper'
 import { Reveal, RevealWords } from '@/components/anim/reveal'
 
 export const metadata: Metadata = {
@@ -61,11 +61,11 @@ export default function ContactPage() {
             </dl>
           </div>
 
-          {/* Right Column: Contact form immediately visible */}
+          {/* Right Column: Contact form toggleable */}
           <div className="lg:col-span-7 lg:pl-8">
             <Reveal>
               <div className="w-full">
-                <ContactForm />
+                <ContactFormWrapper />
               </div>
             </Reveal>
           </div>
