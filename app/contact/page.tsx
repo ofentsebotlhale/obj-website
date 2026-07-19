@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { ContactFormWrapper } from '@/components/contact/contact-form-wrapper'
+import { ContactForm } from '@/components/contact/contact-form'
 import { Reveal, RevealWords } from '@/components/anim/reveal'
 import { PageHeader } from '@/components/page-header'
 
@@ -48,7 +48,7 @@ export default function ContactPage() {
             <div className="lg:col-span-8">
               <Reveal>
                 <div className="w-full">
-                  <ContactFormWrapper />
+                  <ContactForm />
                 </div>
               </Reveal>
             </div>

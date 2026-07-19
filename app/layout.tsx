@@ -53,15 +53,15 @@ export default function RootLayout({
       <head>
         {/* Content Security Policy for XSS mitigation */}
         <meta
-          key="csp"
+          
           httpEquiv="Content-Security-Policy"
           content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://*.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://www.clarity.ms https://*.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://stats.g.doubleclick.net https://*.doubleclick.net https://formspree.io https://*.googlesyndication.com https://www.clarity.ms https://*.clarity.ms;"
         />
-        <meta key="ranknibbler" name="ranknibbler-site-verification" content="8936626e0ecbef73e430012b9bff926a"/>
+        <meta  name="ranknibbler-site-verification" content="8936626e0ecbef73e430012b9bff926a"/>
         {/* Preconnect to external assets */}
-        <link key="gtm-preconnect" rel="preconnect" href="https://www.googletagmanager.com" />
-        <link key="ga-preconnect" rel="preconnect" href="https://www.google-analytics.com" />
-        <Script key="clarity-script" id="clarity-script" strategy="afterInteractive" type="text/javascript">
+        <link  rel="preconnect" href="https://www.googletagmanager.com" />
+        <link  rel="preconnect" href="https://www.google-analytics.com" />
+        <Script  id="clarity-script" strategy="afterInteractive" type="text/javascript">
           {`
             (function(c,l,a,r,i,t,y){
                 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
