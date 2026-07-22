@@ -2,6 +2,7 @@
 
 import { Reveal } from '@/components/anim/reveal'
 import { motion } from 'framer-motion'
+import { useState } from 'react'
 
 const ITEMS = [
   { text: 'Brand Identities', tag: '[ Concept, Strategy & Systems ]' },
@@ -12,6 +13,8 @@ const ITEMS = [
 ]
 
 export function WhatWeDesign() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+
   return (
     <section className="px-4 py-32 md:py-48 md:px-6 bg-background text-foreground border-t border-border/10">
       <div className="mx-auto max-w-[1600px] grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
@@ -27,23 +30,45 @@ export function WhatWeDesign() {
         {/* Right Column List */}
         <div className="md:col-span-8 perspective-[1000px]">
           <ul className="space-y-8 md:space-y-12">
-            {ITEMS.map((item, i) => (
-              <motion.li 
-                key={i}
-                initial={{ opacity: 0, y: 40, z: -50, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, z: 0, scale: 1 }}
-                viewport={{ once: true, margin: "-10%" }}
-                transition={{ duration: 1, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="origin-left group flex flex-col md:flex-row md:items-center gap-4 cursor-default"
-              >
-                <p className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-black transition-colors duration-300">
-                  {item.text}
-                </p>
-                <span className="font-mono text-[10px] md:text-[11px] uppercase tracking-widest text-black/0 md:-translate-x-4 transition-all duration-300 group-hover:text-black/40 group-hover:translate-x-0">
-                  {item.tag}
-                </span>
-              </motion.li>
-            ))}
+            {ITEMS.map((item, i) => {
+              const isHovered = hoveredIndex === i
+              const isOthersHovered = hoveredIndex !== null && hoveredIndex !== i
+              
+              return (
+                <motion.li 
+                  key={i}
+                  initial={{ opacity: 0, y: 40, z: -50, scale: 0.95 }}
+                  whileInView={{ opacity: 1, y: 0, z: 0, scale: 1 }}
+                  viewport={{ once: true, margin: "-10%" }}
+                  transition={{ duration: 1, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  className="origin-left"
+                >
+                  <motion.div
+                    className="flex flex-col md:flex-row md:items-center gap-4 cursor-default"
+                    animate={{ opacity: isOthersHovered ? 0.3 : 1 }}
+                    transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                    onMouseEnter={() => setHoveredIndex(i)}
+                    onMouseLeave={() => setHoveredIndex(null)}
+                  >
+                    <motion.p 
+                      className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-black"
+                      animate={{ x: isHovered ? 12 : 0 }}
+                      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                      {item.text}
+                    </motion.p>
+                    <motion.span 
+                      className="font-mono text-[10px] md:text-[11px] uppercase tracking-widest text-[#71717A] md:-translate-x-4"
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: isHovered ? 1 : 0, x: isHovered ? 0 : -10 }}
+                      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                      {item.tag}
+                    </motion.span>
+                  </motion.div>
+                </motion.li>
+              )
+            })}
           </ul>
         </div>
       </div>

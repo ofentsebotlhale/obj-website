@@ -1,5 +1,6 @@
 'use client'
 
+import { motion } from 'framer-motion'
 import { Reveal } from '@/components/anim/reveal'
 
 const STEPS = [
@@ -20,35 +21,69 @@ const STEPS = [
   }
 ]
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15
+    }
+  }
+}
+
+const columnVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+  }
+}
+
+const numberVariants = {
+  hidden: { scale: 0.85, z: -30 },
+  visible: { 
+    scale: 1, 
+    z: 0,
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+  }
+}
+
 export function TheMethod() {
   return (
     <section className="px-4 pb-32 md:pb-48 md:px-6 bg-background text-foreground">
       <div className="mx-auto max-w-[1600px]">
         <Reveal>
           <div className="mb-16 md:mb-24">
-            <h2 className="font-mono text-xs uppercase tracking-widest text-black/40">
+            <h2 className="font-mono text-xs uppercase tracking-widest text-[#71717A]">
               The Method
             </h2>
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 lg:gap-16">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-10%" }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 lg:gap-16 perspective-[1000px]"
+        >
           {STEPS.map((step, i) => (
-            <Reveal key={i} delay={i * 0.15} className="flex flex-col space-y-6">
-              <span className="font-mono text-4xl md:text-5xl text-black/10">
+            <motion.div key={i} variants={columnVariants} className="flex flex-col space-y-6">
+              <motion.span variants={numberVariants} className="font-mono text-4xl md:text-5xl text-black/10 origin-left inline-block">
                 {step.num}
-              </span>
+              </motion.span>
               <div className="space-y-3">
                 <h3 className="font-mono text-xs md:text-sm uppercase tracking-widest text-black font-semibold">
                   {step.title}
                 </h3>
-                <p className="font-sans text-sm md:text-base text-black/60 leading-relaxed text-pretty">
+                <p className="font-sans text-sm md:text-base text-[#71717A] leading-relaxed text-pretty">
                   {step.desc}
                 </p>
               </div>
-            </Reveal>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )
