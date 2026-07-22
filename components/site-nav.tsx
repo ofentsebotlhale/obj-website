@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion'
 import { cn } from '@/lib/utils'
-import { Menu, X, Instagram, Linkedin, Facebook, MessageCircle, Mail } from 'lucide-react'
+import { Menu, X, Instagram, Linkedin, Facebook, MessageCircle } from 'lucide-react'
 
 const LINKS = [
   { href: '/', label: 'Home' },
@@ -16,53 +16,11 @@ const LINKS = [
   { href: '/contact', label: 'Contact' },
 ]
 
-function LiveClock() {
-  const [time, setTime] = useState<string>('')
-  
-  useEffect(() => {
-    const formatTime = () => {
-      const options: Intl.DateTimeFormatOptions = {
-        timeZone: 'Africa/Johannesburg',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false,
-      }
-      return new Intl.DateTimeFormat('en-US', options).format(new Date())
-    }
-    
-    setTime(formatTime())
-    const interval = setInterval(() => {
-      setTime(formatTime())
-    }, 1000)
-    
-    return () => clearInterval(interval)
-  }, [])
-
-  if (!time) {
-    return (
-      <div className="flex items-center font-mono text-[11px] tracking-widest text-neutral-500 uppercase h-[18px]">
-        JHB LOCAL TIME: --:--:-- (UTC+2)
-      </div>
-    )
-  }
-
-  return (
-    <div className="flex items-center font-mono text-[11px] tracking-widest text-neutral-400 uppercase h-[18px]">
-      <span className="relative flex h-1.5 w-1.5 mr-2">
-        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
-      </span>
-      JHB LOCAL TIME: {time} (UTC+2)
-    </div>
-  )
-}
-
 function MenuLinks({ pathname }: { pathname: string }) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   
   return (
-    <ul className="flex flex-col items-start lg:items-end gap-2 md:gap-3 w-full">
+    <ul className="flex flex-col items-start gap-4 md:gap-6 w-full">
       {LINKS.map((link, i) => {
         const isActive = pathname === link.href
         const isAnyHovered = hoveredIndex !== null
@@ -81,29 +39,23 @@ function MenuLinks({ pathname }: { pathname: string }) {
             }}
             onMouseEnter={() => setHoveredIndex(i)}
             onMouseLeave={() => setHoveredIndex(null)}
-            className="block"
+            className="block w-full"
           >
             <Link
               href={link.href}
               className={cn(
-                "relative flex items-baseline gap-4 py-1 transition-all duration-300 origin-left lg:origin-right",
-                isActive ? "text-white" : "text-neutral-400",
-                isAnyHovered && !isThisHovered ? "opacity-30 scale-[0.98] blur-[0.5px]" : "opacity-100 scale-100"
+                "flex items-baseline gap-6 transition-opacity duration-300",
+                isActive ? "text-[#FFFFFF]" : "text-[#FFFFFF]",
+                isAnyHovered && !isThisHovered ? "opacity-25" : "opacity-100"
               )}
               aria-disabled={isActive}
             >
-              <span className="font-mono text-xs text-neutral-600 select-none">
+              <span className="font-mono text-sm md:text-base text-[#8E8E93] select-none">
                 0{i + 1}
               </span>
-              <span className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white transition-colors duration-200">
+              <span className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#FFFFFF]">
                 {link.label}
               </span>
-              {isActive && (
-                <motion.span 
-                  layoutId="menuActiveIndicator"
-                  className="absolute -left-6 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-white hidden lg:block"
-                />
-              )}
             </Link>
           </motion.li>
         )
@@ -202,94 +154,31 @@ export function SiteNav() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-40 flex flex-col justify-center bg-black px-6 md:px-12 lg:px-24 overflow-y-auto"
+            className="fixed inset-0 z-40 flex flex-col justify-center bg-[#000000] px-6 md:px-12 lg:px-24 overflow-y-auto"
           >
             <div className="w-full max-w-[1500px] mx-auto py-24 lg:py-32 flex-grow flex flex-col justify-center">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-center w-full">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-end w-full">
                 
-                {/* Left Column - Studio Info (Hidden on mobile, elegant on lg) */}
-                <div className="hidden lg:flex lg:col-span-5 flex-col justify-between h-full min-h-[350px] pr-12 text-left">
+                {/* Left Column - Essential Info */}
+                <div className="col-span-1 lg:col-span-4 flex flex-col justify-end space-y-10 order-last lg:order-first mt-12 lg:mt-0 lg:pb-4">
+                  <div className="space-y-2">
+                    <span className="font-mono text-[10px] md:text-[11px] uppercase tracking-widest text-[#8E8E93] block">Location</span>
+                    <p className="font-sans text-sm md:text-base text-[#FFFFFF]">Johannesburg, South Africa</p>
+                  </div>
+
+                  <div className="space-y-2">
+                    <span className="font-mono text-[10px] md:text-[11px] uppercase tracking-widest text-[#8E8E93] block">Inquiries</span>
+                    <a 
+                      href="mailto:hello@obxstudio.co.za" 
+                      className="font-sans text-sm md:text-base text-[#FFFFFF] hover:text-[#8E8E93] transition-colors inline-block"
+                    >
+                      hello@obxstudio.co.za
+                    </a>
+                  </div>
+                  
                   <div className="space-y-4">
-                    <h3 className="font-heading text-2xl font-bold tracking-tight text-white">
-                      OBX Studio
-                    </h3>
-                    <p className="font-sans text-sm text-neutral-400 max-w-xs leading-relaxed">
-                      We craft brands, interfaces, and high-performance digital experiences for ambitious partners worldwide.
-                    </p>
-                  </div>
-
-                  <div className="space-y-8 pt-8 border-t border-white/10">
-                    <div className="space-y-2">
-                      <span className="font-mono text-[10px] uppercase tracking-widest text-neutral-500 block">Location</span>
-                      <p className="font-sans text-sm text-neutral-300">Johannesburg, South Africa</p>
-                      <LiveClock />
-                    </div>
-
-                    <div className="space-y-1">
-                      <span className="font-mono text-[10px] uppercase tracking-widest text-neutral-500 block">General Inquiries</span>
-                      <a 
-                        href="mailto:hello@obxstudio.co.za" 
-                        className="font-sans text-base text-neutral-200 hover:text-white transition-colors underline underline-offset-4 decoration-neutral-700 hover:decoration-white"
-                      >
-                        hello@obxstudio.co.za
-                      </a>
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <span className="font-mono text-[10px] uppercase tracking-widest text-neutral-500 block">Connect</span>
-                      <div className="flex gap-4">
-                        {[
-                          { icon: Instagram, href: "https://www.instagram.com/obxstudio_/", label: "Instagram" },
-                          { icon: Linkedin, href: "https://www.linkedin.com/company/obxstudio/", label: "LinkedIn" },
-                          { icon: Facebook, href: "https://www.facebook.com/share/1PKDMxQTLx/?mibextid=wwXIfr", label: "Facebook" },
-                          { icon: MessageCircle, href: "https://wa.me/27760190339", label: "WhatsApp" },
-                        ].map((social) => {
-                          const Icon = social.icon
-                          return (
-                            <a
-                              key={social.label}
-                              href={social.href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-neutral-400 hover:text-white transition-colors duration-200"
-                              aria-label={social.label}
-                            >
-                              <Icon className="h-4 w-4" />
-                            </a>
-                          )
-                        })}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Right Column - Nav Links */}
-                <div className="col-span-1 lg:col-span-7 flex flex-col items-start lg:items-end w-full">
-                  <MenuLinks pathname={pathname} />
-                  
-                  {/* Subtle Divider for mobile only */}
-                  <div className="w-full h-[1px] bg-white/10 my-8 lg:hidden" />
-                  
-                  {/* Mobile footer details (visible only on mobile) */}
-                  <div className="flex flex-col gap-6 lg:hidden w-full text-left">
-                    <div className="flex flex-col gap-1">
-                      <LiveClock />
-                      <p className="font-mono text-[10px] text-neutral-500 tracking-widest">
-                        JOHANNESBURG, SOUTH AFRICA
-                      </p>
-                    </div>
-                    
-                    <div className="flex flex-col gap-2">
-                      <span className="font-mono text-[10px] uppercase tracking-widest text-neutral-500">Say Hello</span>
-                      <a 
-                        href="mailto:hello@obxstudio.co.za" 
-                        className="font-sans text-sm text-neutral-200 hover:text-white transition-colors"
-                      >
-                        hello@obxstudio.co.za
-                      </a>
-                    </div>
-
-                    <div className="flex gap-4">
+                    <span className="font-mono text-[10px] md:text-[11px] uppercase tracking-widest text-[#8E8E93] block">Connect</span>
+                    <div className="flex gap-6">
                       {[
                         { icon: Instagram, href: "https://www.instagram.com/obxstudio_/", label: "Instagram" },
                         { icon: Linkedin, href: "https://www.linkedin.com/company/obxstudio/", label: "LinkedIn" },
@@ -303,16 +192,20 @@ export function SiteNav() {
                             href={social.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-neutral-400 hover:text-white transition-colors"
+                            className="text-[#FFFFFF] hover:text-[#8E8E93] transition-colors duration-300"
                             aria-label={social.label}
                           >
-                            <Icon className="h-4 w-4" />
+                            <Icon className="h-5 w-5" />
                           </a>
                         )
                       })}
                     </div>
                   </div>
+                </div>
 
+                {/* Right Column - Nav Links */}
+                <div className="col-span-1 lg:col-span-8 flex flex-col items-start w-full">
+                  <MenuLinks pathname={pathname} />
                 </div>
 
               </div>
