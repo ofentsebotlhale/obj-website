@@ -70,7 +70,7 @@ export function Hero() {
           href="/contact"
           className="group flex min-h-[38px] w-fit items-center gap-3 rounded-full bg-foreground px-5 py-2 font-sans text-[11px] font-medium uppercase tracking-widest text-background transition-all hover:scale-105 active:scale-95"
         >
-          Chat With Us
+          Book / Contact
           <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
         </Link>
       </motion.div>

@@ -78,12 +78,12 @@ export default function WorkPage() {
             <h2 className="font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl md:text-7xl mb-12 max-w-3xl mx-auto">
               Let&apos;s build a website that reflects your business properly.
             </h2>
-            <Link
-              href="/contact"
+            <a
+              href="mailto:hello@obxstudio.co.za"
               className="inline-flex h-14 items-center justify-center rounded-full bg-foreground px-8 font-mono text-[11px] uppercase tracking-widest text-background transition-transform hover:scale-105 hover:bg-accent hover:text-accent-foreground"
             >
               Start a Project
-            </Link>
+            </a>
           </Reveal>
         </div>
       </section>

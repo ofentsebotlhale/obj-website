@@ -123,6 +123,35 @@ export function SiteFooter() {
                 </svg>
               </div>
             </Link>
+
+            {/* Quick Direct Booking Chips */}
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a
+                href="https://wa.me/27760190339?text=Hi%20OBX%20Studio%2C%20I'd%20like%20to%20book%20a%20project..."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-4 py-2 font-mono text-[11px] uppercase tracking-wider text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500 hover:text-white transition-all"
+              >
+                <span>Book on WhatsApp</span>
+                <span className="text-xs">→</span>
+              </a>
+              <a
+                href="https://www.instagram.com/obxstudio_/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-pink-500/40 bg-pink-500/10 px-4 py-2 font-mono text-[11px] uppercase tracking-wider text-pink-600 dark:text-pink-400 hover:bg-pink-500 hover:text-white transition-all"
+              >
+                <span>Instagram DM</span>
+                <span className="text-xs">→</span>
+              </a>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-full border border-foreground/30 bg-foreground/5 px-4 py-2 font-mono text-[11px] uppercase tracking-wider text-foreground hover:bg-foreground hover:text-background transition-all"
+              >
+                <span>Contact Form</span>
+                <span className="text-xs">→</span>
+              </Link>
+            </div>
           </div>
 
           <div className="md:col-span-5 md:flex md:justify-end mt-12 md:mt-0">
@@ -135,7 +164,6 @@ export function SiteFooter() {
                   <Link href="/" className="inline-flex items-center justify-center rounded-full bg-foreground px-6 py-2 min-h-[48px] font-mono text-[13px] uppercase tracking-widest text-background transition-all hover:scale-105 hover:bg-accent hover:text-accent-foreground">Home</Link>
                   <Link href="/work" className="inline-flex items-center justify-center rounded-full bg-foreground px-6 py-2 min-h-[48px] font-mono text-[13px] uppercase tracking-widest text-background transition-all hover:scale-105 hover:bg-accent hover:text-accent-foreground">Work</Link>
                   <Link href="/studio" className="inline-flex items-center justify-center rounded-full bg-foreground px-6 py-2 min-h-[48px] font-mono text-[13px] uppercase tracking-widest text-background transition-all hover:scale-105 hover:bg-accent hover:text-accent-foreground">Studio</Link>
-                  <Link href="/services" className="inline-flex items-center justify-center rounded-full bg-foreground px-6 py-2 min-h-[48px] font-mono text-[13px] uppercase tracking-widest text-background transition-all hover:scale-105 hover:bg-accent hover:text-accent-foreground">Services</Link>
                   <Link href="/blog" className="inline-flex items-center justify-center rounded-full bg-foreground px-6 py-2 min-h-[48px] font-mono text-[13px] uppercase tracking-widest text-background transition-all hover:scale-105 hover:bg-accent hover:text-accent-foreground">Blog</Link>
                   <Link href="/contact" className="inline-flex items-center justify-center rounded-full bg-foreground px-6 py-2 min-h-[48px] font-mono text-[13px] uppercase tracking-widest text-background transition-all hover:scale-105 hover:bg-accent hover:text-accent-foreground">Contact</Link>
                 </div>

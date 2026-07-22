@@ -11,7 +11,6 @@ const LINKS = [
   { href: '/', label: 'Home' },
   { href: '/work', label: 'Work' },
   { href: '/studio', label: 'Studio' },
-  { href: '/services', label: 'Services' },
   { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' },
 ]
@@ -174,7 +173,16 @@ export function SiteNav() {
           >
             OBX Studio
           </Link>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 md:gap-4">
+            <Link
+              href="/contact"
+              className={cn(
+                "hidden sm:inline-flex items-center justify-center min-h-[38px] rounded-full border border-white/20 bg-white/10 px-4 font-mono text-[11px] uppercase tracking-widest text-white transition-all hover:bg-white hover:text-black hover:border-white active:scale-95",
+                pathname === '/contact' ? "bg-white text-black font-bold" : ""
+              )}
+            >
+              Contact
+            </Link>
             <button
               type="button"
               onClick={() => setOpen((v) => !v)}
