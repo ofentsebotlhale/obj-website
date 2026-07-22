@@ -6,6 +6,8 @@ import { BeliefStatement } from '@/components/home/belief-statement'
 import { ShiftingHeading } from '@/components/home/shifting-heading'
 import { WhatWeDesign } from '@/components/home/what-we-design'
 import { StudioAbout } from '@/components/home/studio-about'
+import { TheMethod } from '@/components/home/the-method'
+import { ClientEndorsement } from '@/components/home/client-endorsement'
 import { StudioStatement } from '@/components/home/studio-statement'
 import { FeaturedWork } from '@/components/home/featured-work'
 import { Reveal } from '@/components/anim/reveal'
@@ -101,9 +103,16 @@ export default function HomePage() {
       {/* SECTION 5 — Studio (About Us) */}
       <StudioAbout />
 
-      {/* SECTION 9 — Closing CTA */}
+      {/* SECTION 6 — The Method */}
+      <TheMethod />
+
+      {/* SECTION 7 — Client Endorsement */}
+      <ClientEndorsement />
+
+      {/* SECTION 8 — Closing CTA */}
       <StudioStatement />
     </>
   )
 }
+
 

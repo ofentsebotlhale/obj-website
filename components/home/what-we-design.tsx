@@ -4,11 +4,11 @@ import { Reveal } from '@/components/anim/reveal'
 import { motion } from 'framer-motion'
 
 const ITEMS = [
-  'Brand Identities',
-  'Editorial Interfaces',
-  'High-Performance Websites',
-  'E-Commerce Platforms',
-  'Custom Digital Experiences'
+  { text: 'Brand Identities', tag: '[ Concept, Strategy & Systems ]' },
+  { text: 'Editorial Interfaces', tag: '[ Layout & Typography ]' },
+  { text: 'High-Performance Websites', tag: '[ Next.js / Framer Motion / Custom Code ]' },
+  { text: 'E-Commerce Platforms', tag: '[ Conversion & Flow ]' },
+  { text: 'Custom Digital Experiences', tag: '[ WebGL & Interactive ]' }
 ]
 
 export function WhatWeDesign() {
@@ -34,11 +34,14 @@ export function WhatWeDesign() {
                 whileInView={{ opacity: 1, y: 0, z: 0, scale: 1 }}
                 viewport={{ once: true, margin: "-10%" }}
                 transition={{ duration: 1, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="origin-left"
+                className="origin-left group flex flex-col md:flex-row md:items-center gap-4 cursor-default"
               >
                 <p className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-black transition-colors duration-300">
-                  {item}
+                  {item.text}
                 </p>
+                <span className="font-mono text-[10px] md:text-[11px] uppercase tracking-widest text-black/0 md:-translate-x-4 transition-all duration-300 group-hover:text-black/40 group-hover:translate-x-0">
+                  {item.tag}
+                </span>
               </motion.li>
             ))}
           </ul>
