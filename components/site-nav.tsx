@@ -159,20 +159,25 @@ export function SiteNav() {
             <div className="w-full max-w-[1500px] mx-auto py-24 lg:py-32 flex-grow flex flex-col justify-center">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-end w-full">
                 
-                {/* Left Column - Essential Info */}
-                <div className="col-span-1 lg:col-span-4 flex flex-col justify-end space-y-10 order-last lg:order-first mt-12 lg:mt-0 lg:pb-4">
+                {/* Left Column - Nav Links */}
+                <div className="col-span-1 lg:col-span-8 flex flex-col items-start w-full">
+                  <MenuLinks pathname={pathname} />
+                </div>
+
+                {/* Right Column - Essential Info */}
+                <div className="col-span-1 lg:col-span-4 flex flex-col justify-end space-y-10 mt-12 lg:mt-0 lg:pb-4 lg:pl-12">
                   <div className="space-y-2">
                     <span className="font-mono text-[10px] md:text-[11px] uppercase tracking-widest text-[#8E8E93] block">Location</span>
                     <p className="font-sans text-sm md:text-base text-[#FFFFFF]">Johannesburg, South Africa</p>
                   </div>
 
-                  <div className="space-y-2">
+                  <div className="space-y-4">
                     <span className="font-mono text-[10px] md:text-[11px] uppercase tracking-widest text-[#8E8E93] block">Inquiries</span>
                     <a 
                       href="mailto:hello@obxstudio.co.za" 
-                      className="font-sans text-sm md:text-base text-[#FFFFFF] hover:text-[#8E8E93] transition-colors inline-block"
+                      className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition-transform hover:scale-105 active:scale-95"
                     >
-                      hello@obxstudio.co.za
+                      Send us an email
                     </a>
                   </div>
                   
@@ -201,11 +206,6 @@ export function SiteNav() {
                       })}
                     </div>
                   </div>
-                </div>
-
-                {/* Right Column - Nav Links */}
-                <div className="col-span-1 lg:col-span-8 flex flex-col items-start w-full">
-                  <MenuLinks pathname={pathname} />
                 </div>
 
               </div>
