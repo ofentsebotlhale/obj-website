@@ -66,13 +66,23 @@ export function Hero() {
         <p className="text-pretty font-sans text-lg md:text-[22px] leading-[24px] md:leading-[24px] font-medium tracking-normal text-foreground pt-2">
           We craft brands, interfaces, and high-performance digital experiences for the ambitious.
         </p>
-        <Link
-          href="/contact"
-          className="group flex min-h-[38px] w-fit items-center gap-3 rounded-full bg-foreground px-5 py-2 font-sans text-[11px] font-medium uppercase tracking-widest text-background transition-all hover:scale-105 active:scale-95"
-        >
-          Book / Contact
-          <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-        </Link>
+        <div className="flex flex-wrap items-center gap-2.5 pt-1">
+          <Link
+            href="/contact"
+            className="group flex min-h-[38px] items-center gap-2.5 rounded-full bg-foreground px-5 py-2 font-sans text-[11px] font-medium uppercase tracking-widest text-background transition-all hover:scale-105 active:scale-95"
+          >
+            <span>Start a Project</span>
+            <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+          </Link>
+          <a
+            href="https://wa.me/27760190339?text=Hi%20OBX%20Studio%2C%20I'd%20like%20to%20get%20in%20touch..."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex min-h-[38px] items-center gap-2 rounded-full border border-foreground/30 bg-foreground/5 px-4 py-2 font-sans text-[11px] font-medium uppercase tracking-widest text-foreground transition-all hover:bg-foreground hover:text-background active:scale-95"
+          >
+            <span>Contact Us</span>
+          </a>
+        </div>
       </motion.div>
 
       {/* Oversized wordmark */}
