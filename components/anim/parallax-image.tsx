@@ -10,6 +10,7 @@ interface ParallaxImageProps {
   priority?: boolean
   className?: string
   containerClassName?: string
+  motionClassName?: string
   yOffset?: string[]
 }
 
@@ -19,6 +20,7 @@ export function ParallaxImage({
   priority = false,
   className = "object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90",
   containerClassName = "absolute inset-0 z-0 overflow-hidden",
+  motionClassName = "absolute inset-[-15%]",
   yOffset = ["-15%", "15%"],
 }: ParallaxImageProps) {
   const ref = useRef<HTMLDivElement>(null)
@@ -26,12 +28,11 @@ export function ParallaxImage({
     target: ref,
     offset: ["start end", "end start"]
   })
-
   const y = useTransform(scrollYProgress, [0, 1], yOffset)
 
   return (
     <div ref={ref} className={containerClassName}>
-      <motion.div style={{ y }} className="absolute inset-[-15%]">
+      <motion.div style={{ y }} className={motionClassName}>
         <Image
           src={src}
           alt={alt}

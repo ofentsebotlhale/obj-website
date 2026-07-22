@@ -75,12 +75,15 @@ export function FeaturedWork({ items }: { items: Project[] }) {
             <Reveal delay={i * 0.1}>
               <Link href={`/work/${project.slug}`} className="group block w-full outline-none">
                 <TiltCard>
-                  <div className="relative w-full overflow-hidden rounded-none bg-black aspect-[4/3] md:aspect-[4/3] lg:aspect-[16/10]">
+                  <div className="relative w-full overflow-hidden rounded-[2rem] bg-card border border-border/50 aspect-[4/3] md:aspect-[4/3] lg:aspect-[16/10] p-6 md:p-12">
                     <ParallaxImage 
                       src={project.image || "/placeholder.svg"} 
-                      alt={project.title} 
-                      priority={i === 0} 
-                      className="object-cover opacity-90 scale-110" // Add static scale so we don't need hover scale
+                      alt={project.title}
+                      priority={i === 0}
+                      className="object-contain opacity-90 drop-shadow-2xl" 
+                      motionClassName="absolute inset-0"
+                      containerClassName="relative w-full h-full z-0 overflow-visible"
+                      yOffset={["-5%", "5%"]}
                     />
                   </div>
                 </TiltCard>
