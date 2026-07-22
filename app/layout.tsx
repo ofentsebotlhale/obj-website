@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     'OBX Studio is a boutique digital studio crafting premium brand identities, editorial interfaces, and high-performance web experiences.',
   keywords: ['design studio', 'branding agency', 'web development', 'UI/UX', 'OBX Studio'],
   metadataBase: new URL('https://obxstudio.co.za'),
-  _icons: {
+  icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml', sizes: 'any' },
     ],
@@ -50,17 +50,18 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} light bg-background`}
     >
-      
+      <head>
+        {/* Content Security Policy for XSS mitigation */}
         <meta
+          key="csp"
           httpEquiv="Content-Security-Policy"
           content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://*.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://www.clarity.ms https://*.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://stats.g.doubleclick.net https://*.doubleclick.net https://formspree.io https://*.googlesyndication.com https://www.clarity.ms https://*.clarity.ms;"
         />
-        <meta name="ranknibbler-site-verification" content="8936626e0ecbef73e430012b9bff926a"/>
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="preconnect" href="https://www.google-analytics.com" />
-      
-      <body className="font-sans antialiased noise-overlay custom-cursor-active">
-        <Script id="clarity-script" strategy="afterInteractive" type="text/javascript">
+        <meta key="ranknibbler" name="ranknibbler-site-verification" content="8936626e0ecbef73e430012b9bff926a"/>
+        {/* Preconnect to external assets */}
+        <link key="gtm-preconnect" rel="preconnect" href="https://www.googletagmanager.com" />
+        <link key="ga-preconnect" rel="preconnect" href="https://www.google-analytics.com" />
+        <Script key="clarity-script" id="clarity-script" strategy="afterInteractive" type="text/javascript">
           {`
             (function(c,l,a,r,i,t,y){
                 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -69,6 +70,8 @@ export default function RootLayout({
             })(window, document, "clarity", "script", "xi2vrc5k39");
           `}
         </Script>
+      </head>
+      <body className="font-sans antialiased noise-overlay custom-cursor-active">
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-MT8P4PXR"

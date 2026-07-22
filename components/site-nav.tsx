@@ -11,6 +11,7 @@ const LINKS = [
   { href: '/', label: 'Home' },
   { href: '/work', label: 'Work' },
   { href: '/studio', label: 'Studio' },
+  { href: '/services', label: 'Services' },
   { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' },
 ]
@@ -173,24 +174,7 @@ export function SiteNav() {
           >
             OBX Studio
           </Link>
-          <div className="flex items-center gap-2 md:gap-3">
-            <Link
-              href="/contact"
-              className={cn(
-                "hidden sm:inline-flex items-center justify-center min-h-[36px] rounded-full bg-white px-4 font-mono text-[11px] font-bold uppercase tracking-widest text-black transition-all hover:bg-neutral-200 active:scale-95 shadow-sm",
-                pathname === '/contact' ? "ring-2 ring-white/50" : ""
-              )}
-            >
-              Start a Project
-            </Link>
-            <a
-              href="https://wa.me/27760190339?text=Hi%20OBX%20Studio%2C%20I'd%20like%20to%20contact%20you..."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden md:inline-flex items-center justify-center min-h-[36px] rounded-full border border-white/30 bg-white/10 px-3.5 font-mono text-[11px] uppercase tracking-widest text-white transition-all hover:bg-white/20 active:scale-95"
-            >
-              WhatsApp / Email
-            </a>
+          <div className="flex items-center gap-4">
             <button
               type="button"
               onClick={() => setOpen((v) => !v)}
