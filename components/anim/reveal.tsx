@@ -6,8 +6,8 @@ import { motion } from 'framer-motion'
 export function Reveal({
   children,
   delay = 0,
-  y = 20,
-  className,
+  y = 30,
+  className = ""
 }: {
   children: ReactNode
   delay?: number
@@ -33,9 +33,9 @@ export function Reveal({
 
 export function RevealWords({
   text,
-  className,
+  className = "",
   delay = 0,
-  stagger = 0.03,
+  stagger = 0.05
 }: {
   text: string
   className?: string
@@ -48,27 +48,21 @@ export function RevealWords({
 
   const container = {
     hidden: { opacity: 0 },
-    visible: {
+    visible: (i = 1) => ({
       opacity: 1,
-      transition: { 
-        staggerChildren: stagger, 
-        delayChildren: delay 
-      },
-    },
+      transition: { staggerChildren: stagger, delayChildren: delay * i },
+    }),
   }
 
   const child = {
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1],
-      },
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
     },
     hidden: {
       opacity: 0,
-      y: 15,
+      y: 40,
     },
   }
 
@@ -82,16 +76,11 @@ export function RevealWords({
       viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
       className={className}
     >
-      {words.map((word, idx) => (
-        <motion.span
-          variants={child}
-          style={{ display: 'inline-block' }}
-          key={idx}
-        >
+      {words.map((word, index) => (
+        <motion.span variants={child} key={index} className="inline-block">
           {word}
         </motion.span>
       ))}
     </motion.span>
   )
 }
-
