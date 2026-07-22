@@ -2,7 +2,7 @@
 
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 const EASE = [0.22, 1, 0.36, 1] as const

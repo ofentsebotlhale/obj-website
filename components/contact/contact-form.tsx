@@ -370,7 +370,7 @@ export function ContactForm() {
             key="success"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex min-h-[24rem] flex-col items-start justify-center"
+            className="flex min-h-[24rem] flex-col items-center justify-center text-center"
           >
             <motion.span
               initial={{ scale: 0 }}
