@@ -16,7 +16,6 @@ export function BeliefStatement() {
   // Black block scales up from deep background
   const scale = useTransform(containerProgress, [0, 1], [0.85, 1])
   const y = useTransform(containerProgress, [0, 1], [100, 0])
-  const borderRadius = useTransform(containerProgress, [0, 1], [40, 0])
 
   // Track scroll for the text reveal inside the block
   const sectionRef = useRef<HTMLElement>(null)
@@ -29,7 +28,7 @@ export function BeliefStatement() {
     <div ref={containerRef} className="w-full bg-background overflow-hidden" style={{ perspective: '1000px' }}>
       <motion.section 
         ref={sectionRef}
-        style={{ scale, y, borderRadius, willChange: 'transform' }}
+        style={{ scale, y, willChange: 'transform' }}
         className="px-4 py-40 md:py-60 md:px-6 bg-foreground text-white origin-bottom"
       >
         <div className="mx-auto max-w-5xl text-center space-y-12 md:space-y-16">

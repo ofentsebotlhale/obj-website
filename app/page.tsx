@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Hero } from '@/components/home/hero'
 import { Intro } from '@/components/home/intro'
-import { ScrollGradient } from '@/components/anim/scroll-gradient'
 import { BeliefStatement } from '@/components/home/belief-statement'
 import { ShiftingHeading } from '@/components/home/shifting-heading'
 import { WhatWeDesign } from '@/components/home/what-we-design'
@@ -50,9 +49,6 @@ export default function HomePage() {
       
       {/* SECTION 1 — Trust Statement */}
       <Intro />
-
-      {/* Gradient transition starting from the end of Section 1 leading into dark sections */}
-      <ScrollGradient />
 
       {/* SECTION 2 — Belief Statement */}
       <BeliefStatement />

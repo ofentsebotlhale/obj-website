@@ -80,7 +80,7 @@ export function Hero() {
         className="absolute left-4 right-16 top-4 z-20 flex max-w-sm flex-col gap-5 md:left-6 md:right-auto md:top-6"
       >
         <p className="text-pretty font-sans text-lg md:text-[22px] leading-[24px] md:leading-[24px] font-medium tracking-normal text-foreground pt-2">
-          We craft brands, interfaces, and high-performance digital experiences for the ambitious.
+          Digital design and engineering for brands that can’t afford to look ordinary.
         </p>
         <Link
           href="/contact"

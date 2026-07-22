@@ -63,9 +63,9 @@ export function FeaturedWork({ items }: { items: Project[] }) {
   const second = items.find(p => p !== featured) || items[1]
   
   const projects = [
-    { ...featured, colSpan: "md:col-span-7 lg:col-span-8" },
-    { ...second, colSpan: "md:col-span-5 lg:col-span-4" }
-  ]
+    featured ? { ...featured, colSpan: "md:col-span-7 lg:col-span-8" } : null,
+    second ? { ...second, colSpan: "md:col-span-5 lg:col-span-4" } : null
+  ].filter(Boolean) as (Project & { colSpan: string })[]
 
   return (
     <div className="w-full flex flex-col gap-10">
