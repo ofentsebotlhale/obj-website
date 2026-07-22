@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Reveal } from '@/components/anim/reveal'
+import { useState, useEffect } from 'react'
 
 const STEPS = [
   {
@@ -50,6 +51,9 @@ const numberVariants = {
 }
 
 export function TheMethod() {
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
+
   return (
     <section className="px-4 pb-32 md:pb-48 md:px-6 bg-background text-foreground">
       <div className="mx-auto max-w-[1600px]">
@@ -63,8 +67,9 @@ export function TheMethod() {
 
         <motion.div 
           variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
+          initial={false}
+          animate={mounted ? "hidden" : "visible"}
+          whileInView={mounted ? "visible" : undefined}
           viewport={{ once: true, margin: "-10%" }}
           className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 lg:gap-16 perspective-[1000px]"
         >

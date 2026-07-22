@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
 const QUOTE_LINES = [
@@ -17,6 +17,8 @@ export function ClientEndorsement() {
   })
   
   const yParallax = useTransform(scrollYProgress, [0, 1], [0, -150])
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
 
   return (
     <section 
@@ -29,8 +31,9 @@ export function ClientEndorsement() {
       >
         <div className="mx-auto max-w-5xl text-center space-y-12">
           <motion.blockquote 
-            initial="hidden"
-            whileInView="visible"
+            initial={false}
+            animate={mounted ? "hidden" : "visible"}
+            whileInView={mounted ? "visible" : undefined}
             viewport={{ once: true, margin: "-10%" }}
             className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-black flex flex-col items-center gap-1 md:gap-2"
           >
@@ -53,8 +56,9 @@ export function ClientEndorsement() {
             ))}
           </motion.blockquote>
           <motion.p 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={false}
+            animate={mounted ? { opacity: 0 } : { opacity: 1 }}
+            whileInView={mounted ? { opacity: 1 } : undefined}
             viewport={{ once: true, margin: "-10%" }}
             transition={{ duration: 0.8, delay: 0.3 + (QUOTE_LINES.length * 0.15), ease: [0.16, 1, 0.3, 1] }}
             className="font-mono text-xs md:text-sm uppercase tracking-widest text-[#71717A]"

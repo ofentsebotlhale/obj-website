@@ -415,7 +415,7 @@ export function ContactForm() {
             </div>
 
             <form onSubmit={step === 5 ? handleSubmit : (e) => e.preventDefault()} className="flex-1 flex flex-col">
-              <AnimatePresence mode="wait">
+              <AnimatePresence mode="wait" initial={false}>
                 {renderStepContent()}
               </AnimatePresence>
 

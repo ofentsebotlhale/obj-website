@@ -2,7 +2,7 @@
 
 import { Reveal } from '@/components/anim/reveal'
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const ITEMS = [
   { text: 'Brand Identities', tag: '[ Concept, Strategy & Systems ]' },
@@ -14,6 +14,8 @@ const ITEMS = [
 
 export function WhatWeDesign() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
 
   return (
     <section className="px-4 py-32 md:py-48 md:px-6 bg-background text-foreground border-t border-border/10">
@@ -37,8 +39,9 @@ export function WhatWeDesign() {
               return (
                 <motion.li 
                   key={i}
-                  initial={{ opacity: 0, y: 40, z: -50, scale: 0.95 }}
-                  whileInView={{ opacity: 1, y: 0, z: 0, scale: 1 }}
+                  initial={false}
+                  animate={mounted ? { opacity: 0, y: 40, z: -50, scale: 0.95 } : { opacity: 1, y: 0, z: 0, scale: 1 }}
+                  whileInView={mounted ? { opacity: 1, y: 0, z: 0, scale: 1 } : undefined}
                   viewport={{ once: true, margin: "-10%" }}
                   transition={{ duration: 1, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
                   className="origin-left"
@@ -52,6 +55,7 @@ export function WhatWeDesign() {
                   >
                     <motion.p 
                       className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-black"
+                      initial={false}
                       animate={{ x: isHovered ? 12 : 0 }}
                       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                     >
@@ -59,8 +63,8 @@ export function WhatWeDesign() {
                     </motion.p>
                     <motion.span 
                       className="font-mono text-[10px] md:text-[11px] uppercase tracking-widest text-[#71717A] md:-translate-x-4"
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: isHovered ? 1 : 0, x: isHovered ? 0 : -10 }}
+                      initial={false}
+                      animate={mounted ? { opacity: isHovered ? 1 : 0, x: isHovered ? 0 : -10 } : { opacity: 0, x: -10 }}
                       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                     >
                       {item.tag}

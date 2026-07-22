@@ -2,7 +2,7 @@
 
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
 const EASE = [0.22, 1, 0.36, 1] as const
@@ -10,12 +10,14 @@ const LINE1 = 'OBX'
 const LINE2 = 'STUDIO'
 
 function MagneticChar({ children, delay }: { children: React.ReactNode, delay: number }) {
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
   return (
     <span className="inline-block origin-center cursor-default select-none transition-colors duration-300">
       <motion.span
         className="block"
-        initial={{ y: '110%' }}
-        animate={{ y: '0%' }}
+        initial={false}
+        animate={mounted ? { y: ['110%', '0%'] } : { y: '0%' }}
         transition={{ duration: 1, ease: EASE, delay }}
       >
         {children}
@@ -48,7 +50,10 @@ export function Hero() {
   // Foreground elements move up faster (parallax effect)
   const foregroundY = useTransform(scrollY, [0, 800], [0, -150])
 
+  const [mounted, setMounted] = useState(false)
+
   useEffect(() => {
+    setMounted(true)
     document.body.style.overflow = 'hidden'
     const t = setTimeout(() => {
       document.body.style.overflow = ''
@@ -73,8 +78,8 @@ export function Hero() {
 
       {/* Top meta row */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={false}
+        animate={mounted ? { opacity: [0, 1], y: [20, 0] } : { opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 2.2, ease: EASE }}
         style={{ y: foregroundY, willChange: 'transform' }}
         className="absolute left-4 right-16 top-4 z-20 flex max-w-sm flex-col gap-5 md:left-6 md:right-auto md:top-6"
@@ -116,8 +121,8 @@ export function Hero() {
 
       {/* Bottom row */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        initial={false}
+        animate={mounted ? { opacity: [0, 1] } : { opacity: 1 }}
         transition={{ duration: 0.8, delay: 2.4 }}
         style={{ y: foregroundY, willChange: 'transform' }}
         className="absolute bottom-10 left-4 right-4 z-20 flex flex-row items-end justify-between gap-4 font-mono text-[10px] uppercase tracking-widest text-muted-foreground sm:text-[11px] md:left-6 md:right-6"

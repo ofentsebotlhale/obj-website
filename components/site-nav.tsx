@@ -70,6 +70,8 @@ export function SiteNav() {
   const [scrolled, setScrolled] = useState(false)
   
   const { scrollY } = useScroll()
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     if (latest > 50) {
@@ -93,11 +95,8 @@ export function SiteNav() {
   return (
     <>
       <motion.header 
-        initial={pathname === '/' ? { opacity: 0 } : { opacity: 1 }}
-        animate={{ 
-          opacity: 1, 
-          y: '0%' 
-        }}
+        initial={false}
+        animate={mounted ? (pathname === '/' ? { opacity: [0, 1], y: '0%' } : { opacity: 1, y: '0%' }) : { opacity: 1, y: '0%' }}
         transition={{ 
           opacity: { duration: 0.8, delay: pathname === '/' ? 2.5 : 0 },
           y: { duration: 0.3, ease: 'easeInOut' }
