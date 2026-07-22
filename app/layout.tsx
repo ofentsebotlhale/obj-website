@@ -14,7 +14,7 @@ import { AnalyticsLoader } from '@/components/analytics-loader'
 const inter = Inter({ variable: '--font-inter', subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'OBX Studio — Design, Branding & Development',
+  title: 'OBX Studio | Web Design Studio in Johannesburg',
   description:
     'OBX Studio is a boutique digital studio crafting premium brand identities, editorial interfaces, and high-performance web experiences.',
   keywords: ['design studio', 'branding agency', 'web development', 'UI/UX', 'OBX Studio'],
