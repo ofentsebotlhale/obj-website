@@ -4,6 +4,56 @@ import Link from 'next/link'
 import type { Project } from '@/lib/projects'
 import { Reveal } from '@/components/anim/reveal'
 import { ParallaxImage } from '@/components/anim/parallax-image'
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
+import React from 'react'
+
+function TiltCard({ children }: { children: React.ReactNode }) {
+  const x = useMotionValue(0)
+  const y = useMotionValue(0)
+  
+  const mouseXSpring = useSpring(x, { stiffness: 300, damping: 30 })
+  const mouseYSpring = useSpring(y, { stiffness: 300, damping: 30 })
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["5deg", "-5deg"])
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-5deg", "5deg"])
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect()
+    const width = rect.width
+    const height = rect.height
+    const mouseX = e.clientX - rect.left
+    const mouseY = e.clientY - rect.top
+    const xPct = mouseX / width - 0.5
+    const yPct = mouseY / height - 0.5
+    x.set(xPct)
+    y.set(yPct)
+  }
+
+  const handleMouseLeave = () => {
+    x.set(0)
+    y.set(0)
+  }
+
+  return (
+    <div 
+      className="w-full relative perspective-[1000px] hover:z-10"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      <motion.div
+        style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+        className="w-full h-full relative"
+      >
+        <motion.div 
+          style={{ translateZ: "50px" }} 
+          className="w-full h-full block"
+        >
+          {children}
+        </motion.div>
+      </motion.div>
+    </div>
+  )
+}
 
 export function FeaturedWork({ items }: { items: Project[] }) {
   if (!items || items.length === 0) return null
@@ -24,13 +74,16 @@ export function FeaturedWork({ items }: { items: Project[] }) {
           <div key={project.slug} className={`flex flex-col gap-5 ${project.colSpan}`}>
             <Reveal delay={i * 0.1}>
               <Link href={`/work/${project.slug}`} className="group block w-full outline-none">
-                <div className="relative w-full overflow-hidden rounded-none bg-black aspect-[4/3] md:aspect-[4/3] lg:aspect-[16/10] transition-transform duration-500 hover:scale-[0.98]">
-                  <ParallaxImage 
-                    src={project.image || "/placeholder.svg"} 
-                    alt={project.title} 
-                    priority={i === 0} 
-                  />
-                </div>
+                <TiltCard>
+                  <div className="relative w-full overflow-hidden rounded-none bg-black aspect-[4/3] md:aspect-[4/3] lg:aspect-[16/10]">
+                    <ParallaxImage 
+                      src={project.image || "/placeholder.svg"} 
+                      alt={project.title} 
+                      priority={i === 0} 
+                      className="object-cover opacity-90 scale-110" // Add static scale so we don't need hover scale
+                    />
+                  </div>
+                </TiltCard>
               </Link>
             </Reveal>
             <Reveal delay={i * 0.1 + 0.1}>

@@ -1,6 +1,7 @@
 'use client'
 
 import { Reveal } from '@/components/anim/reveal'
+import { motion } from 'framer-motion'
 
 const ITEMS = [
   'Brand Identities',
@@ -24,16 +25,21 @@ export function WhatWeDesign() {
         </div>
 
         {/* Right Column List */}
-        <div className="md:col-span-8">
+        <div className="md:col-span-8 perspective-[1000px]">
           <ul className="space-y-8 md:space-y-12">
             {ITEMS.map((item, i) => (
-              <li key={i}>
-                <Reveal delay={i * 0.1}>
-                  <p className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-black transition-colors duration-300">
-                    {item}
-                  </p>
-                </Reveal>
-              </li>
+              <motion.li 
+                key={i}
+                initial={{ opacity: 0, y: 40, z: -50, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, z: 0, scale: 1 }}
+                viewport={{ once: true, margin: "-10%" }}
+                transition={{ duration: 1, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className="origin-left"
+              >
+                <p className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-black transition-colors duration-300">
+                  {item}
+                </p>
+              </motion.li>
             ))}
           </ul>
         </div>

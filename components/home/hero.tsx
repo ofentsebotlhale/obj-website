@@ -2,8 +2,8 @@
 
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
-import { useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { useEffect, useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 const LINE1 = 'OBX'
@@ -37,6 +37,17 @@ function Line({ text, delay }: { text: string; delay: number }) {
 }
 
 export function Hero() {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const { scrollY } = useScroll()
+
+  // Heading moves backward and scales down
+  const headingScale = useTransform(scrollY, [0, 800], [1, 0.85])
+  const headingY = useTransform(scrollY, [0, 800], [0, -100])
+  const headingOpacity = useTransform(scrollY, [0, 800], [1, 0.4])
+
+  // Foreground elements move up faster (parallax effect)
+  const foregroundY = useTransform(scrollY, [0, 800], [0, -150])
+
   useEffect(() => {
     document.body.style.overflow = 'hidden'
     const t = setTimeout(() => {
@@ -49,7 +60,11 @@ export function Hero() {
   }, [])
 
   return (
-    <section className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden px-4 md:px-6">
+    <section 
+      ref={containerRef}
+      className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden px-4 md:px-6"
+      style={{ perspective: '1200px' }}
+    >
       {/* Subtle grid pattern background */}
       <div 
         className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" 
@@ -61,7 +76,8 @@ export function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 2.2, ease: EASE }}
-        className="absolute left-4 right-16 top-4 z-10 flex max-w-sm flex-col gap-5 md:left-6 md:right-auto md:top-6"
+        style={{ y: foregroundY, willChange: 'transform' }}
+        className="absolute left-4 right-16 top-4 z-20 flex max-w-sm flex-col gap-5 md:left-6 md:right-auto md:top-6"
       >
         <p className="text-pretty font-sans text-lg md:text-[22px] leading-[24px] md:leading-[24px] font-medium tracking-normal text-foreground pt-2">
           We craft brands, interfaces, and high-performance digital experiences for the ambitious.
@@ -76,7 +92,15 @@ export function Hero() {
       </motion.div>
 
       {/* Oversized wordmark */}
-      <div className="relative z-10 flex w-full flex-col items-start">
+      <motion.div 
+        style={{ 
+          scale: headingScale, 
+          y: headingY, 
+          opacity: headingOpacity,
+          willChange: 'transform, opacity' 
+        }}
+        className="relative z-10 flex w-full flex-col items-start origin-center"
+      >
         <h1 className="sr-only">OBX Studio</h1>
         <div className="flex flex-col items-start font-heading text-[24vw] font-bold leading-[0.82] tracking-tighter text-foreground sm:text-[22vw] md:text-[19vw]">
           <div aria-hidden="true">
@@ -88,14 +112,15 @@ export function Hero() {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Bottom row */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 2.4 }}
-        className="absolute bottom-10 left-4 right-4 z-10 flex flex-row items-end justify-between gap-4 font-mono text-[10px] uppercase tracking-widest text-muted-foreground sm:text-[11px] md:left-6 md:right-6"
+        style={{ y: foregroundY, willChange: 'transform' }}
+        className="absolute bottom-10 left-4 right-4 z-20 flex flex-row items-end justify-between gap-4 font-mono text-[10px] uppercase tracking-widest text-muted-foreground sm:text-[11px] md:left-6 md:right-6"
       >
         <div className="flex flex-col gap-2">
           <span className="leading-relaxed text-black font-sans font-medium">
