@@ -1,9 +1,49 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
 
 export function LayoutWrapper({ children }: { children: React.ReactNode }) {
-  // Just return children directly without the global loading screen overlay,
-  // since the Hero component inherently acts as the preloader.
-  return <>{children}</>
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    // Hide the preloader after a short delay
+    const t = setTimeout(() => {
+      setLoading(false)
+    }, 1800)
+    return () => clearTimeout(t)
+  }, [])
+
+  return (
+    <>
+      <AnimatePresence>
+        {loading && (
+          <motion.div
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-0 z-[9999] flex items-center justify-center bg-background"
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <Image 
+                src="/logo.jpg" 
+                alt="OBX Studio" 
+                width={120} 
+                height={120}
+                className="rounded-full object-cover shadow-2xl"
+                referrerPolicy="no-referrer"
+                priority
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      {children}
+    </>
+  )
 }

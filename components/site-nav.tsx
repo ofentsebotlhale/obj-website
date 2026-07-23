@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion'
@@ -123,7 +124,14 @@ export function SiteNav() {
             )}
             aria-label="OBX Studio home"
           >
-            OBX Studio
+            <Image
+              src="/logo.jpg"
+              alt="OBX Studio"
+              width={40}
+              height={40}
+              className="rounded-full object-cover"
+              referrerPolicy="no-referrer"
+            />
           </Link>
           <div className="flex items-center gap-4">
             <button

@@ -25,7 +25,7 @@ export default function BlogListingPage() {
       name: 'OBX Studio',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://obxstudio.co.za/icon.svg'
+        url: 'https://obxstudio.co.za/logo.jpg'
       }
     }
   }

@@ -35,7 +35,7 @@ export default function HomePage() {
         '@type': 'Organization',
         name: 'OBX Studio',
         url: 'https://obxstudio.co.za',
-        logo: 'https://obxstudio.co.za/icon.svg',
+        logo: 'https://obxstudio.co.za/logo.jpg',
         description: 'OBX Studio is a boutique digital studio crafting premium brand identities, editorial interfaces, and high-performance web experiences.',
       },
     ],

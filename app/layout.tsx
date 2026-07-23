@@ -20,11 +20,11 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://obxstudio.co.za'),
   icons: {
     icon: [
-      { url: '/favicon.svg?v=2', type: 'image/svg+xml', sizes: 'any' },
+      { url: '/logo.jpg', type: 'image/jpeg', sizes: 'any' },
     ],
-    shortcut: ['/favicon.svg?v=2'],
+    shortcut: ['/logo.jpg'],
     apple: [
-      { url: '/favicon.svg?v=2', type: 'image/svg+xml' },
+      { url: '/logo.jpg', type: 'image/jpeg' },
     ],
   },
   openGraph: {
