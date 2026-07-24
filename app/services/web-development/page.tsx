@@ -27,9 +27,9 @@ export default function WebDevelopmentPage() {
               url: "https://obxstudio.co.za",
               logo: {
                 "@type": "ImageObject",
-                url: "https://obxstudio.co.za/logo.jpg"
+                url: "https://obxstudio.co.za/logo.svg"
               },
-              image: "https://obxstudio.co.za/logo.jpg"
+              image: "https://obxstudio.co.za/logo.svg"
             },
             description: "OBX Studio develops fast, responsive, and scalable websites built for performance, usability, and long-term growth.",
             serviceType: "Web Development"

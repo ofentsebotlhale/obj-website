@@ -20,6 +20,7 @@ export function LayoutWrapper({ children }: { children: React.ReactNode }) {
       <AnimatePresence>
         {loading && (
           <motion.div
+            key="preloader"
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -31,11 +32,11 @@ export function LayoutWrapper({ children }: { children: React.ReactNode }) {
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
               <Image 
-                src="/logo.jpg" 
+                src="/logo.svg" 
                 alt="OBX Studio" 
                 width={120} 
                 height={120}
-                className="rounded-full object-cover shadow-2xl"
+                className="w-32 h-auto"
                 referrerPolicy="no-referrer"
                 priority
               />

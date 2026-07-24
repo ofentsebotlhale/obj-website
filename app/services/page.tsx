@@ -31,9 +31,9 @@ export default function ServicesPage() {
               url: "https://obxstudio.co.za",
               logo: {
                 "@type": "ImageObject",
-                url: "https://obxstudio.co.za/logo.jpg"
+                url: "https://obxstudio.co.za/logo.svg"
               },
-              image: "https://obxstudio.co.za/logo.jpg"
+              image: "https://obxstudio.co.za/logo.svg"
             },
             description: "OBX Studio provides end-to-end digital design and web development services focused on creating modern, high-performing websites for businesses.",
           }),

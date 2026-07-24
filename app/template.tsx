@@ -13,7 +13,6 @@ const ROUTE_LABELS: Record<string, string> = {
   '/contact': 'Contact',
 }
 
-// Mobile-first: a small number of columns on phones, more on larger screens.
 const COLUMNS = 6
 const EASE = [0.76, 0, 0.24, 1] as const
 
@@ -23,7 +22,6 @@ export default function Template({ children }: { children: ReactNode }) {
 
   return (
     <>
-      {/* Layered curtain — staggered columns wipe upward to reveal the page */}
       <div
         className="pointer-events-none fixed inset-0 z-[80] flex"
         aria-hidden="true"
@@ -44,7 +42,6 @@ export default function Template({ children }: { children: ReactNode }) {
         ))}
       </div>
 
-      {/* Route name flashes while the curtain is up, then lifts away */}
       <motion.div
         className="pointer-events-none fixed inset-0 z-[81] flex items-center justify-center"
         aria-hidden="true"
@@ -62,7 +59,6 @@ export default function Template({ children }: { children: ReactNode }) {
         </motion.span>
       </motion.div>
 
-      {/* Page content rises into place as the curtain clears */}
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}

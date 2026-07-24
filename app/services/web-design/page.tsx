@@ -27,9 +27,9 @@ export default function WebDesignPage() {
               url: "https://obxstudio.co.za",
               logo: {
                 "@type": "ImageObject",
-                url: "https://obxstudio.co.za/logo.jpg"
+                url: "https://obxstudio.co.za/logo.svg"
               },
-              image: "https://obxstudio.co.za/logo.jpg"
+              image: "https://obxstudio.co.za/logo.svg"
             },
             description: "OBX Studio designs modern, user-focused websites for businesses that want to communicate clearly, build credibility, and convert visitors into clients.",
             serviceType: "Web Design"

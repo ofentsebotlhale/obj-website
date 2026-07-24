@@ -125,11 +125,11 @@ export function SiteNav() {
             aria-label="OBX Studio home"
           >
             <Image
-              src="/logo.jpg"
+              src="/logo.svg"
               alt="OBX Studio"
               width={40}
               height={40}
-              className="rounded-full object-cover"
+              className="h-8 w-auto"
               referrerPolicy="no-referrer"
             />
           </Link>

@@ -16,17 +16,7 @@ export const metadata: Metadata = {
   title: 'OBX Studio | Web Design Studio in Johannesburg',
   description:
     'OBX Studio is a boutique digital studio crafting premium brand identities, editorial interfaces, and high-performance web experiences.',
-  keywords: ['design studio', 'branding agency', 'web development', 'UI/UX', 'OBX Studio'],
   metadataBase: new URL('https://obxstudio.co.za'),
-  icons: {
-    icon: [
-      { url: '/logo.jpg', type: 'image/jpeg', sizes: 'any' },
-    ],
-    shortcut: ['/logo.jpg'],
-    apple: [
-      { url: '/logo.jpg', type: 'image/jpeg' },
-    ],
-  },
   openGraph: {
     title: 'OBX Studio',
     description: 'A few skilled humans doing the work of many.',
