@@ -6,9 +6,9 @@ import { blogPosts } from '@/lib/blogs'
 import { ArrowLeft, Clock, Calendar, Hash } from 'lucide-react'
 
 interface PageProps {
-  params: Promise<{
+  params: {
     slug: string
-  }>
+  }
 }
 
 export async function generateStaticParams() {

@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion'
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'motion/react'
 import { cn } from '@/lib/utils'
 import { Menu, X, Instagram, Linkedin, Facebook, MessageCircle } from 'lucide-react'
 

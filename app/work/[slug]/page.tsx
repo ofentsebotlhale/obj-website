@@ -8,7 +8,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 interface Props {
-  params: Promise<{ slug: string }>
+  params: { slug: string }
 }
 
 export async function generateStaticParams() {
@@ -18,7 +18,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
+  const { slug } = params;
   const project = projects.find((p) => p.slug === slug);
   if (!project) return {};
 
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function ProjectPage({ params }: Props) {
-  const { slug } = await params;
+  const { slug } = params;
   const project = projects.find((p) => p.slug === slug);
 
   if (!project) {

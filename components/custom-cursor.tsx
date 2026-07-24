@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { motion, useMotionValue, useSpring, AnimatePresence } from 'framer-motion'
+import { motion, useMotionValue, useSpring, AnimatePresence } from 'motion/react'
 
 export function CustomCursor() {
   const x = useMotionValue(-100)

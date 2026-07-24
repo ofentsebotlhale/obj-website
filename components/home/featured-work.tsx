@@ -4,7 +4,7 @@ import Link from 'next/link'
 import type { Project } from '@/lib/projects'
 import { Reveal } from '@/components/anim/reveal'
 import { ParallaxImage } from '@/components/anim/parallax-image'
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
+import { motion, useMotionValue, useSpring, useTransform } from 'motion/react'
 import React from 'react'
 
 function TiltCard({ children }: { children: React.ReactNode }) {

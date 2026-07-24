@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { Reveal } from '@/components/anim/reveal'
 import { useState, useEffect } from 'react'
 
