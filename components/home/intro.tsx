@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
-import { useScroll } from 'motion/react'
+import { useScroll } from 'framer-motion'
 import { ScrollRevealText } from '@/components/anim/scroll-reveal-text'
 
 export function Intro() {

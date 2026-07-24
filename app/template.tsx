@@ -1,7 +1,7 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import { motion } from 'motion/react'
+import { motion } from 'framer-motion'
 import type { ReactNode } from 'react'
 
 const ROUTE_LABELS: Record<string, string> = {

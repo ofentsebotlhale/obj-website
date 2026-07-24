@@ -63,12 +63,12 @@ export default async function ProjectPage({ params }: Props) {
       {/* Main Hero Parallax */}
       <section className="px-5 pb-20 md:px-10 md:pb-28">
         <div className="mx-auto max-w-[1600px]">
-          <div className="relative w-full aspect-[16/10] md:aspect-[21/9] overflow-hidden rounded-[2rem] bg-card border border-border/50 p-6 md:p-12 lg:p-20">
+          <div className="relative w-full aspect-[16/10] md:aspect-[21/9] overflow-hidden">
             <ParallaxImage
               src={project.image || "/placeholder.svg"}
               alt={project.title}
               priority={true}
-              className="object-contain drop-shadow-2xl"
+              className="object-cover"
               motionClassName="absolute inset-0"
               containerClassName="relative w-full h-full z-0"
               yOffset={["-4%", "4%"]}
@@ -189,11 +189,11 @@ export default async function ProjectPage({ params }: Props) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
               {project.images.map((img, i) => (
                 <Reveal key={i} delay={i * 0.1}>
-                  <div className="relative w-full aspect-[4/3] overflow-hidden rounded-[2rem] bg-card border border-border/50 p-6 md:p-10">
+                  <div className="relative w-full aspect-[4/3] overflow-hidden">
                     <ParallaxImage
                       src={img}
                       alt={`${project.title} screenshot ${i + 1}`}
-                      className="object-contain drop-shadow-2xl"
+                      className="object-cover"
                       motionClassName="absolute inset-0"
                       containerClassName="relative w-full h-full z-0"
                       yOffset={["-4%", "4%"]}

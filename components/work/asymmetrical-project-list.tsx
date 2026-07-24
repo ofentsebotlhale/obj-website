@@ -24,14 +24,14 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       <Reveal>
         <Link 
           href={`/work/${project.slug}`}
-          className="group relative block w-full overflow-hidden rounded-[2rem] bg-card border border-border/50 cursor-pointer"
+          className="group relative block w-full overflow-hidden cursor-pointer"
         >
-          <div className="relative w-full aspect-video overflow-hidden p-6 md:p-10">
+          <div className="relative w-full aspect-video overflow-hidden">
             <ParallaxImage
               src={project.image || "/placeholder.svg"}
               alt={project.title}
               priority={index < 2}
-              className="object-contain transition-transform duration-1000 group-hover:scale-105 drop-shadow-2xl"
+              className="object-cover transition-transform duration-1000 group-hover:scale-105"
               motionClassName="absolute inset-0"
               containerClassName="relative w-full h-full z-0"
               yOffset={["-5%", "5%"]}

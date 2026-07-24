@@ -1,7 +1,7 @@
 'use client'
 
 import { Reveal } from '@/components/anim/reveal'
-import { motion } from 'motion/react'
+import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 
 const ITEMS = [

@@ -4,7 +4,7 @@ import Link from 'next/link'
 import type { Project } from '@/lib/projects'
 import { Reveal } from '@/components/anim/reveal'
 import { ParallaxImage } from '@/components/anim/parallax-image'
-import { motion, useMotionValue, useSpring, useTransform } from 'motion/react'
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import React from 'react'
 
 function TiltCard({ children }: { children: React.ReactNode }) {
@@ -75,14 +75,14 @@ export function FeaturedWork({ items }: { items: Project[] }) {
             <Reveal delay={i * 0.1}>
               <Link href={`/work/${project.slug}`} className="group block w-full outline-none">
                 <TiltCard>
-                  <div className="relative w-full overflow-hidden rounded-[2rem] bg-card border border-border/50 aspect-[4/3] md:aspect-[4/3] lg:aspect-[16/10] p-6 md:p-12">
+                  <div className="relative w-full overflow-hidden aspect-[4/3] md:aspect-[4/3] lg:aspect-[16/10]">
                     <ParallaxImage 
                       src={project.image || "/placeholder.svg"} 
                       alt={project.title}
                       priority={i === 0}
-                      className="object-contain opacity-90 drop-shadow-2xl" 
+                      className="object-cover opacity-90 transition-transform duration-1000 group-hover:scale-105" 
                       motionClassName="absolute inset-0"
-                      containerClassName="relative w-full h-full z-0 overflow-visible"
+                      containerClassName="relative w-full h-full z-0 overflow-hidden"
                       yOffset={["-5%", "5%"]}
                     />
                   </div>
