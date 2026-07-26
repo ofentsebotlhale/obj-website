@@ -15,6 +15,7 @@ export function Reveal({
   className?: string
 }) {
   const [mounted, setMounted] = useState(false)
+
   useEffect(() => setMounted(true), [])
 
   return (
@@ -43,7 +44,9 @@ export function RevealWords({
   stagger?: number
 }) {
   const [mounted, setMounted] = useState(false)
+
   useEffect(() => setMounted(true), [])
+
   const words = text.split(' ')
 
   const container = {

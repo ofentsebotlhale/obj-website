@@ -1,14 +1,28 @@
 'use client'
 
-import React from 'react'
+import React, { useRef } from 'react'
 import Link from 'next/link'
-import { Reveal } from '@/components/anim/reveal'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import type { Project } from '@/lib/projects'
 import { ParallaxImage } from '@/components/anim/parallax-image'
 
+interface CardConfig {
+  sizeClass: string
+  parallaxSpeed: number
+  alignmentClass: string
+}
+
+const cardConfigs: CardConfig[] = [
+  { sizeClass: 'w-full max-w-[580px]', parallaxSpeed: 30, alignmentClass: 'justify-self-start' },
+  { sizeClass: 'w-full max-w-[420px]', parallaxSpeed: 65, alignmentClass: 'justify-self-end md:mt-24' },
+  { sizeClass: 'w-full max-w-[320px]', parallaxSpeed: 100, alignmentClass: 'justify-self-center md:-mt-12' },
+  { sizeClass: 'w-full max-w-[520px]', parallaxSpeed: 40, alignmentClass: 'justify-self-start md:mt-16' },
+  { sizeClass: 'w-full max-w-[380px]', parallaxSpeed: 80, alignmentClass: 'justify-self-end md:-mt-8' },
+]
+
 export function AsymmetricalProjectList({ items }: { items: Project[] }) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 lg:gap-32 relative">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-24 relative items-start">
       {items.map((project, i) => (
         <ProjectCard key={project.slug} project={project} index={i} />
       ))}
@@ -17,59 +31,45 @@ export function AsymmetricalProjectList({ items }: { items: Project[] }) {
 }
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
-  const isOdd = index % 2 !== 0
+  const cardRef = useRef<HTMLDivElement>(null)
+  const config = cardConfigs[index % cardConfigs.length]
+
+  const { scrollYProgress } = useScroll({
+    target: cardRef,
+    offset: ['start end', 'end start'],
+  })
+
+  // Smaller image containers move at higher parallax speeds
+  const y = useTransform(scrollYProgress, [0, 1], [config.parallaxSpeed, -config.parallaxSpeed])
 
   return (
-    <div className={`flex flex-col gap-8 ${isOdd ? 'md:mt-44' : 'md:mb-44'}`}>
-      <Reveal>
-        <Link 
-          href={`/work/${project.slug}`}
-          className="group relative block w-full overflow-hidden cursor-pointer"
-        >
-          <div className="relative w-full aspect-video overflow-hidden">
+    <div ref={cardRef} className={`w-full ${config.alignmentClass}`}>
+      <motion.div style={{ y }} className={`flex flex-col gap-3 ${config.sizeClass} mx-auto md:mx-0`}>
+        {/* Text OUTSIDE and ABOVE the image on top */}
+        <Link href={`/work/${project.slug}`} className="group block space-y-1 outline-none">
+          <h3 className="font-heading text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-foreground group-hover:text-muted-foreground transition-colors">
+            {project.title}
+          </h3>
+          <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+            {project.category}
+          </p>
+        </Link>
+
+        {/* Square Image Container with sharp corners */}
+        <Link href={`/work/${project.slug}`} className="group block w-full outline-none">
+          <div className="relative w-full aspect-square overflow-hidden border border-border/70 bg-muted/40 shadow-xl rounded-none transition-all duration-500 group-hover:border-foreground/50">
             <ParallaxImage
-              src={project.image || "/placeholder.svg"}
+              src={project.image || '/placeholder.svg'}
               alt={project.title}
               priority={index < 2}
-              className="object-cover transition-transform duration-1000 group-hover:scale-105"
-              motionClassName="absolute inset-0"
-              containerClassName="relative w-full h-full z-0"
-              yOffset={["-5%", "5%"]}
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              containerClassName="absolute inset-0 z-0 overflow-hidden"
+              motionClassName="absolute inset-[-12%]"
+              yOffset={['-8%', '8%']}
             />
           </div>
-          <div className="absolute inset-0 bg-black/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100 flex items-center justify-center">
-            <span className="font-mono text-xs uppercase tracking-widest text-white backdrop-blur-md bg-black/70 px-6 py-3 rounded-full transition-transform duration-300 group-hover:scale-105">
-              View Case Study
-            </span>
-          </div>
         </Link>
-      </Reveal>
-
-      <div className="flex flex-col gap-6">
-        <Reveal delay={0.1}>
-          <Link href={`/work/${project.slug}`} className="group flex items-baseline justify-between border-b border-border/50 pb-4">
-            <h3 className="font-heading text-3xl font-semibold tracking-tight text-foreground sm:text-4xl group-hover:opacity-80 transition-opacity">
-              {project.title}
-            </h3>
-            <span className="font-mono text-sm tracking-widest text-foreground opacity-60">{project.year}</span>
-          </Link>
-        </Reveal>
-
-        <Reveal delay={0.2}>
-          <div className="flex items-center justify-between">
-            <span className="font-mono text-[11px] uppercase tracking-widest text-foreground">
-              {project.category}
-            </span>
-            <Link 
-              href={`/work/${project.slug}`}
-              className="font-mono text-xs uppercase tracking-widest text-foreground hover:opacity-70 transition-opacity flex items-center gap-1"
-            >
-              <span>Explore</span>
-              <span>→</span>
-            </Link>
-          </div>
-        </Reveal>
-      </div>
+      </motion.div>
     </div>
   )
 }

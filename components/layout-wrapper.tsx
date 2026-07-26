@@ -30,13 +30,14 @@ export function LayoutWrapper({ children }: { children: React.ReactNode }) {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              className="flex items-center justify-center"
             >
               <Image 
                 src="/logo.svg" 
                 alt="OBX Studio" 
-                width={120} 
-                height={120}
-                className="w-32 h-auto"
+                width={200} 
+                height={200}
+                className="w-44 md:w-56 h-auto object-contain dark:invert"
                 referrerPolicy="no-referrer"
                 priority
               />

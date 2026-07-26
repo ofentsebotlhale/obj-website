@@ -15,6 +15,7 @@ export function PageHeader({
   subtitle: string
 }) {
   const [mounted, setMounted] = useState(false)
+
   useEffect(() => setMounted(true), [])
 
   return (
@@ -29,6 +30,7 @@ export function PageHeader({
           <span>{subtitle}</span>
           <span>( {index} )</span>
         </motion.div>
+
         <h1 className="mt-6 overflow-hidden font-heading text-[16vw] font-bold leading-[0.85] tracking-tighter text-foreground md:text-[12vw]">
           <motion.span
             className="block"

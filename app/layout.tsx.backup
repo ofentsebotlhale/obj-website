@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, JetBrains_Mono } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import './globals.css'
 import { CustomCursor } from '@/components/custom-cursor'
 import { SiteNav } from '@/components/site-nav'
@@ -8,19 +8,8 @@ import { CookieBanner } from '@/components/cookie-banner'
 import { FirebaseAnalytics } from '@/components/firebase-analytics'
 import { LayoutWrapper } from '@/components/layout-wrapper'
 import { AnalyticsLoader } from '@/components/analytics-loader'
-import { SmoothScroll } from '@/components/smooth-scroll'
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-})
-
-const mono = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-mono',
-  display: 'swap',
-})
+const inter = Inter({ variable: '--font-inter', subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'OBX Studio | Web Design Studio in Johannesburg',
@@ -47,7 +36,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${mono.variable} light bg-background`}
+      className={`${inter.variable} light bg-background`}
     >
       <body className="font-sans antialiased noise-overlay custom-cursor-active">
         <AnalyticsLoader />
@@ -64,20 +53,17 @@ export default function RootLayout({
           Skip to main content
         </a>
         <CustomCursor />
-        <SmoothScroll>
-          <LayoutWrapper>
-            <div id="smooth-scroll">
-              <SiteNav />
-              <main id="main-content" className="relative">
-                {children}
-              </main>
-              <SiteFooter />
-            </div>
-          </LayoutWrapper>
-        </SmoothScroll>
+        <LayoutWrapper>
+          <div id="smooth-scroll">
+            <SiteNav />
+            <main id="main-content" className="relative">
+              {children}
+            </main>
+            <SiteFooter />
+          </div>
+        </LayoutWrapper>
         <CookieBanner />
       </body>
     </html>
   )
 }
-

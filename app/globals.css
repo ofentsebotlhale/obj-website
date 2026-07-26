@@ -4,9 +4,9 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-heading: var(--font-inter), sans-serif;
-  --font-sans: var(--font-inter), sans-serif;
-  --font-mono: var(--font-inter), monospace;
+  --font-heading: 'PP Neue Montreal', 'Neue Montreal', var(--font-inter), 'Helvetica Neue', Arial, sans-serif;
+  --font-sans: 'PP Neue Montreal', 'Neue Montreal', var(--font-inter), 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -157,6 +157,28 @@
 }
 
 html {
+  scroll-behavior: smooth;
   scrollbar-width: thin;
   scrollbar-color: oklch(0.3 0 0) transparent;
+}
+
+/* Lenis Smooth Scroll styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
