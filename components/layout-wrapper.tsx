@@ -1,51 +1,47 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import Image from 'next/image'
+import React, { createContext, useContext, useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
+import { Preloader } from '@/components/preloader'
+
+interface PreloaderContextType {
+  loading: boolean
+}
+
+const PreloaderContext = createContext<PreloaderContextType>({ loading: true })
+
+export function usePreloader() {
+  return useContext(PreloaderContext)
+}
 
 export function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Hide the preloader after a short delay
-    const t = setTimeout(() => {
-      setLoading(false)
-    }, 1800)
-    return () => clearTimeout(t)
-  }, [])
+    // Lock scroll during preloader overlay
+    if (loading) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [loading])
 
   return (
-    <>
-      <AnimatePresence>
-        {loading && (
-          <motion.div
-            key="preloader"
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-[9999] flex items-center justify-center bg-background"
-          >
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="flex items-center justify-center"
-            >
-              <Image 
-                src="/logo.svg" 
-                alt="OBX Studio" 
-                width={200} 
-                height={200}
-                className="w-44 md:w-56 h-auto object-contain dark:invert"
-                referrerPolicy="no-referrer"
-                priority
-              />
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-      {children}
-    </>
+    <PreloaderContext.Provider value={{ loading }}>
+      <Preloader onComplete={() => setLoading(false)} />
+      <motion.div
+        animate={loading ? { scale: 0.96, opacity: 0.8 } : { scale: 1, opacity: 1 }}
+        transition={{
+          duration: 0.85,
+          ease: [0.76, 0, 0.24, 1],
+        }}
+        className="w-full min-h-screen origin-top"
+      >
+        {children}
+      </motion.div>
+    </PreloaderContext.Provider>
   )
 }

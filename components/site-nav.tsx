@@ -17,7 +17,7 @@ const LINKS = [
   { href: '/contact', label: 'Contact' },
 ]
 
-function MenuLinks({ pathname }: { pathname: string }) {
+function MenuLinks({ pathname, onClose }: { pathname: string; onClose?: () => void }) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   
   return (
@@ -44,12 +44,12 @@ function MenuLinks({ pathname }: { pathname: string }) {
           >
             <Link
               href={link.href}
+              onClick={() => onClose?.()}
               className={cn(
                 "flex items-baseline gap-3 sm:gap-4 md:gap-6 transition-opacity duration-300",
                 isActive ? "text-[#FFFFFF]" : "text-[#FFFFFF]",
                 isAnyHovered && !isThisHovered ? "opacity-25" : "opacity-100"
               )}
-              aria-disabled={isActive}
             >
               <span className="font-mono text-xs sm:text-sm md:text-base text-[#8E8E93] select-none">
                 0{i + 1}
@@ -66,7 +66,7 @@ function MenuLinks({ pathname }: { pathname: string }) {
 }
 
 export function SiteNav() {
-  const pathname = ""
+  const pathname = usePathname()
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   
@@ -123,6 +123,7 @@ export function SiteNav() {
         >
           <Link
             href="/"
+            onClick={() => setOpen(false)}
             className="font-heading font-bold tracking-tight min-h-[44px] flex items-center justify-center transition-all duration-300 ease-out opacity-100 origin-left"
             aria-label="OBX Studio home"
           >
@@ -143,6 +144,7 @@ export function SiteNav() {
             >
               <Link
                 href="/contact"
+                onClick={() => setOpen(false)}
                 className="group relative inline-flex items-center justify-center gap-2 font-mono text-[11px] sm:text-xs uppercase tracking-widest px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-black text-white border border-white/20 hover:border-white transition-all duration-300 font-medium whitespace-nowrap min-h-[40px] sm:min-h-[44px] shadow-md overflow-hidden"
               >
                 {/* Subtle animated background gradient glow on hover */}
@@ -195,7 +197,7 @@ export function SiteNav() {
                 
                 {/* Left Column - Nav Links */}
                 <div className="col-span-1 lg:col-span-7 flex flex-col items-start justify-center w-full">
-                  <MenuLinks pathname={pathname} />
+                  <MenuLinks pathname={pathname} onClose={() => setOpen(false)} />
                 </div>
 
                 {/* Right Column - Essential Info */}

@@ -1,16 +1,12 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+import { usePreloader } from '@/components/layout-wrapper'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
 export function Hero() {
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+  const { loading } = usePreloader()
 
   return (
     <section className="relative flex h-[100svh] max-h-[100svh] w-full flex-col justify-between overflow-hidden bg-background px-5 py-5 md:px-10 md:py-8 text-foreground font-sans selection:bg-foreground selection:text-background">
@@ -25,9 +21,9 @@ export function Hero() {
           {/* Line 1: OBX */}
           <div className="overflow-hidden w-full">
             <motion.div
-              initial={false}
-              animate={mounted ? { y: ['100%', '0%'], opacity: [0, 1] } : { y: '0%', opacity: 1 }}
-              transition={{ duration: 1.1, ease: EASE, delay: 0.1 }}
+              initial={{ y: '100%', opacity: 0 }}
+              animate={!loading ? { y: '0%', opacity: 1 } : { y: '100%', opacity: 0 }}
+              transition={{ duration: 1.0, ease: EASE, delay: 0.1 }}
               className="w-full"
             >
               <svg viewBox="0 0 600 135" className="w-full h-auto block overflow-visible select-none">
@@ -46,9 +42,9 @@ export function Hero() {
           {/* Line 2: STUDIO */}
           <div className="overflow-hidden w-full">
             <motion.div
-              initial={false}
-              animate={mounted ? { y: ['100%', '0%'], opacity: [0, 1] } : { y: '0%', opacity: 1 }}
-              transition={{ duration: 1.1, ease: EASE, delay: 0.25 }}
+              initial={{ y: '100%', opacity: 0 }}
+              animate={!loading ? { y: '0%', opacity: 1 } : { y: '100%', opacity: 0 }}
+              transition={{ duration: 1.0, ease: EASE, delay: 0.22 }}
               className="w-full"
             >
               <svg viewBox="0 0 600 135" className="w-full h-auto block overflow-visible select-none">
@@ -70,9 +66,9 @@ export function Hero() {
       <div className="w-full max-w-[1700px] mx-auto flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-8 pt-2 md:pt-4 flex-shrink-0">
         {/* Bottom-Left: Stacked Value Prop & Location */}
         <motion.div
-          initial={false}
-          animate={mounted ? { opacity: [0, 1], y: [20, 0] } : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.45, ease: EASE }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={!loading ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: EASE }}
           className="flex flex-col gap-3 max-w-sm"
         >
           <p className="font-sans text-sm md:text-base leading-snug font-normal text-foreground/90 text-pretty">
@@ -85,9 +81,9 @@ export function Hero() {
 
         {/* Bottom-Right: Social Links */}
         <motion.div
-          initial={false}
-          animate={mounted ? { opacity: [0, 1], y: [20, 0] } : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.55, ease: EASE }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={!loading ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.8, delay: 0.5, ease: EASE }}
           className="flex items-center gap-5 text-foreground self-start md:self-end"
         >
           <a
