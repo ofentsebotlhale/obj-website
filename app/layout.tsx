@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next'
+import { Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import { CustomCursor } from '@/components/custom-cursor'
 import { SiteNav } from '@/components/site-nav'
@@ -8,6 +9,18 @@ import { FirebaseAnalytics } from '@/components/firebase-analytics'
 import { LayoutWrapper } from '@/components/layout-wrapper'
 import { AnalyticsLoader } from '@/components/analytics-loader'
 import { SmoothScroll } from '@/components/smooth-scroll'
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+})
+
+const mono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: 'OBX Studio | Web design Studio in Johannesburg',
@@ -49,7 +62,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="light bg-background"
+      className={`${inter.variable} ${mono.variable} light bg-background`}
     >
       <body className="font-sans antialiased noise-overlay custom-cursor-active">
         <AnalyticsLoader />
