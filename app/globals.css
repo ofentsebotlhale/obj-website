@@ -1,12 +1,36 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('https://fonts.cdnfonts.com/s/91285/PPNeueMontreal-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('https://fonts.cdnfonts.com/s/91285/PPNeueMontreal-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('https://fonts.cdnfonts.com/s/91285/PPNeueMontreal-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-heading: 'PP Neue Montreal', 'Neue Montreal', var(--font-inter), 'Helvetica Neue', Arial, sans-serif;
-  --font-sans: 'PP Neue Montreal', 'Neue Montreal', var(--font-inter), 'Helvetica Neue', Arial, sans-serif;
-  --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-heading: 'PP Neue Montreal', 'Neue Montreal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-sans: 'PP Neue Montreal', 'Neue Montreal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'PP Neue Montreal', 'Neue Montreal', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -70,17 +94,17 @@
     font-weight: 500;
   }
   
-  /* Inter Bold for headings and bold/semibold elements */
+  /* PP Neue Montreal Bold for headings and bold/semibold elements */
   h1, h2, h3, h4, h5, h6, .font-heading, .font-semibold, .font-bold {
     font-weight: 700 !important;
   }
 
-  /* Inter Medium for standard text, body paragraphs, lists, links, buttons, and medium elements */
+  /* PP Neue Montreal Medium for standard text, body paragraphs, lists, links, buttons, and medium elements */
   p, span, li, a, button, input, textarea, select, .font-medium {
     font-weight: 500;
   }
 
-  /* Inter Regular for very small texts or elements explicitly styled regular/light/thin */
+  /* PP Neue Montreal Regular for very small texts or elements explicitly styled regular/light/thin */
   small,
   .text-xs,
   .text-\[10px\],

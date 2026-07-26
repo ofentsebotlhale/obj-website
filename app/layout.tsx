@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import { CustomCursor } from '@/components/custom-cursor'
 import { SiteNav } from '@/components/site-nav'
@@ -10,23 +9,18 @@ import { LayoutWrapper } from '@/components/layout-wrapper'
 import { AnalyticsLoader } from '@/components/analytics-loader'
 import { SmoothScroll } from '@/components/smooth-scroll'
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-})
-
-const mono = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-mono',
-  display: 'swap',
-})
-
 export const metadata: Metadata = {
-  title: 'OBX Studio | Web Design Studio in Johannesburg',
+  title: 'OBX Studio | Web design Studio in Johannesburg',
   description:
-    'OBX Studio is a boutique digital studio crafting premium brand identities, editorial interfaces, and high-performance web experiences.',
+    'A modern web design studio based in Johannesburg. Tailor-made websites, brand experiences, and digital builds for brands that want to stand out.',
   metadataBase: new URL('https://obxstudio.co.za'),
+  icons: {
+    icon: [
+      { url: '/logo.svg', type: 'image/svg+xml' },
+    ],
+    shortcut: '/logo.svg',
+    apple: '/logo.svg',
+  },
   openGraph: {
     title: 'OBX Studio',
     description: 'A few skilled humans doing the work of many.',
@@ -55,7 +49,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${mono.variable} light bg-background`}
+      className="light bg-background"
     >
       <body className="font-sans antialiased noise-overlay custom-cursor-active">
         <AnalyticsLoader />

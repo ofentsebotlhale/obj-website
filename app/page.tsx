@@ -13,9 +13,9 @@ import { Reveal } from '@/components/anim/reveal'
 import { projects } from '@/lib/projects'
 
 export const metadata: Metadata = {
-  title: 'OBX Studio | Design, Branding & Development in South Africa',
+  title: 'OBX Studio | Web design Studio in Johannesburg',
   description:
-    'OBX Studio is a boutique agency in South Africa, crafting premium web design, custom branding, and high-performance web development services.',
+    'A modern web design studio based in Johannesburg. Tailor-made websites, brand experiences, and digital builds for brands that want to stand out.',
   alternates: {
     canonical: '/',
   },

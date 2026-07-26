@@ -128,11 +128,12 @@ export function SiteNav() {
             aria-label="OBX Studio home"
           >
             <Image
-              src="/logo.svg"
+              src="/logo.png"
               alt="OBX Studio"
-              width={80}
-              height={80}
-              className="h-12 sm:h-14 md:h-16 w-auto object-contain transition-all duration-300"
+              width={160}
+              height={160}
+              className="h-10 sm:h-12 md:h-14 w-auto object-contain transition-all duration-300"
+              priority
               referrerPolicy="no-referrer"
             />
           </Link>

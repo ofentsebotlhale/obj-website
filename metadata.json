@@ -1,6 +1,6 @@
 {
   "name": "OBX Studio",
-"description": "OBX Studio creates custom websites and SEO-driven digital systems that help modern businesses grow, attract clients, and build credibility online.",
-"requestFramePermissions": [],
+  "description": "A modern web design studio based in Johannesburg. Tailor-made websites, brand experiences, and digital builds for brands that want to stand out.",
+  "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
