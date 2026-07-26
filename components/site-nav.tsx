@@ -21,7 +21,7 @@ function MenuLinks({ pathname }: { pathname: string }) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   
   return (
-    <ul className="flex flex-col items-start gap-4 md:gap-6 w-full">
+    <ul className="flex flex-col items-start gap-1.5 sm:gap-2.5 md:gap-3.5 w-full">
       {LINKS.map((link, i) => {
         const isActive = pathname === link.href
         const isAnyHovered = hoveredIndex !== null
@@ -30,12 +30,12 @@ function MenuLinks({ pathname }: { pathname: string }) {
         return (
           <motion.li
             key={link.href}
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 15 }}
+            exit={{ opacity: 0, x: 10 }}
             transition={{ 
-              delay: 0.05 * i + 0.1, 
-              duration: 0.45, 
+              delay: 0.04 * i + 0.08, 
+              duration: 0.35, 
               ease: [0.215, 0.61, 0.355, 1] 
             }}
             onMouseEnter={() => setHoveredIndex(i)}
@@ -45,16 +45,16 @@ function MenuLinks({ pathname }: { pathname: string }) {
             <Link
               href={link.href}
               className={cn(
-                "flex items-baseline gap-6 transition-opacity duration-300",
+                "flex items-baseline gap-3 sm:gap-4 md:gap-6 transition-opacity duration-300",
                 isActive ? "text-[#FFFFFF]" : "text-[#FFFFFF]",
                 isAnyHovered && !isThisHovered ? "opacity-25" : "opacity-100"
               )}
               aria-disabled={isActive}
             >
-              <span className="font-mono text-sm md:text-base text-[#8E8E93] select-none">
+              <span className="font-mono text-xs sm:text-sm md:text-base text-[#8E8E93] select-none">
                 0{i + 1}
               </span>
-              <span className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#FFFFFF]">
+              <span className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[#FFFFFF]">
                 {link.label}
               </span>
             </Link>
@@ -110,10 +110,17 @@ export function SiteNav() {
           open ? "text-white" : ""
         )}
       >
-        <nav className={cn(
-          "flex items-center justify-between px-4 transition-all duration-300 md:px-6",
-          scrolled && !open ? "py-3 md:py-4" : "py-5 md:py-7"
-        )}>
+        <nav
+          className={cn(
+            "flex items-center justify-between px-4 transition-all duration-300 md:px-6",
+            scrolled && !open ? "pb-3 pt-3 md:pb-4 md:pt-4" : "pb-5 pt-5 md:pb-7 md:pt-7"
+          )}
+          style={{
+            paddingTop: scrolled && !open 
+              ? 'calc(env(safe-area-inset-top, 0px) + 0.75rem)' 
+              : 'calc(env(safe-area-inset-top, 0px) + 1.25rem)',
+          }}
+        >
           <Link
             href="/"
             className="font-heading font-bold tracking-tight min-h-[44px] flex items-center justify-center transition-all duration-300 ease-out opacity-100 origin-left"
@@ -129,12 +136,31 @@ export function SiteNav() {
             />
           </Link>
           <div className="flex items-center gap-3 sm:gap-4">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center font-mono text-[11px] sm:text-xs uppercase tracking-widest px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-white/30 bg-white/10 hover:bg-white hover:text-black transition-all duration-300 font-medium whitespace-nowrap min-h-[40px] sm:min-h-[44px]"
+            <motion.div
+              whileHover={{ scale: 1.06 }}
+              whileTap={{ scale: 0.94 }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
             >
-              Inquire
-            </Link>
+              <Link
+                href="/contact"
+                className="group relative inline-flex items-center justify-center gap-2 font-mono text-[11px] sm:text-xs uppercase tracking-widest px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-black text-white border border-white/20 hover:border-white transition-all duration-300 font-medium whitespace-nowrap min-h-[40px] sm:min-h-[44px] shadow-md overflow-hidden"
+              >
+                {/* Subtle animated background gradient glow on hover */}
+                <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
+
+                <span className="relative z-10 text-white font-semibold tracking-wider">
+                  Inquire
+                </span>
+
+                <motion.span
+                  className="relative z-10 inline-block text-[11px] sm:text-xs transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                  animate={{ x: [0, 1.5, 0], y: [0, -1.5, 0] }}
+                  transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
+                >
+                  ↗
+                </motion.span>
+              </Link>
+            </motion.div>
             <button
               type="button"
               onClick={() => setOpen((v) => !v)}
@@ -162,36 +188,36 @@ export function SiteNav() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-40 flex flex-col justify-center bg-[#000000] px-6 md:px-12 lg:px-24 overflow-y-auto"
+            className="fixed inset-0 z-40 h-[100svh] max-h-[100svh] w-full bg-[#000000] px-5 sm:px-8 md:px-12 lg:px-20 overflow-hidden flex flex-col justify-between pt-[calc(env(safe-area-inset-top,0px)+4.5rem)] pb-[calc(env(safe-area-inset-bottom,0px)+1.5rem)] select-none"
           >
-            <div className="w-full max-w-[1500px] mx-auto py-24 lg:py-32 flex-grow flex flex-col justify-center">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-end w-full">
+            <div className="w-full max-w-[1500px] mx-auto h-full flex flex-col justify-between my-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center w-full my-auto flex-1 min-h-0">
                 
                 {/* Left Column - Nav Links */}
-                <div className="col-span-1 lg:col-span-8 flex flex-col items-start w-full">
+                <div className="col-span-1 lg:col-span-7 flex flex-col items-start justify-center w-full">
                   <MenuLinks pathname={pathname} />
                 </div>
 
                 {/* Right Column - Essential Info */}
-                <div className="col-span-1 lg:col-span-4 flex flex-col justify-end space-y-10 mt-12 lg:mt-0 lg:pb-4 lg:pl-12">
-                  <div className="space-y-2">
+                <div className="col-span-1 lg:col-span-5 flex flex-col justify-center space-y-4 sm:space-y-6 border-t lg:border-t-0 lg:border-l border-white/10 pt-4 lg:pt-0 lg:pl-12">
+                  <div className="space-y-1">
                     <span className="font-mono text-[10px] md:text-[11px] uppercase tracking-widest text-[#8E8E93] block">Location</span>
-                    <p className="font-sans text-sm md:text-base text-[#FFFFFF]">Johannesburg, South Africa</p>
+                    <p className="font-sans text-xs sm:text-sm md:text-base text-[#FFFFFF]">Johannesburg, South Africa</p>
                   </div>
 
-                  <div className="space-y-4">
+                  <div className="space-y-2">
                     <span className="font-mono text-[10px] md:text-[11px] uppercase tracking-widest text-[#8E8E93] block">Inquiries</span>
                     <a 
                       href="mailto:hello@obxstudio.co.za" 
-                      className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition-transform hover:scale-105 active:scale-95"
+                      className="inline-flex items-center justify-center rounded-full bg-white px-5 py-2 sm:px-6 sm:py-2.5 text-xs sm:text-sm font-medium text-black transition-transform hover:scale-105 active:scale-95"
                     >
                       Send us an email
                     </a>
                   </div>
                   
-                  <div className="space-y-4">
+                  <div className="space-y-2">
                     <span className="font-mono text-[10px] md:text-[11px] uppercase tracking-widest text-[#8E8E93] block">Connect</span>
-                    <div className="flex gap-6">
+                    <div className="flex gap-5">
                       {[
                         { icon: Instagram, href: "https://www.instagram.com/obxstudio_/", label: "Instagram" },
                         { icon: Linkedin, href: "https://www.linkedin.com/company/obxstudio/", label: "LinkedIn" },
@@ -208,7 +234,7 @@ export function SiteNav() {
                             className="text-[#FFFFFF] hover:text-[#8E8E93] transition-colors duration-300"
                             aria-label={social.label}
                           >
-                            <Icon className="h-5 w-5" />
+                            <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
                           </a>
                         )
                       })}

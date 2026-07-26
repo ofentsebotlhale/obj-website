@@ -32,9 +32,17 @@ export const metadata: Metadata = {
     description: 'A few skilled humans doing the work of many.',
     type: 'website',
   },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: 'OBX Studio',
+  },
 }
 
 export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
   colorScheme: 'light',
   themeColor: '#FFFFFF',
 }

@@ -15,7 +15,7 @@ export function Hero() {
   return (
     <section className="relative flex h-[100svh] max-h-[100svh] w-full flex-col justify-between overflow-hidden bg-background px-5 py-5 md:px-10 md:py-8 text-foreground font-sans selection:bg-foreground selection:text-background">
       {/* Top spacer to accommodate fixed header (Top-Left Logo & Top-Right Menu Button) */}
-      <div className="h-12 sm:h-14 md:h-16 w-full flex-shrink-0" aria-hidden="true" />
+      <div className="h-12 sm:h-14 md:h-16 w-full flex-shrink-0" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }} aria-hidden="true" />
 
       {/* Main Title Section - Editorial Massive Fluid Display contained within viewport */}
       <div className="my-auto w-full mx-auto flex flex-col items-center justify-center py-2 md:py-4 flex-1 min-h-0">
