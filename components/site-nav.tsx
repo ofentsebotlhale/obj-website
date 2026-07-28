@@ -21,7 +21,7 @@ function MenuLinks({ pathname, onClose }: { pathname: string; onClose?: () => vo
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   
   return (
-    <ul className="flex flex-col items-start gap-1.5 sm:gap-2.5 md:gap-3.5 w-full">
+    <ul className="flex flex-col items-start gap-2 sm:gap-3 md:gap-4.5 w-full">
       {LINKS.map((link, i) => {
         const isActive = pathname === link.href
         const isAnyHovered = hoveredIndex !== null
@@ -46,15 +46,15 @@ function MenuLinks({ pathname, onClose }: { pathname: string; onClose?: () => vo
               href={link.href}
               onClick={() => onClose?.()}
               className={cn(
-                "flex items-baseline gap-3 sm:gap-4 md:gap-6 transition-opacity duration-300",
+                "flex items-baseline gap-3 sm:gap-4 md:gap-6 transition-opacity duration-300 group",
                 isActive ? "text-[#FFFFFF]" : "text-[#FFFFFF]",
                 isAnyHovered && !isThisHovered ? "opacity-25" : "opacity-100"
               )}
             >
-              <span className="font-mono text-xs sm:text-sm md:text-base text-[#8E8E93] select-none">
+              <span className="font-mono text-sm sm:text-base md:text-lg text-[#8E8E93] select-none font-medium">
                 0{i + 1}
               </span>
-              <span className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[#FFFFFF]">
+              <span className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-tight text-[#FFFFFF] leading-none transition-transform duration-300 group-hover:translate-x-3">
                 {link.label}
               </span>
             </Link>
@@ -191,7 +191,7 @@ export function SiteNav() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-40 h-[100svh] max-h-[100svh] w-full bg-[#000000] px-5 sm:px-8 md:px-12 lg:px-20 overflow-hidden flex flex-col justify-between pt-[calc(env(safe-area-inset-top,0px)+4.5rem)] pb-[calc(env(safe-area-inset-bottom,0px)+1.5rem)] select-none"
+            className="fixed inset-0 z-40 h-[100svh] max-h-[100svh] w-full bg-[#000000] px-5 sm:px-8 md:px-12 lg:px-20 overflow-y-auto flex flex-col justify-between pt-[calc(env(safe-area-inset-top,0px)+4.5rem)] pb-[calc(env(safe-area-inset-bottom,0px)+1.5rem)] select-none"
           >
             <div className="w-full max-w-[1500px] mx-auto h-full flex flex-col justify-between my-auto">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center w-full my-auto flex-1 min-h-0">

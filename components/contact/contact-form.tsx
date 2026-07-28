@@ -77,7 +77,7 @@ function SelectField({
   return (
     <div className="relative pb-2 pt-4">
       <label
-        className="block mb-4 text-[10px] font-mono uppercase tracking-widest text-muted-foreground"
+        className="block mb-3 text-xs font-mono uppercase tracking-widest text-foreground font-bold"
       >
         {label}
       </label>
@@ -89,10 +89,10 @@ function SelectField({
               key={opt}
               type="button"
               onClick={() => onChange(opt)}
-              className={`relative inline-flex items-center justify-center px-4 py-2.5 rounded-full border text-xs sm:text-sm font-sans tracking-wide transition-all duration-300 min-h-[44px] cursor-pointer overflow-hidden ${
+              className={`relative inline-flex items-center justify-center px-4 py-2.5 rounded-full border-2 text-xs sm:text-sm font-sans tracking-wide transition-all duration-200 min-h-[44px] cursor-pointer overflow-hidden ${
                 isSelected
-                  ? 'border-foreground font-semibold text-background'
-                  : 'bg-transparent text-foreground/80 border-border hover:border-foreground/50 hover:bg-foreground/5'
+                  ? 'border-foreground bg-foreground text-background font-bold shadow-md'
+                  : 'border-foreground/30 bg-muted/80 text-foreground font-semibold hover:border-foreground hover:bg-foreground/10'
               }`}
             >
               {isSelected && (
@@ -102,7 +102,7 @@ function SelectField({
                   transition={{ type: 'spring', stiffness: 350, damping: 28 }}
                 />
               )}
-              <span className={isSelected ? 'text-background relative z-10' : 'relative z-10'}>
+              <span className={isSelected ? 'text-background relative z-10 font-bold' : 'text-foreground relative z-10 font-semibold'}>
                 {opt}
               </span>
             </button>
@@ -293,10 +293,10 @@ export function ContactForm() {
                 value={form.budget}
                 onChange={set('budget')}
                 options={[
-                  'Under R15,000',
-                  'R15,000 – R35,000',
-                  'R35,000 – R70,000',
-                  'R70,000+',
+                  'Under R12,500',
+                  'R12,500 – R25,000',
+                  'R25,000 – R50,000',
+                  'R50,000+',
                   'Let\'s discuss pricing'
                 ]}
               />

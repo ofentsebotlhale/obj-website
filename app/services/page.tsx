@@ -6,6 +6,7 @@ import { HeroText } from "@/components/services/hero-text";
 import { ServiceCards } from "@/components/services/service-cards";
 import { CapabilitiesMatrix } from "@/components/services/capabilities-matrix";
 import { FeatureMetricsGrid } from "@/components/services/feature-metrics-grid";
+import { FAQ } from "@/components/home/faq";
 
 export const metadata: Metadata = {
   title: "Web Design & Development Services | OBX Studio",
@@ -72,6 +73,9 @@ export default function ServicesPage() {
           <FeatureMetricsGrid />
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQ />
 
       {/* CTA Section */}
       <section className="px-5 py-28 md:px-10 md:py-40 bg-card/20 border-t border-border">
