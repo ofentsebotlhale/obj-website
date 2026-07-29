@@ -44,7 +44,7 @@ export function WhatWeDesign() {
                   whileInView={mounted ? { opacity: 1, y: 0, z: 0, scale: 1 } : undefined}
                   viewport={{ once: true, margin: "-10%" }}
                   transition={{ duration: 1, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                  className="origin-left"
+                  className={`origin-left ${i % 2 !== 0 ? 'md:ml-12 lg:ml-24' : ''}`}
                 >
                   <motion.div
                     className="flex flex-col md:flex-row md:items-center gap-4 cursor-default"

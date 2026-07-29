@@ -46,6 +46,7 @@ export function ServiceCards() {
           whileInView={mounted ? { opacity: 1, y: 0 } : undefined}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className={i === 1 ? "md:mt-12 lg:mt-16" : i === 2 ? "md:mt-24 lg:mt-32" : ""}
         >
           <Link href={service.link} className="group block h-full">
             <motion.div 

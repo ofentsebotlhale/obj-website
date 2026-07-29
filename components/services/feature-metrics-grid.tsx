@@ -71,6 +71,7 @@ export function FeatureMetricsGrid() {
         whileInView={mounted ? { opacity: 1, x: 0 } : undefined}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+        className="lg:mt-24"
       >
         <h2 className="font-heading text-2xl font-semibold tracking-tight text-foreground mb-6">
           Why OBX Studio

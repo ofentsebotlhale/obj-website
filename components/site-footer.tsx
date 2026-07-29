@@ -92,101 +92,112 @@ export function SiteFooter() {
   const y = useTransform(scrollYProgress, [0, 1], [40, 0])
 
   return (
-    <footer className="relative flex min-h-[100svh] flex-col justify-between overflow-hidden border-t border-border bg-background px-4 pb-8 pt-20 md:px-6">
-      <div className="mx-auto w-full max-w-[1600px] flex-grow flex flex-col justify-between">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
-          <div className="md:col-span-7">
-            <p className="font-mono text-xs uppercase tracking-widest text-foreground">
-              Have a project in mind?
-            </p>
-            <Link href="/contact" data-cursor="Say hi" className="group mt-4 inline-flex items-center gap-4">
-              <span
-                className="font-heading text-4xl font-bold tracking-tight text-foreground transition-all duration-300 group-hover:opacity-60 sm:text-5xl md:text-6xl"
-              >
-                Let&apos;s build something
-              </span>
-              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-foreground/10 text-foreground transition-all duration-300 group-hover:bg-foreground group-hover:text-background sm:h-20 sm:w-20">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="28"
-                  height="28"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
-                >
-                  <path d="M7 17L17 7" />
-                  <path d="M7 7h10v10" />
-                </svg>
+    <footer className="relative flex min-h-[100svh] flex-col justify-between overflow-hidden bg-foreground text-background pt-20 md:pt-32">
+      <div className="mx-auto w-full max-w-[1600px] flex-grow flex flex-col justify-between px-6 md:px-12 lg:px-24">
+        
+        {/* Main Content Area */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-start">
+          
+          {/* Left / Contact & Brand */}
+          <div className="lg:col-span-8 flex flex-col items-start space-y-12">
+            <motion.div
+              ref={ref}
+              style={{ opacity, y }}
+              className="w-full flex flex-col items-start justify-center text-background select-none -space-y-1 sm:-space-y-2 md:-space-y-3 lg:-space-y-4"
+            >
+              <div className="overflow-hidden w-full">
+                <div className="w-full">
+                  <svg viewBox="0 0 600 135" className="w-full h-auto block overflow-visible select-none">
+                    <text
+                      x="0"
+                      y="116"
+                      className="font-heading font-extrabold fill-background uppercase"
+                      style={{ fontSize: '136px', letterSpacing: '-0.04em' }}
+                    >
+                      OBX
+                    </text>
+                  </svg>
+                </div>
               </div>
-            </Link>
-          </div>
+              <div className="overflow-hidden w-full">
+                <div className="w-full">
+                  <svg viewBox="0 0 600 135" className="w-full h-auto block overflow-visible select-none">
+                    <text
+                      x="0"
+                      y="116"
+                      className="font-heading font-extrabold fill-background uppercase"
+                      style={{ fontSize: '136px', letterSpacing: '-0.04em' }}
+                    >
+                      STUDIO
+                    </text>
+                  </svg>
+                </div>
+              </div>
+            </motion.div>
 
-          <div className="md:col-span-5 md:flex md:justify-end mt-12 md:mt-0">
-            <div className="flex flex-col gap-10 sm:max-w-[320px]">
-              <div className="flex flex-col gap-4">
-                <span className="font-mono text-[12px] uppercase tracking-widest text-foreground">
-                  Navigation
-                </span>
-                <div className="flex flex-wrap gap-3">
-                  <Link href="/" className="inline-flex items-center justify-center rounded-full bg-foreground px-6 py-2 min-h-[48px] font-mono text-[13px] uppercase tracking-widest text-background transition-all hover:scale-105 hover:bg-accent hover:text-accent-foreground">Home</Link>
-                  <Link href="/work" className="inline-flex items-center justify-center rounded-full bg-foreground px-6 py-2 min-h-[48px] font-mono text-[13px] uppercase tracking-widest text-background transition-all hover:scale-105 hover:bg-accent hover:text-accent-foreground">Work</Link>
-                  <Link href="/studio" className="inline-flex items-center justify-center rounded-full bg-foreground px-6 py-2 min-h-[48px] font-mono text-[13px] uppercase tracking-widest text-background transition-all hover:scale-105 hover:bg-accent hover:text-accent-foreground">Studio</Link>
-                  <Link href="/services" className="inline-flex items-center justify-center rounded-full bg-foreground px-6 py-2 min-h-[48px] font-mono text-[13px] uppercase tracking-widest text-background transition-all hover:scale-105 hover:bg-accent hover:text-accent-foreground">Services</Link>
-                  <Link href="/blog" className="inline-flex items-center justify-center rounded-full bg-foreground px-6 py-2 min-h-[48px] font-mono text-[13px] uppercase tracking-widest text-background transition-all hover:scale-105 hover:bg-accent hover:text-accent-foreground">Blog</Link>
-                  <Link href="/contact" className="inline-flex items-center justify-center rounded-full bg-foreground px-6 py-2 min-h-[48px] font-mono text-[13px] uppercase tracking-widest text-background transition-all hover:scale-105 hover:bg-accent hover:text-accent-foreground">Contact</Link>
-                </div>
-              </div>
-              <div className="flex flex-col gap-4">
-                <span className="font-mono text-[12px] uppercase tracking-widest text-foreground">
-                  Connect
-                </span>
-                <div className="flex flex-wrap gap-4">
-                  {SOCIALS.map((s) => {
-                    const Icon = s.icon;
-                    return (
-                      <a
-                        key={s.label}
-                        href={s.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={s.label}
-                        className="flex h-14 w-14 items-center justify-center rounded-full bg-foreground text-background transition-all duration-300 hover:scale-105 hover:bg-accent hover:text-accent-foreground"
-                      >
-                        <Icon className="h-5 w-5" />
-                      </a>
-                    )
-                  })}
-                </div>
-              </div>
+            <div className="flex gap-4">
+               <a 
+                  href="mailto:hello@obxstudio.co.za" 
+                  className="inline-flex items-center justify-center rounded-full bg-background px-8 py-4 font-mono text-[13px] uppercase tracking-widest text-foreground transition-all hover:scale-105"
+                >
+                  Email Us
+                </a>
             </div>
           </div>
-        </div>
-      </div>
 
-      {/* Oversized wordmark - stretched to fit perfectly within the overflow-hidden footer container */}
-      <motion.div
-        ref={ref}
-        style={{ opacity, y }}
-        className="w-[calc(100%+2rem)] md:w-[calc(100%+3rem)] -mx-4 md:-mx-6 select-none overflow-hidden mt-16"
-      >
-        <h2 className="font-heading text-[17.5vw] md:text-[18vw] font-black leading-[0.75] tracking-[-0.05em] text-foreground text-center uppercase whitespace-nowrap">
-          OBX STUDIO
-        </h2>
-      </motion.div>
+          {/* Right / Links */}
+          <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-12 sm:gap-24 lg:gap-16 lg:items-end">
+            
+            <div className="flex flex-col gap-6 w-full lg:w-auto lg:text-right">
+              <span className="font-mono text-[11px] uppercase tracking-widest text-background/60">
+                Navigation
+              </span>
+              <nav className="flex flex-col gap-3">
+                {['Home', 'Work', 'Studio', 'Services', 'Blog', 'Contact'].map((item) => (
+                  <Link 
+                    key={item} 
+                    href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                    className="font-sans text-xl md:text-2xl font-medium text-background hover:text-background/60 transition-colors"
+                  >
+                    {item}
+                  </Link>
+                ))}
+              </nav>
+            </div>
 
-      <div className="mx-auto w-full max-w-[1600px] mt-8 flex flex-col gap-4 border-t border-border pt-6 font-mono text-[11px] uppercase tracking-widest text-muted-foreground sm:flex-row sm:items-center sm:justify-between px-4 md:px-0">
-        <div className="flex flex-col gap-2 sm:flex-row sm:gap-6 items-center">
-          <span className="py-2">© {year} OBX Studio — All rights reserved</span>
-          <div className="flex gap-4">
-            <Link href="/privacy" className="hover:text-foreground transition-colors py-2 min-h-[44px] flex items-center">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-foreground transition-colors py-2 min-h-[44px] flex items-center">Terms & Conditions</Link>
+            <div className="flex flex-col gap-6 w-full lg:w-auto lg:text-right">
+              <span className="font-mono text-[11px] uppercase tracking-widest text-background/60">
+                Socials
+              </span>
+              <div className="flex flex-col gap-3">
+                {SOCIALS.map((s) => (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-sans text-xl md:text-2xl font-medium text-background hover:text-background/60 transition-colors inline-flex lg:justify-end items-center gap-3 group"
+                  >
+                    <span className="group-hover:-translate-x-1 transition-transform">↗</span>
+                    {s.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+
           </div>
         </div>
-        <span className="py-2">A few skilled humans doing the work of many™</span>
+
+        {/* Bottom Bar */}
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 py-8 font-mono text-[10px] uppercase tracking-widest text-background/60 mt-24">
+          <div className="flex gap-4">
+            <span>© {year} OBX Studio</span>
+          </div>
+          <div className="flex gap-6">
+            <Link href="/privacy" className="hover:text-background transition-colors">Privacy</Link>
+            <Link href="/terms" className="hover:text-background transition-colors">Terms</Link>
+          </div>
+        </div>
       </div>
     </footer>
   )

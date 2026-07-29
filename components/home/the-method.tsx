@@ -74,7 +74,7 @@ export function TheMethod() {
           className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 lg:gap-16 perspective-[1000px]"
         >
           {STEPS.map((step, i) => (
-            <motion.div key={i} variants={columnVariants} className="flex flex-col space-y-6">
+            <motion.div key={i} variants={columnVariants} className={`flex flex-col space-y-6 ${i % 2 !== 0 ? 'md:mt-16 lg:mt-24' : ''}`}>
               <motion.span variants={numberVariants} className="font-mono text-4xl md:text-5xl text-black/10 origin-left inline-block">
                 {step.num}
               </motion.span>
