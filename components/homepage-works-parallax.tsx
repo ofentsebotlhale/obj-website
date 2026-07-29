@@ -83,24 +83,19 @@ function ProjectParallaxCard({ project, index }: { project: Project; index: numb
   const y = useTransform(scrollYProgress, [0, 1], [config.parallaxSpeed, -config.parallaxSpeed])
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 60 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      ref={cardRef}
-      className="w-full"
-    >
+    <div ref={cardRef} className="w-full">
       <motion.div style={{ y }} className={`flex flex-col gap-3 ${config.sizeClass} mx-auto ${config.alignmentClass}`}>
         {/* Text OUTSIDE and ABOVE the image on top */}
-        <Link href={`/work/${project.slug}`} className="group block space-y-2 outline-none mb-6">
-          <p className="font-sans text-sm text-neutral-400 font-medium uppercase tracking-wider">
-            {project.title}
-          </p>
-          <h3 className="font-heading text-[23px] font-medium leading-snug tracking-tight text-white group-hover:text-neutral-300 transition-colors">
-            {project.overview}
-          </h3>
-        </Link>
+        <Reveal>
+          <Link href={`/work/${project.slug}`} className="group block space-y-2 outline-none mb-6">
+            <p className="font-sans text-sm text-neutral-400 font-medium uppercase tracking-wider">
+              {project.title}
+            </p>
+            <h3 className="font-heading text-[23px] font-medium leading-snug tracking-tight text-white group-hover:text-neutral-300 transition-colors">
+              {project.overview}
+            </h3>
+          </Link>
+        </Reveal>
 
         <TiltCard>
           <Link href={`/work/${project.slug}`} className="group block w-full outline-none">
@@ -124,7 +119,7 @@ function ProjectParallaxCard({ project, index }: { project: Project; index: numb
           </Link>
         </TiltCard>
       </motion.div>
-    </motion.div>
+    </div>
   )
 }
 

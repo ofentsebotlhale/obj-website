@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion'
 import type { Project } from '@/lib/projects'
 import { ParallaxImage } from '@/components/anim/parallax-image'
+import { Reveal } from '@/components/anim/reveal'
 
 interface CardConfig {
   sizeClass: string
@@ -88,24 +89,19 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   const y = useTransform(scrollYProgress, [0, 1], [config.parallaxSpeed, -config.parallaxSpeed])
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 60 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      ref={cardRef} 
-      className="w-full"
-    >
+    <div ref={cardRef} className="w-full">
       <motion.div style={{ y }} className={`flex flex-col gap-3 ${config.sizeClass} mx-auto ${config.alignmentClass}`}>
         {/* Text OUTSIDE and ABOVE the image on top */}
-        <Link href={`/work/${project.slug}`} className="group block space-y-2 outline-none mb-6">
-          <p className="font-sans text-sm text-muted-foreground font-medium uppercase tracking-wider">
-            {project.title}
-          </p>
-          <h3 className="font-heading text-[23px] font-medium leading-snug tracking-tight text-foreground group-hover:text-muted-foreground transition-colors">
-            {project.overview}
-          </h3>
-        </Link>
+        <Reveal>
+          <Link href={`/work/${project.slug}`} className="group block space-y-2 outline-none mb-6">
+            <p className="font-sans text-sm text-muted-foreground font-medium uppercase tracking-wider">
+              {project.title}
+            </p>
+            <h3 className="font-heading text-[23px] font-medium leading-snug tracking-tight text-foreground group-hover:text-muted-foreground transition-colors">
+              {project.overview}
+            </h3>
+          </Link>
+        </Reveal>
 
         <TiltCard>
           <Link href={`/work/${project.slug}`} className="group block w-full outline-none">
@@ -129,6 +125,6 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           </Link>
         </TiltCard>
       </motion.div>
-    </motion.div>
+    </div>
   )
 }
