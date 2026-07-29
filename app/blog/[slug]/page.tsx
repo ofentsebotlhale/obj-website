@@ -165,17 +165,16 @@ export default async function BlogPostPage({ params }: PageProps) {
                     <Hash className="h-3 w-3 text-foreground" /> Article Summary
                   </h3>
                   <p className="font-sans text-xs text-foreground leading-relaxed">
-                    A comprehensive inspection Checklist highlighting conversion killers on consumer-facing websites with suggestions on building immediate stakeholder trust.
+                    {post.articleSummary}
                   </p>
                 </div>
                 
                 <div className="border-t border-border/40 pt-6">
                   <h4 className="font-sans text-xs font-semibold text-foreground mb-3">Key Solutions</h4>
                   <ul className="space-y-2 font-mono text-[10px] uppercase tracking-widest text-foreground">
-                    <li>✓ Prioritize Core Web Vitals</li>
-                    <li>✓ Modernize UI Design Standards</li>
-                    <li>✓ Optimise Responsive Performance</li>
-                    <li>✓ Direct user CTA Funneling</li>
+                    {post.keySolutions.map((solution, i) => (
+                      <li key={i}>✓ {solution}</li>
+                    ))}
                   </ul>
                 </div>
 

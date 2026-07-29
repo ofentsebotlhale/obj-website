@@ -35,7 +35,7 @@ export function ClientEndorsement() {
             animate={mounted ? "hidden" : "visible"}
             whileInView={mounted ? "visible" : undefined}
             viewport={{ once: true, margin: "-10%" }}
-            className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-black flex flex-col items-center gap-1 md:gap-2"
+            className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] tracking-tight text-black flex flex-col items-center gap-1 md:gap-2"
           >
             {QUOTE_LINES.map((line, i) => (
               <span key={i} className="block overflow-hidden pb-1">

@@ -16,6 +16,8 @@ export interface BlogPost {
   points: BlogPoint[]
   conclusionText: string
   closingText: string
+  articleSummary: string
+  keySolutions: string[]
 }
 
 export const blogPosts: BlogPost[] = [
@@ -81,7 +83,14 @@ export const blogPosts: BlogPost[] = [
       }
     ],
     conclusionText: 'Recognizing these signs is the first step toward turning things around. A website that’s fast, clear, up-to-date, and user-friendly can become your strongest client magnet. Keep these points in mind as you review your site, and don’t hesitate to make improvements that put your visitors—and potential clients—first.',
-    closingText: 'Thanks for reading! Next time, we’ll explore simple ways to boost your website’s SEO without overwhelming technical jargon. Stay tuned and keep building that digital presence with confidence.'
+    closingText: 'Thanks for reading! Next time, we’ll explore simple ways to boost your website’s SEO without overwhelming technical jargon. Stay tuned and keep building that digital presence with confidence.',
+    articleSummary: 'A comprehensive inspection Checklist highlighting conversion killers on consumer-facing websites with suggestions on building immediate stakeholder trust.',
+    keySolutions: [
+      'Prioritize Core Web Vitals',
+      'Modernize UI Design Standards',
+      'Optimise Responsive Performance',
+      'Direct user CTA Funneling'
+    ]
   },
   {
     slug: 'how-much-does-a-website-cost-in-south-africa',
@@ -135,7 +144,14 @@ export const blogPosts: BlogPost[] = [
       }
     ],
     conclusionText: 'Most small to mid-sized professional firms should budget R8,000–R18,000 for a custom-built site, plus R1,500–R3,500/month for ongoing maintenance. While a template website can work as a stopgap, firms whose business depends on being trusted quickly tend to see a template site cost them more in lost credibility than they saved upfront.',
-    closingText: 'Need a website that makes your firm easier to trust online? OBX Studio designs and builds websites for law firms, architects, wealth managers, and advisory firms across South Africa.'
+    closingText: 'Need a website that makes your firm easier to trust online? OBX Studio designs and builds websites for law firms, architects, wealth managers, and advisory firms across South Africa.',
+    articleSummary: 'A breakdown of true website costs for South African professional services, outlining what drives value and how to budget correctly.',
+    keySolutions: [
+      'Custom Build Focus',
+      'Trust Signal Design',
+      'Transparent Pricing',
+      'Ongoing Retainers'
+    ]
   },
   {
     slug: 'the-ultimate-guide-to-creating-a-high-performing-website',
@@ -189,7 +205,14 @@ export const blogPosts: BlogPost[] = [
       }
     ],
     conclusionText: 'Building a high performing website does not have to be overwhelmingly time consuming if you have the right strategy and partner. By focusing on mobile devices, clear design elements, and a smooth user journey, you set your business up for long-term success.',
-    closingText: 'Ready to elevate your digital presence? Keep these strategies in mind, or reach out to our expert website designers to create a custom solution tailored to your exact business goals.'
+    closingText: 'Ready to elevate your digital presence? Keep these strategies in mind, or reach out to our expert website designers to create a custom solution tailored to your exact business goals.',
+    articleSummary: 'A definitive playbook for constructing high-converting digital storefronts that engage users and streamline operations.',
+    keySolutions: [
+      'Strategic User Journeys',
+      'Mobile-First Responsiveness',
+      'Performance Hosting',
+      'Audience Connection'
+    ]
   },
   {
     slug: 'web-design-johannesburg-how-to-choose-high-quality-design-development-services',
@@ -238,7 +261,14 @@ export const blogPosts: BlogPost[] = [
       }
     ],
     conclusionText: 'Creating a commanding online presence in a competitive market like Johannesburg takes more than just a passing interest in aesthetics. It requires a strategic investment in a highly capable web design company that understands the intersection of user experience, technical performance, and digital marketing.',
-    closingText: 'By focusing on custom design services, choosing the right local partners, and prioritizing functionality over generic templates, you set your business up for long-term digital success. Take the time to write a detailed brief, ask the right questions about hosting and e-commerce integrations, and watch as your new website transforms your business operations in South Africa and beyond.'
+    closingText: 'By focusing on custom design services, choosing the right local partners, and prioritizing functionality over generic templates, you set your business up for long-term digital success. Take the time to write a detailed brief, ask the right questions about hosting and e-commerce integrations, and watch as your new website transforms your business operations in South Africa and beyond.',
+    articleSummary: 'A guide to selecting top-tier web design agencies in Johannesburg, emphasizing tailored solutions over templates.',
+    keySolutions: [
+      'Local Market Expertise',
+      'Bespoke Development',
+      'Advanced Security',
+      'Integrated Marketing'
+    ]
   },
   {
     slug: 'fix-common-website-mistakes-fast-performance',
@@ -292,6 +322,13 @@ export const blogPosts: BlogPost[] = [
       }
     ],
     conclusionText: 'Website optimization is not a "set it and forget it" task; it is an ongoing commitment to excellence. The digital landscape evolves, new scripts are added, and databases grow over time. By regularly auditing your site for these common pitfalls—from unoptimized images and inadequate hosting to heavy plugins and render-blocking scripts—you can maintain an edge over the competition.',
-    closingText: 'Prioritize user experience by ensuring your pages render swiftly on both desktop and mobile devices. Implement intelligent caching, leverage CDNs, and keep your code clean and minified. By addressing these critical areas, you will not only boost your search engine rankings but also turn your website into a fast, efficient, and highly effective tool for your business.'
+    closingText: 'Prioritize user experience by ensuring your pages render swiftly on both desktop and mobile devices. Implement intelligent caching, leverage CDNs, and keep your code clean and minified. By addressing these critical areas, you will not only boost your search engine rankings but also turn your website into a fast, efficient, and highly effective tool for your business.',
+    articleSummary: 'Actionable solutions to common web performance issues that drag down page load speeds and increase bounce rates.',
+    keySolutions: [
+      'Image Optimization',
+      'Advanced Caching',
+      'Code Minification',
+      'Database Cleaning'
+    ]
   },
 ]

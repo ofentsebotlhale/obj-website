@@ -46,7 +46,7 @@ export default function StudioPage() {
           </Reveal>
           <div className="flex flex-col gap-8 md:col-span-8 md:max-w-3xl">
             <Reveal delay={0.1}>
-              <p className="font-heading text-2xl font-light leading-relaxed tracking-tight text-foreground sm:text-3xl">
+              <p className="font-heading text-2xl font-medium leading-relaxed tracking-tight text-foreground sm:text-3xl">
                 OBX Studio is a digital design and web development studio focused on creating modern websites for businesses that value quality and clarity.
               </p>
             </Reveal>

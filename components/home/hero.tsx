@@ -71,7 +71,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.4, ease: EASE }}
           className="flex flex-col gap-3 max-w-sm"
         >
-          <p className="font-sans text-sm md:text-base leading-snug font-normal text-foreground/90 text-pretty">
+          <p className="font-sans text-sm md:text-base leading-snug font-medium text-foreground/90 text-pretty">
             Digital design and engineering for brands that can’t afford to look ordinary.
           </p>
           <p className="font-mono text-xs md:text-sm uppercase tracking-widest text-muted-foreground font-medium">
