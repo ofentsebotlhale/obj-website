@@ -7,7 +7,7 @@ export function HeroText() {
   const [mounted, setMounted] = useState(false)
   useEffect(() => setMounted(true), [])
 
-  const text = "OBX Studio provides end-to-end digital design and web development services focused on creating modern, high-performing websites for businesses."
+  const text = "End-to-end digital design and web development for modern, high-performing businesses."
 
   return (
     <h2 className="font-heading text-4xl font-medium leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-6xl text-pretty">

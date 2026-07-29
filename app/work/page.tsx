@@ -43,8 +43,6 @@ export default function WorkPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <PageHeader
-        index={`01 / 0${projects.length}`}
-        subtitle="Selected Projects"
         title="Our Work"
       />
 

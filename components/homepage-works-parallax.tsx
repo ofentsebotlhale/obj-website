@@ -18,11 +18,11 @@ interface CardConfig {
 }
 
 const cardConfigs: CardConfig[] = [
-  { sizeClass: 'w-full max-w-[580px]', parallaxSpeed: 30, alignmentClass: 'md:ml-0 md:mr-auto' },
-  { sizeClass: 'w-full max-w-[420px]', parallaxSpeed: 65, alignmentClass: 'md:ml-auto md:mr-0 md:mt-24' },
-  { sizeClass: 'w-full max-w-[320px]', parallaxSpeed: 100, alignmentClass: 'md:mx-auto md:-mt-12' },
-  { sizeClass: 'w-full max-w-[520px]', parallaxSpeed: 40, alignmentClass: 'md:ml-0 md:mr-auto md:mt-16' },
-  { sizeClass: 'w-full max-w-[380px]', parallaxSpeed: 80, alignmentClass: 'md:ml-auto md:mr-0 md:-mt-8' },
+  { sizeClass: 'w-full max-w-[638px]', parallaxSpeed: 30, alignmentClass: 'md:ml-0 md:mr-auto' },
+  { sizeClass: 'w-full max-w-[462px]', parallaxSpeed: 65, alignmentClass: 'md:ml-auto md:mr-0 md:mt-24' },
+  { sizeClass: 'w-full max-w-[352px]', parallaxSpeed: 100, alignmentClass: 'md:mx-auto md:-mt-12' },
+  { sizeClass: 'w-full max-w-[572px]', parallaxSpeed: 40, alignmentClass: 'md:ml-0 md:mr-auto md:mt-16' },
+  { sizeClass: 'w-full max-w-[418px]', parallaxSpeed: 80, alignmentClass: 'md:ml-auto md:mr-0 md:-mt-8' },
 ]
 
 function TiltCard({ children }: { children: React.ReactNode }) {
@@ -83,7 +83,14 @@ function ProjectParallaxCard({ project, index }: { project: Project; index: numb
   const y = useTransform(scrollYProgress, [0, 1], [config.parallaxSpeed, -config.parallaxSpeed])
 
   return (
-    <div ref={cardRef} className="w-full">
+    <motion.div
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      ref={cardRef}
+      className="w-full"
+    >
       <motion.div style={{ y }} className={`flex flex-col gap-3 ${config.sizeClass} mx-auto ${config.alignmentClass}`}>
         {/* Text OUTSIDE and ABOVE the image on top */}
         <Link href={`/work/${project.slug}`} className="group block space-y-2 outline-none mb-6">
@@ -95,10 +102,15 @@ function ProjectParallaxCard({ project, index }: { project: Project; index: numb
           </h3>
         </Link>
 
-        {/* Square Image Container with no rounded edges */}
         <TiltCard>
           <Link href={`/work/${project.slug}`} className="group block w-full outline-none">
-            <div className="relative w-full aspect-square overflow-hidden border border-white/15 bg-neutral-900 shadow-2xl rounded-none transition-all duration-500 group-hover:border-white/50">
+            <motion.div 
+              initial={{ clipPath: "inset(100% 0 0 0)" }}
+              whileInView={{ clipPath: "inset(0% 0 0 0)" }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+              className="relative w-full aspect-square overflow-hidden border border-white/15 bg-neutral-900 shadow-2xl rounded-none transition-all duration-500 group-hover:border-white/50"
+            >
               <ParallaxImage
                 src={project.image || '/placeholder.svg'}
                 alt={project.title}
@@ -108,11 +120,11 @@ function ProjectParallaxCard({ project, index }: { project: Project; index: numb
                 motionClassName="absolute inset-[-12%]"
                 yOffset={['-8%', '8%']}
               />
-            </div>
+            </motion.div>
           </Link>
         </TiltCard>
       </motion.div>
-    </div>
+    </motion.div>
   )
 }
 
@@ -122,25 +134,10 @@ export function HomepageWorksParallax({ items }: WorksParallaxProps) {
       <div className="max-w-[1600px] mx-auto">
         {/* Section Header */}
         <div className="mb-16 md:mb-24">
-          <Reveal className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div className="space-y-3 max-w-2xl">
-              <h3 className="font-mono text-xs uppercase tracking-widest text-neutral-400">
-                02 / Selected Works
-              </h3>
-              <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-white">
-                Featured Builds
-              </h2>
-            </div>
-            <Link
-              href="/work"
-              data-cursor="All"
-              className="group inline-flex items-center gap-2 border border-white/20 bg-white/5 px-6 py-3 font-mono text-[11px] uppercase tracking-widest transition-all duration-300 hover:border-white hover:bg-white hover:text-black rounded-none text-white"
-            >
-              <span>View all projects</span>
-              <span className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
-                ↗
-              </span>
-            </Link>
+          <Reveal>
+            <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-white uppercase">
+              WORKS
+            </h2>
           </Reveal>
         </div>
 
@@ -149,6 +146,21 @@ export function HomepageWorksParallax({ items }: WorksParallaxProps) {
           {items.map((project, index) => (
             <ProjectParallaxCard key={project.slug} project={project} index={index} />
           ))}
+        </div>
+
+        {/* Bottom View All Link */}
+        <div className="mt-20 md:mt-32 flex justify-center md:justify-end">
+          <Reveal>
+            <Link
+              href="/work"
+              data-cursor="All"
+              className="group inline-flex items-center font-sans text-sm md:text-base font-medium transition-colors hover:text-neutral-300 text-white"
+            >
+              <span className="border-b border-white/30 pb-0.5 group-hover:border-white transition-colors">
+                View all
+              </span>
+            </Link>
+          </Reveal>
         </div>
       </div>
     </section>

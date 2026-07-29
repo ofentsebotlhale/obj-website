@@ -62,11 +62,6 @@ export function FAQ() {
         {/* Header Setup: Two-column layout */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-end mb-16 md:mb-24">
           <div className="md:col-span-8 flex flex-col space-y-3">
-            <Reveal>
-              <span className="font-mono text-xs uppercase tracking-widest text-[#71717A] font-medium block">
-                04 / INFORMATION
-              </span>
-            </Reveal>
             <Reveal delay={0.08}>
               <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold uppercase tracking-tight text-[#000000] leading-[1.05]">
                 FREQUENTLY ASKED QUESTIONS
