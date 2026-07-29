@@ -18,11 +18,11 @@ interface CardConfig {
 }
 
 const cardConfigs: CardConfig[] = [
-  { sizeClass: 'w-full max-w-[580px]', parallaxSpeed: 30, alignmentClass: 'justify-self-start' },
-  { sizeClass: 'w-full max-w-[420px]', parallaxSpeed: 65, alignmentClass: 'justify-self-end md:mt-24' },
-  { sizeClass: 'w-full max-w-[320px]', parallaxSpeed: 100, alignmentClass: 'justify-self-center md:-mt-12' },
-  { sizeClass: 'w-full max-w-[520px]', parallaxSpeed: 40, alignmentClass: 'justify-self-start md:mt-16' },
-  { sizeClass: 'w-full max-w-[380px]', parallaxSpeed: 80, alignmentClass: 'justify-self-end md:-mt-8' },
+  { sizeClass: 'w-full max-w-[580px]', parallaxSpeed: 30, alignmentClass: 'md:ml-0 md:mr-auto' },
+  { sizeClass: 'w-full max-w-[420px]', parallaxSpeed: 65, alignmentClass: 'md:ml-auto md:mr-0 md:mt-24' },
+  { sizeClass: 'w-full max-w-[320px]', parallaxSpeed: 100, alignmentClass: 'md:mx-auto md:-mt-12' },
+  { sizeClass: 'w-full max-w-[520px]', parallaxSpeed: 40, alignmentClass: 'md:ml-0 md:mr-auto md:mt-16' },
+  { sizeClass: 'w-full max-w-[380px]', parallaxSpeed: 80, alignmentClass: 'md:ml-auto md:mr-0 md:-mt-8' },
 ]
 
 function TiltCard({ children }: { children: React.ReactNode }) {
@@ -83,16 +83,16 @@ function ProjectParallaxCard({ project, index }: { project: Project; index: numb
   const y = useTransform(scrollYProgress, [0, 1], [config.parallaxSpeed, -config.parallaxSpeed])
 
   return (
-    <div ref={cardRef} className={`w-full ${config.alignmentClass}`}>
-      <motion.div style={{ y }} className={`flex flex-col gap-3 ${config.sizeClass} mx-auto md:mx-0`}>
+    <div ref={cardRef} className="w-full">
+      <motion.div style={{ y }} className={`flex flex-col gap-3 ${config.sizeClass} mx-auto ${config.alignmentClass}`}>
         {/* Text OUTSIDE and ABOVE the image on top */}
-        <Link href={`/work/${project.slug}`} className="group block space-y-1 outline-none">
-          <h3 className="font-heading text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white group-hover:text-neutral-300 transition-colors">
+        <Link href={`/work/${project.slug}`} className="group block space-y-2 outline-none mb-6">
+          <p className="font-sans text-sm text-neutral-400 font-medium uppercase tracking-wider">
             {project.title}
-          </h3>
-          <p className="font-mono text-xs uppercase tracking-widest text-neutral-400">
-            {project.category}
           </p>
+          <h3 className="font-heading text-[23px] font-medium leading-snug tracking-tight text-white group-hover:text-neutral-300 transition-colors">
+            {project.overview}
+          </h3>
         </Link>
 
         {/* Square Image Container with no rounded edges */}
