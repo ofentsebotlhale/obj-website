@@ -46,16 +46,16 @@ export default function ServicesPage() {
         title="Services"
       />
 
-      <section className="relative px-5 pb-20 md:px-10 md:pb-28">
-        <div className="mx-auto max-w-[1600px] relative z-10">
+      <section className="relative px-[5vw] pb-20 md:px-[8vw] md:pb-[10vh]">
+        <div className="mx-auto max-w-[1920px] relative z-10">
           <div className="max-w-4xl text-pretty">
             <HeroText />
           </div>
         </div>
       </section>
 
-      <section className="border-t border-border px-5 py-24 md:px-10 md:py-32">
-        <div className="mx-auto max-w-[1600px]">
+      <section className="border-t border-border px-[5vw] py-12 md:px-[8vw] md:py-[10vh]">
+        <div className="mx-auto max-w-[1920px]">
           <div className="mb-24">
             <Reveal delay={0.1}>
               <h2 className="font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl mb-4">
@@ -78,8 +78,8 @@ export default function ServicesPage() {
       <FAQ />
 
       {/* CTA Section */}
-      <section className="px-5 py-28 md:px-10 md:py-40 bg-card/20 border-t border-border">
-        <div className="mx-auto max-w-[1600px] text-center flex flex-col items-center justify-center">
+      <section className="px-[5vw] py-[10vh] md:px-[8vw] md:py-20 bg-card/20 border-t border-border">
+        <div className="mx-auto max-w-[1920px] text-center flex flex-col items-center justify-center">
           <Reveal>
             <p className="font-mono text-sm uppercase tracking-widest text-foreground mb-6">
               Let's Build Your Website

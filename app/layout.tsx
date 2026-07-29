@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, JetBrains_Mono } from 'next/font/google'
+import { Inter, IBM_Plex_Mono } from 'next/font/google'
 import './globals.css'
 import { CustomCursor } from '@/components/custom-cursor'
 import { SiteNav } from '@/components/site-nav'
@@ -16,8 +16,9 @@ const inter = Inter({
   display: 'swap',
 })
 
-const mono = JetBrains_Mono({
+const mono = IBM_Plex_Mono({
   subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
   variable: '--font-mono',
   display: 'swap',
 })
@@ -69,7 +70,7 @@ export default function RootLayout({
         <FirebaseAnalytics />
         <a 
           href="#main-content" 
-          className="focus:fixed focus:left-6 focus:top-6 focus:translate-y-0 focus:z-[9999] bg-background text-foreground border border-border/60 py-2.5 px-5 rounded font-mono text-xs uppercase tracking-widest pointer-events-none focus:pointer-events-auto transition-transform"
+          className="focus:fixed focus:left-6 focus:top-6 focus:translate-y-0 focus:z-[9999] bg-background text-foreground border border-border/60 py-2.5 px-4 rounded font-mono text-xs uppercase tracking-widest pointer-events-none focus:pointer-events-auto transition-transform"
           style={{
             position: 'absolute',
             left: '-9999px',

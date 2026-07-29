@@ -42,8 +42,8 @@ export default function WebDesignPage() {
         title="Web Design"
       />
 
-      <section className="px-5 pb-20 md:px-10 md:pb-28">
-        <div className="mx-auto max-w-[1600px]">
+      <section className="px-[5vw] pb-20 md:px-[8vw] md:pb-[10vh]">
+        <div className="mx-auto max-w-[1920px]">
           <div className="max-w-4xl text-pretty">
             <h2 className="font-heading text-4xl font-medium leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-6xl">
               <RevealWords
@@ -55,8 +55,8 @@ export default function WebDesignPage() {
         </div>
       </section>
 
-      <section className="border-t border-border px-5 py-24 md:px-10 md:py-32">
-        <div className="mx-auto max-w-[1600px]">
+      <section className="border-t border-border px-[5vw] py-12 md:px-[8vw] md:py-[10vh]">
+        <div className="mx-auto max-w-[1920px]">
           <Reveal>
             <p className="font-heading text-2xl font-light leading-relaxed tracking-tight text-foreground sm:text-3xl max-w-4xl mb-24">
               We focus on creating clean, structured, and visually refined websites that reflect the quality of your brand while delivering a seamless user experience across all devices.
@@ -138,7 +138,7 @@ export default function WebDesignPage() {
           </Reveal>
 
           <Reveal delay={0.4}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20 border-y border-border py-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20 border-y border-border py-[10vh]">
               <div>
                 <h2 className="font-heading text-2xl font-semibold tracking-tight text-foreground mb-8">
                   What You Get
@@ -209,8 +209,8 @@ export default function WebDesignPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="px-5 py-28 md:px-10 md:py-40 bg-card/20 border-t border-border">
-        <div className="mx-auto max-w-[1600px] text-center flex flex-col items-center justify-center">
+      <section className="px-[5vw] py-[10vh] md:px-[8vw] md:py-20 bg-card/20 border-t border-border">
+        <div className="mx-auto max-w-[1920px] text-center flex flex-col items-center justify-center">
           <Reveal>
             <p className="font-mono text-sm uppercase tracking-widest text-foreground mb-6">
               Ready to Build Your Website?

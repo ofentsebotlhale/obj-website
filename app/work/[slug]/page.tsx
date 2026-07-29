@@ -42,9 +42,9 @@ export default async function ProjectPage({ params }: Props) {
   }
 
   return (
-    <div id={`project-page-${project.slug}`} className="min-h-screen bg-background text-foreground pb-24">
+    <div id={`project-page-${project.slug}`} className="min-h-screen bg-background text-foreground pb-12">
       {/* Back to Work Link */}
-      <div className="mx-auto max-w-[1600px] px-5 pt-32 md:px-10">
+      <div className="mx-auto max-w-[1920px] px-[5vw] pt-[10vh] md:px-[8vw]">
         <Link
           href="/work"
           className="group inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-foreground hover:opacity-70 transition-opacity"
@@ -61,8 +61,8 @@ export default async function ProjectPage({ params }: Props) {
       />
 
       {/* Main Hero Parallax */}
-      <section className="px-5 pb-20 md:px-10 md:pb-28">
-        <div className="mx-auto max-w-[1600px]">
+      <section className="px-[5vw] pb-20 md:px-[8vw] md:pb-[10vh]">
+        <div className="mx-auto max-w-[1920px]">
           <div className="relative w-full aspect-[16/10] md:aspect-[21/9] overflow-hidden">
             <ParallaxImage
               src={project.image || "/placeholder.svg"}
@@ -78,9 +78,9 @@ export default async function ProjectPage({ params }: Props) {
       </section>
 
       {/* Editorial Breakdown */}
-      <section className="px-5 pb-24 md:px-10">
-        <div className="mx-auto max-w-[1600px]">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+      <section className="px-[5vw] pb-12 md:px-[8vw]">
+        <div className="mx-auto max-w-[1920px]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10">
             {/* Left Content Column */}
             <div className="lg:col-span-7 space-y-16">
               {/* Introduction & Services */}
@@ -179,8 +179,8 @@ export default async function ProjectPage({ params }: Props) {
 
       {/* Additional Showcase Images if they exist */}
       {project.images && project.images.length > 0 && (
-        <section className="px-5 py-12 md:px-10 border-t border-border/20">
-          <div className="mx-auto max-w-[1600px] flex flex-col gap-10">
+        <section className="px-[5vw] py-12 md:px-[8vw] border-t border-border/20">
+          <div className="mx-auto max-w-[1920px] flex flex-col gap-10">
             <Reveal>
               <h3 className="font-mono text-xs uppercase tracking-widest text-foreground opacity-50">
                 Project Gallery
@@ -207,8 +207,8 @@ export default async function ProjectPage({ params }: Props) {
       )}
 
       {/* Next Project CTA */}
-      <section className="px-5 py-24 md:px-10 border-t border-border/20 mt-16">
-        <div className="mx-auto max-w-[1600px] text-center">
+      <section className="px-[5vw] py-12 md:px-[8vw] border-t border-border/20 mt-16">
+        <div className="mx-auto max-w-[1920px] text-center">
           <Reveal>
             <p className="font-mono text-xs uppercase tracking-widest text-foreground opacity-50 mb-4">
               Next Project

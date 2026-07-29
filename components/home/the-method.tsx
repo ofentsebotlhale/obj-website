@@ -55,11 +55,11 @@ export function TheMethod() {
   useEffect(() => setMounted(true), [])
 
   return (
-    <section className="px-4 pb-32 md:pb-48 md:px-6 bg-background text-foreground">
-      <div className="mx-auto max-w-[1600px]">
+    <section className="px-[5vw] pb-[15vh] md:pb-[20vh] bg-background text-foreground">
+      <div className="mx-auto max-w-[1920px]">
         <Reveal>
           <div className="mb-16 md:mb-24">
-            <h2 className="font-mono text-xs uppercase tracking-widest text-[#71717A]">
+            <h2 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
               The Method
             </h2>
           </div>
@@ -75,14 +75,14 @@ export function TheMethod() {
         >
           {STEPS.map((step, i) => (
             <motion.div key={i} variants={columnVariants} className={`flex flex-col space-y-6 ${i % 2 !== 0 ? 'md:mt-16 lg:mt-24' : ''}`}>
-              <motion.span variants={numberVariants} className="font-mono text-4xl md:text-5xl text-black/10 origin-left inline-block">
+              <motion.span variants={numberVariants} className="font-mono text-4xl md:text-5xl text-foreground/10 origin-left inline-block">
                 {step.num}
               </motion.span>
               <div className="space-y-3">
-                <h3 className="font-mono text-xs md:text-sm uppercase tracking-widest text-black font-semibold">
+                <h3 className="font-mono text-xs md:text-sm uppercase tracking-widest text-foreground font-semibold">
                   {step.title}
                 </h3>
-                <p className="font-sans text-sm md:text-base text-[#71717A] leading-relaxed text-pretty">
+                <p className="font-sans text-sm md:text-base text-muted-foreground leading-relaxed text-pretty">
                   {step.desc}
                 </p>
               </div>

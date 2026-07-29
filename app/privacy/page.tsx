@@ -14,8 +14,8 @@ export default function PrivacyPage() {
   return (
     <>
       <PageHeader index="00 / 04" subtitle="Legal details" title="Privacy Policy" />
-      <section className="px-5 pb-28 md:px-10 md:pb-40">
-        <div className="mx-auto max-w-3xl border-t border-border pt-12 md:pt-16">
+      <section className="px-[5vw] pb-[10vh] md:px-[8vw] md:pb-20">
+        <div className="mx-auto max-w-3xl border-t border-border pt-12 md:pt-[10vh]">
           <div className="space-y-12 md:space-y-16">
             
             <Reveal className="space-y-4">

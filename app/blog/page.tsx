@@ -37,8 +37,8 @@ export default function BlogListingPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <PageHeader index="04 / 05" subtitle="Articles & Ideas" title="Blog" />
-      <section className="px-5 pb-28 md:px-10 md:pb-40">
-        <div className="mx-auto max-w-[1600px] border-t border-border/80 pt-16">
+      <section className="px-[5vw] pb-[10vh] md:px-[8vw] md:pb-20">
+        <div className="mx-auto max-w-[1920px] border-t border-border/80 pt-[10vh]">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
             
             {/* Left sidebar info or categories teaser */}

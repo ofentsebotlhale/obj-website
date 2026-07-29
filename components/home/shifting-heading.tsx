@@ -34,7 +34,7 @@ export function ShiftingHeading({ text, className }: ShiftingHeadingProps) {
         <motion.h2
           style={{ left, x }}
           className={cn(
-            "relative inline-block font-heading text-2xl font-bold leading-snug tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-white text-pretty select-none whitespace-normal md:whitespace-nowrap",
+            "relative inline-block font-heading text-2xl font-bold leading-snug tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-foreground text-pretty select-none whitespace-normal md:whitespace-nowrap",
             className
           )}
         >

@@ -18,12 +18,12 @@ export function WhatWeDesign() {
   useEffect(() => setMounted(true), [])
 
   return (
-    <section className="px-4 py-32 md:py-48 md:px-6 bg-background text-foreground border-t border-border/10">
-      <div className="mx-auto max-w-[1600px] grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
+    <section className="px-[5vw] py-[15vh] md:py-[20vh] bg-background text-foreground border-t border-border/10">
+      <div className="mx-auto max-w-[1920px] grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-10">
         {/* Left Column Label */}
         <div className="md:col-span-4">
           <Reveal className="sticky top-32">
-            <h2 className="font-mono text-xs uppercase tracking-widest text-black font-normal">
+            <h2 className="font-mono text-xs uppercase tracking-widest text-foreground font-normal">
               Built through:
             </h2>
           </Reveal>
@@ -54,7 +54,7 @@ export function WhatWeDesign() {
                     onMouseLeave={() => setHoveredIndex(null)}
                   >
                     <motion.p 
-                      className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-black"
+                      className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground"
                       initial={false}
                       animate={{ x: isHovered ? 12 : 0 }}
                       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -62,7 +62,7 @@ export function WhatWeDesign() {
                       {item.text}
                     </motion.p>
                     <motion.span 
-                      className="font-mono text-[10px] md:text-[11px] uppercase tracking-widest text-[#71717A] md:-translate-x-4"
+                      className="font-mono text-[10px] md:text-[11px] uppercase tracking-widest text-muted-foreground md:-translate-x-4"
                       initial={false}
                       animate={mounted ? { opacity: isHovered ? 1 : 0, x: isHovered ? 0 : -10 } : { opacity: 0, x: -10 }}
                       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}

@@ -110,7 +110,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               whileInView={{ clipPath: "inset(0% 0 0 0)" }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-              className="relative w-full aspect-square overflow-hidden border border-border/70 bg-muted/40 shadow-xl rounded-none transition-all duration-500 group-hover:border-foreground/50"
+              className="relative w-full aspect-square overflow-hidden border border-border/70 bg-muted/40 rounded-none transition-all duration-500 group-hover:border-foreground/50"
             >
               <ParallaxImage
                 src={project.image || '/placeholder.svg'}

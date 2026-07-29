@@ -70,7 +70,7 @@ export function CustomCursor() {
               initial={{ opacity: 0, scale: 0.6 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.6 }}
-              className="font-mono text-[10px] font-medium uppercase tracking-wider text-black"
+              className="font-mono text-[10px] font-medium uppercase tracking-wider text-foreground"
             >
               {label}
             </motion.span>

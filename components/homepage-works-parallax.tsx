@@ -88,10 +88,10 @@ function ProjectParallaxCard({ project, index }: { project: Project; index: numb
         {/* Text OUTSIDE and ABOVE the image on top */}
         <Reveal>
           <Link href={`/work/${project.slug}`} className="group block space-y-2 outline-none mb-6">
-            <p className="font-sans text-sm text-neutral-400 font-medium uppercase tracking-wider">
+            <p className="font-sans text-sm text-muted-foreground font-medium uppercase tracking-wider">
               {project.title}
             </p>
-            <h3 className="font-heading text-[23px] font-medium leading-snug tracking-tight text-white group-hover:text-neutral-300 transition-colors">
+            <h3 className="font-heading text-[23px] font-medium leading-snug tracking-tight text-background group-hover:text-muted-foreground transition-colors">
               {project.overview}
             </h3>
           </Link>
@@ -104,7 +104,7 @@ function ProjectParallaxCard({ project, index }: { project: Project; index: numb
               whileInView={{ clipPath: "inset(0% 0 0 0)" }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-              className="relative w-full aspect-square overflow-hidden border border-white/15 bg-neutral-900 shadow-2xl rounded-none transition-all duration-500 group-hover:border-white/50"
+              className="relative w-full aspect-square overflow-hidden border border-background/15 bg-background rounded-none transition-all duration-500 group-hover:border-background/50"
             >
               <ParallaxImage
                 src={project.image || '/placeholder.svg'}
@@ -125,12 +125,12 @@ function ProjectParallaxCard({ project, index }: { project: Project; index: numb
 
 export function HomepageWorksParallax({ items }: WorksParallaxProps) {
   return (
-    <section className="bg-black text-white py-24 md:py-36 px-5 md:px-10 w-full overflow-hidden">
-      <div className="max-w-[1600px] mx-auto">
+    <section className="bg-foreground text-background py-[15vh] md:py-[20vh] px-[5vw] md:px-[8vw] w-full overflow-hidden">
+      <div className="max-w-[1920px] mx-auto">
         {/* Section Header */}
         <div className="mb-16 md:mb-24">
           <Reveal>
-            <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-white uppercase">
+            <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-background uppercase">
               WORKS
             </h2>
           </Reveal>
@@ -149,9 +149,9 @@ export function HomepageWorksParallax({ items }: WorksParallaxProps) {
             <Link
               href="/work"
               data-cursor="All"
-              className="group inline-flex items-center font-sans text-sm md:text-base font-medium transition-colors hover:text-neutral-300 text-white"
+              className="group inline-flex items-center font-sans text-sm md:text-base font-medium transition-colors hover:text-muted-foreground text-background"
             >
-              <span className="border-b border-white/30 pb-0.5 group-hover:border-white transition-colors">
+              <span className="border-b border-background/30 pb-0.5 group-hover:border-background transition-colors">
                 View all
               </span>
             </Link>

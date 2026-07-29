@@ -92,8 +92,8 @@ export function SiteFooter() {
   const y = useTransform(scrollYProgress, [0, 1], [40, 0])
 
   return (
-    <footer className="relative flex min-h-[100svh] flex-col justify-between overflow-hidden bg-foreground text-background pt-20 md:pt-32">
-      <div className="mx-auto w-full max-w-[1600px] flex-grow flex flex-col justify-between px-6 md:px-12 lg:px-24">
+    <footer className="relative flex min-h-[100svh] flex-col justify-between overflow-hidden bg-background text-foreground pt-[15vh] md:pt-[20vh]">
+      <div className="mx-auto w-full max-w-[1920px] flex-grow flex flex-col justify-between px-[5vw] md:px-[8vw] lg:px-8">
         
         {/* Main Content Area */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-start">
@@ -103,7 +103,7 @@ export function SiteFooter() {
             <motion.div
               ref={ref}
               style={{ opacity, y }}
-              className="w-full flex flex-col items-start justify-center text-background select-none -space-y-1 sm:-space-y-2 md:-space-y-3 lg:-space-y-4"
+              className="w-full flex flex-col items-start justify-center text-foreground select-none -space-y-1 sm:-space-y-2 md:-space-y-3 lg:-space-y-4"
             >
               <div className="overflow-hidden w-full">
                 <div className="w-full">
@@ -138,7 +138,7 @@ export function SiteFooter() {
             <div className="flex gap-4">
                <a 
                   href="mailto:hello@obxstudio.co.za" 
-                  className="inline-flex items-center justify-center rounded-full bg-background px-8 py-4 font-mono text-[13px] uppercase tracking-widest text-foreground transition-all hover:scale-105"
+                  className="inline-flex items-center justify-center rounded-full bg-foreground px-8 py-4 font-mono text-[13px] uppercase tracking-widest text-background transition-all hover:scale-105"
                 >
                   Email Us
                 </a>
@@ -149,7 +149,7 @@ export function SiteFooter() {
           <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-12 sm:gap-24 lg:gap-16 lg:items-end">
             
             <div className="flex flex-col gap-6 w-full lg:w-auto lg:text-right">
-              <span className="font-mono text-[11px] uppercase tracking-widest text-background/60">
+              <span className="font-mono text-[11px] uppercase tracking-widest text-foreground/60">
                 Navigation
               </span>
               <nav className="flex flex-col gap-3">
@@ -157,7 +157,7 @@ export function SiteFooter() {
                   <Link 
                     key={item} 
                     href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
-                    className="font-sans text-xl md:text-2xl font-medium text-background hover:text-background/60 transition-colors"
+                    className="font-sans text-xl md:text-2xl font-medium text-foreground hover:text-foreground/60 transition-colors"
                   >
                     {item}
                   </Link>
@@ -166,7 +166,7 @@ export function SiteFooter() {
             </div>
 
             <div className="flex flex-col gap-6 w-full lg:w-auto lg:text-right">
-              <span className="font-mono text-[11px] uppercase tracking-widest text-background/60">
+              <span className="font-mono text-[11px] uppercase tracking-widest text-foreground/60">
                 Socials
               </span>
               <div className="flex flex-col gap-3">
@@ -176,7 +176,7 @@ export function SiteFooter() {
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-sans text-xl md:text-2xl font-medium text-background hover:text-background/60 transition-colors inline-flex lg:justify-end items-center gap-3 group"
+                    className="font-sans text-xl md:text-2xl font-medium text-foreground hover:text-foreground/60 transition-colors inline-flex lg:justify-end items-center gap-3 group"
                   >
                     <span className="group-hover:-translate-x-1 transition-transform">↗</span>
                     {s.label}
@@ -189,13 +189,13 @@ export function SiteFooter() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 py-8 font-mono text-[10px] uppercase tracking-widest text-background/60 mt-24">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 py-8 font-mono text-[10px] uppercase tracking-widest text-foreground/60 mt-24">
           <div className="flex gap-4">
             <span>© {year} OBX Studio</span>
           </div>
           <div className="flex gap-6">
-            <Link href="/privacy" className="hover:text-background transition-colors">Privacy</Link>
-            <Link href="/terms" className="hover:text-background transition-colors">Terms</Link>
+            <Link href="/privacy" className="hover:text-foreground transition-colors">Privacy</Link>
+            <Link href="/terms" className="hover:text-foreground transition-colors">Terms</Link>
           </div>
         </div>
       </div>

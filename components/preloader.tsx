@@ -51,7 +51,7 @@ export function Preloader({ onComplete }: PreloaderProps) {
             duration: 0.85,
             ease: [0.76, 0, 0.24, 1], // Smooth split curtain exit motion
           }}
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#0D0D0D] text-white select-none overflow-hidden"
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-background text-foreground select-none overflow-hidden"
         >
           {/* Clean Large Kinetic Counter ONLY - No extra addon text */}
           <motion.div
@@ -59,10 +59,10 @@ export function Preloader({ onComplete }: PreloaderProps) {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, y: -40 }}
             transition={{ duration: 0.2 }}
-            className="flex items-center justify-center font-mono font-bold text-7xl sm:text-8xl md:text-9xl lg:text-[11rem] tracking-tighter text-white tabular-nums"
+            className="flex items-center justify-center font-mono font-bold text-7xl sm:text-8xl md:text-9xl lg:text-[11rem] tracking-tighter text-foreground tabular-nums"
           >
             {String(count).padStart(2, '0')}
-            <span className="text-neutral-500 text-4xl sm:text-5xl md:text-6xl font-light ml-1">%</span>
+            <span className="text-muted-foreground text-4xl sm:text-5xl md:text-6xl font-light ml-1">%</span>
           </motion.div>
         </motion.div>
       )}

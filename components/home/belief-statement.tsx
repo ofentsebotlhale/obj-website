@@ -29,18 +29,18 @@ export function BeliefStatement() {
       <motion.section 
         ref={sectionRef}
         style={{ scale, y, willChange: 'transform' }}
-        className="px-4 py-40 md:py-60 md:px-6 bg-foreground text-white origin-bottom"
+        className="px-[5vw] py-[15vh] md:py-[20vh] bg-background text-foreground origin-bottom"
       >
         <div className="mx-auto max-w-5xl text-center space-y-12 md:space-y-16">
           <ScrollRevealText
             text="Most studios sell you a website."
-            className="font-heading text-4xl font-medium leading-[1.15] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl text-white text-pretty"
+            className="font-heading text-4xl font-medium leading-[1.15] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl text-foreground text-pretty"
             progress={scrollYProgress}
             range={[0, 0.35]}
           />
           <ScrollRevealText
             text="We build the reason someone trusts you enough to become a client."
-            className="font-heading text-4xl font-medium leading-[1.15] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl text-white/90 text-pretty"
+            className="font-heading text-4xl font-medium leading-[1.15] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl text-foreground/90 text-pretty"
             progress={scrollYProgress}
             range={[0.45, 0.8]}
           />

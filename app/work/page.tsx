@@ -47,8 +47,8 @@ export default function WorkPage() {
       />
 
       {/* Hero Intro */}
-      <section className="px-5 pb-20 md:px-10 md:pb-28">
-        <div className="mx-auto max-w-[1600px]">
+      <section className="px-[5vw] pb-20 md:px-[8vw] md:pb-[10vh]">
+        <div className="mx-auto max-w-[1920px]">
           <div className="max-w-4xl text-pretty">
             <h2 className="font-heading text-4xl font-medium leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-6xl">
               <RevealWords
@@ -60,15 +60,15 @@ export default function WorkPage() {
         </div>
       </section>
 
-      <section className="px-5 pb-28 md:px-10 mt-16">
-        <div className="mx-auto max-w-[1600px]">
+      <section className="px-[5vw] pb-[10vh] md:px-[8vw] mt-16">
+        <div className="mx-auto max-w-[1920px]">
           <AsymmetricalProjectList items={projects} />
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="px-5 py-28 md:px-10 md:py-40">
-        <div className="mx-auto max-w-[1600px] text-center flex flex-col items-center justify-center">
+      <section className="px-[5vw] py-[10vh] md:px-[8vw] md:py-20">
+        <div className="mx-auto max-w-[1920px] text-center flex flex-col items-center justify-center">
           <Reveal>
             <p className="font-mono text-sm uppercase tracking-widest text-foreground mb-6">
               Have a project in mind?

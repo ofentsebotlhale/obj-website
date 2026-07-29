@@ -72,8 +72,8 @@ export default async function BlogPostPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <article className="pt-32 pb-24 md:pt-40 md:pb-32">
-        <div className="mx-auto max-w-[1200px] px-5 sm:px-10">
+      <article className="pt-[10vh] pb-12 md:pt-20 md:pb-[10vh]">
+        <div className="mx-auto max-w-[1200px] px-[5vw] sm:px-[10vw]">
           
           {/* Back button link */}
           <Link
@@ -142,13 +142,13 @@ export default async function BlogPostPage({ params }: PageProps) {
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Link
                       href="/services/web-design"
-                      className="inline-flex h-10 items-center justify-center rounded-full border border-foreground/30 px-5 font-sans text-xs font-medium uppercase tracking-widest text-foreground transition-all hover:bg-muted"
+                      className="inline-flex h-10 items-center justify-center rounded-full border border-foreground/30 px-4 font-sans text-xs font-medium uppercase tracking-widest text-foreground transition-all hover:bg-muted"
                     >
                       Web Design Services
                     </Link>
                     <Link
                       href="/services/web-development"
-                      className="inline-flex h-10 items-center justify-center rounded-full bg-foreground px-5 font-sans text-xs font-medium uppercase tracking-widest text-background transition-all hover:scale-105 active:scale-95"
+                      className="inline-flex h-10 items-center justify-center rounded-full bg-foreground px-4 font-sans text-xs font-medium uppercase tracking-widest text-background transition-all hover:scale-105 active:scale-95"
                     >
                       Web Development Services
                     </Link>

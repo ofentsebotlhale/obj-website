@@ -19,8 +19,8 @@ export function PageHeader({
   useEffect(() => setMounted(true), [])
 
   return (
-    <header className="relative z-10 px-4 pb-12 pt-36 md:px-6 md:pb-16 md:pt-44">
-      <div className="mx-auto max-w-[1600px]">
+    <header className="relative z-10 px-4 pb-12 pt-20 md:px-6 md:pb-16 md:pt-12">
+      <div className="mx-auto max-w-[1920px]">
         <h1 className="mt-6 overflow-hidden font-heading text-[16vw] font-bold leading-[0.85] tracking-tighter text-foreground md:text-[12vw]">
           <motion.span
             className="block"

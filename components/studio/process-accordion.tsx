@@ -50,7 +50,7 @@ function Card({ step, i }: { step: any; i: number }) {
   return (
     <motion.div
       ref={ref}
-      className="sticky z-10 w-full overflow-hidden rounded-[2rem] border border-border bg-background p-8 shadow-sm md:p-16 mb-16 md:mb-32"
+      className="sticky z-10 w-full overflow-hidden rounded-[2rem] border border-border bg-background p-8 md:p-16 mb-16 md:mb-32"
       style={{
         top: `calc(6rem + ${i * 1.5}rem)`,
         opacity,

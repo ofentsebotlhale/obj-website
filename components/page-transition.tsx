@@ -36,7 +36,7 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
         >
           {/* Solid Black Canvas Overlay */}
           <div className="w-full h-[100vh] bg-[#0D0D0D] flex-shrink-0 flex items-center justify-center">
-            <span className="font-mono text-[10px] md:text-xs uppercase tracking-[0.3em] text-neutral-400 font-medium">
+            <span className="font-mono text-[10px] md:text-xs uppercase tracking-[0.3em] text-muted-foreground font-medium">
               OBX STUDIO
             </span>
           </div>

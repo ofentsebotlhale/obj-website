@@ -84,7 +84,7 @@ export function CookieBanner() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 20, opacity: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed bottom-0 left-0 right-0 z-50 border-t border-border bg-background p-6 md:bottom-8 md:left-8 md:right-auto md:max-w-[380px] md:border md:shadow-none"
+          className="fixed bottom-0 left-0 right-0 z-50 border-t border-border bg-background p-6 md:bottom-8 md:left-8 md:right-auto md:max-w-[380px] md:border"
         >
           <div className="flex flex-col gap-6 md:gap-8">
             {/* Context Information */}
@@ -175,7 +175,7 @@ export function CookieBanner() {
                   <button
                     id="cookie-btn-accept"
                     onClick={handleAcceptAll}
-                    className="bg-foreground text-background w-full px-6 py-3 min-h-[44px] font-mono text-xs font-medium uppercase tracking-widest hover:opacity-90 transition-opacity duration-300"
+                    className="bg-background text-foreground w-full px-6 py-3 min-h-[44px] font-mono text-xs font-medium uppercase tracking-widest hover:opacity-90 transition-opacity duration-300"
                   >
                     Accept All
                   </button>
@@ -202,7 +202,7 @@ export function CookieBanner() {
                   <button
                     id="cookie-btn-save"
                     onClick={handleSavePreferences}
-                    className="bg-foreground text-background w-full px-6 py-3 min-h-[44px] font-mono text-xs font-medium uppercase tracking-widest hover:opacity-90 transition-opacity duration-300"
+                    className="bg-background text-foreground w-full px-6 py-3 min-h-[44px] font-mono text-xs font-medium uppercase tracking-widest hover:opacity-90 transition-opacity duration-300"
                   >
                     Save &amp; Apply
                   </button>
