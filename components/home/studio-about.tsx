@@ -6,7 +6,7 @@ import { Reveal } from '@/components/anim/reveal'
 export function StudioAbout() {
   return (
     <section className="px-[5vw] py-[15vh] md:py-[20vh] bg-foreground text-background border-t border-border/10">
-      <div className="mx-auto max-w-[1920px] grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-10">
+      <div className="mx-auto max-w-[1920px] grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-24 lg:gap-32">
         {/* Left Column: Label */}
         <div className="md:col-span-4">
           <Reveal className="sticky top-32">
@@ -22,7 +22,7 @@ export function StudioAbout() {
         </div>
 
         {/* Right Column: Content */}
-        <div className="md:col-span-8 max-w-4xl space-y-10 md:space-y-14">
+        <div className="md:col-span-8 max-w-4xl space-y-16 md:space-y-24">
           <Reveal>
             <p className="font-sans text-2xl md:text-4xl font-medium leading-snug text-background text-pretty">
               We build websites, brand identities, and digital experiences for businesses that want to be taken seriously online.

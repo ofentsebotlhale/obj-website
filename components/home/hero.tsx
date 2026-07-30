@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { usePreloader } from '@/components/layout-wrapper'
 import Link from 'next/link'
+import { Linkedin, Instagram } from 'lucide-react'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -10,7 +11,7 @@ export function Hero() {
   const { loading } = usePreloader()
 
   return (
-    <section className="relative flex h-[100svh] max-h-[100svh] w-full flex-col justify-between overflow-hidden bg-background px-[5vw] py-[3vh] md:px-[8vw] md:py-[5vh] text-foreground font-sans selection:bg-foreground selection:text-background">
+    <section className="relative flex h-[100svh] max-h-[100svh] w-full flex-col justify-between overflow-hidden bg-background px-2 py-2 md:px-4 md:py-4 text-foreground font-sans selection:bg-foreground selection:text-background">
       {/* Top spacer for nav */}
       <div className="h-12 sm:h-14 md:h-16 w-full flex-shrink-0" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }} aria-hidden="true" />
 
@@ -25,14 +26,14 @@ export function Hero() {
             transition={{ duration: 1.0, ease: EASE, delay: 0.1 }}
             className="w-full"
           >
-            <svg viewBox="0 0 1000 150" className="w-full h-auto block overflow-visible select-none" preserveAspectRatio="xMidYMid meet">
+            <svg viewBox="0 0 800 160" className="w-full h-auto block overflow-visible select-none" preserveAspectRatio="xMidYMid meet">
               <text
                 x="50%"
                 y="50%"
-                dominantBaseline="middle"
+                dominantBaseline="central"
                 textAnchor="middle"
-                className="font-heading font-medium fill-foreground"
-                style={{ fontSize: '136px', letterSpacing: '-0.01em' }}
+                className="font-heading font-bold fill-foreground"
+                style={{ fontSize: '136px', letterSpacing: '-0.03em' }}
               >
                 OBX STUDIO
               </text>
@@ -69,19 +70,19 @@ export function Hero() {
             href="https://www.linkedin.com/company/obxstudio/"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-[9.6px] font-bold uppercase hover:opacity-70 transition-opacity"
-            style={{ letterSpacing: '0.288px' }}
+            className="text-foreground hover:opacity-70 transition-opacity"
+            aria-label="LinkedIn"
           >
-            LINKEDIN
+            <Linkedin className="w-4 h-4" />
           </a>
           <a
             href="https://www.instagram.com/obxstudio_/"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-[9.6px] font-bold uppercase hover:opacity-70 transition-opacity"
-            style={{ letterSpacing: '0.288px' }}
+            className="text-foreground hover:opacity-70 transition-opacity"
+            aria-label="Instagram"
           >
-            INSTAGRAM
+            <Instagram className="w-4 h-4" />
           </a>
         </motion.div>
       </div>

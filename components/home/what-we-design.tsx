@@ -19,7 +19,7 @@ export function WhatWeDesign() {
 
   return (
     <section className="px-[5vw] py-[15vh] md:py-[20vh] bg-background text-foreground border-t border-border/10">
-      <div className="mx-auto max-w-[1920px] grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-10">
+      <div className="mx-auto max-w-[1920px] grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-24 lg:gap-32">
         {/* Left Column Label */}
         <div className="md:col-span-4">
           <Reveal className="sticky top-32">
@@ -31,7 +31,7 @@ export function WhatWeDesign() {
 
         {/* Right Column List */}
         <div className="md:col-span-8 perspective-[1000px]">
-          <ul className="space-y-8 md:space-y-12">
+          <ul className="space-y-12 md:space-y-20 lg:space-y-24">
             {ITEMS.map((item, i) => {
               const isHovered = hoveredIndex === i
               const isOthersHovered = hoveredIndex !== null && hoveredIndex !== i

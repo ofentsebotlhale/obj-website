@@ -18,7 +18,7 @@ interface CardConfig {
 }
 
 const cardConfigs: CardConfig[] = [
-  { sizeClass: 'w-full max-w-[638px]', parallaxSpeed: 30, alignmentClass: 'md:ml-0 md:mr-auto' },
+  { sizeClass: 'w-full max-w-[766px]', parallaxSpeed: 30, alignmentClass: 'md:ml-0 md:mr-auto' },
   { sizeClass: 'w-full max-w-[462px]', parallaxSpeed: 65, alignmentClass: 'md:ml-auto md:mr-0 md:mt-24' },
   { sizeClass: 'w-full max-w-[352px]', parallaxSpeed: 100, alignmentClass: 'md:mx-auto md:-mt-12' },
   { sizeClass: 'w-full max-w-[572px]', parallaxSpeed: 40, alignmentClass: 'md:ml-0 md:mr-auto md:mt-16' },
@@ -102,9 +102,9 @@ function ProjectParallaxCard({ project, index }: { project: Project; index: numb
             <motion.div 
               initial={{ clipPath: "inset(100% 0 0 0)" }}
               whileInView={{ clipPath: "inset(0% 0 0 0)" }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-              className="relative w-full aspect-square overflow-hidden border border-background/15 bg-background rounded-none transition-all duration-500 group-hover:border-background/50"
+              viewport={{ once: true }}
+              transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+              className="relative w-full aspect-square overflow-hidden bg-background rounded-none transition-all duration-500"
             >
               <ParallaxImage
                 src={project.image || '/placeholder.svg'}
@@ -128,7 +128,7 @@ export function HomepageWorksParallax({ items }: WorksParallaxProps) {
     <section className="bg-foreground text-background py-[15vh] md:py-[20vh] px-[5vw] md:px-[8vw] w-full overflow-hidden">
       <div className="max-w-[1920px] mx-auto">
         {/* Section Header */}
-        <div className="mb-16 md:mb-24">
+        <div className="mb-24 md:mb-32 lg:mb-40">
           <Reveal>
             <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-background uppercase">
               WORKS
@@ -137,14 +137,14 @@ export function HomepageWorksParallax({ items }: WorksParallaxProps) {
         </div>
 
         {/* Asymmetrical Grid with Square Image Containers of Different Sizes & Container Parallax */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-24 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-32 lg:gap-48 items-start">
           {items.map((project, index) => (
             <ProjectParallaxCard key={project.slug} project={project} index={index} />
           ))}
         </div>
 
         {/* Bottom View All Link */}
-        <div className="mt-20 md:mt-32 flex justify-center md:justify-end">
+        <div className="mt-32 md:mt-48 lg:mt-64 flex justify-center md:justify-end">
           <Reveal>
             <Link
               href="/work"

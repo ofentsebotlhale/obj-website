@@ -31,7 +31,7 @@ export function BeliefStatement() {
         style={{ scale, y, willChange: 'transform' }}
         className="px-[5vw] py-[15vh] md:py-[20vh] bg-background text-foreground origin-bottom"
       >
-        <div className="mx-auto max-w-5xl text-center space-y-12 md:space-y-16">
+        <div className="mx-auto max-w-5xl text-center space-y-16 md:space-y-24 lg:space-y-32">
           <ScrollRevealText
             text="Most studios sell you a website."
             className="font-heading text-4xl font-medium leading-[1.15] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl text-foreground text-pretty"

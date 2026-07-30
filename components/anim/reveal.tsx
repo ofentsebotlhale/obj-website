@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState, type ReactNode } from 'react'
+import { type ReactNode } from 'react'
 import { motion } from 'framer-motion'
 
 export function Reveal({
@@ -14,15 +14,10 @@ export function Reveal({
   y?: number
   className?: string
 }) {
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => setMounted(true), [])
-
   return (
     <motion.div
-      initial={false}
-      animate={mounted ? { opacity: 0, y } : { opacity: 1, y: 0 }}
-      whileInView={mounted ? { opacity: 1, y: 0 } : undefined}
+      initial={{ opacity: 0, y }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
       transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
       className={className}
@@ -43,10 +38,6 @@ export function RevealWords({
   delay?: number
   stagger?: number
 }) {
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => setMounted(true), [])
-
   const words = text.split(' ')
 
   const container = {
@@ -73,9 +64,8 @@ export function RevealWords({
     <motion.span
       style={{ display: 'inline-flex', flexWrap: 'wrap', columnGap: '0.25em', rowGap: '0px' }}
       variants={container}
-      initial={false}
-      animate={mounted ? "hidden" : "visible"}
-      whileInView={mounted ? "visible" : undefined}
+      initial="hidden"
+      whileInView="visible"
       viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
       className={className}
     >

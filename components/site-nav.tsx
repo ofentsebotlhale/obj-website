@@ -112,7 +112,7 @@ export function SiteNav() {
       >
         <nav
           className={cn(
-            "flex items-center justify-between px-[5vw] transition-all duration-300 md:px-[8vw]",
+            "flex items-center justify-between px-2 transition-all duration-300 md:px-4",
             scrolled && !open ? "pb-3 pt-3 md:pb-4 md:pt-4" : "pb-5 pt-5 md:pb-7 md:pt-7"
           )}
           style={{
@@ -128,7 +128,7 @@ export function SiteNav() {
             aria-label="OBX Studio home"
           >
             <Image
-              src="/logo.png"
+              src="/logo.svg"
               alt="OBX Studio"
               width={160}
               height={160}
@@ -168,7 +168,7 @@ export function SiteNav() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-40 h-[100svh] max-h-[100svh] w-full bg-background px-[5vw] md:px-[8vw] lg:px-[10vw] overflow-y-auto flex flex-col justify-between pt-[calc(env(safe-area-inset-top,0px)+4.5rem)] pb-[calc(env(safe-area-inset-bottom,0px)+1.5rem)] select-none"
+            className="fixed inset-0 z-40 h-[100svh] max-h-[100svh] w-full bg-background px-2 md:px-4 overflow-y-auto flex flex-col justify-between pt-[calc(env(safe-area-inset-top,0px)+4.5rem)] pb-[calc(env(safe-area-inset-bottom,0px)+1.5rem)] select-none"
           >
             <div className="w-full max-w-[1500px] mx-auto h-full flex flex-col justify-between my-auto">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center w-full my-auto flex-1 min-h-0">

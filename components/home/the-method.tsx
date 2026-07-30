@@ -71,14 +71,14 @@ export function TheMethod() {
           animate={mounted ? "hidden" : "visible"}
           whileInView={mounted ? "visible" : undefined}
           viewport={{ once: true, margin: "-10%" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 lg:gap-16 perspective-[1000px]"
+          className="grid grid-cols-1 md:grid-cols-3 gap-20 md:gap-16 lg:gap-32 perspective-[1000px]"
         >
           {STEPS.map((step, i) => (
-            <motion.div key={i} variants={columnVariants} className={`flex flex-col space-y-6 ${i % 2 !== 0 ? 'md:mt-16 lg:mt-24' : ''}`}>
+            <motion.div key={i} variants={columnVariants} className={`flex flex-col space-y-10 lg:space-y-14 ${i % 2 !== 0 ? 'md:mt-16 lg:mt-24' : ''}`}>
               <motion.span variants={numberVariants} className="font-mono text-4xl md:text-5xl text-foreground/10 origin-left inline-block">
                 {step.num}
               </motion.span>
-              <div className="space-y-3">
+              <div className="space-y-6 lg:space-y-8">
                 <h3 className="font-mono text-xs md:text-sm uppercase tracking-widest text-foreground font-semibold">
                   {step.title}
                 </h3>

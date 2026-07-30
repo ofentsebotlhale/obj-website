@@ -92,8 +92,8 @@ export function SiteFooter() {
   const y = useTransform(scrollYProgress, [0, 1], [40, 0])
 
   return (
-    <footer className="relative flex min-h-[100svh] flex-col justify-between overflow-hidden bg-background text-foreground pt-[15vh] md:pt-[20vh]">
-      <div className="mx-auto w-full max-w-[1920px] flex-grow flex flex-col justify-between px-[5vw] md:px-[8vw] lg:px-8">
+    <footer className="relative flex min-h-[100svh] flex-col justify-between overflow-hidden bg-background text-foreground pt-10 md:pt-16">
+      <div className="mx-auto w-full max-w-[1920px] flex-grow flex flex-col justify-between px-2 md:px-4 lg:px-6">
         
         {/* Main Content Area */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-start">
@@ -107,11 +107,11 @@ export function SiteFooter() {
             >
               <div className="overflow-hidden w-full">
                 <div className="w-full">
-                  <svg viewBox="0 0 600 135" className="w-full h-auto block overflow-visible select-none">
+                  <svg viewBox="0 0 700 135" className="w-full h-auto block overflow-visible select-none">
                     <text
                       x="0"
                       y="116"
-                      className="font-heading font-extrabold fill-background uppercase"
+                      className="font-heading font-extrabold fill-foreground uppercase"
                       style={{ fontSize: '136px', letterSpacing: '-0.04em' }}
                     >
                       OBX
@@ -121,11 +121,11 @@ export function SiteFooter() {
               </div>
               <div className="overflow-hidden w-full">
                 <div className="w-full">
-                  <svg viewBox="0 0 600 135" className="w-full h-auto block overflow-visible select-none">
+                  <svg viewBox="0 0 700 135" className="w-full h-auto block overflow-visible select-none">
                     <text
                       x="0"
                       y="116"
-                      className="font-heading font-extrabold fill-background uppercase"
+                      className="font-heading font-extrabold fill-foreground uppercase"
                       style={{ fontSize: '136px', letterSpacing: '-0.04em' }}
                     >
                       STUDIO
@@ -178,7 +178,7 @@ export function SiteFooter() {
                     rel="noopener noreferrer"
                     className="font-sans text-xl md:text-2xl font-medium text-foreground hover:text-foreground/60 transition-colors inline-flex lg:justify-end items-center gap-3 group"
                   >
-                    <span className="group-hover:-translate-x-1 transition-transform">↗</span>
+                    <s.icon className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
                     {s.label}
                   </a>
                 ))}
@@ -189,7 +189,7 @@ export function SiteFooter() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 py-8 font-mono text-[10px] uppercase tracking-widest text-foreground/60 mt-24">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 py-4 md:py-6 font-mono text-[10px] uppercase tracking-widest text-foreground/60 mt-12">
           <div className="flex gap-4">
             <span>© {year} OBX Studio</span>
           </div>

@@ -7,37 +7,33 @@ interface PreloaderProps {
   onComplete: () => void
 }
 
+const PRELOADER_IMAGES = [
+  '/work/obx-fash-1.avif',
+  '/work/ob-law-1.avif',
+  '/work/obx-fash-2.avif',
+]
+
 export function Preloader({ onComplete }: PreloaderProps) {
-  const [count, setCount] = useState(0)
+  const [imgIndex, setImgIndex] = useState(0)
   const [exiting, setExiting] = useState(false)
 
   useEffect(() => {
-    // Rapid kinetic counter from 0 to 100 in ~1 second
-    const startTime = performance.now()
-    const duration = 950 // ms
+    const duration = 1800 // ms
+    
+    const interval = setInterval(() => {
+      setImgIndex(i => (i + 1) % PRELOADER_IMAGES.length)
+    }, 120)
 
-    const animateCount = (now: number) => {
-      const elapsed = now - startTime
-      const progress = Math.min(elapsed / duration, 1)
-      const easedProgress = 1 - Math.pow(1 - progress, 3)
-      const currentCount = Math.floor(easedProgress * 100)
+    const timer = setTimeout(() => {
+      clearInterval(interval)
+      setExiting(true)
+      onComplete()
+    }, duration)
 
-      setCount(currentCount)
-
-      if (progress < 1) {
-        requestAnimationFrame(animateCount)
-      } else {
-        setCount(100)
-        // Begin curtain exit motion
-        setTimeout(() => {
-          setExiting(true)
-          onComplete()
-        }, 120)
-      }
+    return () => {
+      clearInterval(interval)
+      clearTimeout(timer)
     }
-
-    const frameId = requestAnimationFrame(animateCount)
-    return () => cancelAnimationFrame(frameId)
   }, [onComplete])
 
   return (
@@ -53,16 +49,48 @@ export function Preloader({ onComplete }: PreloaderProps) {
           }}
           className="fixed inset-0 z-[9999] flex items-center justify-center bg-background text-foreground select-none overflow-hidden"
         >
-          {/* Clean Large Kinetic Counter ONLY - No extra addon text */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, y: -40 }}
             transition={{ duration: 0.2 }}
-            className="flex items-center justify-center font-mono font-bold text-7xl sm:text-8xl md:text-9xl lg:text-[11rem] tracking-tighter text-foreground tabular-nums"
+            className="w-full flex items-center justify-center px-4 md:px-6"
           >
-            {String(count).padStart(2, '0')}
-            <span className="text-muted-foreground text-4xl sm:text-5xl md:text-6xl font-light ml-1">%</span>
+            <svg viewBox="0 0 800 160" className="w-full h-auto block overflow-visible select-none" preserveAspectRatio="xMidYMid meet">
+              <defs>
+                <clipPath id="preloader-text-clip">
+                  <text
+                    x="50%"
+                    y="50%"
+                    dominantBaseline="central"
+                    textAnchor="middle"
+                    className="font-heading font-bold"
+                    style={{ fontSize: '136px', letterSpacing: '-0.03em' }}
+                  >
+                    OBX STUDIO
+                  </text>
+                </clipPath>
+              </defs>
+              <text
+                x="50%"
+                y="50%"
+                dominantBaseline="central"
+                textAnchor="middle"
+                className="font-heading font-bold fill-foreground/10"
+                style={{ fontSize: '136px', letterSpacing: '-0.03em' }}
+              >
+                OBX STUDIO
+              </text>
+              <image
+                href={PRELOADER_IMAGES[imgIndex]}
+                x="0"
+                y="0"
+                width="100%"
+                height="100%"
+                preserveAspectRatio="xMidYMid slice"
+                clipPath="url(#preloader-text-clip)"
+              />
+            </svg>
           </motion.div>
         </motion.div>
       )}
