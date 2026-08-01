@@ -125,7 +125,7 @@ function ProjectParallaxCard({ project, index }: { project: Project; index: numb
 
 export function HomepageWorksParallax({ items }: WorksParallaxProps) {
   return (
-    <section className="bg-foreground text-background py-[15vh] md:py-[20vh] px-[5vw] md:px-[8vw] w-full overflow-hidden">
+    <section className="bg-foreground text-background py-[160px] md:py-[200px] px-[5vw] md:px-[8vw] w-full overflow-hidden">
       <div className="max-w-[1920px] mx-auto">
         {/* Section Header */}
         <div className="mb-24 md:mb-32 lg:mb-40">

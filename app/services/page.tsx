@@ -54,7 +54,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="border-t border-border px-[5vw] py-12 md:px-[8vw] md:py-[10vh]">
+      <section className="border-t border-border px-[5vw] py-12 md:px-[8vw] md:py-[160px]">
         <div className="mx-auto max-w-[1920px]">
           <div className="mb-24">
             <Reveal delay={0.1}>
@@ -78,7 +78,7 @@ export default function ServicesPage() {
       <FAQ />
 
       {/* CTA Section */}
-      <section className="px-[5vw] py-[10vh] md:px-[8vw] md:py-20 bg-card/20 border-t border-border">
+      <section className="px-[5vw] py-[160px] md:px-[8vw] md:py-20 bg-card/20 border-t border-border">
         <div className="mx-auto max-w-[1920px] text-center flex flex-col items-center justify-center">
           <Reveal>
             <p className="font-mono text-sm uppercase tracking-widest text-foreground mb-6">

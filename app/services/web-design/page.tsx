@@ -55,7 +55,7 @@ export default function WebDesignPage() {
         </div>
       </section>
 
-      <section className="border-t border-border px-[5vw] py-12 md:px-[8vw] md:py-[10vh]">
+      <section className="border-t border-border px-[5vw] py-12 md:px-[8vw] md:py-[160px]">
         <div className="mx-auto max-w-[1920px]">
           <Reveal>
             <p className="font-heading text-2xl font-light leading-relaxed tracking-tight text-foreground sm:text-3xl max-w-4xl mb-24">
@@ -138,7 +138,7 @@ export default function WebDesignPage() {
           </Reveal>
 
           <Reveal delay={0.4}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20 border-y border-border py-[10vh]">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20 border-y border-border py-[160px]">
               <div>
                 <h2 className="font-heading text-2xl font-semibold tracking-tight text-foreground mb-8">
                   What You Get
@@ -209,7 +209,7 @@ export default function WebDesignPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="px-[5vw] py-[10vh] md:px-[8vw] md:py-20 bg-card/20 border-t border-border">
+      <section className="px-[5vw] py-[160px] md:px-[8vw] md:py-20 bg-card/20 border-t border-border">
         <div className="mx-auto max-w-[1920px] text-center flex flex-col items-center justify-center">
           <Reveal>
             <p className="font-mono text-sm uppercase tracking-widest text-foreground mb-6">

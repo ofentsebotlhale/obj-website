@@ -14,7 +14,7 @@ export function Intro() {
   return (
     <section 
       ref={sectionRef}
-      className="flex min-h-[100svh] flex-col justify-center px-[5vw] py-[15vh] md:py-[20vh] bg-foreground text-background"
+      className="flex min-h-[100svh] flex-col justify-center px-[5vw] py-[160px] md:py-[200px] bg-foreground text-background"
     >
       <div className="mx-auto w-full max-w-[1920px]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 lg:gap-48 items-start">

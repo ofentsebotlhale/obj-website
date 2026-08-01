@@ -131,8 +131,8 @@ export function SiteNav() {
               src="/logo.svg"
               alt="OBX Studio"
               width={160}
-              height={160}
-              className="h-10 sm:h-12 md:h-14 w-auto object-contain transition-all duration-300"
+              height={40}
+              className="h-8 sm:h-10 md:h-12 w-auto object-contain transition-all duration-300"
               priority
               referrerPolicy="no-referrer"
             />

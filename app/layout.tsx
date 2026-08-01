@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, IBM_Plex_Mono } from 'next/font/google'
+import { IBM_Plex_Mono, Bebas_Neue } from 'next/font/google'
 import './globals.css'
 import { CustomCursor } from '@/components/custom-cursor'
 import { SiteNav } from '@/components/site-nav'
@@ -10,16 +10,17 @@ import { LayoutWrapper } from '@/components/layout-wrapper'
 import { AnalyticsLoader } from '@/components/analytics-loader'
 import { SmoothScroll } from '@/components/smooth-scroll'
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-})
-
 const mono = IBM_Plex_Mono({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-mono',
+  display: 'swap',
+})
+
+const bebas = Bebas_Neue({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-bebas',
   display: 'swap',
 })
 
@@ -63,9 +64,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${mono.variable} light bg-background`}
+      className={`${mono.variable} ${bebas.variable} light bg-background overflow-x-hidden w-full`}
     >
-      <body className="font-sans antialiased noise-overlay custom-cursor-active">
+      <body className="font-sans antialiased noise-overlay custom-cursor-active overflow-x-hidden w-full relative">
         <AnalyticsLoader />
         <FirebaseAnalytics />
         <a 

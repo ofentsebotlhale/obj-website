@@ -18,7 +18,7 @@ export function WhatWeDesign() {
   useEffect(() => setMounted(true), [])
 
   return (
-    <section className="px-[5vw] py-[15vh] md:py-[20vh] bg-background text-foreground border-t border-border/10">
+    <section className="px-[5vw] py-[160px] md:py-[200px] bg-background text-foreground border-t border-border/10">
       <div className="mx-auto max-w-[1920px] grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-24 lg:gap-32">
         {/* Left Column Label */}
         <div className="md:col-span-4">

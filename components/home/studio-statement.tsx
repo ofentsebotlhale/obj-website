@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export function StudioStatement() {
   return (
-    <section className="flex min-h-[90svh] flex-col justify-center bg-foreground px-[5vw] py-[15vh] md:py-[20vh] text-background">
+    <section className="flex min-h-[90svh] flex-col justify-center bg-foreground px-[5vw] py-[160px] md:py-[200px] text-background">
       <div className="mx-auto flex w-full max-w-5xl flex-col items-center text-center space-y-16 md:space-y-24 lg:space-y-32">
         <Reveal className="max-w-4xl">
           <h2 className="font-heading text-2xl font-bold leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-pretty">
