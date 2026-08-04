@@ -1,38 +1,72 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { usePreloader } from '@/components/layout-wrapper'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Linkedin, Instagram } from 'lucide-react'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
 export function Hero() {
   const { loading } = usePreloader()
+  const { scrollY } = useScroll()
+  
+  // Transform values for scroll animation
+  const opacity = useTransform(scrollY, [0, 150], [1, 0])
+  const y = useTransform(scrollY, [0, 200], ['-50%', '-150%'])
+  const scale = useTransform(scrollY, [0, 200], [1, 0.5])
 
   return (
-    <section className="relative flex h-[100svh] max-h-[100svh] w-full flex-col justify-between overflow-hidden bg-background px-4 py-4 md:px-8 md:py-6 text-foreground font-sans selection:bg-foreground selection:text-background">
-      {/* Top spacer for nav */}
-      <div className="h-16 md:h-20 w-full flex-shrink-0" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }} aria-hidden="true" />
+    <section className="relative flex h-[100svh] max-h-[100svh] w-full flex-col justify-between overflow-hidden bg-background px-4 pb-4 pt-[calc(env(safe-area-inset-top,0px)+1.25rem)] md:px-8 md:pb-6 md:pt-[calc(env(safe-area-inset-top,0px)+1.75rem)] text-foreground font-sans selection:bg-foreground selection:text-background">
+      
+      {/* Center Animated Logo */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8, filter: 'blur(10px)', y: '-50%', x: '-50%' }}
+        animate={!loading ? { opacity: 1, scale: 1, filter: 'blur(0px)' } : { opacity: 0, scale: 0.8, filter: 'blur(10px)' }}
+        transition={{ duration: 1.2, delay: 0.3, ease: EASE }}
+        style={{ opacity, y, scale, x: '-50%' }}
+        className="absolute top-[45%] md:top-1/2 left-1/2 z-0 pointer-events-none w-[60vw] max-w-[400px] mix-blend-multiply"
+      >
+        <Image
+          src="/logo.png"
+          alt="OBX Studio"
+          width={400}
+          height={100}
+          className="w-full h-auto object-contain"
+          priority
+          referrerPolicy="no-referrer"
+        />
+      </motion.div>
 
       {/* Top Left Stack */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={!loading ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-        transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
-        className="w-full flex flex-col justify-start items-start relative z-10 max-w-4xl"
-      >
-        <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black font-black tracking-tight leading-[1.05] uppercase text-balance">
-          BUILDING DIGITAL EXPERIENCES THAT MOVE THE NEEDLE.
+      <div className="w-full flex flex-col justify-start items-start relative z-10 max-w-4xl">
+        <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black font-black tracking-tight leading-[1.05] uppercase text-balance break-words overflow-hidden">
+          <motion.span
+            initial={{ y: '100%' }}
+            animate={!loading ? { y: '0%' } : { y: '100%' }}
+            transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
+            className="block"
+          >
+            BUILDING DIGITAL EXPERIENCES THAT MOVE THE NEEDLE.
+          </motion.span>
         </h2>
-        <p className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-black mt-4 font-bold">
-          Creative Web Design
-        </p>
+        
+        <motion.div className="overflow-hidden mt-4">
+          <motion.p
+            initial={{ y: '100%' }}
+            animate={!loading ? { y: '0%' } : { y: '100%' }}
+            transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
+            className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-black font-bold"
+          >
+            Creative Web Design
+          </motion.p>
+        </motion.div>
         
         {/* Primary CTA Button */}
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={!loading ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={!loading ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, delay: 0.4, ease: EASE }}
           className="mt-[28.8px]"
         >
@@ -40,7 +74,7 @@ export function Hero() {
             SCHEDULE A CALL &rarr;
           </Link>
         </motion.div>
-      </motion.div>
+      </div>
 
       {/* Social Links */}
       <motion.div
@@ -80,11 +114,9 @@ export function Hero() {
             transition={{ duration: 1.0, ease: EASE, delay: 0.1 }}
             className="w-full text-center flex flex-col items-center"
           >
-            <svg viewBox="0 0 1000 135" className="w-full h-auto block overflow-visible select-none" preserveAspectRatio="xMidYMid meet">
-              <text x="50%" y="50%" dominantBaseline="central" textAnchor="middle" className="font-sans font-black fill-black" style={{ fontSize: '155px', letterSpacing: '-0.04em' }}>
-                OBX STUDIO
-              </text>
-            </svg>
+            <h1 className="font-sans font-black text-[13vw] sm:text-[14vw] md:text-[14.5vw] lg:text-[15vw] leading-[0.75] tracking-tighter uppercase whitespace-nowrap">
+              OBX STUDIO
+            </h1>
           </motion.div>
         </div>
         

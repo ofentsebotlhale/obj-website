@@ -40,9 +40,9 @@ export default function StudioLayout({
           "url": "https://obxstudio.co.za",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://obxstudio.co.za/logo.svg"
+            "url": "https://obxstudio.co.za/logo.png"
           },
-          "image": "https://obxstudio.co.za/logo.svg"
+          "image": "https://obxstudio.co.za/logo.png"
         }
       }
     ]

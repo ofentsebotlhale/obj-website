@@ -32,9 +32,9 @@ export default function ServicesPage() {
               url: "https://obxstudio.co.za",
               logo: {
                 "@type": "ImageObject",
-                url: "https://obxstudio.co.za/logo.svg"
+                url: "https://obxstudio.co.za/logo.png"
               },
-              image: "https://obxstudio.co.za/logo.svg"
+              image: "https://obxstudio.co.za/logo.png"
             },
             description: "OBX Studio provides end-to-end digital design and web development services focused on creating modern, high-performing websites for businesses.",
           }),
@@ -54,7 +54,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="border-t border-border px-[5vw] py-12 md:px-[8vw] md:py-[160px]">
+      <section className="border-t border-border px-[5vw] py-12 md:px-[8vw] md:py-32">
         <div className="mx-auto max-w-[1920px]">
           <div className="mb-24">
             <Reveal delay={0.1}>
@@ -78,7 +78,7 @@ export default function ServicesPage() {
       <FAQ />
 
       {/* CTA Section */}
-      <section className="px-[5vw] py-[160px] md:px-[8vw] md:py-20 bg-card/20 border-t border-border">
+      <section className="px-[5vw] py-32 md:px-[8vw] md:py-20 bg-card/20 border-t border-border">
         <div className="mx-auto max-w-[1920px] text-center flex flex-col items-center justify-center">
           <Reveal>
             <p className="font-mono text-sm uppercase tracking-widest text-foreground mb-6">

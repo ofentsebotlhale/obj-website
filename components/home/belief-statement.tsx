@@ -29,7 +29,7 @@ export function BeliefStatement() {
       <motion.section 
         ref={sectionRef}
         style={{ scale, y, willChange: 'transform' }}
-        className="px-[5vw] py-[160px] md:py-[200px] bg-background text-foreground origin-bottom"
+        className="px-[5vw] py-24 md:py-32 lg:py-48 bg-background text-foreground origin-bottom"
       >
         <div className="mx-auto max-w-5xl text-center space-y-16 md:space-y-24 lg:space-y-32">
           <ScrollRevealText

@@ -31,7 +31,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="border-t border-border px-[5vw] py-20 md:px-[8vw] md:py-[160px]">
+      <section className="border-t border-border px-[5vw] py-20 md:px-[8vw] md:py-32">
         <div className="mx-auto max-w-3xl">
           <Reveal>
             <div className="w-full">

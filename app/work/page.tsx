@@ -67,7 +67,7 @@ export default function WorkPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="px-[5vw] py-[160px] md:px-[8vw] md:py-20">
+      <section className="px-[5vw] py-32 md:px-[8vw] md:py-20">
         <div className="mx-auto max-w-[1920px] text-center flex flex-col items-center justify-center">
           <Reveal>
             <p className="font-mono text-sm uppercase tracking-widest text-foreground mb-6">

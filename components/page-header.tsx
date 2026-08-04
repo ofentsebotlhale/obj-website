@@ -21,7 +21,7 @@ export function PageHeader({
   return (
     <header className="relative z-10 px-4 pb-12 pt-20 md:px-6 md:pb-16 md:pt-12">
       <div className="mx-auto max-w-[1920px]">
-        <h1 className="mt-6 overflow-hidden font-heading text-[16vw] font-bold leading-[0.85] tracking-tighter text-foreground md:text-[12vw]">
+        <h1 className="mt-6 overflow-hidden font-heading text-5xl sm:text-7xl md:text-8xl lg:text-[10vw] font-bold leading-[0.9] tracking-tighter text-foreground break-words text-balance">
           <motion.span
             className="block"
             initial={false}

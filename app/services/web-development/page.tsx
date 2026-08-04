@@ -27,9 +27,9 @@ export default function WebDevelopmentPage() {
               url: "https://obxstudio.co.za",
               logo: {
                 "@type": "ImageObject",
-                url: "https://obxstudio.co.za/logo.svg"
+                url: "https://obxstudio.co.za/logo.png"
               },
-              image: "https://obxstudio.co.za/logo.svg"
+              image: "https://obxstudio.co.za/logo.png"
             },
             description: "OBX Studio develops fast, responsive, and scalable websites built for performance, usability, and long-term growth.",
             serviceType: "Web Development"
@@ -55,7 +55,7 @@ export default function WebDevelopmentPage() {
         </div>
       </section>
 
-      <section className="border-t border-border px-[5vw] py-12 md:px-[8vw] md:py-[160px]">
+      <section className="border-t border-border px-[5vw] py-12 md:px-[8vw] md:py-32">
         <div className="mx-auto max-w-[1920px]">
           <Reveal>
             <p className="font-heading text-2xl font-light leading-relaxed tracking-tight text-foreground sm:text-3xl max-w-4xl mb-24">
@@ -107,7 +107,7 @@ export default function WebDevelopmentPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="px-[5vw] py-[160px] md:px-[8vw] md:py-20 bg-card/20 border-t border-border">
+      <section className="px-[5vw] py-32 md:px-[8vw] md:py-20 bg-card/20 border-t border-border">
         <div className="mx-auto max-w-[1920px] text-center flex flex-col items-center justify-center">
           <Reveal>
             <p className="font-mono text-sm uppercase tracking-widest text-foreground mb-6">

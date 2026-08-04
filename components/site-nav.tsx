@@ -124,15 +124,18 @@ export function SiteNav() {
           <Link
             href="/"
             onClick={() => setOpen(false)}
-            className="font-heading font-bold tracking-tight min-h-[44px] flex items-center justify-center transition-all duration-300 ease-out opacity-100 origin-left"
+            className={cn(
+              "font-heading font-bold tracking-tight min-h-[44px] flex items-center justify-center transition-all duration-500 ease-out origin-left",
+              (pathname === '/' && !scrolled) ? "opacity-0 -translate-y-4 pointer-events-none" : "opacity-100 translate-y-0"
+            )}
             aria-label="OBX Studio home"
           >
             <Image
-              src="/logo.svg"
+              src="/logo.png"
               alt="OBX Studio"
               width={160}
               height={40}
-              className="h-8 sm:h-10 md:h-12 w-auto object-contain transition-all duration-300"
+              className="h-8 sm:h-10 md:h-12 w-auto object-contain transition-all duration-300 brightness-0 invert"
               priority
               referrerPolicy="no-referrer"
             />
