@@ -19,25 +19,6 @@ export function Hero() {
 
   return (
     <section className="relative flex h-[100svh] max-h-[100svh] w-full flex-col justify-between overflow-hidden bg-background px-4 pb-4 pt-[calc(env(safe-area-inset-top,0px)+1.25rem)] md:px-8 md:pb-6 md:pt-[calc(env(safe-area-inset-top,0px)+1.75rem)] text-foreground font-sans selection:bg-foreground selection:text-background">
-      
-      {/* Center Animated Logo */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8, filter: 'blur(10px)', y: '-50%', x: '-50%' }}
-        animate={!loading ? { opacity: 1, scale: 1, filter: 'blur(0px)' } : { opacity: 0, scale: 0.8, filter: 'blur(10px)' }}
-        transition={{ duration: 1.2, delay: 0.3, ease: EASE }}
-        style={{ opacity, y, scale, x: '-50%' }}
-        className="absolute top-[45%] md:top-1/2 left-1/2 z-0 pointer-events-none w-[60vw] max-w-[400px] mix-blend-multiply"
-      >
-        <Image
-          src="/logo.png"
-          alt="OBX Studio"
-          width={400}
-          height={100}
-          className="w-full h-auto object-contain"
-          priority
-          referrerPolicy="no-referrer"
-        />
-      </motion.div>
 
       {/* Top Left Stack */}
       <div className="w-full flex flex-col justify-start items-start relative z-10 max-w-4xl">
