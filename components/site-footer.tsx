@@ -2,7 +2,8 @@
 
 import Link from 'next/link'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, useEffect, useState } from 'react'
+import { cn } from '@/lib/utils'
 
 const SOCIALS = [
   {
@@ -81,67 +82,23 @@ const SOCIALS = [
 
 export function SiteFooter() {
   const year = new Date().getFullYear()
-  const ref = useRef<HTMLDivElement>(null)
-  
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start 95%", "start 60%"]
-  })
-
-  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1])
-  const y = useTransform(scrollYProgress, [0, 1], [40, 0])
 
   return (
-    <footer className="relative flex min-h-[100svh] flex-col justify-between overflow-hidden bg-background text-foreground pt-10 md:pt-16">
-      <div className="mx-auto w-full max-w-[1920px] flex-grow flex flex-col justify-between px-2 md:px-4 lg:px-6">
+    <footer className="relative flex flex-col w-full bg-background text-foreground overflow-hidden">
+      <div className="mx-auto w-full max-w-[1920px] px-4 md:px-6 py-16 md:py-24">
         
         {/* Main Content Area */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-start mb-16 md:mb-24">
           
           {/* Left / Contact & Brand */}
           <div className="lg:col-span-8 flex flex-col items-start space-y-12">
-            <motion.div
-              ref={ref}
-              style={{ opacity, y }}
-              className="w-full flex flex-col items-start justify-center text-foreground select-none -space-y-1 sm:-space-y-2 md:-space-y-3 lg:-space-y-4"
-            >
-              <div className="overflow-hidden w-full">
-                <div className="w-full">
-                  <svg viewBox="0 0 700 135" className="w-full h-auto block overflow-visible select-none">
-                    <text
-                      x="0"
-                      y="116"
-                      className="font-heading font-extrabold fill-foreground uppercase"
-                      style={{ fontSize: '136px', letterSpacing: '-0.04em' }}
-                    >
-                      OBX
-                    </text>
-                  </svg>
-                </div>
-              </div>
-              <div className="overflow-hidden w-full">
-                <div className="w-full">
-                  <svg viewBox="0 0 700 135" className="w-full h-auto block overflow-visible select-none">
-                    <text
-                      x="0"
-                      y="116"
-                      className="font-heading font-extrabold fill-foreground uppercase"
-                      style={{ fontSize: '136px', letterSpacing: '-0.04em' }}
-                    >
-                      STUDIO
-                    </text>
-                  </svg>
-                </div>
-              </div>
-            </motion.div>
-
             <div className="flex gap-4">
                <a 
-                  href="mailto:hello@obxstudio.co.za" 
-                  className="inline-flex items-center justify-center rounded-full bg-foreground px-8 py-4 font-mono text-[13px] uppercase tracking-widest text-background transition-all hover:scale-105"
-                >
-                  Email Us
-                </a>
+                 href="mailto:hello@obxstudio.co.za" 
+                 className="inline-flex items-center justify-center rounded-full bg-foreground px-8 py-4 font-mono text-[13px] uppercase tracking-widest text-background transition-all hover:scale-105"
+              >
+                Email Us
+              </a>
             </div>
           </div>
 
@@ -184,12 +141,11 @@ export function SiteFooter() {
                 ))}
               </div>
             </div>
-
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 py-4 md:py-6 font-mono text-[10px] uppercase tracking-widest text-foreground/60 mt-12">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 py-4 md:py-6 font-mono text-[10px] uppercase tracking-widest text-foreground/60 border-t border-border/10">
           <div className="flex gap-4">
             <span>© {year} OBX Studio</span>
           </div>
@@ -197,6 +153,29 @@ export function SiteFooter() {
             <Link href="/privacy" className="hover:text-foreground transition-colors">Privacy</Link>
             <Link href="/terms" className="hover:text-foreground transition-colors">Terms</Link>
           </div>
+        </div>
+      </div>
+
+      {/* Full Screen Animated Gradient Section with Wordmark */}
+      <div className="relative w-full h-[100svh] flex flex-col items-center justify-center overflow-hidden bg-black">
+        {/* Centered Wordmark */}
+        <div className="relative z-10 w-full px-4 flex flex-col items-center text-center pointer-events-none select-none">
+          <motion.h2 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-20%' }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="font-heading font-extrabold uppercase leading-[0.8] tracking-tighter animate-gradient-bg"
+            style={{ 
+              fontSize: 'clamp(4rem, 18vw, 30rem)',
+              background: 'linear-gradient(-45deg, #7c3aed, #2563eb, #db2777, #7c3aed)',
+              backgroundSize: '400% 400%',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
+          >
+            OBX<br/>STUDIO
+          </motion.h2>
         </div>
       </div>
     </footer>
