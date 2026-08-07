@@ -18,12 +18,12 @@ export function WhatWeDesign() {
   useEffect(() => setMounted(true), [])
 
   return (
-    <section className="px-[5vw] py-24 md:py-32 lg:py-48 bg-background text-foreground border-t border-border/10">
+    <section className="px-[5vw] py-24 md:py-32 lg:py-48 bg-foreground text-background border-t border-border/10">
       <div className="mx-auto max-w-[1920px] grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-24 lg:gap-32">
         {/* Left Column Label */}
         <div className="md:col-span-4">
           <Reveal className="sticky top-32">
-            <h2 className="font-mono text-xs uppercase tracking-widest text-foreground font-normal">
+            <h2 className="font-mono text-xs uppercase tracking-widest text-background font-normal">
               Built through:
             </h2>
           </Reveal>
@@ -54,7 +54,7 @@ export function WhatWeDesign() {
                     onMouseLeave={() => setHoveredIndex(null)}
                   >
                     <motion.p 
-                      className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground"
+                      className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-background"
                       initial={false}
                       animate={{ x: isHovered ? 12 : 0 }}
                       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -62,7 +62,7 @@ export function WhatWeDesign() {
                       {item.text}
                     </motion.p>
                     <motion.span 
-                      className="font-mono text-[10px] md:text-[11px] uppercase tracking-widest text-muted-foreground md:-translate-x-4"
+                      className="font-mono text-[10px] md:text-[11px] uppercase tracking-widest text-background/60 md:-translate-x-4"
                       initial={false}
                       animate={mounted ? { opacity: isHovered ? 1 : 0, x: isHovered ? 0 : -10 } : { opacity: 0, x: -10 }}
                       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}

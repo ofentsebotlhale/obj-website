@@ -23,7 +23,7 @@ export function ClientEndorsement() {
   return (
     <section 
       ref={containerRef}
-      className="px-[5vw] py-24 md:py-32 lg:py-48 bg-foreground text-background border-t border-border/10 overflow-hidden"
+      className="px-[5vw] py-24 md:py-32 lg:py-48 bg-background text-foreground border-t border-border/10 overflow-hidden"
     >
       <motion.div 
         style={{ y: yParallax, willChange: 'transform' }}
@@ -35,7 +35,7 @@ export function ClientEndorsement() {
             animate={mounted ? "hidden" : "visible"}
             whileInView={mounted ? "visible" : undefined}
             viewport={{ once: true, margin: "-10%" }}
-            className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] tracking-tight text-background flex flex-col items-center gap-1 md:gap-2"
+            className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] tracking-tight text-foreground flex flex-col items-center gap-1 md:gap-2"
           >
             {QUOTE_LINES.map((line, i) => (
               <span key={i} className="block overflow-hidden pb-1">
@@ -61,7 +61,7 @@ export function ClientEndorsement() {
             whileInView={mounted ? { opacity: 1 } : undefined}
             viewport={{ once: true, margin: "-10%" }}
             transition={{ duration: 0.8, delay: 0.3 + (QUOTE_LINES.length * 0.15), ease: [0.16, 1, 0.3, 1] }}
-            className="font-mono text-xs md:text-sm uppercase tracking-widest text-background/60"
+            className="font-mono text-xs md:text-sm uppercase tracking-widest text-foreground/60"
           >
             — Founder, Tech & Consulting
           </motion.p>
