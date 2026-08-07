@@ -22,9 +22,9 @@ export function StudioAbout() {
         </div>
 
         {/* Right Column: Content */}
-        <div className="md:col-span-8 max-w-4xl space-y-16 md:space-y-24">
+        <div className="md:col-span-8 space-y-16 md:space-y-24">
           <Reveal>
-            <p className="font-sans text-2xl md:text-4xl font-medium leading-snug text-foreground text-pretty">
+            <p className="font-sans text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium leading-tight text-foreground text-balance">
               We build websites, brand identities, and digital experiences for businesses that want to be taken seriously online.
             </p>
           </Reveal>

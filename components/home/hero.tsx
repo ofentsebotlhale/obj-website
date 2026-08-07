@@ -22,7 +22,7 @@ export function Hero() {
 
       {/* Top Left Stack */}
       <div className="w-full flex flex-col justify-start items-start relative z-10 max-w-4xl">
-        <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black font-black tracking-tight leading-[1.05] uppercase text-balance break-words overflow-hidden">
+        <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black font-black tracking-tight leading-[1.05] uppercase break-normal overflow-hidden">
           <motion.span
             initial={{ y: '100%' }}
             animate={!loading ? { y: '0%' } : { y: '100%' }}

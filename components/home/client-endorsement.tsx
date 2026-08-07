@@ -2,12 +2,7 @@
 
 import { useRef, useState, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-
-const QUOTE_LINES = [
-  "OBX Studio redefined how our brand presents",
-  "itself online. Within weeks of launch, our",
-  "inbound lead quality completely shifted."
-]
+import { Reveal } from '@/components/anim/reveal'
 
 export function ClientEndorsement() {
   const containerRef = useRef<HTMLElement>(null)
@@ -30,41 +25,17 @@ export function ClientEndorsement() {
         className="mx-auto max-w-[1920px]"
       >
         <div className="mx-auto max-w-5xl text-center space-y-12">
-          <motion.blockquote 
-            initial={false}
-            animate={mounted ? "hidden" : "visible"}
-            whileInView={mounted ? "visible" : undefined}
-            viewport={{ once: true, margin: "-10%" }}
-            className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] tracking-tight text-foreground flex flex-col items-center gap-1 md:gap-2"
-          >
-            {QUOTE_LINES.map((line, i) => (
-              <span key={i} className="block overflow-hidden pb-1">
-                <motion.span
-                  custom={i}
-                  variants={{
-                    hidden: { y: "100%" },
-                    visible: (i: number) => ({
-                      y: "0%",
-                      transition: { duration: 0.8, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }
-                    })
-                  }}
-                  className="block text-pretty"
-                >
-                  {line}
-                </motion.span>
-              </span>
-            ))}
-          </motion.blockquote>
-          <motion.p 
-            initial={false}
-            animate={mounted ? { opacity: 0 } : { opacity: 1 }}
-            whileInView={mounted ? { opacity: 1 } : undefined}
-            viewport={{ once: true, margin: "-10%" }}
-            transition={{ duration: 0.8, delay: 0.3 + (QUOTE_LINES.length * 0.15), ease: [0.16, 1, 0.3, 1] }}
-            className="font-mono text-xs md:text-sm uppercase tracking-widest text-foreground/60"
-          >
-            — Founder, Tech & Consulting
-          </motion.p>
+          <Reveal>
+            <blockquote className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-tight tracking-tight text-foreground text-balance">
+              "OBX Studio redefined how our brand presents itself online. Within weeks of launch, our inbound lead quality completely shifted."
+            </blockquote>
+          </Reveal>
+
+          <Reveal delay={0.2}>
+            <p className="font-mono text-xs md:text-sm uppercase tracking-widest text-foreground/60">
+              — Founder, Tech & Consulting
+            </p>
+          </Reveal>
         </div>
       </motion.div>
     </section>
