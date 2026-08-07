@@ -26,7 +26,7 @@ export function ClientEndorsement() {
       >
         <div className="mx-auto max-w-5xl text-center space-y-12">
           <Reveal>
-            <blockquote className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-tight tracking-tight text-foreground text-balance">
+            <blockquote className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.2] tracking-tight text-foreground max-w-4xl mx-auto">
               "OBX Studio redefined how our brand presents itself online. Within weeks of launch, our inbound lead quality completely shifted."
             </blockquote>
           </Reveal>

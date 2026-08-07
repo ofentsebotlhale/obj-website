@@ -24,7 +24,7 @@ export function StudioAbout() {
         {/* Right Column: Content */}
         <div className="md:col-span-8 space-y-16 md:space-y-24">
           <Reveal>
-            <p className="font-sans text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium leading-tight text-foreground text-balance">
+            <p className="font-sans text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium leading-[1.3] text-foreground max-w-3xl">
               We build websites, brand identities, and digital experiences for businesses that want to be taken seriously online.
             </p>
           </Reveal>
