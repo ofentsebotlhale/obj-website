@@ -91,7 +91,7 @@ function SelectField({
               onClick={() => onChange(opt)}
               className={`relative inline-flex items-center justify-center px-4 py-2.5 rounded-full border-2 text-xs sm:text-sm font-sans tracking-wide transition-all duration-200 min-h-[44px] cursor-pointer overflow-hidden ${
                 isSelected
-                  ? 'border-foreground bg-background text-foreground font-bold'
+                  ? 'border-foreground bg-transparent text-background font-bold'
                   : 'border-foreground/30 bg-muted/80 text-foreground font-semibold hover:border-foreground hover:bg-foreground/10'
               }`}
             >
