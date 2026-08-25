@@ -64,9 +64,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${mono.variable} ${bebas.variable} light bg-background overflow-x-hidden w-full`}
+      className={`${mono.variable} ${bebas.variable} light bg-background`}
     >
-      <body className="font-sans antialiased noise-overlay custom-cursor-active overflow-x-hidden w-full relative">
+      <body className="font-sans antialiased noise-overlay custom-cursor-active relative">
         <AnalyticsLoader />
         <FirebaseAnalytics />
         <a 
@@ -83,7 +83,7 @@ export default function RootLayout({
         <CustomCursor />
         <SmoothScroll>
           <LayoutWrapper>
-            <div id="smooth-scroll">
+            <div id="smooth-scroll" className="overflow-clip w-full">
               <SiteNav />
               <main id="main-content" className="relative">
                 {children}

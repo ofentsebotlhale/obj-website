@@ -55,7 +55,7 @@ export function TheMethod() {
   useEffect(() => setMounted(true), [])
 
   return (
-    <section className="px-[5vw] pb-[15vh] md:pb-[20vh] bg-background text-foreground">
+    <section className="px-[5vw] pb-[15vh] md:pb-[20vh] bg-background text-foreground min-h-[100svh] flex flex-col justify-center">
       <div className="mx-auto max-w-[1920px]">
         <Reveal>
           <div className="mb-16 md:mb-24">

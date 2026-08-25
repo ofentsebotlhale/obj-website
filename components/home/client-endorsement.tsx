@@ -18,7 +18,7 @@ export function ClientEndorsement() {
   return (
     <section 
       ref={containerRef}
-      className="px-[5vw] py-24 md:py-32 lg:py-48 bg-background text-foreground border-t border-border/10 overflow-hidden"
+      className="px-[5vw] py-24 md:py-32 lg:py-48 bg-background text-foreground border-t border-border/10 overflow-hidden min-h-[100svh] flex flex-col justify-center"
     >
       <motion.div 
         style={{ y: yParallax, willChange: 'transform' }}

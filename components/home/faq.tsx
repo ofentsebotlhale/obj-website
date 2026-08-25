@@ -57,7 +57,7 @@ export function FAQ() {
   }
 
   return (
-    <section className="px-[5vw] py-24 md:py-32 lg:py-48 bg-background text-foreground border-t border-border/10">
+    <section className="px-[5vw] py-24 md:py-32 lg:py-48 bg-background text-foreground border-t border-border/10 min-h-[100svh] flex flex-col justify-center">
       <div className="mx-auto max-w-[1920px]">
         {/* Header Setup: Two-column layout */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-end mb-24 md:mb-32 lg:mb-40">

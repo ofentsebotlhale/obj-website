@@ -1,83 +1,84 @@
 'use client'
 
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 
 export function SiteFooter() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="relative flex flex-col w-full bg-background text-foreground overflow-hidden pt-12 md:pt-16">
-      <div className="mx-auto w-full max-w-[1920px] px-4 md:px-8 pb-12 md:pb-24">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-8 font-sans">
-          
-          {/* INFOS */}
-          <div className="col-span-2 md:col-span-1 flex flex-col gap-8">
-            <span className="text-[11px] font-bold uppercase tracking-widest text-foreground">Infos</span>
-            <div className="flex flex-col gap-3 text-[14px] text-muted-foreground font-medium">
-              <p>Johannesburg | South Africa</p>
-              <a href="mailto:hello@obxstudio.co.za" className="hover:text-foreground transition-colors">hello@obxstudio.co.za</a>
-            </div>
+    <footer 
+      className="sticky bottom-0 z-[100] flex flex-col w-full bg-white text-black overflow-hidden border-t min-h-[100svh] justify-between pt-[48px] px-[24px] pb-[16px] md:pt-[80px] md:px-[48px] md:pb-[24px]" 
+      style={{ borderColor: 'rgba(0,0,0,0.08)' }}
+    >
+      {/* Hero CTA & Socials Grid (Top Section) */}
+      <div className="flex flex-col md:flex-row justify-between items-start gap-12 w-full">
+        {/* Left Column (CTA Block) */}
+        <div className="flex flex-col items-start gap-6">
+          <h2 className="font-heading text-[36px] md:text-[64px] font-medium tracking-[-0.03em] leading-tight text-black">
+            Let's build something.
+          </h2>
+          <div className="flex flex-row flex-wrap items-center gap-4">
+            <Link 
+              href="/contact" 
+              className="inline-flex items-center justify-center border border-black/80 text-black px-[24px] py-[12px] rounded-full text-[14px] font-medium hover:bg-black hover:text-white transition-colors uppercase tracking-wide"
+            >
+              SCHEDULE A CALL &rarr;
+            </Link>
+            <a 
+              href="mailto:hello@obxstudio.co.za" 
+              className="inline-flex items-center justify-center border border-black/80 text-black px-[24px] py-[12px] rounded-full text-[14px] font-medium hover:bg-black hover:text-white transition-colors uppercase tracking-wide"
+            >
+              DROP AN EMAIL @
+            </a>
           </div>
+        </div>
 
-          {/* PAGES */}
-          <div className="col-span-1 flex flex-col gap-8">
-            <span className="text-[11px] font-bold uppercase tracking-widest text-foreground">Pages</span>
-            <nav className="flex flex-col gap-3 text-[14px] text-muted-foreground font-medium">
-              {['Home', 'Work', 'Archive', 'Studio', 'Contact'].map((item) => (
-                <Link
-                  key={item}
-                  href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
-                  className="hover:text-foreground transition-colors uppercase tracking-wide"
-                >
-                  {item}
-                </Link>
-              ))}
-            </nav>
-          </div>
-
-          {/* SOCIALS */}
-          <div className="col-span-1 flex flex-col gap-8">
-            <span className="text-[11px] font-bold uppercase tracking-widest text-foreground">Socials</span>
-            <div className="flex flex-col gap-3 text-[14px] text-muted-foreground font-medium">
-              <a href="https://www.instagram.com/obxstudio_/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors uppercase tracking-wide">Instagram</a>
-              <a href="https://www.linkedin.com/company/obxstudio/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors uppercase tracking-wide">LinkedIn</a>
-            </div>
-          </div>
-
-          {/* LEGALS & CREDITS */}
-          <div className="col-span-2 md:col-span-1 flex flex-col justify-between gap-12">
-            <div className="flex flex-col gap-8">
-              <span className="text-[11px] font-bold uppercase tracking-widest text-foreground">Legals</span>
-              <div className="flex flex-col gap-3 text-[14px] text-muted-foreground font-medium">
-                <Link href="/terms" className="hover:text-foreground transition-colors uppercase tracking-wide">Terms</Link>
-                <Link href="/privacy" className="hover:text-foreground transition-colors uppercase tracking-wide">Privacy</Link>
-              </div>
-            </div>
-            
-            <div className="flex flex-col gap-2">
-              <span className="text-[11px] font-bold uppercase tracking-widest text-foreground">Designed & Developed by <Link href="/" className="underline underline-offset-4 hover:text-foreground/70 transition-opacity">OBX</Link></span>
-              <span className="text-[10px] text-muted-foreground font-medium uppercase tracking-widest">© {year} OBX STUDIO</span>
-            </div>
-          </div>
-
+        {/* Right Column (Social Navigation) */}
+        <div className="flex flex-col items-start md:items-end gap-[8px] text-left md:text-right w-full md:w-auto">
+          <a 
+            href="https://www.linkedin.com/company/obxstudio/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="font-heading text-[20px] text-black hover:text-black/60 transition-colors"
+          >
+            LinkedIn
+          </a>
+          <a 
+            href="https://www.instagram.com/obxstudio_/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="font-heading text-[20px] text-black hover:text-black/60 transition-colors"
+          >
+            Instagram
+          </a>
         </div>
       </div>
 
-      {/* Large Wordmark */}
-      <div className="w-full flex justify-center pb-4 overflow-hidden select-none pointer-events-none px-4">
-        <motion.h2 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-10%' }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="font-heading font-bold uppercase leading-[0.75] tracking-tighter text-center whitespace-nowrap text-black w-full"
-          style={{ 
-            fontSize: 'clamp(3rem, 13vw, 25rem)',
-          }}
-        >
-          OBX STUDIO
-        </motion.h2>
+      <div className="flex flex-col w-full mt-auto">
+        {/* Massive Display Wordmark (Center/Bottom) */}
+        <div className="w-full flex justify-center overflow-hidden select-none pointer-events-none pb-4 md:pb-8 leading-none">
+          <h2 
+            className="font-heading font-black uppercase tracking-tighter text-center whitespace-nowrap text-black"
+            style={{ fontSize: '15.5vw', lineHeight: '0.75' }}
+          >
+            OBX STUDIO
+          </h2>
+        </div>
+
+        {/* Minimal Metadata Bar (Bottom Edge) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full font-mono text-[10px] uppercase tracking-widest text-black/60">
+          <div className="text-center md:text-left">
+            <span>&copy; {year} — OBX STUDIO</span>
+          </div>
+          <div className="text-center">
+            <span>JOHANNESBURG, ZA</span>
+          </div>
+          <div className="text-center md:text-right flex justify-center md:justify-end gap-3">
+            <Link href="/terms" className="hover:text-black transition-colors">TERMS</Link>
+            <span>&amp;</span>
+            <Link href="/privacy" className="hover:text-black transition-colors">PRIVACY</Link>
+          </div>
+        </div>
       </div>
     </footer>
   )
