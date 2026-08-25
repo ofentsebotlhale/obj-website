@@ -47,8 +47,8 @@
   --primary-foreground: #FFFFFF;
   --secondary: #FFFFFF;
   --secondary-foreground: #000000;
-  --muted: #FFFFFF;
-  --muted-foreground: #000000;
+  --muted: #F5F5F5;
+  --muted-foreground: #666666;
   --accent: #FFFFFF;
   --accent-foreground: #000000;
   --destructive: #EF4444;
