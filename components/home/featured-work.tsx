@@ -69,7 +69,7 @@ export function FeaturedWork({ items }: { items: Project[] }) {
 
   return (
     <div className="w-full flex flex-col gap-10">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-y-8 md:gap-y-10 gap-x-4 md:gap-x-8">
         {projects.map((project, i) => (
           <div key={project.slug} className={`flex flex-col gap-5 ${project.colSpan}`}>
             <Reveal delay={i * 0.1}>

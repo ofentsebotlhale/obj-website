@@ -174,7 +174,7 @@ export function SiteNav() {
             className="fixed inset-0 z-40 h-[100svh] max-h-[100svh] w-full bg-background px-2 md:px-4 overflow-y-auto flex flex-col justify-between pt-[calc(env(safe-area-inset-top,0px)+4.5rem)] pb-[calc(env(safe-area-inset-bottom,0px)+1.5rem)] select-none"
           >
             <div className="w-full max-w-[1500px] mx-auto h-full flex flex-col justify-between my-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center w-full my-auto flex-1 min-h-0">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-6 lg:gap-y-12 gap-x-4 md:gap-x-8 items-center w-full my-auto flex-1 min-h-0">
                 
                 {/* Left Column - Nav Links */}
                 <div className="col-span-1 lg:col-span-7 flex flex-col items-start justify-center w-full">

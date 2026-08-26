@@ -38,7 +38,7 @@ export default function StudioPage() {
 
       {/* Narrative Section - Who We Are */}
       <section className="border-t border-border px-[5vw] py-12 md:px-[8vw] md:py-32">
-        <div className="mx-auto grid max-w-[1920px] grid-cols-1 gap-12 md:grid-cols-12">
+        <div className="mx-auto grid max-w-[1920px] grid-cols-1 gap-y-12 gap-x-4 md:gap-x-8 md:grid-cols-12">
           <Reveal className="md:col-span-4">
             <div className="sticky top-28 font-mono text-[11px] uppercase tracking-widest text-foreground">
               ( Who We Are )
@@ -99,7 +99,7 @@ export default function StudioPage() {
       {/* Approach (Process) */}
       <section className="px-[5vw] py-12 md:px-[8vw] md:py-32">
         <div className="mx-auto max-w-[1920px]">
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-12 mb-16">
+          <div className="grid grid-cols-1 gap-y-12 gap-x-4 md:gap-x-8 md:grid-cols-12 mb-16">
             <Reveal className="md:col-span-4">
               <span className="font-mono text-[11px] uppercase tracking-widest text-foreground">
                 ( Our Approach )
@@ -120,7 +120,7 @@ export default function StudioPage() {
       {/* Meet the Founder */}
       <section className="border-t border-border px-[5vw] py-12 md:px-[8vw] md:py-32">
         <div className="mx-auto max-w-[1920px]">
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
+          <div className="grid grid-cols-1 gap-y-12 gap-x-4 md:gap-x-8 md:grid-cols-12">
             <Reveal className="md:col-span-4">
               <div className="sticky top-28">
                 <span className="font-mono text-[11px] uppercase tracking-widest text-foreground block mb-2">

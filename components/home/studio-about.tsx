@@ -6,7 +6,7 @@ import { Reveal } from '@/components/anim/reveal'
 export function StudioAbout() {
   return (
     <section className="px-[5vw] py-24 md:py-32 lg:py-48 bg-background text-foreground border-t border-border/10 flex flex-col justify-center">
-      <div className="mx-auto max-w-[1920px] grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-24 lg:gap-32">
+      <div className="mx-auto max-w-[1920px] grid grid-cols-1 md:grid-cols-12 gap-y-16 md:gap-y-24 lg:gap-y-32 gap-x-4 md:gap-x-8">
         {/* Left Column: Label */}
         <div className="md:col-span-4">
           <Reveal className="sticky top-32">

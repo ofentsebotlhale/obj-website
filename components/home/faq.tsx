@@ -60,7 +60,7 @@ export function FAQ() {
     <section className="px-[5vw] py-24 md:py-32 lg:py-48 bg-background text-foreground border-t border-border/10 flex flex-col justify-center">
       <div className="mx-auto max-w-[1920px]">
         {/* Header Setup: Two-column layout */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-end mb-24 md:mb-32 lg:mb-40">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-y-6 md:gap-y-12 gap-x-4 md:gap-x-8 items-end mb-24 md:mb-32 lg:mb-40">
           <div className="md:col-span-8 flex flex-col space-y-3">
             <Reveal delay={0.08}>
               <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold uppercase tracking-tight text-foreground leading-[1.05]">

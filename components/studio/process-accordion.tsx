@@ -66,7 +66,7 @@ function Card({ step, i }: { step: any; i: number }) {
           </h3>
         </div>
         
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-8">
+        <div className="grid grid-cols-1 gap-y-12 md:grid-cols-12 gap-x-4 md:gap-x-8">
           <div className="md:col-span-8 md:pl-14">
             <p className="text-xl leading-relaxed text-foreground sm:text-2xl md:text-4xl md:leading-snug">
               <RevealWords text={step.desc} delay={0.2} stagger={0.015} />

@@ -80,7 +80,7 @@ export default async function ProjectPage({ params }: Props) {
       {/* Editorial Breakdown */}
       <section className="px-[5vw] pb-12 md:px-[8vw]">
         <div className="mx-auto max-w-[1920px]">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-12 lg:gap-y-10 gap-x-4 md:gap-x-8">
             {/* Left Content Column */}
             <div className="lg:col-span-7 space-y-16">
               {/* Introduction & Services */}

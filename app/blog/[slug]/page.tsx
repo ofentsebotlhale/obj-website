@@ -104,7 +104,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           </header>
 
           {/* Intro welcome/welcome box */}
-          <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-y-12 gap-x-4 md:gap-x-8">
             <div className="lg:col-span-8">
               <p className="font-sans text-lg md:text-xl text-foreground font-medium leading-relaxed italic text-pretty pl-4 border-l-2 border-accent/80">
                 {post.welcomeText}
