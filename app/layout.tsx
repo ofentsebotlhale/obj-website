@@ -64,9 +64,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${mono.variable} ${bebas.variable} light bg-background`}
+      className={`${mono.variable} ${bebas.variable} light bg-white`}
     >
-      <body className="font-sans antialiased noise-overlay custom-cursor-active relative">
+      <body className="font-sans antialiased noise-overlay custom-cursor-active relative bg-white">
         <AnalyticsLoader />
         <FirebaseAnalytics />
         <a 

@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-
 import { Hero } from '@/components/home/hero'
 import { Intro } from '@/components/home/intro'
 import { BeliefStatement } from '@/components/home/belief-statement'
@@ -13,7 +12,6 @@ import { StudioStatement } from '@/components/home/studio-statement'
 import { HomepageWorksParallax } from '@/components/homepage-works-parallax'
 import { Reveal } from '@/components/anim/reveal'
 import { projects } from '@/lib/projects'
-import { ViewportSection } from '@/components/viewport-section'
 
 export const metadata: Metadata = {
   title: 'OBX Studio | Web design Studio in Johannesburg',
@@ -51,41 +49,15 @@ export default function HomePage() {
       />
       
       <div className="relative w-full">
-        <ViewportSection zIndex={10}>
-          <Hero />
-        </ViewportSection>
-        
-        <ViewportSection zIndex={20}>
-          <Intro />
-        </ViewportSection>
-        
-        <ViewportSection zIndex={30}>
-          <BeliefStatement />
-        </ViewportSection>
-        
-        <ViewportSection zIndex={40}>
-          <HomepageWorksParallax items={projects.slice(0, 5)} />
-        </ViewportSection>
-        
-        <ViewportSection zIndex={50}>
-          <WhatWeDesign />
-        </ViewportSection>
-        
-        <ViewportSection zIndex={60}>
-          <StudioAbout />
-        </ViewportSection>
-        
-        <ViewportSection zIndex={70}>
-          <TheMethod />
-        </ViewportSection>
-        
-        <ViewportSection zIndex={80}>
-          <ClientEndorsement />
-        </ViewportSection>
-        
-        <ViewportSection zIndex={90}>
-          <FAQ />
-        </ViewportSection>
+        <Hero />
+        <Intro />
+        <BeliefStatement />
+        <HomepageWorksParallax items={projects.slice(0, 5)} />
+        <WhatWeDesign />
+        <StudioAbout />
+        <TheMethod />
+        <ClientEndorsement />
+        <FAQ />
       </div>
     </>
   )

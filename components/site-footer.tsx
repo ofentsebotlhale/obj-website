@@ -7,7 +7,7 @@ export function SiteFooter() {
 
   return (
     <footer 
-      className="sticky bottom-0 z-[100] flex flex-col w-full bg-white text-black overflow-hidden border-t min-h-[100svh] justify-between pt-[48px] px-[24px] pb-[16px] md:pt-[80px] md:px-[48px] md:pb-[24px]" 
+      className="flex flex-col w-full bg-white text-black overflow-hidden border-t justify-between pt-[64px] px-[24px] pb-[16px] md:pt-[120px] md:px-[48px] md:pb-[24px] min-h-[60vh] gap-32" 
       style={{ borderColor: 'rgba(0,0,0,0.08)' }}
     >
       {/* Hero CTA & Socials Grid (Top Section) */}
