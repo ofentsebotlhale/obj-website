@@ -21,7 +21,7 @@ function MenuLinks({ pathname, onClose }: { pathname: string; onClose?: () => vo
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   
   return (
-    <ul className="flex flex-col items-start gap-2 sm:gap-3 md:gap-4.5 w-full">
+    <ul className="flex flex-col items-start gap-4 sm:gap-6 md:gap-8 w-full">
       {LINKS.map((link, i) => {
         const isActive = pathname === link.href
         const isAnyHovered = hoveredIndex !== null
@@ -54,7 +54,7 @@ function MenuLinks({ pathname, onClose }: { pathname: string; onClose?: () => vo
               <span className="font-mono text-sm sm:text-base md:text-lg text-[#8E8E8E] select-none font-medium">
                 0{i + 1}
               </span>
-              <span className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-tight text-foreground leading-none transition-transform duration-300 group-hover:translate-x-3">
+              <span className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-foreground leading-none transition-transform duration-300 group-hover:translate-x-3">
                 {link.label}
               </span>
             </Link>
@@ -171,7 +171,7 @@ export function SiteNav() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-40 h-[100svh] max-h-[100svh] w-full bg-background px-2 md:px-4 overflow-y-auto flex flex-col justify-between pt-[calc(env(safe-area-inset-top,0px)+4.5rem)] pb-[calc(env(safe-area-inset-bottom,0px)+1.5rem)] select-none"
+            className="fixed inset-0 z-40 h-[100dvh] w-full bg-background px-2 md:px-4 overflow-y-auto flex flex-col justify-between pt-[calc(env(safe-area-inset-top,0px)+4.5rem)] pb-[calc(env(safe-area-inset-bottom,0px)+1.5rem)] select-none"
           >
             <div className="w-full max-w-[1500px] mx-auto h-full flex flex-col justify-between my-auto">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-6 lg:gap-y-12 gap-x-4 md:gap-x-8 items-center w-full my-auto flex-1 min-h-0">
@@ -182,17 +182,17 @@ export function SiteNav() {
                 </div>
 
                 {/* Right Column - Essential Info */}
-                <div className="col-span-1 lg:col-span-5 flex flex-col justify-center space-y-4 sm:space-y-6 border-t lg:border-t-0 lg:border-l border-foreground/10 pt-4 lg:pt-0 lg:pl-12">
+                <div className="col-span-1 lg:col-span-5 flex flex-col justify-center space-y-6 sm:space-y-8 border-t lg:border-t-0 lg:border-l border-foreground/10 pt-4 lg:pt-0 lg:pl-12">
                   <div className="space-y-1">
-                    <span className="font-mono text-[10px] md:text-[11px] uppercase tracking-widest text-[#8E8E8E] block">Location</span>
-                    <p className="font-sans text-xs sm:text-sm md:text-base text-foreground">Johannesburg, South Africa</p>
+                    <span className="font-mono text-[11px] md:text-xs uppercase tracking-widest text-[#8E8E8E] block">Location</span>
+                    <p className="font-sans text-sm sm:text-base md:text-lg text-foreground">Johannesburg, South Africa</p>
                   </div>
 
                   <div className="space-y-2">
                     <span className="font-mono text-[10px] md:text-[11px] uppercase tracking-widest text-[#8E8E8E] block">Inquiries</span>
                     <a 
                       href="mailto:hello@obxstudio.co.za" 
-                      className="inline-flex items-center justify-center rounded-full bg-foreground px-4 py-2 sm:px-6 sm:py-2.5 text-xs sm:text-sm font-medium text-background transition-transform hover:scale-105 active:scale-95"
+                      className="inline-flex items-center justify-center rounded-full bg-foreground px-4 py-2 sm:px-6 sm:py-2.5 text-sm sm:text-base font-medium text-background transition-transform hover:scale-105 active:scale-95"
                     >
                       Send us an email
                     </a>
@@ -217,7 +217,7 @@ export function SiteNav() {
                             className="text-foreground hover:text-[#8E8E8E] transition-colors duration-300"
                             aria-label={social.label}
                           >
-                            <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
+                            <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
                           </a>
                         )
                       })}
