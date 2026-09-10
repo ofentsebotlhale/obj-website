@@ -12,20 +12,52 @@ const WORDS = ['DESIGN', 'EXPERIENCES', 'PERFORMANCE']
 export function Preloader({ onComplete }: PreloaderProps) {
   const [index, setIndex] = useState(0)
   const [exiting, setExiting] = useState(false)
+  const [isLoaded, setIsLoaded] = useState(false)
 
+  // Track actual page load status
   useEffect(() => {
-    if (index >= WORDS.length) {
-      setExiting(true)
-      const timer = setTimeout(onComplete, 300) // Call onComplete fast
-      return () => clearTimeout(timer)
+    if (typeof window !== 'undefined') {
+      if (document.readyState === 'complete') {
+        setIsLoaded(true)
+      } else {
+        const handleLoad = () => setIsLoaded(true)
+        window.addEventListener('load', handleLoad)
+        
+        // Safety fallback: Force load complete after 5 seconds
+        // in case a third-party script or unoptimized image hangs the load event
+        const fallbackTimer = setTimeout(() => setIsLoaded(true), 5000)
+        
+        return () => {
+          window.removeEventListener('load', handleLoad)
+          clearTimeout(fallbackTimer)
+        }
+      }
+    }
+  }, [])
+
+  // Sequence the words based on load status
+  useEffect(() => {
+    if (exiting) return
+
+    let timer: NodeJS.Timeout
+
+    if (index < WORDS.length - 1) {
+      // Advance to the next word at a slower pace
+      timer = setTimeout(() => {
+        setIndex((prev) => prev + 1)
+      }, 700)
+    } else if (index === WORDS.length - 1) {
+      // Hold on the last word until the page is fully loaded
+      if (isLoaded) {
+        timer = setTimeout(() => {
+          setExiting(true)
+          setTimeout(onComplete, 300)
+        }, 700)
+      }
     }
 
-    const timeout = setTimeout(() => {
-      setIndex((prev) => prev + 1)
-    }, 400)
-
-    return () => clearTimeout(timeout)
-  }, [index, onComplete])
+    return () => clearTimeout(timer)
+  }, [index, isLoaded, exiting, onComplete])
 
   return (
     <AnimatePresence>
@@ -48,7 +80,7 @@ export function Preloader({ onComplete }: PreloaderProps) {
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -15 }}
-                  transition={{ duration: 0.2 }}
+                  transition={{ duration: 0.3 }}
                   className="absolute text-5xl md:text-7xl lg:text-9xl font-heading font-black tracking-tighter text-foreground text-center uppercase"
                 >
                   {WORDS[index]}
