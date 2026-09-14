@@ -12,6 +12,7 @@ interface ParallaxImageProps {
   containerClassName?: string
   motionClassName?: string
   yOffset?: string[]
+  sizes?: string
 }
 
 export function ParallaxImage({
@@ -22,6 +23,7 @@ export function ParallaxImage({
   containerClassName = "absolute inset-0 z-0 overflow-hidden",
   motionClassName = "absolute inset-[-15%]",
   yOffset = ["-15%", "15%"],
+  sizes = "(max-width: 768px) 100vw, 60vw",
 }: ParallaxImageProps) {
   const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
@@ -37,7 +39,7 @@ export function ParallaxImage({
           src={src}
           alt={alt}
           fill
-          sizes="(max-width: 768px) 100vw, 60vw"
+          sizes={sizes}
           className={className}
           priority={priority}
           referrerPolicy="no-referrer"

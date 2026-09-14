@@ -15,14 +15,15 @@ interface CardConfig {
   sizeClass: string
   parallaxSpeed: number
   alignmentClass: string
+  sizes: string
 }
 
 const cardConfigs: CardConfig[] = [
-  { sizeClass: 'w-full max-w-[766px]', parallaxSpeed: 30, alignmentClass: 'md:ml-0 md:mr-auto' },
-  { sizeClass: 'w-full max-w-[462px]', parallaxSpeed: 65, alignmentClass: 'md:ml-auto md:mr-0 md:mt-24' },
-  { sizeClass: 'w-full max-w-[352px]', parallaxSpeed: 100, alignmentClass: 'md:mx-auto md:-mt-12' },
-  { sizeClass: 'w-full max-w-[572px]', parallaxSpeed: 40, alignmentClass: 'md:ml-0 md:mr-auto md:mt-16' },
-  { sizeClass: 'w-full max-w-[418px]', parallaxSpeed: 80, alignmentClass: 'md:ml-auto md:mr-0 md:-mt-8' },
+  { sizeClass: 'w-full md:w-[85%] lg:w-[80%]', parallaxSpeed: 30, alignmentClass: 'md:ml-0 md:mr-auto', sizes: '(max-width: 768px) 100vw, (max-width: 1024px) 85vw, 80vw' },
+  { sizeClass: 'w-full md:w-[75%] lg:w-[65%]', parallaxSpeed: 65, alignmentClass: 'md:ml-auto md:mr-0', sizes: '(max-width: 768px) 100vw, (max-width: 1024px) 75vw, 65vw' },
+  { sizeClass: 'w-full md:w-[90%] lg:w-[85%]', parallaxSpeed: 20, alignmentClass: 'md:mx-auto', sizes: '(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 85vw' },
+  { sizeClass: 'w-full md:w-[80%] lg:w-[75%]', parallaxSpeed: 40, alignmentClass: 'md:ml-0 md:mr-auto', sizes: '(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 75vw' },
+  { sizeClass: 'w-full md:w-[70%] lg:w-[60%]', parallaxSpeed: 80, alignmentClass: 'md:ml-auto md:mr-0', sizes: '(max-width: 768px) 100vw, (max-width: 1024px) 70vw, 60vw' },
 ]
 
 function ProjectParallaxCard({ project, index }: { project: Project; index: number }) {
@@ -43,7 +44,7 @@ function ProjectParallaxCard({ project, index }: { project: Project; index: numb
         
         <Reveal>
           <div className="flex flex-col gap-2">
-            <span className="font-mono text-[10px] md:text-xs text-muted-foreground block mb-2">
+            <span className="font-mono text-[10px] md:text-xs text-background/70 block mb-2">
               0{index + 1}
             </span>
             <div className="flex items-baseline justify-between">
@@ -51,30 +52,33 @@ function ProjectParallaxCard({ project, index }: { project: Project; index: numb
                 {project.title}
               </h3>
             </div>
-            <p className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-muted-foreground/80">
+            <p className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-background/70">
               {project.category} &middot; {project.year}
             </p>
           </div>
         </Reveal>
 
         <Link href={`/work/${project.slug}`} className="group block w-full outline-none">
-          <motion.div 
-            initial={{ clipPath: "inset(100% 0 0 0)" }}
-            whileInView={{ clipPath: "inset(0% 0 0 0)" }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-            className="relative w-full aspect-square overflow-hidden bg-background rounded-none transition-all duration-500"
-          >
+          <div className="relative w-full aspect-[4/3] md:aspect-[16/10] overflow-hidden bg-background rounded-none transition-all duration-500">
             <ParallaxImage
               src={project.image || '/placeholder.svg'}
               alt={project.title}
               priority={index === 0}
+              sizes={config.sizes}
               className="object-cover transition-transform duration-700 group-hover:scale-105"
               containerClassName="absolute inset-0 z-0 overflow-hidden"
               motionClassName="absolute inset-[-12%]"
               yOffset={['-8%', '8%']}
             />
-          </motion.div>
+            {/* Composited Reveal Overlay */}
+            <motion.div
+              initial={{ scaleY: 1 }}
+              whileInView={{ scaleY: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+              className="absolute inset-0 z-10 bg-foreground origin-bottom"
+            />
+          </div>
         </Link>
       </motion.div>
     </div>
@@ -83,7 +87,7 @@ function ProjectParallaxCard({ project, index }: { project: Project; index: numb
 
 export function HomepageWorksParallax({ items }: WorksParallaxProps) {
   return (
-    <section className="bg-foreground text-background py-24 md:py-32 lg:py-48 px-[5vw] md:px-[8vw] w-full overflow-hidden flex flex-col justify-center">
+    <section className="bg-foreground text-background py-24 md:py-32 lg:py-48 px-[5vw] w-full overflow-hidden flex flex-col justify-center">
       <div className="max-w-[1920px] mx-auto">
         {/* Section Header */}
         <div className="mb-24 md:mb-32 lg:mb-40">
@@ -94,8 +98,8 @@ export function HomepageWorksParallax({ items }: WorksParallaxProps) {
           </Reveal>
         </div>
 
-        {/* Asymmetrical Grid with Square Image Containers of Different Sizes & Container Parallax */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-32 lg:gap-48 items-start">
+        {/* Asymmetrical Grid with Container Parallax */}
+        <div className="flex flex-col gap-24 md:gap-40 lg:gap-56 items-start">
           {items.map((project, index) => (
             <ProjectParallaxCard key={project.slug} project={project} index={index} />
           ))}
