@@ -14,6 +14,8 @@ export function Preloader({ onComplete }: PreloaderProps) {
   const [exiting, setExiting] = useState(false)
   const [isLoaded, setIsLoaded] = useState(false)
 
+  const [minTimeMet, setMinTimeMet] = useState(false)
+
   // Track actual page load status
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -35,10 +37,8 @@ export function Preloader({ onComplete }: PreloaderProps) {
     }
   }, [])
 
-  // Sequence the words based on load status
+  // Sequence the words independently of load status
   useEffect(() => {
-    if (exiting) return
-
     let timer: NodeJS.Timeout
 
     if (index < WORDS.length - 1) {
@@ -47,17 +47,22 @@ export function Preloader({ onComplete }: PreloaderProps) {
         setIndex((prev) => prev + 1)
       }, 700)
     } else if (index === WORDS.length - 1) {
-      // Hold on the last word until the page is fully loaded
-      if (isLoaded) {
-        timer = setTimeout(() => {
-          setExiting(true)
-          setTimeout(onComplete, 300)
-        }, 700)
-      }
+      // Ensure the last word is visible for at least the same duration
+      timer = setTimeout(() => {
+        setMinTimeMet(true)
+      }, 700)
     }
 
     return () => clearTimeout(timer)
-  }, [index, isLoaded, exiting, onComplete])
+  }, [index])
+
+  // Handle exiting when conditions are met
+  useEffect(() => {
+    if (index === WORDS.length - 1 && minTimeMet && isLoaded && !exiting) {
+      setExiting(true)
+      setTimeout(onComplete, 300)
+    }
+  }, [index, minTimeMet, isLoaded, exiting, onComplete])
 
   return (
     <AnimatePresence>
