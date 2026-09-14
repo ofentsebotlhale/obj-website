@@ -19,11 +19,11 @@ interface CardConfig {
 }
 
 const cardConfigs: CardConfig[] = [
-  { sizeClass: 'w-full md:w-[85%] lg:w-[80%]', parallaxSpeed: 30, alignmentClass: 'md:ml-0 md:mr-auto', sizes: '(max-width: 768px) 100vw, (max-width: 1024px) 85vw, 80vw' },
-  { sizeClass: 'w-full md:w-[75%] lg:w-[65%]', parallaxSpeed: 65, alignmentClass: 'md:ml-auto md:mr-0', sizes: '(max-width: 768px) 100vw, (max-width: 1024px) 75vw, 65vw' },
-  { sizeClass: 'w-full md:w-[90%] lg:w-[85%]', parallaxSpeed: 20, alignmentClass: 'md:mx-auto', sizes: '(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 85vw' },
-  { sizeClass: 'w-full md:w-[80%] lg:w-[75%]', parallaxSpeed: 40, alignmentClass: 'md:ml-0 md:mr-auto', sizes: '(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 75vw' },
-  { sizeClass: 'w-full md:w-[70%] lg:w-[60%]', parallaxSpeed: 80, alignmentClass: 'md:ml-auto md:mr-0', sizes: '(max-width: 768px) 100vw, (max-width: 1024px) 70vw, 60vw' },
+  { sizeClass: 'w-full md:w-[95%] lg:w-[90%]', parallaxSpeed: 30, alignmentClass: 'md:ml-0 md:mr-auto', sizes: '(max-width: 768px) 100vw, 45vw' },
+  { sizeClass: 'w-full md:w-[85%] lg:w-[75%]', parallaxSpeed: 65, alignmentClass: 'md:ml-auto md:mr-0 md:mt-32', sizes: '(max-width: 768px) 100vw, 40vw' },
+  { sizeClass: 'w-full md:w-[90%] lg:w-[85%]', parallaxSpeed: 20, alignmentClass: 'md:mx-auto', sizes: '(max-width: 768px) 100vw, 45vw' },
+  { sizeClass: 'w-full md:w-[80%] lg:w-[75%]', parallaxSpeed: 40, alignmentClass: 'md:ml-0 md:mr-auto md:mt-16', sizes: '(max-width: 768px) 100vw, 40vw' },
+  { sizeClass: 'w-full md:w-[70%] lg:w-[60%]', parallaxSpeed: 80, alignmentClass: 'md:ml-auto md:mr-0 md:-mt-8', sizes: '(max-width: 768px) 100vw, 35vw' },
 ]
 
 function ProjectParallaxCard({ project, index }: { project: Project; index: number }) {
@@ -99,7 +99,7 @@ export function HomepageWorksParallax({ items }: WorksParallaxProps) {
         </div>
 
         {/* Asymmetrical Grid with Container Parallax */}
-        <div className="flex flex-col gap-24 md:gap-40 lg:gap-56 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-24 md:gap-y-32 lg:gap-y-48 gap-x-8 md:gap-x-12 lg:gap-x-16 items-start">
           {items.map((project, index) => (
             <ProjectParallaxCard key={project.slug} project={project} index={index} />
           ))}

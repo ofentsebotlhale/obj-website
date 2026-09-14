@@ -3,7 +3,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { usePreloader } from '@/components/layout-wrapper'
 import Link from 'next/link'
-import Image from 'next/image'
 import { Linkedin, Instagram } from 'lucide-react'
 
 const EASE = [0.22, 1, 0.36, 1] as const
@@ -13,28 +12,9 @@ export function Hero() {
   const { scrollY } = useScroll()
   
   const y = useTransform(scrollY, [0, 200], ['0%', '10%'])
-  const imageY = useTransform(scrollY, [0, 500], ['0%', '15%'])
 
   return (
     <section className="relative flex h-[100svh] max-h-[100svh] w-full flex-col justify-between overflow-hidden bg-background px-4 pb-4 pt-[calc(env(safe-area-inset-top,0px)+1.25rem)] md:px-8 md:pb-6 md:pt-[calc(env(safe-area-inset-top,0px)+1.75rem)] text-foreground font-sans">
-
-      {/* Decorative Digital Visual */}
-      <motion.div 
-        style={{ y: imageY }}
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={!loading ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
-        transition={{ duration: 1.2, delay: 0.4, ease: EASE }}
-        className="absolute top-[15%] right-[-10%] md:right-[5%] lg:right-[15%] w-[70vw] md:w-[40vw] max-w-[600px] aspect-[4/3] z-0 overflow-hidden bg-muted rounded-none"
-      >
-        <Image
-          src="/work/obx-fash-1.avif"
-          alt="Digital Interface Preview"
-          fill
-          className="object-cover object-top opacity-80"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-tr from-background via-transparent to-transparent opacity-50" />
-      </motion.div>
 
       {/* Top Left Stack */}
       <div className="w-full flex flex-col justify-start items-start relative z-10 max-w-4xl mt-[5vh] md:mt-[10vh]">
