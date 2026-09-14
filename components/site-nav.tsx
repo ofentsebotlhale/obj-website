@@ -9,12 +9,9 @@ import { cn } from '@/lib/utils'
 import { Menu, X, Instagram, Linkedin, Facebook, MessageCircle } from 'lucide-react'
 
 const LINKS = [
-  { href: '/', label: 'Home' },
-  { href: '/work', label: 'Work' },
-  { href: '/studio', label: 'Studio' },
-  { href: '/services', label: 'Services' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/work', label: 'WORK' },
+  { href: '/studio', label: 'STUDIO' },
+  { href: '/contact', label: 'CONTACT' },
 ]
 
 function MenuLinks({ pathname, onClose }: { pathname: string; onClose?: () => void }) {
@@ -51,10 +48,10 @@ function MenuLinks({ pathname, onClose }: { pathname: string; onClose?: () => vo
                 isAnyHovered && !isThisHovered ? "opacity-25" : "opacity-100"
               )}
             >
-              <span className="font-mono text-sm sm:text-base md:text-lg text-[#8E8E8E] select-none font-medium">
+              <span className="font-mono text-sm sm:text-base md:text-lg text-muted-foreground select-none font-medium">
                 0{i + 1}
               </span>
-              <span className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-foreground leading-none transition-transform duration-300 group-hover:translate-x-3">
+              <span className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-medium tracking-tight text-foreground leading-none transition-transform duration-300 group-hover:translate-x-3">
                 {link.label}
               </span>
             </Link>
@@ -64,6 +61,7 @@ function MenuLinks({ pathname, onClose }: { pathname: string; onClose?: () => vo
     </ul>
   )
 }
+
 
 export function SiteNav() {
   const pathname = usePathname()

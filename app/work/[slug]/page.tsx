@@ -43,17 +43,6 @@ export default async function ProjectPage({ params }: Props) {
 
   return (
     <div id={`project-page-${project.slug}`} className="min-h-screen bg-background text-foreground pb-12">
-      {/* Back to Work Link */}
-      <div className="mx-auto max-w-[1920px] px-[5vw] pt-[10vh] md:px-[8vw]">
-        <Link
-          href="/work"
-          className="group inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-foreground hover:opacity-70 transition-opacity"
-        >
-          <span className="transition-transform duration-300 group-hover:-translate-x-1">←</span>
-          <span>Back to Work</span>
-        </Link>
-      </div>
-
       <PageHeader
         index={project.year}
         title={project.title}
@@ -61,9 +50,9 @@ export default async function ProjectPage({ params }: Props) {
       />
 
       {/* Main Hero Parallax */}
-      <section className="px-[5vw] pb-20 md:px-[8vw] md:pb-[10vh]">
+      <section className="px-[2vw] md:px-[4vw] pb-16 md:pb-24">
         <div className="mx-auto max-w-[1920px]">
-          <div className="relative w-full aspect-[16/10] md:aspect-[21/9] overflow-hidden">
+          <div className="relative w-full aspect-[16/10] md:aspect-[21/9] overflow-hidden bg-muted">
             <ParallaxImage
               src={project.image || "/placeholder.svg"}
               alt={project.title}
@@ -71,146 +60,124 @@ export default async function ProjectPage({ params }: Props) {
               className="object-cover"
               motionClassName="absolute inset-0"
               containerClassName="relative w-full h-full z-0"
-              yOffset={["-4%", "4%"]}
+              yOffset={["-8%", "8%"]}
             />
           </div>
         </div>
       </section>
 
       {/* Editorial Breakdown */}
-      <section className="px-[5vw] pb-12 md:px-[8vw]">
+      <section className="px-[5vw] pb-24 md:px-[8vw]">
         <div className="mx-auto max-w-[1920px]">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-12 lg:gap-y-10 gap-x-4 md:gap-x-8">
-            {/* Left Content Column */}
-            <div className="lg:col-span-7 space-y-16">
-              {/* Introduction & Services */}
-              <div className="space-y-6">
-                <Reveal>
-                  <span className="font-mono text-[10px] uppercase tracking-widest text-foreground opacity-50 block mb-4">
-                    Project Services
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-16 lg:gap-y-0 gap-x-4 md:gap-x-12">
+            
+            {/* Left Column: Services & Links */}
+            <div className="lg:col-span-4 space-y-12">
+              <Reveal>
+                <div className="space-y-4">
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground block border-b border-border/40 pb-4">
+                    Services
                   </span>
-                  <div className="flex flex-wrap gap-2">
+                  <ul className="flex flex-col gap-2 pt-2">
                     {project.services.map((service) => (
-                      <span
+                      <li
                         key={service}
-                        className="rounded-full border border-foreground/20 px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-foreground bg-muted/30"
+                        className="font-sans text-sm md:text-base text-foreground font-medium uppercase tracking-wide"
                       >
                         {service}
-                      </span>
+                      </li>
                     ))}
-                  </div>
-                </Reveal>
-                
-                <Reveal delay={0.1}>
-                  <div className="pt-6 border-t border-border/50">
-                    <p className="font-sans text-xl md:text-2xl leading-relaxed text-foreground font-light text-pretty">
-                      {project.overview}
-                    </p>
-                  </div>
-                </Reveal>
-              </div>
-
-              {/* Challenge / Problem */}
-              <div className="space-y-4">
-                <Reveal>
-                  <p className="font-mono text-xs uppercase tracking-widest text-foreground opacity-50">
-                    The Challenge
-                  </p>
-                </Reveal>
-                <Reveal delay={0.1}>
-                  <p className="font-sans text-base md:text-lg leading-relaxed text-foreground/90">
-                    {project.problem}
-                  </p>
-                </Reveal>
-              </div>
-
-              {/* Solution */}
-              <div className="space-y-4">
-                <Reveal>
-                  <p className="font-mono text-xs uppercase tracking-widest text-foreground opacity-50">
-                    The Solution
-                  </p>
-                </Reveal>
-                <Reveal delay={0.1}>
-                  <p className="font-sans text-base md:text-lg leading-relaxed text-foreground/90">
-                    {project.solution}
-                  </p>
-                </Reveal>
-              </div>
-            </div>
-
-            {/* Right Column (Results card / dynamic info) */}
-            <div className="lg:col-span-5">
-              <Reveal delay={0.2} className="sticky top-28 bg-card rounded-[2rem] p-8 md:p-10 border border-border">
-                <div className="space-y-8">
-                  <div>
-                    <h4 className="font-mono text-xs uppercase tracking-widest text-foreground opacity-50 mb-6">
-                      Results & Metrics
-                    </h4>
-                    <ul className="flex flex-col gap-6">
-                      {project.results.map((result, i) => (
-                        <li key={i} className="flex gap-4 items-start text-foreground font-sans text-base md:text-[17px] font-medium leading-relaxed">
-                          <span className="text-foreground shrink-0 mt-1">✦</span>
-                          <span>{result}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {project.link && project.link !== "#" && (
-                    <div className="border-t border-border pt-8 mt-8">
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group/link inline-flex h-14 w-full items-center justify-between rounded-full bg-foreground px-8 font-mono text-[11px] uppercase tracking-widest text-background transition-transform hover:scale-[1.02]"
-                      >
-                        <span>Visit Live Website</span>
-                        <span className="transition-transform duration-300 group-hover/link:translate-x-1 group-hover/link:-translate-y-1">↗</span>
-                      </a>
-                    </div>
-                  )}
+                  </ul>
                 </div>
               </Reveal>
+
+              {project.link && project.link !== "#" && (
+                <Reveal delay={0.1}>
+                  <div className="space-y-4 border-t border-border/40 pt-8 mt-8">
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/link inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-foreground transition-opacity hover:opacity-70"
+                    >
+                      <span className="border-b border-foreground/30 pb-0.5 group-hover/link:border-foreground transition-colors">Visit Live Website</span>
+                      <span className="transition-transform duration-300 group-hover/link:translate-x-1 group-hover/link:-translate-y-1">↗</span>
+                    </a>
+                  </div>
+                </Reveal>
+              )}
             </div>
+
+            {/* Right Column: Narrative */}
+            <div className="lg:col-span-7 lg:col-start-6 space-y-16">
+              <Reveal>
+                <p className="font-heading text-2xl sm:text-3xl md:text-4xl leading-[1.3] text-foreground font-medium text-pretty uppercase tracking-tight">
+                  {project.overview}
+                </p>
+              </Reveal>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 sm:gap-8">
+                {/* Challenge */}
+                <div className="space-y-6">
+                  <Reveal>
+                    <h3 className="font-mono text-xs uppercase tracking-widest text-muted-foreground border-b border-border/40 pb-4">
+                      The Challenge
+                    </h3>
+                  </Reveal>
+                  <Reveal delay={0.1}>
+                    <p className="font-sans text-sm md:text-base leading-relaxed text-foreground/80">
+                      {project.problem}
+                    </p>
+                  </Reveal>
+                </div>
+
+                {/* Solution */}
+                <div className="space-y-6">
+                  <Reveal>
+                    <h3 className="font-mono text-xs uppercase tracking-widest text-muted-foreground border-b border-border/40 pb-4">
+                      The Solution
+                    </h3>
+                  </Reveal>
+                  <Reveal delay={0.1}>
+                    <p className="font-sans text-sm md:text-base leading-relaxed text-foreground/80">
+                      {project.solution}
+                    </p>
+                  </Reveal>
+                </div>
+              </div>
+            </div>
+            
           </div>
         </div>
       </section>
 
       {/* Additional Showcase Images if they exist */}
       {project.images && project.images.length > 0 && (
-        <section className="px-[5vw] py-12 md:px-[8vw] border-t border-border/20">
-          <div className="mx-auto max-w-[1920px] flex flex-col gap-10">
-            <Reveal>
-              <h3 className="font-mono text-xs uppercase tracking-widest text-foreground opacity-50">
-                Project Gallery
-              </h3>
-            </Reveal>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-              {project.images.map((img, i) => (
-                <Reveal key={i} delay={i * 0.1}>
-                  <div className="relative w-full aspect-[4/3] overflow-hidden">
-                    <ParallaxImage
-                      src={img}
-                      alt={`${project.title} screenshot ${i + 1}`}
-                      className="object-cover"
-                      motionClassName="absolute inset-0"
-                      containerClassName="relative w-full h-full z-0"
-                      yOffset={["-4%", "4%"]}
-                    />
-                  </div>
-                </Reveal>
-              ))}
-            </div>
+        <section className="px-[2vw] py-12 md:px-[4vw]">
+          <div className="mx-auto max-w-[1920px] flex flex-col gap-12 md:gap-24">
+            {project.images.map((img, i) => (
+              <Reveal key={i} delay={0.1}>
+                <div className={`relative w-full aspect-[4/3] md:aspect-[16/9] overflow-hidden bg-muted ${i % 2 !== 0 ? 'md:w-[80%] md:ml-auto' : 'md:w-[90%]'}`}>
+                  <ParallaxImage
+                    src={img}
+                    alt={`${project.title} interface detail ${i + 1}`}
+                    className="object-cover"
+                    motionClassName="absolute inset-0"
+                    containerClassName="relative w-full h-full z-0"
+                    yOffset={["-6%", "6%"]}
+                  />
+                </div>
+              </Reveal>
+            ))}
           </div>
         </section>
       )}
 
       {/* Next Project CTA */}
-      <section className="px-[5vw] py-12 md:px-[8vw] border-t border-border/20 mt-16">
-        <div className="mx-auto max-w-[1920px] text-center">
+      <section className="px-[5vw] py-24 md:px-[8vw] mt-12 bg-foreground text-background">
+        <div className="mx-auto max-w-[1920px] text-center flex flex-col items-center justify-center">
           <Reveal>
-            <p className="font-mono text-xs uppercase tracking-widest text-foreground opacity-50 mb-4">
+            <p className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-background/50 mb-8 block">
               Next Project
             </p>
             {(() => {
@@ -221,9 +188,9 @@ export default async function ProjectPage({ params }: Props) {
                 <div className="space-y-8">
                   <Link
                     href={`/work/${nextProject.slug}`}
-                    className="group inline-block font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl md:text-6xl hover:opacity-80 transition-opacity"
+                    className="group inline-block font-heading text-5xl font-medium tracking-tight text-background sm:text-6xl md:text-7xl lg:text-8xl hover:opacity-80 transition-opacity uppercase"
                   >
-                    {nextProject.title} <span className="inline-block transition-transform duration-300 group-hover:translate-x-2">→</span>
+                    {nextProject.title}
                   </Link>
                 </div>
               );
@@ -234,3 +201,4 @@ export default async function ProjectPage({ params }: Props) {
     </div>
   );
 }
+

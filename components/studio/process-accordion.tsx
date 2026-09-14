@@ -7,21 +7,27 @@ import { Reveal, RevealWords } from '@/components/anim/reveal'
 const STEPS = [
   {
     n: '01',
-    title: 'Strategy',
-    desc: 'Every successful website begins with understanding. We take time to learn about your business, audience, goals, and competitive landscape. Through research and planning, we establish a clear direction that aligns design decisions with business objectives.',
-    deliverables: ['Research', 'Audience analysis', 'Goal definition', 'Web architecture'],
+    title: 'Think',
+    desc: 'Research, positioning, and strategy. We define the structure before we design the surface.',
+    deliverables: ['Research', 'Architecture'],
   },
   {
     n: '02',
     title: 'Design',
-    desc: 'Design is where strategy takes shape. We create thoughtful user experiences and visual systems that communicate credibility, strengthen your brand, and guide visitors toward meaningful action. Every detail is considered with both aesthetics and usability in mind.',
-    deliverables: ['UI/UX Design', 'Visual assets', 'Responsiveness', 'Design system'],
+    desc: 'Visual systems, layouts, and typography. A focus on editorial clarity and digital interaction.',
+    deliverables: ['UI/UX', 'Art Direction'],
   },
   {
     n: '03',
+    title: 'Build',
+    desc: 'Engineering the front-end with precision. Fast, scalable, and responsive across all devices.',
+    deliverables: ['Development', 'Motion'],
+  },
+  {
+    n: '04',
     title: 'Launch',
-    desc: "A website's success begins after it goes live. We develop, optimise, and launch websites with a focus on performance, accessibility, and reliability. The result is a digital experience that is ready to support your business from day one.",
-    deliverables: ['Optimisation', 'SEO setup', 'Launch prep', 'Support'],
+    desc: 'Final optimizations, quality assurance, and deployment to the live environment.',
+    deliverables: ['Optimization', 'Deployment'],
   },
 ]
 

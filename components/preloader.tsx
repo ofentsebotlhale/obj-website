@@ -81,7 +81,7 @@ export function Preloader({ onComplete }: PreloaderProps) {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -15 }}
                   transition={{ duration: 0.3 }}
-                  className="absolute text-5xl md:text-7xl lg:text-9xl font-heading font-black tracking-tighter text-foreground text-center uppercase"
+                  className="absolute text-5xl md:text-7xl lg:text-9xl font-heading font-medium tracking-tight text-foreground text-center uppercase"
                 >
                   {WORDS[index]}
                 </motion.h2>

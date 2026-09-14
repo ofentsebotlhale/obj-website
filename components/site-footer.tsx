@@ -6,80 +6,56 @@ export function SiteFooter() {
   const year = new Date().getFullYear()
 
   return (
-    <footer 
-      className="flex flex-col w-full bg-white text-black overflow-hidden border-t justify-between pt-[64px] px-[24px] pb-[16px] md:pt-[120px] md:px-[48px] md:pb-[24px] min-h-[100svh] gap-32" 
-      style={{ borderColor: 'rgba(0,0,0,0.08)' }}
-    >
-      {/* Hero CTA & Socials Grid (Top Section) */}
-      <div className="flex flex-col md:flex-row justify-between items-start gap-12 w-full">
-        {/* Left Column (CTA Block) */}
-        <div className="flex flex-col items-start gap-6">
-          <h2 className="font-heading text-[36px] md:text-[64px] font-medium tracking-[-0.03em] leading-tight text-black">
-            Let's build something.
-          </h2>
-          <div className="flex flex-row flex-wrap items-center gap-4">
-            <Link 
-              href="/contact" 
-              className="inline-flex items-center justify-center border border-black/80 text-black px-[24px] py-[12px] rounded-full text-[14px] font-medium hover:bg-black hover:text-white transition-colors uppercase tracking-wide"
-            >
-              SCHEDULE A CALL &rarr;
-            </Link>
+    <footer className="flex flex-col w-full bg-background text-foreground pt-24 md:pt-40 px-[5vw] pb-[5vw]">
+      <div className="mx-auto w-full max-w-[1920px] flex flex-col justify-between min-h-[50svh]">
+        
+        {/* Top Content Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8">
+          
+          {/* Left Column (Brand) */}
+          <div className="md:col-span-8 flex flex-col items-start gap-2">
+            <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight uppercase">
+              OBX STUDIO
+            </h2>
+            <p className="font-mono text-sm md:text-base uppercase tracking-widest text-muted-foreground mt-4">
+              JOHANNESBURG — SOUTH AFRICA
+            </p>
             <a 
-              href="mailto:hello@obxstudio.co.za" 
-              className="inline-flex items-center justify-center border border-black/80 text-black px-[24px] py-[12px] rounded-full text-[14px] font-medium hover:bg-black hover:text-white transition-colors uppercase tracking-wide"
+              href="mailto:HELLO@OBXSTUDIO.CO.ZA" 
+              className="font-mono text-sm md:text-base uppercase tracking-widest text-foreground hover:opacity-60 transition-opacity mt-2"
             >
-              DROP AN EMAIL @
+              HELLO@OBXSTUDIO.CO.ZA
             </a>
           </div>
+
+          {/* Right Column (Navigation Links) */}
+          <div className="md:col-span-4 grid grid-cols-2 gap-8 md:gap-12 mt-8 md:mt-0">
+            <div className="flex flex-col gap-4">
+              <Link href="/work" className="font-sans text-lg md:text-xl font-medium uppercase tracking-wide hover:opacity-60 transition-opacity">WORK</Link>
+              <Link href="/studio" className="font-sans text-lg md:text-xl font-medium uppercase tracking-wide hover:opacity-60 transition-opacity">STUDIO</Link>
+              <Link href="/contact" className="font-sans text-lg md:text-xl font-medium uppercase tracking-wide hover:opacity-60 transition-opacity">CONTACT</Link>
+            </div>
+            <div className="flex flex-col gap-4">
+              <a href="https://www.instagram.com/obxstudio_/" target="_blank" rel="noopener noreferrer" className="font-sans text-lg md:text-xl font-medium uppercase tracking-wide hover:opacity-60 transition-opacity">INSTAGRAM</a>
+              <a href="https://www.linkedin.com/company/obxstudio/" target="_blank" rel="noopener noreferrer" className="font-sans text-lg md:text-xl font-medium uppercase tracking-wide hover:opacity-60 transition-opacity">LINKEDIN</a>
+            </div>
+          </div>
+          
         </div>
 
-        {/* Right Column (Social Navigation) */}
-        <div className="flex flex-col items-start md:items-end gap-[8px] text-left md:text-right w-full md:w-auto">
-          <a 
-            href="https://www.linkedin.com/company/obxstudio/" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="font-heading text-[20px] text-black hover:text-black/60 transition-colors"
-          >
-            LinkedIn
-          </a>
-          <a 
-            href="https://www.instagram.com/obxstudio_/" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="font-heading text-[20px] text-black hover:text-black/60 transition-colors"
-          >
-            Instagram
-          </a>
-        </div>
-      </div>
-
-      <div className="flex flex-col w-full mt-auto">
-        {/* Massive Display Wordmark (Center/Bottom) */}
-        <div className="w-full flex justify-center overflow-hidden select-none pointer-events-none pb-4 md:pb-8 leading-none">
-          <h2 
-            className="font-heading font-black uppercase tracking-tighter text-center whitespace-nowrap text-black"
-            style={{ fontSize: '15.5vw', lineHeight: '0.75' }}
-          >
-            OBX STUDIO
-          </h2>
+        {/* Bottom Metadata */}
+        <div className="mt-24 md:mt-40 pt-8 border-t border-border/40 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-muted-foreground">
+            &copy; {year} OBX STUDIO
+          </div>
+          <div className="flex gap-6 font-mono text-[10px] md:text-xs uppercase tracking-widest text-muted-foreground">
+            <Link href="/privacy" className="hover:text-foreground transition-colors">PRIVACY</Link>
+            <Link href="/terms" className="hover:text-foreground transition-colors">TERMS</Link>
+          </div>
         </div>
 
-        {/* Minimal Metadata Bar (Bottom Edge) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full font-mono text-[10px] uppercase tracking-widest text-black/60">
-          <div className="text-center md:text-left">
-            <span>&copy; {year} — OBX STUDIO</span>
-          </div>
-          <div className="text-center">
-            <span>JOHANNESBURG, ZA</span>
-          </div>
-          <div className="text-center md:text-right flex justify-center md:justify-end gap-3">
-            <Link href="/terms" className="hover:text-black transition-colors">TERMS</Link>
-            <span>&amp;</span>
-            <Link href="/privacy" className="hover:text-black transition-colors">PRIVACY</Link>
-          </div>
-        </div>
       </div>
     </footer>
   )
 }
+

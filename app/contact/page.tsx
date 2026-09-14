@@ -16,15 +16,15 @@ export default function ContactPage() {
     <>
       <PageHeader 
         index="05 / 05" 
-        subtitle="Start a project" 
-        title="Contact Us" 
+        subtitle="Contact" 
+        title="START A PROJECT." 
       />
 
       <section className="relative px-[5vw] pb-[10vh] md:px-[8vw] md:pb-12">
         <div className="mx-auto max-w-4xl relative z-10 text-left">
           <h2 className="font-heading text-4xl font-medium leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-6xl text-left">
             <RevealWords
-              text="Start a project with OBX Studio. Tell us what you are building."
+              text="Tell us what you are building."
               className="text-foreground"
             />
           </h2>

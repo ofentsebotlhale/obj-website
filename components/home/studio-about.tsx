@@ -10,26 +10,45 @@ export function StudioAbout() {
         {/* Left Column: Label */}
         <div className="md:col-span-4">
           <Reveal className="sticky top-32">
-            <div className="space-y-1">
-              <span className="font-mono text-xs uppercase tracking-widest text-foreground/40 block">
-                The studio behind it.
-              </span>
-              <h2 className="font-mono text-xs uppercase tracking-widest text-foreground font-normal">
-                Studio
-              </h2>
-            </div>
+            <h2 className="font-mono text-xs uppercase tracking-widest text-muted-foreground font-normal">
+              STUDIO
+            </h2>
           </Reveal>
         </div>
 
         {/* Right Column: Content */}
         <div className="md:col-span-8 space-y-16 md:space-y-24">
           <Reveal>
-            <p className="font-sans text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium leading-[1.3] text-foreground max-w-3xl">
-              We build websites, brand identities, and digital experiences for businesses that want to be taken seriously online.
+            <div className="space-y-4">
+              <p className="font-sans text-xl font-medium tracking-wide text-foreground uppercase">
+                OBX STUDIO
+              </p>
+              <p className="font-sans text-xl font-medium tracking-wide text-muted-foreground uppercase">
+                INDEPENDENT DIGITAL STUDIO<br />
+                JOHANNESBURG — SOUTH AFRICA
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <p className="font-sans text-2xl sm:text-3xl md:text-4xl font-medium leading-[1.4] text-foreground max-w-3xl">
+              We focus on web design, development, digital experiences, interaction, and visual direction. We build exceptional digital experiences for businesses that want to be taken seriously online.
             </p>
+          </Reveal>
+          <Reveal delay={0.3}>
+            <div className="pt-8">
+              <Link
+                href="/studio"
+                className="group inline-flex items-center font-sans text-sm md:text-base font-medium transition-colors hover:text-muted-foreground text-foreground"
+              >
+                <span className="border-b border-foreground/30 pb-0.5 group-hover:border-foreground transition-colors">
+                  More about the studio
+                </span>
+              </Link>
+            </div>
           </Reveal>
         </div>
       </div>
     </section>
   )
 }
+

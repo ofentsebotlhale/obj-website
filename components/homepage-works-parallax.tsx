@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react'
 import Link from 'next/link'
-import { motion, useMotionValue, useSpring, useTransform, useScroll } from 'framer-motion'
+import { motion, useTransform, useScroll } from 'framer-motion'
 import type { Project } from '@/lib/projects'
 import { Reveal } from '@/components/anim/reveal'
 import { ParallaxImage } from '@/components/anim/parallax-image'
@@ -25,51 +25,6 @@ const cardConfigs: CardConfig[] = [
   { sizeClass: 'w-full max-w-[418px]', parallaxSpeed: 80, alignmentClass: 'md:ml-auto md:mr-0 md:-mt-8' },
 ]
 
-function TiltCard({ children }: { children: React.ReactNode }) {
-  const x = useMotionValue(0)
-  const y = useMotionValue(0)
-
-  const mouseXSpring = useSpring(x, { stiffness: 250, damping: 25 })
-  const mouseYSpring = useSpring(y, { stiffness: 250, damping: 25 })
-
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ['3deg', '-3deg'])
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ['-3deg', '3deg'])
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect()
-    const width = rect.width
-    const height = rect.height
-    const mouseX = e.clientX - rect.left
-    const mouseY = e.clientY - rect.top
-    const xPct = mouseX / width - 0.5
-    const yPct = mouseY / height - 0.5
-    x.set(xPct)
-    y.set(yPct)
-  }
-
-  const handleMouseLeave = () => {
-    x.set(0)
-    y.set(0)
-  }
-
-  return (
-    <div
-      className="w-full relative perspective-[1000px] hover:z-10"
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-    >
-      <motion.div
-        style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
-        className="w-full h-full relative"
-      >
-        <motion.div style={{ translateZ: '20px' }} className="w-full h-full block">
-          {children}
-        </motion.div>
-      </motion.div>
-    </div>
-  )
-}
-
 function ProjectParallaxCard({ project, index }: { project: Project; index: number }) {
   const cardRef = useRef<HTMLDivElement>(null)
   const config = cardConfigs[index % cardConfigs.length]
@@ -84,40 +39,43 @@ function ProjectParallaxCard({ project, index }: { project: Project; index: numb
 
   return (
     <div ref={cardRef} className="w-full">
-      <motion.div style={{ y }} className={`flex flex-col gap-3 ${config.sizeClass} mx-auto ${config.alignmentClass}`}>
-        {/* Text OUTSIDE and ABOVE the image on top */}
+      <motion.div style={{ y }} className={`flex flex-col gap-6 md:gap-8 ${config.sizeClass} mx-auto ${config.alignmentClass}`}>
+        
         <Reveal>
-          <Link href={`/work/${project.slug}`} className="group block space-y-2 outline-none mb-6">
-            <p className="font-sans text-sm text-muted-foreground font-medium uppercase tracking-wider">
-              {project.title}
+          <div className="flex flex-col gap-2">
+            <span className="font-mono text-[10px] md:text-xs text-muted-foreground block mb-2">
+              0{index + 1}
+            </span>
+            <div className="flex items-baseline justify-between">
+              <h3 className="font-sans text-xl md:text-2xl uppercase tracking-tight font-medium text-background">
+                {project.title}
+              </h3>
+            </div>
+            <p className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-muted-foreground/80">
+              {project.category} &middot; {project.year}
             </p>
-            <h3 className="font-heading text-[23px] font-medium leading-snug tracking-tight text-background group-hover:text-muted-foreground transition-colors">
-              {project.overview}
-            </h3>
-          </Link>
+          </div>
         </Reveal>
 
-        <TiltCard>
-          <Link href={`/work/${project.slug}`} className="group block w-full outline-none">
-            <motion.div 
-              initial={{ clipPath: "inset(100% 0 0 0)" }}
-              whileInView={{ clipPath: "inset(0% 0 0 0)" }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-              className="relative w-full aspect-square overflow-hidden bg-background rounded-none transition-all duration-500"
-            >
-              <ParallaxImage
-                src={project.image || '/placeholder.svg'}
-                alt={project.title}
-                priority={index === 0}
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                containerClassName="absolute inset-0 z-0 overflow-hidden"
-                motionClassName="absolute inset-[-12%]"
-                yOffset={['-8%', '8%']}
-              />
-            </motion.div>
-          </Link>
-        </TiltCard>
+        <Link href={`/work/${project.slug}`} className="group block w-full outline-none">
+          <motion.div 
+            initial={{ clipPath: "inset(100% 0 0 0)" }}
+            whileInView={{ clipPath: "inset(0% 0 0 0)" }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+            className="relative w-full aspect-square overflow-hidden bg-background rounded-none transition-all duration-500"
+          >
+            <ParallaxImage
+              src={project.image || '/placeholder.svg'}
+              alt={project.title}
+              priority={index === 0}
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              containerClassName="absolute inset-0 z-0 overflow-hidden"
+              motionClassName="absolute inset-[-12%]"
+              yOffset={['-8%', '8%']}
+            />
+          </motion.div>
+        </Link>
       </motion.div>
     </div>
   )

@@ -1,16 +1,11 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Hero } from '@/components/home/hero'
-import { Intro } from '@/components/home/intro'
 import { BeliefStatement } from '@/components/home/belief-statement'
 import { WhatWeDesign } from '@/components/home/what-we-design'
 import { StudioAbout } from '@/components/home/studio-about'
 import { TheMethod } from '@/components/home/the-method'
-import { ClientEndorsement } from '@/components/home/client-endorsement'
-import { FAQ } from '@/components/home/faq'
-import { StudioStatement } from '@/components/home/studio-statement'
 import { HomepageWorksParallax } from '@/components/homepage-works-parallax'
-import { Reveal } from '@/components/anim/reveal'
 import { projects } from '@/lib/projects'
 
 export const metadata: Metadata = {
@@ -50,15 +45,13 @@ export default function HomePage() {
       
       <div className="relative w-full">
         <Hero />
-        <Intro />
-        <BeliefStatement />
         <HomepageWorksParallax items={projects.slice(0, 5)} />
+        <BeliefStatement />
         <WhatWeDesign />
         <StudioAbout />
         <TheMethod />
-        <ClientEndorsement />
-        <FAQ />
       </div>
     </>
   )
 }
+

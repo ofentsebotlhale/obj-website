@@ -9,7 +9,6 @@ export interface Project {
   overview: string
   problem: string
   solution: string
-  results: string[]
   link: string
 }
 
@@ -25,11 +24,6 @@ export const projects: Project[] = [
     overview: 'Digital garment gallery for streetwear.',
     problem: 'The previous e-commerce experience was slow, clunky, and lacked the visual flair needed to represent a high-end streetwear brand effectively.',
     solution: 'Built using a stark, high-contrast canvas with seamless transitions, dynamic image scaling, and continuous performance tuning for physical devices, integrating a headless commerce backend.',
-    results: [
-      'Better user experience and immersive lookbook navigation',
-      'Page speed scores averaging 98/100 globally',
-      '+40% Increase in direct pre-order transactions'
-    ],
     link: 'https://obxfash.netlify.app'
   },
   {
@@ -42,11 +36,6 @@ export const projects: Project[] = [
     overview: 'Digital presence for elite corporate partners.',
     problem: 'Their old website was outdated, difficult to navigate, and did not reflect the high-end credibility and authority of the firm.',
     solution: 'Designed and developed a modern, structured website with a clear service hierarchy, semantic layouts, and zero-script loading optimizations for flawless performance.',
-    results: [
-      'Improved professionalism and stronger brand perception',
-      '+85% Client inquiry response accuracy metrics',
-      'Under 100ms first input delay (FID)'
-    ],
     link: 'https://obassociates.netlify.app'
   }
 ]
