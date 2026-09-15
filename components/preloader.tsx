@@ -19,18 +19,17 @@ export function Preloader({ onComplete }: PreloaderProps) {
   // Track actual page load status
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      if (document.readyState === 'complete') {
+      if (document.readyState === 'complete' || document.readyState === 'interactive') {
         setIsLoaded(true)
       } else {
         const handleLoad = () => setIsLoaded(true)
-        window.addEventListener('load', handleLoad)
+        document.addEventListener('DOMContentLoaded', handleLoad)
         
-        // Safety fallback: Force load complete after 5 seconds
-        // in case a third-party script or unoptimized image hangs the load event
-        const fallbackTimer = setTimeout(() => setIsLoaded(true), 5000)
+        // Safety fallback
+        const fallbackTimer = setTimeout(() => setIsLoaded(true), 2000)
         
         return () => {
-          window.removeEventListener('load', handleLoad)
+          document.removeEventListener('DOMContentLoaded', handleLoad)
           clearTimeout(fallbackTimer)
         }
       }

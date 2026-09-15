@@ -1,12 +1,11 @@
 import type { Metadata, Viewport } from 'next'
-import { Bebas_Neue } from 'next/font/google'
+import { Bebas_Neue, Inter } from 'next/font/google'
 import './globals.css'
 
 import { CustomCursor } from '@/components/custom-cursor'
 import { SiteNav } from '@/components/site-nav'
 import { SiteFooter } from '@/components/site-footer'
 import { CookieBanner } from '@/components/cookie-banner'
-import { FirebaseAnalytics } from '@/components/firebase-analytics'
 import { LayoutWrapper } from '@/components/layout-wrapper'
 import { AnalyticsLoader } from '@/components/analytics-loader'
 import { SmoothScroll } from '@/components/smooth-scroll'
@@ -15,6 +14,13 @@ const bebas = Bebas_Neue({
   weight: '400',
   subsets: ['latin'],
   variable: '--font-bebas',
+  display: 'swap',
+})
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-sans',
   display: 'swap',
 })
 
@@ -58,11 +64,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${bebas.variable} light bg-white`}
+      className={`${bebas.variable} ${inter.variable} light bg-white`}
     >
       <body className="font-sans antialiased noise-overlay custom-cursor-active relative bg-white">
         <AnalyticsLoader />
-        <FirebaseAnalytics />
         
         <a 
           href="#main-content" 

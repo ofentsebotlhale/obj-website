@@ -12,18 +12,18 @@ interface WorksParallaxProps {
 }
 
 interface CardConfig {
-  sizeClass: string
+  colSpanClass: string
   parallaxSpeed: number
   alignmentClass: string
   sizes: string
 }
 
 const cardConfigs: CardConfig[] = [
-  { sizeClass: 'w-full md:w-[95%] lg:w-[90%]', parallaxSpeed: 30, alignmentClass: 'md:ml-0 md:mr-auto', sizes: '(max-width: 768px) 100vw, 45vw' },
-  { sizeClass: 'w-full md:w-[85%] lg:w-[75%]', parallaxSpeed: 65, alignmentClass: 'md:ml-auto md:mr-0 md:mt-32', sizes: '(max-width: 768px) 100vw, 40vw' },
-  { sizeClass: 'w-full md:w-[90%] lg:w-[85%]', parallaxSpeed: 20, alignmentClass: 'md:mx-auto', sizes: '(max-width: 768px) 100vw, 45vw' },
-  { sizeClass: 'w-full md:w-[80%] lg:w-[75%]', parallaxSpeed: 40, alignmentClass: 'md:ml-0 md:mr-auto md:mt-16', sizes: '(max-width: 768px) 100vw, 40vw' },
-  { sizeClass: 'w-full md:w-[70%] lg:w-[60%]', parallaxSpeed: 80, alignmentClass: 'md:ml-auto md:mr-0 md:-mt-8', sizes: '(max-width: 768px) 100vw, 35vw' },
+  { colSpanClass: 'md:col-span-6', parallaxSpeed: 20, alignmentClass: 'md:mt-0', sizes: '(max-width: 768px) 100vw, 55vw' },
+  { colSpanClass: 'md:col-span-5', parallaxSpeed: 50, alignmentClass: 'md:mt-32 lg:mt-48', sizes: '(max-width: 768px) 100vw, 45vw' },
+  { colSpanClass: 'md:col-span-5', parallaxSpeed: 30, alignmentClass: 'md:mt-16 lg:mt-24', sizes: '(max-width: 768px) 100vw, 45vw' },
+  { colSpanClass: 'md:col-span-6', parallaxSpeed: 60, alignmentClass: 'md:mt-40 lg:mt-64', sizes: '(max-width: 768px) 100vw, 55vw' },
+  { colSpanClass: 'md:col-span-6', parallaxSpeed: 25, alignmentClass: 'md:mt-16 lg:mt-24', sizes: '(max-width: 768px) 100vw, 55vw' },
 ]
 
 function ProjectParallaxCard({ project, index }: { project: Project; index: number }) {
@@ -39,8 +39,8 @@ function ProjectParallaxCard({ project, index }: { project: Project; index: numb
   const y = useTransform(scrollYProgress, [0, 1], [config.parallaxSpeed, -config.parallaxSpeed])
 
   return (
-    <div ref={cardRef} className="w-full">
-      <motion.div style={{ y }} className={`flex flex-col gap-6 md:gap-8 ${config.sizeClass} mx-auto ${config.alignmentClass}`}>
+    <div ref={cardRef} className={`w-full ${config.colSpanClass} ${config.alignmentClass}`}>
+      <motion.div style={{ y }} className="flex flex-col gap-6 md:gap-8 w-full mx-auto">
         
         <Reveal>
           <div className="flex flex-col gap-2">
@@ -59,11 +59,10 @@ function ProjectParallaxCard({ project, index }: { project: Project; index: numb
         </Reveal>
 
         <Link href={`/work/${project.slug}`} className="group block w-full outline-none">
-          <div className="relative w-full aspect-[4/3] md:aspect-[16/10] overflow-hidden bg-background rounded-none transition-all duration-500">
+          <div className="relative w-full aspect-square overflow-hidden bg-background rounded-none transition-all duration-500">
             <ParallaxImage
               src={project.image || '/placeholder.svg'}
               alt={project.title}
-              priority={index === 0}
               sizes={config.sizes}
               className="object-cover transition-transform duration-700 group-hover:scale-105"
               containerClassName="absolute inset-0 z-0 overflow-hidden"
@@ -99,7 +98,7 @@ export function HomepageWorksParallax({ items }: WorksParallaxProps) {
         </div>
 
         {/* Asymmetrical Grid with Container Parallax */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-24 md:gap-y-32 lg:gap-y-48 gap-x-8 md:gap-x-12 lg:gap-x-16 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-11 gap-y-24 md:gap-y-32 lg:gap-y-48 gap-x-8 md:gap-x-12 lg:gap-x-16 items-start">
           {items.map((project, index) => (
             <ProjectParallaxCard key={project.slug} project={project} index={index} />
           ))}
