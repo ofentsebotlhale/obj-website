@@ -17,7 +17,7 @@ export function Hero() {
     <section className="relative flex h-[100svh] max-h-[100svh] w-full flex-col justify-between overflow-hidden bg-background px-4 pb-4 pt-[calc(env(safe-area-inset-top,0px)+1.25rem)] md:px-8 md:pb-6 md:pt-[calc(env(safe-area-inset-top,0px)+1.75rem)] text-foreground font-sans">
 
       {/* Top Left Stack */}
-      <div className="w-full flex flex-col justify-start items-start relative z-10 max-w-4xl mt-[5vh] md:mt-[10vh]">
+      <div className="w-full flex flex-col justify-start items-start relative z-10 max-w-4xl mt-0">
         <motion.div className="overflow-hidden mb-6">
           <motion.p
             initial={{ y: '100%' }}
@@ -28,15 +28,14 @@ export function Hero() {
             DIGITAL STUDIO
           </motion.p>
         </motion.div>
-
-        <h2 className="font-sans text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-foreground font-normal tracking-tight leading-[1.05] uppercase break-normal overflow-hidden mix-blend-difference">
+        <h2 className="font-sans text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-foreground font-normal tracking-tight leading-[1.05] break-normal overflow-hidden mix-blend-difference">
           <motion.span
             initial={{ y: '100%' }}
             animate={!loading ? { y: '0%' } : { y: '100%' }}
             transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
             className="block"
           >
-            WE DESIGN
+            We Design
           </motion.span>
           <motion.span
             initial={{ y: '100%' }}
@@ -44,7 +43,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
             className="block"
           >
-            HOW BUSINESSES
+            How Businesses
           </motion.span>
           <motion.span
             initial={{ y: '100%' }}
@@ -52,7 +51,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.4, ease: EASE }}
             className="block"
           >
-            ARE SEEN ONLINE.
+            Are Seen Online.
           </motion.span>
         </h2>
         

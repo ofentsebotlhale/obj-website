@@ -19,11 +19,11 @@ interface CardConfig {
 }
 
 const cardConfigs: CardConfig[] = [
-  { colSpanClass: 'md:col-span-6', parallaxSpeed: 20, alignmentClass: 'md:mt-0', sizes: '(max-width: 768px) 100vw, 55vw' },
-  { colSpanClass: 'md:col-span-5', parallaxSpeed: 50, alignmentClass: 'md:mt-32 lg:mt-48', sizes: '(max-width: 768px) 100vw, 45vw' },
-  { colSpanClass: 'md:col-span-5', parallaxSpeed: 30, alignmentClass: 'md:mt-16 lg:mt-24', sizes: '(max-width: 768px) 100vw, 45vw' },
-  { colSpanClass: 'md:col-span-6', parallaxSpeed: 60, alignmentClass: 'md:mt-40 lg:mt-64', sizes: '(max-width: 768px) 100vw, 55vw' },
-  { colSpanClass: 'md:col-span-6', parallaxSpeed: 25, alignmentClass: 'md:mt-16 lg:mt-24', sizes: '(max-width: 768px) 100vw, 55vw' },
+  { colSpanClass: 'md:col-span-8 lg:col-span-7 md:col-start-1', parallaxSpeed: 30, alignmentClass: 'md:mt-0', sizes: '(max-width: 768px) 100vw, 60vw' },
+  { colSpanClass: 'md:col-span-6 lg:col-span-5 md:col-start-7 lg:col-start-8', parallaxSpeed: 50, alignmentClass: 'md:mt-64 lg:mt-80', sizes: '(max-width: 768px) 100vw, 40vw' },
+  { colSpanClass: 'md:col-span-7 lg:col-span-6 md:col-start-1', parallaxSpeed: 20, alignmentClass: 'md:mt-32 lg:mt-48', sizes: '(max-width: 768px) 100vw, 50vw' },
+  { colSpanClass: 'md:col-span-6 lg:col-span-5 md:col-start-7 lg:col-start-8', parallaxSpeed: 60, alignmentClass: 'md:mt-64 lg:mt-80', sizes: '(max-width: 768px) 100vw, 45vw' },
+  { colSpanClass: 'md:col-span-8 lg:col-span-7 md:col-start-2', parallaxSpeed: 35, alignmentClass: 'md:mt-32 lg:mt-48', sizes: '(max-width: 768px) 100vw, 60vw' },
 ]
 
 function ProjectParallaxCard({ project, index }: { project: Project; index: number }) {
@@ -40,21 +40,15 @@ function ProjectParallaxCard({ project, index }: { project: Project; index: numb
 
   return (
     <div ref={cardRef} className={`w-full ${config.colSpanClass} ${config.alignmentClass}`}>
-      <motion.div style={{ y }} className="flex flex-col gap-6 md:gap-8 w-full mx-auto">
-        
+      <motion.div style={{ y }} className="flex flex-col w-full mx-auto">
         <Reveal>
-          <div className="flex flex-col gap-2">
-            <span className="font-mono text-[10px] md:text-xs text-background/70 block mb-2">
-              0{index + 1}
+          <div className="flex flex-col gap-2 mb-6 md:mb-8">
+            <span className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-background/60 block">
+              {project.title}
             </span>
-            <div className="flex items-baseline justify-between">
-              <h3 className="font-sans text-xl md:text-2xl uppercase tracking-tight font-medium text-background">
-                {project.title}
-              </h3>
-            </div>
-            <p className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-background/70">
-              {project.category} &middot; {project.year}
-            </p>
+            <h3 className="font-sans text-2xl md:text-3xl lg:text-4xl tracking-tight font-medium text-background leading-tight">
+              {project.overview}
+            </h3>
           </div>
         </Reveal>
 
@@ -86,26 +80,35 @@ function ProjectParallaxCard({ project, index }: { project: Project; index: numb
 
 export function HomepageWorksParallax({ items }: WorksParallaxProps) {
   return (
-    <section className="bg-foreground text-background py-24 md:py-32 lg:py-48 px-[5vw] w-full overflow-hidden flex flex-col justify-center">
-      <div className="max-w-[1920px] mx-auto">
+    <section className="bg-foreground text-background py-24 md:py-32 lg:py-48 px-6 md:px-[5vw] w-full overflow-hidden flex flex-col justify-center">
+      <div className="max-w-[1920px] mx-auto w-full">
         {/* Section Header */}
-        <div className="mb-24 md:mb-32 lg:mb-40">
-          <Reveal>
-            <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-background uppercase">
-              WORKS
-            </h2>
-          </Reveal>
+        <div className="mb-24 md:mb-32 lg:mb-48 grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 items-start">
+          <div className="md:col-span-5 lg:col-span-4">
+            <Reveal>
+              <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-background uppercase">
+                WORKS
+              </h2>
+            </Reveal>
+          </div>
+          <div className="md:col-span-7 lg:col-span-6 lg:col-start-7">
+            <Reveal>
+              <p className="font-sans text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-background leading-tight">
+                Good brands communicate.<br />Great brands surprise.
+              </p>
+            </Reveal>
+          </div>
         </div>
 
         {/* Asymmetrical Grid with Container Parallax */}
-        <div className="grid grid-cols-1 md:grid-cols-11 gap-y-24 md:gap-y-32 lg:gap-y-48 gap-x-8 md:gap-x-12 lg:gap-x-16 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-y-24 md:gap-y-0 gap-x-6 md:gap-x-12 items-start w-full">
           {items.map((project, index) => (
             <ProjectParallaxCard key={project.slug} project={project} index={index} />
           ))}
         </div>
 
         {/* Bottom View All Link */}
-        <div className="mt-32 md:mt-48 lg:mt-64 flex justify-center md:justify-end">
+        <div className="mt-24 md:mt-48 flex justify-center md:justify-end">
           <Reveal>
             <Link
               href="/work"
