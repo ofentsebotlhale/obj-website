@@ -28,7 +28,7 @@ export function Hero() {
             DIGITAL STUDIO
           </motion.p>
         </motion.div>
-        <h2 className="font-sans text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-foreground font-normal tracking-tight leading-[1.05] break-normal overflow-hidden mix-blend-difference">
+        <h2 className="font-sans text-xl sm:text-2xl text-foreground font-normal tracking-tight leading-6 break-normal overflow-hidden mix-blend-difference">
           <motion.span
             initial={{ y: '100%' }}
             animate={!loading ? { y: '0%' } : { y: '100%' }}
@@ -72,7 +72,7 @@ export function Hero() {
         initial={{ opacity: 0, y: 10 }}
         animate={!loading ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
         transition={{ duration: 0.8, delay: 0.5, ease: EASE }}
-        className="absolute right-4 md:right-8 top-[45%] sm:top-1/2 -translate-y-1/2 z-20 flex flex-col gap-4 text-foreground mix-blend-difference font-mono text-[10px] md:text-xs uppercase tracking-widest"
+        className="absolute right-4 md:right-8 top-[45%] sm:top-1/2 -translate-y-1/2 z-20 flex flex-col gap-4 text-foreground font-mono text-[10px] md:text-xs uppercase tracking-widest"
       >
         <a
           href="https://www.instagram.com/obxstudio_/"
