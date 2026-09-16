@@ -60,7 +60,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       name: 'OBX Studio',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://obxstudio.co.za/logo.png'
+        url: 'https://obxstudio.co.za/logo.avif'
       }
     },
     url: `https://obxstudio.co.za/blog/${post.slug}`

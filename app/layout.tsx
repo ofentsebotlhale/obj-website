@@ -31,10 +31,10 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://obxstudio.co.za'),
   icons: {
     icon: [
-      { url: '/logo.png', type: 'image/png' },
+      { url: '/logo.avif', type: 'image/avif' },
     ],
-    shortcut: '/logo.png',
-    apple: '/logo.png',
+    shortcut: '/logo.avif',
+    apple: '/logo.avif',
   },
   openGraph: {
     title: 'OBX Studio',

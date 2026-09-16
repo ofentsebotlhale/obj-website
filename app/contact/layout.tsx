@@ -40,7 +40,7 @@ export default function ContactLayout({
           "url": "https://obxstudio.co.za",
           "telephone": "+27603759829",
           "email": "hello@obxstudio.co.za",
-          "image": "https://obxstudio.co.za/logo.png",
+          "image": "https://obxstudio.co.za/logo.avif",
           "priceRange": "$$",
           "address": {
             "@type": "PostalAddress",
