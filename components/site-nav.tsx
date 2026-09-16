@@ -133,7 +133,7 @@ export function SiteNav() {
               alt="OBX Studio"
               width={160}
               height={40}
-              className="h-8 sm:h-10 md:h-12 w-auto object-contain transition-all duration-300 brightness-0 invert"
+              className="h-8 sm:h-10 md:h-12 w-auto object-contain transition-all duration-300 invert mix-blend-screen"
               priority
               referrerPolicy="no-referrer"
             />
