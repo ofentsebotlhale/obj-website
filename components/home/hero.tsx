@@ -55,11 +55,22 @@ export function Hero() {
           </motion.span>
         </h2>
         
+        <motion.div className="mt-6 max-w-sm">
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={!loading ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+            transition={{ duration: 0.8, delay: 0.5, ease: EASE }}
+            className="font-sans text-sm sm:text-base text-muted-foreground leading-relaxed"
+          >
+            Websites that make businesses clearer, more credible and more distinct online.
+          </motion.p>
+        </motion.div>
+        
         <motion.div className="overflow-hidden mt-6">
           <motion.p
             initial={{ y: '100%' }}
             animate={!loading ? { y: '0%' } : { y: '100%' }}
-            transition={{ duration: 0.8, delay: 0.5, ease: EASE }}
+            transition={{ duration: 0.8, delay: 0.6, ease: EASE }}
             className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-muted-foreground font-normal"
           >
             JOHANNESBURG — ZA

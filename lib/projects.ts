@@ -21,9 +21,9 @@ export const projects: Project[] = [
     services: ['Art Direction', 'UI/UX Design', 'Headless Commerce'],
     image: '/work/obx-fash-1.avif',
     images: ['/work/obx-fash-1.avif', '/work/obx-fash-2.avif'],
-    overview: 'Digital garment gallery for streetwear.',
-    problem: 'The previous e-commerce experience was slow, clunky, and lacked the visual flair needed to represent a high-end streetwear brand effectively.',
-    solution: 'Built using a stark, high-contrast canvas with seamless transitions, dynamic image scaling, and continuous performance tuning for physical devices, integrating a headless commerce backend.',
+    overview: 'An editorial e-commerce experience for an independent streetwear label.',
+    problem: 'The previous experience felt slow, clunky and visually disconnected from the quality and character of the brand.',
+    solution: 'We designed a stark, high-contrast canvas with seamless transitions and dynamic image scaling. The build integrates a headless commerce backend, prioritizing performance and tactile responsiveness across all devices.',
     link: 'https://obxfash.netlify.app'
   },
   {
@@ -33,9 +33,9 @@ export const projects: Project[] = [
     year: '2026',
     services: ['Strategic Consulting', 'Web Application', 'UX Design'],
     image: '/work/ob-law-1.avif',
-    overview: 'Digital presence for elite corporate partners.',
-    problem: 'Their old website was outdated, difficult to navigate, and did not reflect the high-end credibility and authority of the firm.',
-    solution: 'Designed and developed a modern, structured website with a clear service hierarchy, semantic layouts, and zero-script loading optimizations for flawless performance.',
+    overview: 'A high-trust digital presence for a corporate advisory practice.',
+    problem: 'Their existing website was difficult to navigate and did not reflect the credibility or authority of the firm.',
+    solution: 'We built a modern, structured website with a clear service hierarchy. The design relies on semantic layouts and performance optimizations to deliver a fast, authoritative experience.',
     link: 'https://obassociates.netlify.app'
   }
 ]

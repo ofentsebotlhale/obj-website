@@ -2,100 +2,129 @@
 
 import { motion } from 'framer-motion'
 import { Reveal } from '@/components/anim/reveal'
-import { useState, useEffect } from 'react'
 
 const STEPS = [
   {
     num: '01',
-    title: 'THINK',
-    desc: 'Research, positioning, and strategy to establish a clear direction before designing the surface.'
+    title: 'CLARIFY',
+    desc: 'We establish what the business needs to communicate, who it needs to reach, and what the website needs to achieve.'
   },
   {
     num: '02',
     title: 'DESIGN',
-    desc: 'Visual systems, typography, and editorial layouts crafted for digital interaction.'
+    desc: 'We shape the visual system, interface and experience around that direction.'
   },
   {
     num: '03',
     title: 'BUILD',
-    desc: 'Engineering the front-end with precision for speed, scale, and responsive behavior.'
+    desc: 'We develop the site for performance, responsiveness and real-world use.'
   },
   {
     num: '04',
     title: 'LAUNCH',
-    desc: 'Final optimizations, quality assurance, and deployment to the live environment.'
+    desc: 'We test, refine and put the finished experience into the world properly.'
   }
 ]
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15
+export function TheMethod() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
     }
   }
-}
 
-const columnVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+  const stepVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1, 
+      transition: { duration: 0.8 }
+    }
   }
-}
 
-const numberVariants = {
-  hidden: { scale: 0.85, z: -30 },
-  visible: { 
-    scale: 1, 
-    z: 0,
-    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+  const numberVariants = {
+    hidden: { scale: 0.85, opacity: 0 },
+    visible: { 
+      scale: 1,
+      opacity: 1,
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+    }
   }
-}
 
-export function TheMethod() {
-  const [mounted, setMounted] = useState(false)
-  useEffect(() => setMounted(true), [])
+  const textVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { 
+      y: 0, 
+      opacity: 1,
+      transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] }
+    }
+  }
 
   return (
-    <section className="px-[5vw] py-24 md:py-32 bg-background text-foreground flex flex-col justify-center">
+    <section className="px-[5vw] py-24 md:py-32 lg:py-48 bg-background text-foreground flex flex-col justify-center">
       <div className="mx-auto max-w-[1920px]">
         <Reveal>
-          <div className="mb-16 md:mb-24">
+          <div className="mb-16 md:mb-24 space-y-4">
             <h2 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
               PROCESS
             </h2>
+            <p className="font-sans text-xl md:text-2xl font-medium uppercase tracking-tight text-foreground">
+              A CLEAR PROCESS KEEPS THE WORK SHARP.
+            </p>
           </div>
         </Reveal>
 
-        <motion.div 
-          variants={containerVariants}
-          initial={false}
-          animate={mounted ? "hidden" : "visible"}
-          whileInView={mounted ? "visible" : undefined}
-          viewport={{ once: true, margin: "-10%" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16 md:gap-12 perspective-[1000px]"
-        >
-          {STEPS.map((step, i) => (
-            <motion.div key={i} variants={columnVariants} className="flex flex-col space-y-10 lg:space-y-12">
-              <motion.span variants={numberVariants} className="font-mono text-4xl md:text-5xl text-foreground/10 origin-left inline-block">
-                {step.num}
-              </motion.span>
-              <div className="space-y-6 lg:space-y-8 border-t border-border/40 pt-6">
-                <h3 className="font-sans text-xl md:text-2xl uppercase tracking-tight text-foreground font-medium">
-                  {step.title}
-                </h3>
-                <p className="font-sans text-sm md:text-base text-muted-foreground leading-relaxed text-pretty">
-                  {step.desc}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+        <div className="relative">
+          {/* Progress Line */}
+          <motion.div 
+            initial={{ scaleX: 0, opacity: 0 }}
+            whileInView={{ scaleX: 1, opacity: 1 }}
+            viewport={{ once: true, margin: "-10%" }}
+            transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute top-16 left-0 right-0 h-px bg-border/40 origin-left hidden lg:block"
+          />
+          
+          <motion.div 
+            initial={{ scaleY: 0, opacity: 0 }}
+            whileInView={{ scaleY: 1, opacity: 1 }}
+            viewport={{ once: true, margin: "-10%" }}
+            transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute top-0 bottom-0 left-[21px] w-px bg-border/40 origin-top block lg:hidden"
+          />
+
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-10%" }}
+            className="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-8"
+          >
+            {STEPS.map((step, i) => (
+              <motion.div key={i} variants={stepVariants} className="flex flex-row lg:flex-col gap-6 lg:gap-12 relative z-10">
+                <div className="bg-background lg:bg-transparent lg:pb-0 shrink-0 w-12 lg:w-auto flex items-center justify-center lg:justify-start">
+                  <motion.span variants={numberVariants} className="font-mono text-3xl md:text-4xl lg:text-5xl text-foreground/20 block origin-bottom-left">
+                    {step.num}
+                  </motion.span>
+                </div>
+                
+                <div className="flex flex-col gap-4 lg:gap-6 pt-1 lg:pt-6">
+                  <motion.h3 variants={textVariants} className="font-sans text-xl md:text-2xl uppercase tracking-tight text-foreground font-medium">
+                    {step.title}
+                  </motion.h3>
+                  <motion.p variants={textVariants} className="font-sans text-sm md:text-base text-muted-foreground leading-relaxed text-pretty">
+                    {step.desc}
+                  </motion.p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+
       </div>
     </section>
   )
 }
-

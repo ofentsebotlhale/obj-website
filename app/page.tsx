@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Hero } from '@/components/home/hero'
-import { BeliefStatement } from '@/components/home/belief-statement'
+import { ValueStatement } from '@/components/home/value-statement'
 import { WhatWeDesign } from '@/components/home/what-we-design'
 import { StudioAbout } from '@/components/home/studio-about'
 import { TheMethod } from '@/components/home/the-method'
+import { ClosingCta } from '@/components/home/closing-cta'
 import { HomepageWorksParallax } from '@/components/homepage-works-parallax'
 import { projects } from '@/lib/projects'
 
@@ -46,10 +47,11 @@ export default function HomePage() {
       <div className="relative w-full">
         <Hero />
         <HomepageWorksParallax items={projects.slice(0, 5)} />
-        <BeliefStatement />
+        <ValueStatement />
         <WhatWeDesign />
         <StudioAbout />
         <TheMethod />
+        <ClosingCta />
       </div>
     </>
   )

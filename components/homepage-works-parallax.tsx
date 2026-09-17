@@ -93,8 +93,8 @@ export function HomepageWorksParallax({ items }: WorksParallaxProps) {
           </div>
           <div className="md:col-span-7 lg:col-span-6 lg:col-start-7">
             <Reveal>
-              <p className="font-sans text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-background leading-tight">
-                Good brands communicate.<br />Great brands surprise.
+              <p className="font-sans text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-background leading-tight text-balance">
+                SELECTED WORK BUILT TO MAKE BUSINESSES<br className="hidden md:block" /> CLEARER, MORE DISTINCT AND MORE CREDIBLE ONLINE.
               </p>
             </Reveal>
           </div>
