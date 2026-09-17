@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from 'next'
 import { Bebas_Neue, Inter } from 'next/font/google'
 import './globals.css'
 
-import { CustomCursor } from '@/components/custom-cursor'
 import { SiteNav } from '@/components/site-nav'
 import { SiteFooter } from '@/components/site-footer'
 import { CookieBanner } from '@/components/cookie-banner'
@@ -66,7 +65,7 @@ export default function RootLayout({
       lang="en"
       className={`${bebas.variable} ${inter.variable} light bg-white`}
     >
-      <body className="font-sans antialiased noise-overlay custom-cursor-active relative bg-white">
+      <body className="font-sans antialiased noise-overlay relative bg-white">
         <AnalyticsLoader />
         
         <a 
@@ -80,8 +79,6 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-
-        <CustomCursor />
         
         <SmoothScroll>
           <LayoutWrapper>
