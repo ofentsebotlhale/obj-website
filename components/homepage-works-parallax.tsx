@@ -29,36 +29,62 @@ const cardConfigs: CardConfig[] = [
 function ProjectParallaxCard({ project, index }: { project: Project; index: number }) {
   const cardRef = useRef<HTMLDivElement>(null)
   const config = cardConfigs[index % cardConfigs.length]
+  const formattedIndex = (index + 1).toString().padStart(2, '0')
 
   const { scrollYProgress } = useScroll({
     target: cardRef,
     offset: ['start end', 'end start'],
   })
 
-  // Smaller images have a higher parallax displacement speed
-  const y = useTransform(scrollYProgress, [0, 1], [config.parallaxSpeed, -config.parallaxSpeed])
+  // Small parallax for image wrapper and even smaller for text
+  const yImage = useTransform(scrollYProgress, [0, 1], [config.parallaxSpeed, -config.parallaxSpeed])
+  const yText = useTransform(scrollYProgress, [0, 1], [config.parallaxSpeed * 0.3, -config.parallaxSpeed * 0.3])
 
   return (
     <div ref={cardRef} className={`w-full ${config.colSpanClass} ${config.alignmentClass}`}>
-      <motion.div style={{ y }} className="flex flex-col w-full mx-auto">
-        <Reveal>
-          <div className="flex flex-col gap-2 mb-6 md:mb-8">
-            <span className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-background/60 block">
-              {project.title}
-            </span>
-            <h3 className="font-sans text-2xl md:text-3xl lg:text-4xl tracking-tight font-medium text-background leading-tight">
-              {project.overview}
-            </h3>
-          </div>
-        </Reveal>
+      <div className="flex flex-col w-full mx-auto group">
+        <Link href={`/work/${project.slug}`} className="block w-full outline-none">
+          <motion.div style={{ y: yText }} className="flex flex-col gap-1 mb-4 md:mb-6 pl-2">
+            <div className="flex items-center justify-between">
+              <motion.span
+                initial={{ scale: 0.75, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true, margin: "-10%" }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                className="font-mono text-sm md:text-base tracking-widest text-background/30 block group-hover:translate-x-1 transition-transform duration-500 ease-out"
+              >
+                {formattedIndex}
+              </motion.span>
+            </div>
+            
+            <div className="flex items-baseline gap-4">
+              <motion.h3 
+                initial={{ x: -16, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true, margin: "-10%" }}
+                transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                className="font-sans text-xl md:text-2xl lg:text-3xl tracking-tight font-medium text-background leading-tight uppercase group-hover:translate-x-2 transition-transform duration-500 ease-out"
+              >
+                {project.title}
+              </motion.h3>
+            </div>
+            <motion.span 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              className="font-mono text-[10px] md:text-[11px] uppercase tracking-widest text-background/50 block group-hover:text-background/80 transition-colors duration-500 ease-out"
+            >
+              {project.category} · {project.year}
+            </motion.span>
+          </motion.div>
 
-        <Link href={`/work/${project.slug}`} className="group block w-full outline-none">
-          <div className="relative w-full aspect-square overflow-hidden bg-background rounded-none transition-all duration-500">
+          <motion.div style={{ y: yImage }} className="relative w-full aspect-[4/5] overflow-hidden bg-background rounded-none transition-all duration-500">
             <ParallaxImage
               src={project.image || '/placeholder.svg'}
               alt={project.title}
               sizes={config.sizes}
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
               containerClassName="absolute inset-0 z-0 overflow-hidden"
               motionClassName="absolute inset-[-12%]"
               yOffset={['-8%', '8%']}
@@ -68,12 +94,12 @@ function ProjectParallaxCard({ project, index }: { project: Project; index: numb
               initial={{ scaleY: 1 }}
               whileInView={{ scaleY: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-              className="absolute inset-0 z-10 bg-foreground origin-bottom"
+              transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+              className="absolute inset-0 z-10 bg-foreground origin-bottom pointer-events-none"
             />
-          </div>
+          </motion.div>
         </Link>
-      </motion.div>
+      </div>
     </div>
   )
 }
@@ -86,15 +112,16 @@ export function HomepageWorksParallax({ items }: WorksParallaxProps) {
         <div className="mb-24 md:mb-32 lg:mb-48 grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 items-start">
           <div className="md:col-span-5 lg:col-span-4">
             <Reveal>
-              <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-background uppercase">
-                WORKS
+              <h2 className="font-mono text-[10px] md:text-xs tracking-widest text-background/50 uppercase">
+                WORK
               </h2>
             </Reveal>
           </div>
           <div className="md:col-span-7 lg:col-span-6 lg:col-start-7">
             <Reveal>
-              <p className="font-sans text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-background leading-tight text-balance">
-                SELECTED WORK BUILT TO MAKE BUSINESSES<br className="hidden md:block" /> CLEARER, MORE DISTINCT AND MORE CREDIBLE ONLINE.
+              <p className="font-sans text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-background leading-tight text-pretty">
+                SELECTED WORK, <br className="hidden md:block" />
+                BUILT TO BE REMEMBERED.
               </p>
             </Reveal>
           </div>

@@ -2,8 +2,7 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { usePreloader } from '@/components/layout-wrapper'
-import Link from 'next/link'
-import { Linkedin, Instagram } from 'lucide-react'
+import { HeroAmbient } from '@/components/anim/hero-ambient'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -11,79 +10,69 @@ export function Hero() {
   const { loading } = usePreloader()
   const { scrollY } = useScroll()
   
-  const y = useTransform(scrollY, [0, 200], ['0%', '10%'])
+  const yWordmark = useTransform(scrollY, [0, 500], ['0%', '30%'])
+  const scaleWordmark = useTransform(scrollY, [0, 500], [1, 0.9])
+  const opacityWordmark = useTransform(scrollY, [0, 400], [1, 0])
+  const yContent = useTransform(scrollY, [0, 500], ['0%', '15%'])
 
   return (
     <section className="relative flex h-[100svh] max-h-[100svh] w-full flex-col justify-between overflow-hidden bg-background px-4 pb-4 pt-[calc(env(safe-area-inset-top,0px)+1.25rem)] md:px-8 md:pb-6 md:pt-[calc(env(safe-area-inset-top,0px)+1.75rem)] text-foreground font-sans">
+      <HeroAmbient />
 
       {/* Top Left Stack */}
-      <div className="w-full flex flex-col justify-start items-start relative z-10 max-w-4xl mt-0">
-        <motion.div className="overflow-hidden mb-6">
-          <motion.p
-            initial={{ y: '100%' }}
-            animate={!loading ? { y: '0%' } : { y: '100%' }}
-            transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
-            className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-muted-foreground font-normal"
-          >
-            DIGITAL STUDIO
-          </motion.p>
-        </motion.div>
-        <h2 className="font-sans text-xl sm:text-2xl text-foreground font-normal tracking-tight leading-6 break-normal overflow-hidden mix-blend-difference">
-          <motion.span
-            initial={{ y: '100%' }}
-            animate={!loading ? { y: '0%' } : { y: '100%' }}
-            transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
-            className="block"
-          >
-            We Design
-          </motion.span>
-          <motion.span
-            initial={{ y: '100%' }}
-            animate={!loading ? { y: '0%' } : { y: '100%' }}
-            transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
-            className="block"
-          >
-            How Businesses
-          </motion.span>
-          <motion.span
-            initial={{ y: '100%' }}
-            animate={!loading ? { y: '0%' } : { y: '100%' }}
-            transition={{ duration: 0.8, delay: 0.4, ease: EASE }}
-            className="block"
-          >
-            Are Seen Online.
-          </motion.span>
+      <motion.div style={{ y: yContent }} className="w-full flex flex-col justify-start items-start relative z-10 max-w-4xl mt-0 md:mt-4">
+        <h2 className="font-sans text-2xl sm:text-3xl md:text-4xl text-foreground font-normal tracking-tight leading-none mix-blend-difference">
+          <span className="block overflow-hidden pb-1">
+            <motion.span
+              initial={{ y: '110%' }}
+              animate={!loading ? { y: '0%' } : { y: '110%' }}
+              transition={{ duration: 0.9, delay: 0.1, ease: EASE }}
+              className="block"
+            >
+              WE DESIGN
+            </motion.span>
+          </span>
+          <span className="block overflow-hidden pb-1">
+            <motion.span
+              initial={{ y: '110%' }}
+              animate={!loading ? { y: '0%' } : { y: '110%' }}
+              transition={{ duration: 0.9, delay: 0.18, ease: EASE }}
+              className="block"
+            >
+              HOW BUSINESSES
+            </motion.span>
+          </span>
+          <span className="block overflow-hidden pb-1">
+            <motion.span
+              initial={{ y: '110%' }}
+              animate={!loading ? { y: '0%' } : { y: '110%' }}
+              transition={{ duration: 0.9, delay: 0.26, ease: EASE }}
+              className="block"
+            >
+              ARE SEEN ONLINE.
+            </motion.span>
+          </span>
         </h2>
         
-        <motion.div className="mt-6 max-w-sm">
+        <motion.div className="mt-8 max-w-sm overflow-hidden mix-blend-difference">
           <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={!loading ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
-            transition={{ duration: 0.8, delay: 0.5, ease: EASE }}
-            className="font-sans text-sm sm:text-base text-muted-foreground leading-relaxed"
+            initial={{ opacity: 0, y: 16 }}
+            animate={!loading ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+            transition={{ duration: 0.8, delay: 0.45, ease: EASE }}
+            className="font-sans text-sm md:text-base text-muted-foreground leading-relaxed font-light"
           >
             Websites that make businesses clearer, more credible and more distinct online.
           </motion.p>
         </motion.div>
-        
-        <motion.div className="overflow-hidden mt-6">
-          <motion.p
-            initial={{ y: '100%' }}
-            animate={!loading ? { y: '0%' } : { y: '100%' }}
-            transition={{ duration: 0.8, delay: 0.6, ease: EASE }}
-            className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-muted-foreground font-normal"
-          >
-            JOHANNESBURG — ZA
-          </motion.p>
-        </motion.div>
-      </div>
+      </motion.div>
 
       {/* Social Links */}
       <motion.div
+        style={{ y: yContent }}
         initial={{ opacity: 0, y: 10 }}
         animate={!loading ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
         transition={{ duration: 0.8, delay: 0.5, ease: EASE }}
-        className="absolute right-4 md:right-8 top-[45%] sm:top-1/2 -translate-y-1/2 z-20 flex flex-col gap-4 text-foreground font-mono text-[10px] md:text-xs uppercase tracking-widest"
+        className="absolute right-4 md:right-8 top-[45%] sm:top-1/2 -translate-y-1/2 z-20 flex flex-col gap-4 text-foreground font-mono text-[10px] md:text-xs uppercase tracking-widest mix-blend-difference"
       >
         <a
           href="https://www.instagram.com/obxstudio_/"
@@ -103,9 +92,19 @@ export function Hero() {
         </a>
       </motion.div>
 
-      {/* Bottom Layout - Wordmark */}
-      <motion.div style={{ y }} className="w-full flex flex-col relative z-10 gap-8 md:gap-12 flex-1 justify-end">
-        <div className="w-full flex flex-col items-center justify-end text-foreground select-none overflow-hidden pb-2 pointer-events-none mix-blend-difference">
+      {/* Bottom Layout - Wordmark & Meta */}
+      <motion.div style={{ y: yWordmark, scale: scaleWordmark, opacity: opacityWordmark }} className="w-full flex flex-col relative z-10 gap-8 md:gap-12 flex-1 justify-end origin-bottom">
+        <div className="absolute bottom-4 left-0 md:bottom-8 font-mono text-[10px] md:text-xs uppercase tracking-widest text-muted-foreground mix-blend-difference pointer-events-none">
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={!loading ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 1, delay: 0.6, ease: EASE }}
+          >
+            JOHANNESBURG — ZA
+          </motion.p>
+        </div>
+        
+        <div className="w-full flex flex-col items-center justify-end text-foreground select-none overflow-hidden pb-0 md:pb-2 pointer-events-none mix-blend-difference">
           <motion.div
             initial={{ y: '100%', opacity: 0 }}
             animate={!loading ? { y: '0%', opacity: 1 } : { y: '100%', opacity: 0 }}
