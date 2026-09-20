@@ -122,7 +122,8 @@ export function ContactForm() {
     need: '',
     budget: '',
     timeline: '',
-    message: '' 
+    message: '',
+    website: '',
   })
   const [sent, setSent] = useState(false)
   const [submitting, setSubmitting] = useState(false)
@@ -154,10 +155,7 @@ export function ContactForm() {
     setError(null)
 
     try {
-      const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID
-      const endpoint = formspreeId ? `https://formspree.io/f/${formspreeId}` : '/api/contact'
-
-      const response = await fetch(endpoint, {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -171,6 +169,7 @@ export function ContactForm() {
           budget: form.budget,
           timeline: form.timeline,
           message: form.message,
+          website: form.website,
           _replyto: form.email,
           _subject: `New message from ${form.name || 'Website'}`,
         }),
@@ -392,7 +391,7 @@ export function ContactForm() {
               onClick={() => {
                 setSent(false)
                 setStep(1)
-                setForm({ name: '', email: '', company: '', need: '', budget: '', timeline: '', message: '' })
+                setForm({ name: '', email: '', company: '', need: '', budget: '', timeline: '', message: '', website: '' })
                 setError(null)
               }}
               className="mt-8 font-mono text-[11px] uppercase tracking-widest text-foreground transition-colors hover:opacity-70"
@@ -415,6 +414,24 @@ export function ContactForm() {
             </div>
 
             <form onSubmit={step === 5 ? handleSubmit : (e) => e.preventDefault()} className="flex-1 flex flex-col">
+              {/* Visually hidden honeypot input for bot detection */}
+              <div
+                className="sr-only pointer-events-none absolute -left-[9999px] -top-[9999px] opacity-0"
+                aria-hidden="true"
+              >
+                <label htmlFor="website">Website</label>
+                <input
+                  id="website"
+                  type="text"
+                  name="website"
+                  value={form.website}
+                  onChange={(e) => set('website')(e.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                />
+              </div>
+
               <AnimatePresence mode="wait" initial={false}>
                 {renderStepContent()}
               </AnimatePresence>

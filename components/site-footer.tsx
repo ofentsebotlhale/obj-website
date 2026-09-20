@@ -13,7 +13,7 @@ export function SiteFooter() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8">
           
           {/* Left Column (Brand) */}
-          <div className="md:col-span-8 flex flex-col items-start gap-2">
+          <div className="md:col-span-6 lg:col-span-7 flex flex-col items-start gap-2">
             <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight uppercase">
               OBX STUDIO
             </h2>
@@ -29,10 +29,14 @@ export function SiteFooter() {
           </div>
 
           {/* Right Column (Navigation Links) */}
-          <div className="md:col-span-4 grid grid-cols-2 gap-8 md:gap-12 mt-8 md:mt-0">
+          <div className="md:col-span-6 lg:col-span-5 grid grid-cols-2 gap-8 md:gap-12 mt-8 md:mt-0">
             <div className="flex flex-col gap-4">
               <Link href="/work" className="font-sans text-lg md:text-xl font-medium uppercase tracking-wide hover:opacity-60 transition-opacity">WORK</Link>
+              <Link href="/services" className="font-sans text-lg md:text-xl font-medium uppercase tracking-wide hover:opacity-60 transition-opacity">SERVICES</Link>
+              <Link href="/services/web-design" className="font-sans text-lg md:text-xl font-medium uppercase tracking-wide hover:opacity-60 transition-opacity whitespace-nowrap">WEB DESIGN</Link>
+              <Link href="/services/web-development" className="font-sans text-lg md:text-xl font-medium uppercase tracking-wide hover:opacity-60 transition-opacity whitespace-nowrap">WEB DEVELOPMENT</Link>
               <Link href="/studio" className="font-sans text-lg md:text-xl font-medium uppercase tracking-wide hover:opacity-60 transition-opacity">STUDIO</Link>
+              <Link href="/blog" className="font-sans text-lg md:text-xl font-medium uppercase tracking-wide hover:opacity-60 transition-opacity">BLOG</Link>
               <Link href="/contact" className="font-sans text-lg md:text-xl font-medium uppercase tracking-wide hover:opacity-60 transition-opacity">CONTACT</Link>
             </div>
             <div className="flex flex-col gap-4">

@@ -10,7 +10,7 @@ import { HomepageWorksParallax } from '@/components/homepage-works-parallax'
 import { projects } from '@/lib/projects'
 
 export const metadata: Metadata = {
-  title: 'OBX Studio | Web design Studio in Johannesburg',
+  title: 'OBX Studio | Web Design Studio in Johannesburg',
   description:
     'A modern web design studio based in Johannesburg. Tailor-made websites, brand experiences, and digital builds for brands that want to stand out.',
   alternates: {

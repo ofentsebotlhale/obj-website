@@ -16,11 +16,11 @@ export function Hero() {
   const yContent = useTransform(scrollY, [0, 500], ['0%', '15%'])
 
   return (
-    <section className="relative flex h-[100svh] max-h-[100svh] w-full flex-col justify-between overflow-hidden bg-background px-4 pb-4 pt-[calc(env(safe-area-inset-top,0px)+1.25rem)] md:px-8 md:pb-6 md:pt-[calc(env(safe-area-inset-top,0px)+1.75rem)] text-foreground font-sans">
+    <section className="relative flex h-[100svh] max-h-[100svh] w-full flex-col justify-between overflow-hidden bg-background pt-[calc(env(safe-area-inset-top,0px)+1.25rem)] md:pt-[calc(env(safe-area-inset-top,0px)+1.75rem)] text-foreground font-sans">
       <HeroAmbient />
 
       {/* Top Left Stack */}
-      <motion.div style={{ y: yContent }} className="w-full flex flex-col justify-start items-start relative z-10 max-w-4xl mt-0 md:mt-4">
+      <motion.div style={{ y: yContent }} className="w-full flex flex-col justify-start items-start relative z-10 max-w-4xl mt-0 md:mt-4 px-4 md:px-8">
         <h2 className="font-sans text-2xl sm:text-3xl md:text-4xl text-foreground font-normal tracking-tight leading-none mix-blend-difference">
           <span className="block overflow-hidden pb-1">
             <motion.span
@@ -72,13 +72,13 @@ export function Hero() {
         initial={{ opacity: 0, y: 10 }}
         animate={!loading ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
         transition={{ duration: 0.8, delay: 0.5, ease: EASE }}
-        className="absolute right-4 md:right-8 top-[45%] sm:top-1/2 -translate-y-1/2 z-20 flex flex-col gap-4 text-foreground font-mono text-[10px] md:text-xs uppercase tracking-widest mix-blend-difference"
+        className="absolute right-4 md:right-8 top-[45%] sm:top-1/2 -translate-y-1/2 z-20 flex flex-col gap-4 text-foreground font-mono text-[10px] md:text-xs uppercase tracking-widest"
       >
         <a
           href="https://www.instagram.com/obxstudio_/"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:opacity-60 transition-opacity"
+          className="text-foreground hover:opacity-60 transition-opacity"
         >
           IG &rarr;
         </a>
@@ -86,32 +86,22 @@ export function Hero() {
           href="https://www.linkedin.com/company/obxstudio/"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:opacity-60 transition-opacity"
+          className="text-foreground hover:opacity-60 transition-opacity"
         >
           LI &rarr;
         </a>
       </motion.div>
 
-      {/* Bottom Layout - Wordmark & Meta */}
-      <motion.div style={{ y: yWordmark, scale: scaleWordmark, opacity: opacityWordmark }} className="w-full flex flex-col relative z-10 gap-8 md:gap-12 flex-1 justify-end origin-bottom">
-        <div className="absolute bottom-4 left-0 md:bottom-8 font-mono text-[10px] md:text-xs uppercase tracking-widest text-muted-foreground mix-blend-difference pointer-events-none">
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={!loading ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 1, delay: 0.6, ease: EASE }}
-          >
-            JOHANNESBURG — ZA
-          </motion.p>
-        </div>
-        
-        <div className="w-full flex flex-col items-center justify-end text-foreground select-none overflow-hidden pb-0 md:pb-2 pointer-events-none mix-blend-difference">
+      {/* Bottom Layout - Wordmark */}
+      <motion.div style={{ y: yWordmark, scale: scaleWordmark, opacity: opacityWordmark }} className="w-full flex flex-col relative z-10 flex-1 justify-end origin-bottom">
+        <div className="w-full flex flex-col items-center justify-end text-foreground select-none overflow-hidden pb-0 pointer-events-none mix-blend-difference">
           <motion.div
             initial={{ y: '100%', opacity: 0 }}
             animate={!loading ? { y: '0%', opacity: 1 } : { y: '100%', opacity: 0 }}
             transition={{ duration: 1.0, ease: EASE, delay: 0.1 }}
             className="w-full text-center flex flex-col items-center"
           >
-            <h1 className="font-sans font-normal text-[13vw] sm:text-[14vw] md:text-[14.5vw] lg:text-[15vw] leading-[0.75] tracking-tight uppercase whitespace-nowrap">
+            <h1 className="font-sans font-normal text-[17.2vw] sm:text-[17.1vw] md:text-[17vw] lg:text-[16.85vw] leading-[0.76] tracking-tight uppercase whitespace-nowrap w-full text-center">
               OBX STUDIO
             </h1>
           </motion.div>

@@ -10,7 +10,9 @@ import { Menu, X, Instagram, Linkedin, Facebook, MessageCircle } from 'lucide-re
 
 const LINKS = [
   { href: '/work', label: 'WORK' },
+  { href: '/services', label: 'SERVICES' },
   { href: '/studio', label: 'STUDIO' },
+  { href: '/blog', label: 'BLOG' },
   { href: '/contact', label: 'CONTACT' },
 ]
 
