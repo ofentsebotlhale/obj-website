@@ -10,6 +10,7 @@ export interface Project {
   problem: string
   solution: string
   link: string
+  badge?: string
 }
 
 export const projects: Project[] = [
@@ -18,11 +19,12 @@ export const projects: Project[] = [
     title: 'OBX Fash',
     category: 'Fashion & E-Commerce',
     year: '2026',
+    badge: 'Concept project',
     services: ['Art Direction', 'UI/UX Design', 'Headless Commerce'],
     image: '/work/obx-fash-1.avif',
     images: ['/work/obx-fash-1.avif', '/work/obx-fash-2.avif'],
-    overview: 'An editorial e-commerce experience for an independent streetwear label.',
-    problem: 'The previous experience felt slow, clunky and visually disconnected from the quality and character of the brand.',
+    overview: 'An editorial e-commerce concept for an independent streetwear label, pairing high-contrast visual storytelling with seamless digital shopping.',
+    problem: 'Independent streetwear labels often face rigid e-commerce templates that feel generic, sluggish, and visually disconnected from the tactile quality and culture of the brand.',
     solution: 'We designed a stark, high-contrast canvas with seamless transitions and dynamic image scaling. The build integrates a headless commerce backend, prioritizing performance and tactile responsiveness across all devices.',
     link: 'https://obxfash.netlify.app'
   },

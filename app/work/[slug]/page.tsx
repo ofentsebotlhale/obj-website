@@ -47,6 +47,13 @@ export default async function ProjectPage({ params }: Props) {
         index={project.year}
         title={project.title}
         subtitle={project.category}
+        badge={
+          project.slug === "obx-fash" ? (
+            <span className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-muted-foreground">
+              Concept project
+            </span>
+          ) : undefined
+        }
       />
 
       {/* Main Hero Parallax */}
