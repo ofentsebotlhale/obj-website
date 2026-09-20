@@ -9,115 +9,60 @@ const EASE = [0.22, 1, 0.36, 1] as const
 export function Hero() {
   const { loading } = usePreloader()
   const { scrollY } = useScroll()
-  
-  const yWordmark = useTransform(scrollY, [0, 500], ['0%', '30%'])
-  const scaleWordmark = useTransform(scrollY, [0, 500], [1, 0.9])
-  const opacityWordmark = useTransform(scrollY, [0, 400], [1, 0])
-  const yContent = useTransform(scrollY, [0, 500], ['0%', '15%'])
+
+  const yWordmark = useTransform(scrollY, [0, 650], ['0%', '28%'])
+  const scaleWordmark = useTransform(scrollY, [0, 650], [1, 0.82])
+  const opacityWordmark = useTransform(scrollY, [0, 460], [1, 0])
+  const yContent = useTransform(scrollY, [0, 650], ['0%', '12%'])
 
   return (
-    <section className="relative flex h-[100svh] max-h-[100svh] w-full flex-col justify-between overflow-hidden bg-background px-4 pb-4 pt-[calc(env(safe-area-inset-top,0px)+1.25rem)] md:px-8 md:pb-6 md:pt-[calc(env(safe-area-inset-top,0px)+1.75rem)] text-foreground font-sans">
+    <section className="relative flex min-h-[100svh] w-full flex-col justify-between overflow-hidden bg-black px-4 pb-5 pt-[calc(env(safe-area-inset-top,0px)+1.25rem)] text-white md:px-8 md:pb-7 md:pt-[calc(env(safe-area-inset-top,0px)+1.75rem)]">
       <HeroAmbient />
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_68%_45%,rgba(255,255,255,0.12),transparent_28%)]" />
 
-      {/* Top Left Stack */}
-      <motion.div style={{ y: yContent }} className="w-full flex flex-col justify-start items-start relative z-10 max-w-4xl mt-0 md:mt-4">
-        <h2 className="font-sans text-2xl sm:text-3xl md:text-4xl text-foreground font-normal tracking-tight leading-none mix-blend-difference">
-          <span className="block overflow-hidden pb-1">
-            <motion.span
-              initial={{ y: '110%' }}
-              animate={!loading ? { y: '0%' } : { y: '110%' }}
-              transition={{ duration: 0.9, delay: 0.1, ease: EASE }}
-              className="block"
-            >
-              WE DESIGN
-            </motion.span>
-          </span>
-          <span className="block overflow-hidden pb-1">
-            <motion.span
-              initial={{ y: '110%' }}
-              animate={!loading ? { y: '0%' } : { y: '110%' }}
-              transition={{ duration: 0.9, delay: 0.18, ease: EASE }}
-              className="block"
-            >
-              HOW BUSINESSES
-            </motion.span>
-          </span>
-          <span className="block overflow-hidden pb-1">
-            <motion.span
-              initial={{ y: '110%' }}
-              animate={!loading ? { y: '0%' } : { y: '110%' }}
-              transition={{ duration: 0.9, delay: 0.26, ease: EASE }}
-              className="block"
-            >
-              ARE SEEN ONLINE.
-            </motion.span>
-          </span>
+      <header className="relative z-10 flex items-start justify-between border-t border-white/30 pt-3 font-mono text-[9px] uppercase tracking-[0.2em] text-white/65 md:text-[10px]">
+        <span>OBX / 01—26</span>
+        <span className="hidden md:block">Independent digital studio</span>
+        <span>JHB, ZA</span>
+      </header>
+
+      <motion.div style={{ y: yContent }} className="relative z-10 mt-14 max-w-5xl md:mt-20">
+        <p className="mb-5 font-mono text-[9px] uppercase tracking-[0.24em] text-white/55 md:text-[10px]">Brand, interface, motion</p>
+        <h2 className="max-w-4xl font-sans text-[clamp(2.6rem,6.6vw,6.8rem)] font-normal leading-[0.88] tracking-[-0.06em] text-white">
+          <span className="block overflow-hidden pb-1"><motion.span initial={{ y: '110%' }} animate={!loading ? { y: '0%' } : { y: '110%' }} transition={{ duration: 0.9, delay: 0.1, ease: EASE }} className="block">WE DESIGN</motion.span></span>
+          <span className="block overflow-hidden pb-1"><motion.span initial={{ y: '110%' }} animate={!loading ? { y: '0%' } : { y: '110%' }} transition={{ duration: 0.9, delay: 0.18, ease: EASE }} className="block">HOW BUSINESSES</motion.span></span>
+          <span className="block overflow-hidden pb-1"><motion.span initial={{ y: '110%' }} animate={!loading ? { y: '0%' } : { y: '110%' }} transition={{ duration: 0.9, delay: 0.26, ease: EASE }} className="block">ARE SEEN ONLINE<span className="text-white/35">.</span></motion.span></span>
         </h2>
-        
-        <motion.div className="mt-8 max-w-sm overflow-hidden mix-blend-difference">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={!loading ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
-            transition={{ duration: 0.8, delay: 0.45, ease: EASE }}
-            className="font-sans text-sm md:text-base text-muted-foreground leading-relaxed font-light"
-          >
-            Websites that make businesses clearer, more credible and more distinct online.
-          </motion.p>
-        </motion.div>
       </motion.div>
 
-      {/* Social Links */}
       <motion.div
         style={{ y: yContent }}
         initial={{ opacity: 0, y: 10 }}
         animate={!loading ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
         transition={{ duration: 0.8, delay: 0.5, ease: EASE }}
-        className="absolute right-4 md:right-8 top-[45%] sm:top-1/2 -translate-y-1/2 z-20 flex flex-col gap-4 text-foreground font-mono text-[10px] md:text-xs uppercase tracking-widest mix-blend-difference"
+        className="absolute right-4 top-1/2 z-20 hidden -translate-y-1/2 flex-col gap-5 font-mono text-[9px] uppercase tracking-[0.2em] text-white/70 md:right-8 md:flex"
       >
-        <a
-          href="https://www.instagram.com/obxstudio_/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:opacity-60 transition-opacity"
-        >
-          IG &rarr;
-        </a>
-        <a
-          href="https://www.linkedin.com/company/obxstudio/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:opacity-60 transition-opacity"
-        >
-          LI &rarr;
-        </a>
+        <a href="https://www.instagram.com/obxstudio_/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-white">IG ↗</a>
+        <a href="https://www.linkedin.com/company/obxstudio/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-white">LI ↗</a>
       </motion.div>
 
-      {/* Bottom Layout - Wordmark & Meta */}
-      <motion.div style={{ y: yWordmark, scale: scaleWordmark, opacity: opacityWordmark }} className="w-full flex flex-col relative z-10 gap-8 md:gap-12 flex-1 justify-end origin-bottom">
-        <div className="absolute bottom-4 left-0 md:bottom-8 font-mono text-[10px] md:text-xs uppercase tracking-widest text-muted-foreground mix-blend-difference pointer-events-none">
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={!loading ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 1, delay: 0.6, ease: EASE }}
-          >
-            JOHANNESBURG — ZA
-          </motion.p>
+      <motion.div style={{ y: yWordmark, scale: scaleWordmark, opacity: opacityWordmark }} className="relative z-10 flex flex-1 origin-bottom flex-col justify-end gap-8 md:gap-12">
+        <div className="flex items-end justify-between border-b border-white/25 pb-3 font-mono text-[9px] uppercase tracking-[0.18em] text-white/55 md:text-[10px]">
+          <span className="max-w-[13rem] leading-relaxed md:max-w-none">Websites with a point of view.</span>
+          <span className="hidden md:block">Scroll to explore ↓</span>
+          <span>© 2026</span>
         </div>
-        
-        <div className="w-full flex flex-col items-center justify-end text-foreground select-none overflow-hidden pb-0 md:pb-2 pointer-events-none mix-blend-difference">
-          <motion.div
+        <div className="w-full select-none overflow-hidden text-white">
+          <motion.h1
             initial={{ y: '100%', opacity: 0 }}
             animate={!loading ? { y: '0%', opacity: 1 } : { y: '100%', opacity: 0 }}
-            transition={{ duration: 1.0, ease: EASE, delay: 0.1 }}
-            className="w-full text-center flex flex-col items-center"
+            transition={{ duration: 1, ease: EASE, delay: 0.1 }}
+            className="whitespace-nowrap text-center font-sans text-[22vw] font-normal leading-[0.68] tracking-[-0.09em] md:text-[18vw]"
           >
-            <h1 className="font-sans font-normal text-[13vw] sm:text-[14vw] md:text-[14.5vw] lg:text-[15vw] leading-[0.75] tracking-tight uppercase whitespace-nowrap">
-              OBX STUDIO
-            </h1>
-          </motion.div>
+            OBX<span className="text-white/35">/</span>
+          </motion.h1>
         </div>
       </motion.div>
     </section>
   )
 }
-
