@@ -115,8 +115,7 @@ export function HeroAmbient() {
 
       {/* Floating accent elements */}
       <motion.div 
-        className="absolute inset-0 overflow-hidden"
-        style={{ opacity: opacityGrid }}
+        className="absolute inset-0 overflow-hidden pointer-events-none"
       >
         {/* Floating circle 1 */}
         <motion.div
@@ -130,7 +129,7 @@ export function HeroAmbient() {
             repeat: Infinity,
             ease: 'easeInOut'
           }}
-          className="absolute w-24 h-24 rounded-full border border-foreground/20 left-[10%] top-[15%] hidden md:block"
+          className="absolute w-24 h-24 rounded-full border border-foreground/20 left-[10%] top-[15%] block"
         />
         
         {/* Floating circle 2 */}
@@ -146,7 +145,7 @@ export function HeroAmbient() {
             ease: 'easeInOut',
             delay: 1
           }}
-          className="absolute w-32 h-32 rounded-full border border-foreground/15 right-[5%] top-[25%] hidden lg:block"
+          className="absolute w-32 h-32 rounded-full border border-foreground/15 right-[5%] top-[25%] block"
         />
 
         {/* Floating line accent */}
@@ -161,7 +160,7 @@ export function HeroAmbient() {
             ease: 'easeInOut',
             delay: 2
           }}
-          className="absolute h-px w-32 bg-gradient-to-r from-transparent via-foreground/30 to-transparent left-[15%] bottom-[20%] hidden md:block"
+          className="absolute h-px w-32 bg-gradient-to-r from-transparent via-foreground/30 to-transparent left-[15%] bottom-[20%] block"
         />
       </motion.div>
 
