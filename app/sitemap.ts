@@ -4,7 +4,7 @@ import { projects } from '@/lib/projects'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://obxstudio.co.za'
-  const defaultDate = new Date('2026-07-21')
+  const fixedDate = new Date('2026-09-20')
 
   const pages = [
     '',
@@ -21,13 +21,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticPages = pages.map((page) => ({
     url: `${baseUrl}${page}`,
-    lastModified: defaultDate,
+    lastModified: fixedDate,
     priority: page === '' ? 1 : ['/privacy', '/terms'].includes(page) ? 0.3 : 0.8,
   }))
 
   const projectPages = projects.map((project) => ({
     url: `${baseUrl}/work/${project.slug}`,
-    lastModified: defaultDate,
+    lastModified: fixedDate,
     priority: 0.7,
   }))
 

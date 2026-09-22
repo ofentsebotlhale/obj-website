@@ -113,7 +113,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               className="relative w-full aspect-square overflow-hidden border border-border/70 bg-muted/40 rounded-none transition-all duration-500 group-hover:border-foreground/50"
             >
               <ParallaxImage
-                src={project.image || '/placeholder.svg'}
+                src={project.image}
                 alt={project.title}
                 priority={index < 2}
                 className="object-cover transition-transform duration-700 group-hover:scale-105"

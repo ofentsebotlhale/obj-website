@@ -61,7 +61,7 @@ export default async function ProjectPage({ params }: Props) {
         <div className="mx-auto max-w-[1920px]">
           <div className="relative w-full aspect-[16/10] md:aspect-[21/9] overflow-hidden bg-muted">
             <ParallaxImage
-              src={project.image || "/placeholder.svg"}
+              src={project.image}
               alt={project.title}
               priority={true}
               className="object-cover"

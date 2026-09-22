@@ -81,7 +81,7 @@ function ProjectParallaxCard({ project, index }: { project: Project; index: numb
 
           <motion.div style={{ y: yImage }} className="relative w-full aspect-[4/5] overflow-hidden bg-background rounded-none transition-all duration-500">
             <ParallaxImage
-              src={project.image || '/placeholder.svg'}
+              src={project.image}
               alt={project.title}
               sizes={config.sizes}
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
