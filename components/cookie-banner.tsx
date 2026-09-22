@@ -58,6 +58,9 @@ export function CookieBanner() {
     const consentObj = { necessary: true, analytics: true };
     localStorage.setItem("obx_cookie_consent", JSON.stringify(consentObj));
     updateGoogleConsent(true);
+    window.dispatchEvent(
+      new CustomEvent("obx-consent-updated", { detail: { analytics: true } })
+    );
     setVisible(false);
   };
 
@@ -65,12 +68,20 @@ export function CookieBanner() {
     const consentObj = { necessary: true, analytics: false };
     localStorage.setItem("obx_cookie_consent", JSON.stringify(consentObj));
     updateGoogleConsent(false);
+    window.dispatchEvent(
+      new CustomEvent("obx-consent-updated", { detail: { analytics: false } })
+    );
     setVisible(false);
   };
 
   const handleSavePreferences = () => {
     localStorage.setItem("obx_cookie_consent", JSON.stringify(preferences));
     updateGoogleConsent(preferences.analytics);
+    window.dispatchEvent(
+      new CustomEvent("obx-consent-updated", {
+        detail: { analytics: preferences.analytics },
+      })
+    );
     setVisible(false);
   };
 
