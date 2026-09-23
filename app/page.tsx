@@ -7,6 +7,7 @@ import { StudioAbout } from '@/components/home/studio-about'
 import { TheMethod } from '@/components/home/the-method'
 import { ClosingCta } from '@/components/home/closing-cta'
 import { HomepageWorksParallax } from '@/components/homepage-works-parallax'
+import { PostWorkInterlude } from '@/components/home/post-work-interlude'
 import { projects } from '@/lib/projects'
 
 export const metadata: Metadata = {
@@ -47,6 +48,7 @@ export default function HomePage() {
       <div className="relative w-full">
         <Hero />
         <HomepageWorksParallax items={projects} />
+        <PostWorkInterlude />
         <ValueStatement />
         <WhatWeDesign />
         <StudioAbout />
