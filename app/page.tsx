@@ -1,13 +1,11 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { Hero } from '@/components/home/hero'
-import { ValueStatement } from '@/components/home/value-statement'
-import { WhatWeDesign } from '@/components/home/what-we-design'
-import { StudioAbout } from '@/components/home/studio-about'
-import { TheMethod } from '@/components/home/the-method'
-import { ClosingCta } from '@/components/home/closing-cta'
 import { HomepageWorksParallax } from '@/components/homepage-works-parallax'
 import { PostWorkInterlude } from '@/components/home/post-work-interlude'
+import { StudioAbout } from '@/components/home/studio-about'
+import { WhatWeDesign } from '@/components/home/what-we-design'
+import { TheMethod } from '@/components/home/the-method'
+import { ClosingCta } from '@/components/home/closing-cta'
 import { projects } from '@/lib/projects'
 
 export const metadata: Metadata = {
@@ -49,13 +47,11 @@ export default function HomePage() {
         <Hero />
         <HomepageWorksParallax items={projects} />
         <PostWorkInterlude />
-        <ValueStatement />
-        <WhatWeDesign />
         <StudioAbout />
+        <WhatWeDesign />
         <TheMethod />
         <ClosingCta />
       </div>
     </>
   )
 }
-
