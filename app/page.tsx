@@ -46,7 +46,7 @@ export default function HomePage() {
       
       <div className="relative w-full">
         <Hero />
-        <HomepageWorksParallax items={projects.slice(0, 5)} />
+        <HomepageWorksParallax items={projects} />
         <ValueStatement />
         <WhatWeDesign />
         <StudioAbout />

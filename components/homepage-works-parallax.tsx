@@ -43,11 +43,18 @@ function EditorialProjectCard({
   return (
     <div ref={cardRef} className={`w-full group ${className}`}>
       <Link href={`/work/${project.slug}`} className="block w-full outline-none">
-        {/* Header: Small uppercase kicker & editorial headline */}
+        {/* Header: Small uppercase kicker, badge & editorial headline */}
         <div className="mb-4 md:mb-5">
-          <span className="block font-mono text-[11px] md:text-xs uppercase tracking-wider text-neutral-400 mb-1.5 transition-colors group-hover:text-neutral-300">
-            {kicker}
-          </span>
+          <div className="flex items-center gap-2 mb-1.5">
+            <span className="font-mono text-[11px] md:text-xs uppercase tracking-wider text-neutral-400 transition-colors group-hover:text-neutral-300">
+              {kicker}
+            </span>
+            {project.badge && (
+              <span className="font-mono text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full border border-white/20 text-neutral-400">
+                {project.badge}
+              </span>
+            )}
+          </div>
           <h3 className="font-sans text-lg sm:text-xl md:text-2xl font-normal text-white tracking-tight leading-snug text-balance transition-colors group-hover:text-neutral-200">
             {tagline}
           </h3>
@@ -74,12 +81,10 @@ function EditorialProjectCard({
 }
 
 export function HomepageWorksParallax({ items }: WorksParallaxProps) {
-  // Map specific projects matching the editorial layout, with safe index fallbacks
-  const p1 = items.find((p) => p.slug === 'utopia') || items[0]
-  const p2 = items.find((p) => p.slug === 'aurbse') || items[1] || items[0]
-  const p3 = items.find((p) => p.slug === 'in-cognita') || items[2] || items[0]
-  const p4 = items.find((p) => p.slug === 'lgm') || items[3] || items[0]
-  const p5 = items.find((p) => p.slug === 'haptify') || items[4] || items[0]
+  const p1 = items[0] // OBX Fash
+  const p2 = items[1] // OB and associates
+
+  if (!p1) return null
 
   return (
     <section className="bg-black text-white pt-28 pb-20 md:pt-40 md:pb-28 lg:pt-52 lg:pb-36 px-6 md:px-[6vw] lg:px-[8vw] w-full overflow-hidden">
@@ -89,13 +94,13 @@ export function HomepageWorksParallax({ items }: WorksParallaxProps) {
           <h2 className="font-heading text-3xl sm:text-4xl font-normal tracking-tight text-white leading-[1.1] text-balance">
             Good brands communicate.
             <br />
-            Great brands surprise.
+            Great brands build trust.
           </h2>
         </div>
 
-        {/* Top Band: Utopia on Left, Headline + Aurbse on Right */}
+        {/* Asymmetrical 2-Column Grid Matching the Editorial Aesthetic */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-x-8 lg:gap-x-14 gap-y-16 items-start w-full">
-          {/* Top Left: Utopia (Vertical Portrait in ferns) */}
+          {/* Left Column: Project 1 (OBX Fash - Editorial Portrait) */}
           <div className="md:col-span-6 lg:col-span-6">
             <EditorialProjectCard
               project={p1}
@@ -105,61 +110,28 @@ export function HomepageWorksParallax({ items }: WorksParallaxProps) {
             />
           </div>
 
-          {/* Top Right: Headline + Aurbse (Monitor on desk) */}
+          {/* Right Column: Headline + Project 2 (OB and associates - Screen Mockup) */}
           <div className="md:col-span-6 lg:col-span-6 flex flex-col justify-start">
             {/* Desktop Headline */}
             <div className="hidden md:flex justify-end mb-20 lg:mb-28 xl:mb-36">
               <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-normal tracking-tight text-white leading-[1.08] text-balance text-left w-full max-w-lg">
                 Good brands communicate.
                 <br />
-                Great brands surprise.
+                Great brands build trust.
               </h2>
             </div>
 
-            {/* Aurbse Card */}
-            <div className="w-full">
-              <EditorialProjectCard
-                project={p2}
-                aspectClass="aspect-[16/10] sm:aspect-[4/3]"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 45vw"
-                parallaxSpeed={40}
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Middle Band: In_Cognita (Centered / Staggered Widescreen Laptop) */}
-        <div className="my-24 md:my-36 lg:my-48 grid grid-cols-1 md:grid-cols-12 w-full">
-          <div className="md:col-span-10 md:col-start-2 lg:col-span-8 lg:col-start-3 w-full">
-            <EditorialProjectCard
-              project={p3}
-              aspectClass="aspect-[16/10] sm:aspect-[16/9]"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 65vw"
-              parallaxSpeed={30}
-            />
-          </div>
-        </div>
-
-        {/* Lower Band: LGM on Left, Haptify on Right */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-x-8 lg:gap-x-14 gap-y-16 items-start w-full">
-          {/* Bottom Left: LGM (Industrial Signage) */}
-          <div className="md:col-span-5 lg:col-span-5">
-            <EditorialProjectCard
-              project={p4}
-              aspectClass="aspect-[4/3]"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 40vw"
-              parallaxSpeed={20}
-            />
-          </div>
-
-          {/* Bottom Right: Haptify (Taller Angled Laptop on Chrome Tubes) */}
-          <div className="md:col-span-7 lg:col-span-6 md:col-start-6 lg:col-start-7 md:mt-24 lg:mt-36">
-            <EditorialProjectCard
-              project={p5}
-              aspectClass="aspect-[4/5] sm:aspect-square lg:aspect-[4/5]"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 55vw, 50vw"
-              parallaxSpeed={45}
-            />
+            {/* Project 2 Card */}
+            {p2 && (
+              <div className="w-full">
+                <EditorialProjectCard
+                  project={p2}
+                  aspectClass="aspect-[16/10] sm:aspect-[4/3]"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 45vw"
+                  parallaxSpeed={40}
+                />
+              </div>
+            )}
           </div>
         </div>
 
@@ -176,7 +148,7 @@ export function HomepageWorksParallax({ items }: WorksParallaxProps) {
           </Link>
 
           <span className="font-mono text-xs sm:text-sm text-neutral-400 tracking-widest">
-            (07)
+            (02)
           </span>
 
           <span className="font-mono text-xs sm:text-sm text-neutral-400 tracking-widest">
@@ -187,4 +159,3 @@ export function HomepageWorksParallax({ items }: WorksParallaxProps) {
     </section>
   )
 }
-
