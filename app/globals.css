@@ -34,25 +34,25 @@
 
 :root {
   color-scheme: light;
-  /* Warm paper, ink, and a deliberately limited grayscale palette. */
-  --background: #f2f1ed;
-  --foreground: #101010;
-  --card: #f2f1ed;
-  --card-foreground: #101010;
-  --popover: #f2f1ed;
-  --popover-foreground: #101010;
-  --primary: #101010;
-  --primary-foreground: #f2f1ed;
-  --secondary: #e5e3de;
-  --secondary-foreground: #101010;
-  --muted: #e5e3de;
-  --muted-foreground: #66645f;
-  --accent: #101010;
-  --accent-foreground: #f2f1ed;
+  /* Paper, ink, and one quiet utility tone keep the studio system focused. */
+  --background: #f5f4f0;
+  --foreground: #0b0b0b;
+  --card: #f5f4f0;
+  --card-foreground: #0b0b0b;
+  --popover: #f5f4f0;
+  --popover-foreground: #0b0b0b;
+  --primary: #0b0b0b;
+  --primary-foreground: #f5f4f0;
+  --secondary: #e7e5df;
+  --secondary-foreground: #0b0b0b;
+  --muted: #e7e5df;
+  --muted-foreground: #686762;
+  --accent: #0b0b0b;
+  --accent-foreground: #f5f4f0;
   --destructive: #7f1d1d;
-  --border: #101010;
-  --input: #101010;
-  --ring: #101010;
+  --border: #0b0b0b;
+  --input: #0b0b0b;
+  --ring: #0b0b0b;
   --radius: 0px;
 }
 
