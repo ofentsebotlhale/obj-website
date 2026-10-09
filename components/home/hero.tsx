@@ -12,14 +12,14 @@ export function Hero() {
   const opacityMeta = useTransform(scrollY, [0, 420], [1, 0])
 
   return (
-    <section className="relative flex min-h-[100svh] w-full flex-col justify-between overflow-hidden bg-background px-5 pb-5 pt-[calc(env(safe-area-inset-top,0px)+1.25rem)] text-foreground md:px-8 md:pb-7 md:pt-[calc(env(safe-area-inset-top,0px)+1.75rem)]">
+    <section className="relative flex min-h-[100svh] w-full flex-col justify-between overflow-hidden bg-background px-5 pb-6 pt-[calc(env(safe-area-inset-top,0px)+1.5rem)] text-foreground md:px-8 md:pb-8 md:pt-[calc(env(safe-area-inset-top,0px)+2rem)]">
       <header className="relative z-10 flex items-start justify-between border-t border-foreground/20 pt-3 font-mono text-[9px] uppercase tracking-[0.18em] text-foreground/60 md:text-[10px]">
         <a href="#top" className="text-foreground transition-opacity hover:opacity-60" aria-label="OBX home">OBX®</a>
         <span className="hidden md:block">Independent creative studio</span>
         <a href="#contact" className="transition-opacity hover:opacity-60">Let&apos;s talk ↗</a>
       </header>
 
-      <motion.div style={{ opacity: opacityMeta }} className="relative z-10 flex items-end justify-between gap-8 pb-8 pt-20 md:pb-10 md:pt-24">
+      <motion.div style={{ opacity: opacityMeta }} className="relative z-10 flex items-end justify-between gap-8 pb-8 pt-20 md:pb-10 md:pt-28">
         <p className="max-w-[15rem] text-[clamp(1.1rem,2.2vw,2rem)] leading-[0.98] tracking-[-0.045em]">
           A small studio<br />for significant ideas.
         </p>
