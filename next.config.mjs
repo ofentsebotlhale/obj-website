@@ -11,7 +11,7 @@ const nextConfig = {
     return [
       {
         source: '/github',
-        destination: 'https://github.com/botlhaleofentse',
+        destination: 'https://github.com/ofentsebotlhale',
         permanent: false,
       },
       {

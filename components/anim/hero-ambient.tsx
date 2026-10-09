@@ -76,6 +76,7 @@ export function HeroAmbient() {
         }}
         className="absolute inset-0 flex items-center justify-center opacity-40 md:opacity-60"
       >
+        {/* Primary floating orb */}
         <motion.div
           animate={{
             scale: [0.95, 1.04, 0.98, 0.95],
@@ -88,7 +89,78 @@ export function HeroAmbient() {
             repeat: Infinity,
             ease: 'linear'
           }}
-          className="w-[80vw] h-[80vw] max-w-[800px] max-h-[800px] rounded-full blur-[100px] md:blur-[140px] bg-foreground/10 mix-blend-normal"
+          className="w-[80vw] h-[80vw] max-w-[800px] max-h-[800px] rounded-full blur-[100px] md:blur-[140px] bg-gradient-to-br from-foreground/15 to-foreground/5 mix-blend-normal"
+        />
+        
+        {/* Secondary accent orb */}
+        <motion.div
+          animate={{
+            scale: [1.02, 0.96, 1.01, 1.02],
+            x: ['3%', '-2%', '3%', '3%'],
+            y: ['-3%', '2%', '-3%', '-3%'],
+            rotate: [1, -1, 1, 1]
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: 'linear'
+          }}
+          className="absolute w-[60vw] h-[60vw] max-w-[600px] max-h-[600px] rounded-full blur-[90px] md:blur-[120px] bg-gradient-to-bl from-foreground/8 to-transparent mix-blend-screen"
+          style={{
+            top: '-20%',
+            right: '-10%'
+          }}
+        />
+      </motion.div>
+
+      {/* Floating accent elements */}
+      <motion.div 
+        className="absolute inset-0 overflow-hidden pointer-events-none"
+      >
+        {/* Floating circle 1 */}
+        <motion.div
+          animate={{
+            y: ['0%', '-20px', '0%'],
+            x: ['0%', '10px', '0%'],
+            opacity: [0.3, 0.5, 0.3]
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: 'easeInOut'
+          }}
+          className="absolute w-24 h-24 rounded-full border border-foreground/20 left-[10%] top-[15%] block"
+        />
+        
+        {/* Floating circle 2 */}
+        <motion.div
+          animate={{
+            y: ['0%', '15px', '0%'],
+            x: ['0%', '-8px', '0%'],
+            opacity: [0.2, 0.4, 0.2]
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: 'easeInOut',
+            delay: 1
+          }}
+          className="absolute w-32 h-32 rounded-full border border-foreground/15 right-[5%] top-[25%] block"
+        />
+
+        {/* Floating line accent */}
+        <motion.div
+          animate={{
+            opacity: [0.2, 0.4, 0.2],
+            x: ['-20px', '20px', '-20px']
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: 'easeInOut',
+            delay: 2
+          }}
+          className="absolute h-px w-32 bg-gradient-to-r from-transparent via-foreground/30 to-transparent left-[15%] bottom-[20%] block"
         />
       </motion.div>
 

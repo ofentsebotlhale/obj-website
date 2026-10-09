@@ -77,7 +77,7 @@ export function FeaturedWork({ items }: { items: Project[] }) {
                 <TiltCard>
                   <div className="relative w-full overflow-hidden aspect-[4/3] md:aspect-[4/3] lg:aspect-[16/10]">
                     <ParallaxImage 
-                      src={project.image || "/placeholder.svg"} 
+                      src={project.image} 
                       alt={project.title}
                       priority={i === 0}
                       className="object-cover opacity-90 transition-transform duration-1000 group-hover:scale-105" 

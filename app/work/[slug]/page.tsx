@@ -8,7 +8,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 interface Props {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export async function generateStaticParams() {
@@ -18,7 +18,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = params;
+  const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
   if (!project) return {};
 
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function ProjectPage({ params }: Props) {
-  const { slug } = params;
+  const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
 
   if (!project) {
@@ -47,6 +47,13 @@ export default async function ProjectPage({ params }: Props) {
         index={project.year}
         title={project.title}
         subtitle={project.category}
+        badge={
+          project.slug === "obx-fash" ? (
+            <span className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-muted-foreground">
+              Concept project
+            </span>
+          ) : undefined
+        }
       />
 
       {/* Main Hero Parallax */}
@@ -54,7 +61,7 @@ export default async function ProjectPage({ params }: Props) {
         <div className="mx-auto max-w-[1920px]">
           <div className="relative w-full aspect-[16/10] md:aspect-[21/9] overflow-hidden bg-muted">
             <ParallaxImage
-              src={project.image || "/placeholder.svg"}
+              src={project.image}
               alt={project.title}
               priority={true}
               className="object-cover"

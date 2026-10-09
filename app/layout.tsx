@@ -24,7 +24,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'OBX Studio | Web design Studio in Johannesburg',
+  title: 'OBX Studio | Web Design Studio in Johannesburg',
   description:
     'A modern web design studio based in Johannesburg. Tailor-made websites, brand experiences, and digital builds for brands that want to stand out.',
   metadataBase: new URL('https://obxstudio.co.za'),
@@ -36,9 +36,19 @@ export const metadata: Metadata = {
     apple: '/logo.avif',
   },
   openGraph: {
-    title: 'OBX Studio',
-    description: 'A few skilled humans doing the work of many.',
+    title: 'OBX Studio | Web Design Studio in Johannesburg',
+    description:
+      'A modern web design studio based in Johannesburg. Tailor-made websites, brand experiences, and digital builds for brands that want to stand out.',
+    url: 'https://obxstudio.co.za',
+    siteName: 'OBX Studio',
+    locale: 'en_ZA',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'OBX Studio | Web Design Studio in Johannesburg',
+    description:
+      'A modern web design studio based in Johannesburg. Tailor-made websites, brand experiences, and digital builds for brands that want to stand out.',
   },
   appleWebApp: {
     capable: true,

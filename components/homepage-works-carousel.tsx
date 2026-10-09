@@ -62,7 +62,7 @@ export function HomepageWorksCarousel({ items }: WorksCarouselProps) {
                 <div key={project.slug} className="group relative w-[100vw] h-full max-h-[100vh] flex-shrink-0 flex items-center justify-center p-4 md:p-10">
                   <div className="relative w-full h-[70vh] md:h-[80vh] aspect-video border border-border/60 bg-muted/30 overflow-hidden backdrop-blur rounded-none mx-auto flex-shrink-0">
                     <Image
-                      src={project.image || "/placeholder.svg"}
+                      src={project.image}
                       alt={project.title}
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"

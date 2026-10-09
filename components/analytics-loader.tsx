@@ -7,41 +7,35 @@ export function AnalyticsLoader() {
   const [shouldLoad, setShouldLoad] = useState(false)
 
   useEffect(() => {
-    let timeoutId: NodeJS.Timeout
+    // Check localStorage for "obx_cookie_consent"
+    try {
+      const consentStr = localStorage.getItem('obx_cookie_consent')
+      if (consentStr) {
+        const consent = JSON.parse(consentStr)
+        if (consent && consent.analytics === true) {
+          setShouldLoad(true)
+          return
+        }
+      }
+    } catch {
+      // Ignore storage/JSON errors
+    }
 
-    const handleInteraction = () => {
-      if (!shouldLoad) {
+    // If consent doesn't exist yet or has analytics: false, do not attach interaction or timeout listeners.
+    // Only load once a "obx-consent-updated" custom event fires with analytics: true.
+    const handleConsentUpdated = (event: Event) => {
+      const customEvent = event as CustomEvent<{ analytics?: boolean }>
+      if (customEvent.detail && customEvent.detail.analytics === true) {
         setShouldLoad(true)
-        clearTimeout(timeoutId)
-        removeListeners()
       }
     }
 
-    const removeListeners = () => {
-      window.removeEventListener('scroll', handleInteraction)
-      window.removeEventListener('mousemove', handleInteraction)
-      window.removeEventListener('touchstart', handleInteraction)
-      window.removeEventListener('click', handleInteraction)
-      window.removeEventListener('keydown', handleInteraction)
-    }
-
-    // Add interaction listeners
-    window.addEventListener('scroll', handleInteraction, { passive: true, once: true })
-    window.addEventListener('mousemove', handleInteraction, { passive: true, once: true })
-    window.addEventListener('touchstart', handleInteraction, { passive: true, once: true })
-    window.addEventListener('click', handleInteraction, { passive: true, once: true })
-    window.addEventListener('keydown', handleInteraction, { passive: true, once: true })
-
-    // Fallback: load anyway after 5 seconds if no interaction
-    timeoutId = setTimeout(() => {
-      handleInteraction()
-    }, 5000)
+    window.addEventListener('obx-consent-updated', handleConsentUpdated)
 
     return () => {
-      clearTimeout(timeoutId)
-      removeListeners()
+      window.removeEventListener('obx-consent-updated', handleConsentUpdated)
     }
-  }, [shouldLoad])
+  }, [])
 
   if (!shouldLoad) return null
 
