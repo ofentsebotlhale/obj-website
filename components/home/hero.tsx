@@ -33,16 +33,26 @@ export function Hero() {
           <span>Based in Johannesburg</span>
           <span>Scroll to explore ↓</span>
         </div>
-        <h1 className="overflow-hidden text-[22vw] font-sans font-normal leading-[0.72] tracking-[-0.105em] md:text-[18vw]">
-          <motion.span
-            initial={{ y: '110%' }}
-            animate={!loading ? { y: '0%' } : { y: '110%' }}
-            transition={{ duration: 1, delay: 0.15, ease: EASE }}
-            className="block"
-          >
-            OBX<span className="text-foreground/35">®</span>
-          </motion.span>
-        </h1>
+        <div className="relative">
+          <div className="mb-3 flex items-end justify-between font-mono text-[9px] uppercase tracking-[0.16em] text-foreground/55 md:mb-5 md:text-[10px]">
+            <span>OBX / 001</span>
+            <span className="flex items-center gap-2"><i className="block h-1.5 w-1.5 rounded-full bg-foreground" /> Johannesburg — SA</span>
+          </div>
+          <h1 className="overflow-hidden text-[22vw] font-sans font-normal leading-[0.72] tracking-[-0.105em] md:text-[18vw]">
+            <motion.span
+              initial={{ y: '110%' }}
+              animate={!loading ? { y: '0%' } : { y: '110%' }}
+              transition={{ duration: 1, delay: 0.15, ease: EASE }}
+              className="block"
+            >
+              OBX<span className="text-foreground/35">®</span>
+            </motion.span>
+          </h1>
+          <div className="mt-4 flex items-start justify-between border-t border-foreground/20 pt-3 md:mt-6">
+            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/55">Independent creative studio</span>
+            <span className="text-[clamp(1.2rem,2vw,1.8rem)] leading-none tracking-[-0.06em]">STUDIO</span>
+          </div>
+        </div>
       </motion.div>
     </section>
   )
