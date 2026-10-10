@@ -112,8 +112,8 @@ export function SiteNav() {
       >
         <nav
           className={cn(
-            "flex items-center justify-between px-2 transition-all duration-300 md:px-4",
-            scrolled && !open ? "pb-3 pt-3 md:pb-4 md:pt-4" : "pb-5 pt-5 md:pb-7 md:pt-7"
+            "flex items-center justify-between px-4 transition-all duration-300 md:px-8",
+            scrolled && !open ? "pb-3 pt-3 md:pb-4 md:pt-4" : "pb-5 pt-5 md:pb-6 md:pt-6"
           )}
           style={{
             paddingTop: scrolled && !open 
@@ -124,27 +124,37 @@ export function SiteNav() {
           <Link
             href="/"
             onClick={() => setOpen(false)}
-            className={cn(
-              "font-heading font-bold tracking-tight min-h-[44px] flex items-center justify-center transition-all duration-500 ease-out origin-left",
-              (pathname === '/' && !scrolled) ? "opacity-0 -translate-y-4 pointer-events-none" : "opacity-100 translate-y-0"
-            )}
-            aria-label="OBX Studio home"
+            className="font-sans font-bold text-xl md:text-2xl tracking-tight text-white flex items-center min-h-[44px] hover:opacity-80 transition-opacity"
+            aria-label="anima home"
           >
-            <Image
-              src="/logo.avif"
-              alt="OBX Studio"
-              width={160}
-              height={40}
-              className="h-8 sm:h-10 md:h-12 w-auto object-contain transition-all duration-300 invert mix-blend-screen"
-              priority
-              referrerPolicy="no-referrer"
-            />
+            anima
           </Link>
-          <div className="flex items-center">
+          <div className="flex items-center gap-6 md:gap-8">
+            <div className="hidden md:flex items-center gap-7 text-sm font-sans tracking-tight text-white/85">
+              <Link href="/work" className="hover:text-white transition-colors">
+                Work
+              </Link>
+              <Link href="/studio" className="hover:text-white transition-colors">
+                About
+              </Link>
+              <Link href="/services" className="hover:text-white transition-colors">
+                Approach
+              </Link>
+              <Link
+                href="/contact"
+                className="hover:text-white transition-colors flex items-center gap-1 group"
+              >
+                <span>Contact</span>
+                <span className="text-white/60 group-hover:translate-x-0.5 group-hover:text-white transition-transform font-mono">
+                  &gt;
+                </span>
+              </Link>
+            </div>
+
             <button
               type="button"
               onClick={() => setOpen((v) => !v)}
-              className="flex items-center gap-2 justify-center min-h-[44px] px-3 rounded-full transition-transform hover:scale-105 active:scale-95"
+              className="flex md:hidden items-center gap-2 justify-center min-h-[44px] px-3 rounded-full transition-transform hover:scale-105 active:scale-95"
               aria-expanded={open}
               aria-label="Toggle menu"
             >

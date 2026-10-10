@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3000",
     "build": "NODE_ENV=production next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "tsc --noEmit"
   },
   "dependencies": {
     "clsx": "^2.1.1",
