@@ -2,8 +2,10 @@
 
 import { useRef, useEffect, useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion'
 import { usePreloader } from '@/components/layout-wrapper'
+import { ArrowUpRight } from 'lucide-react'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -12,16 +14,16 @@ export function Hero() {
   const { scrollY } = useScroll()
   const containerRef = useRef<HTMLDivElement>(null)
 
-  // Mouse tilt interaction for the 3D sculpture
+  // Mouse tilt interaction for the editorial showcase
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
   const springX = useSpring(mouseX, { stiffness: 45, damping: 25 })
   const springY = useSpring(mouseY, { stiffness: 45, damping: 25 })
 
-  const rotateX = useTransform(springY, [-0.5, 0.5], [12, -12])
-  const rotateY = useTransform(springX, [-0.5, 0.5], [-14, 14])
-  const translateX = useTransform(springX, [-0.5, 0.5], [-18, 18])
-  const translateY = useTransform(springY, [-0.5, 0.5], [-12, 12])
+  const rotateX = useTransform(springY, [-0.5, 0.5], [8, -8])
+  const rotateY = useTransform(springX, [-0.5, 0.5], [-10, 10])
+  const translateX = useTransform(springX, [-0.5, 0.5], [-14, 14])
+  const translateY = useTransform(springY, [-0.5, 0.5], [-10, 10])
 
   const [isMounted, setIsMounted] = useState(false)
 
@@ -30,7 +32,6 @@ export function Hero() {
 
     const handleMouseMove = (e: MouseEvent) => {
       const { innerWidth, innerHeight } = window
-      // Normalize from -0.5 to 0.5
       mouseX.set(e.clientX / innerWidth - 0.5)
       mouseY.set(e.clientY / innerHeight - 0.5)
     }
@@ -40,11 +41,11 @@ export function Hero() {
   }, [mouseX, mouseY])
 
   // Scroll parallax transforms
-  const yWordmark = useTransform(scrollY, [0, 600], ['0%', '22%'])
-  const opacityWordmark = useTransform(scrollY, [0, 450], [1, 0.2])
-  const scaleSculpture = useTransform(scrollY, [0, 600], [1, 0.88])
-  const ySculpture = useTransform(scrollY, [0, 600], ['0%', '16%'])
-  const opacitySculpture = useTransform(scrollY, [0, 550], [1, 0.15])
+  const yWordmark = useTransform(scrollY, [0, 600], ['0%', '20%'])
+  const opacityWordmark = useTransform(scrollY, [0, 450], [1, 0.25])
+  const scaleShowcase = useTransform(scrollY, [0, 600], [1, 0.92])
+  const yShowcase = useTransform(scrollY, [0, 600], ['0%', '14%'])
+  const opacityShowcase = useTransform(scrollY, [0, 550], [1, 0.2])
 
   return (
     <section
@@ -56,7 +57,7 @@ export function Hero() {
         className="pointer-events-none absolute inset-0 z-0"
         style={{
           background:
-            'radial-gradient(ellipse 65% 55% at 50% 58%, rgba(42, 42, 52, 0.38) 0%, rgba(14, 14, 18, 0.8) 60%, #060608 100%)',
+            'radial-gradient(ellipse 70% 60% at 50% 55%, rgba(38, 38, 48, 0.35) 0%, rgba(12, 12, 16, 0.82) 65%, #060608 100%)',
         }}
       />
 
@@ -78,7 +79,7 @@ export function Hero() {
         className="relative z-10 w-full flex items-center justify-between text-xs sm:text-sm font-sans tracking-tight text-white/80 pb-2 sm:pb-4"
       >
         <span className="font-normal text-white/85 text-[11px] sm:text-xs md:text-sm tracking-normal">
-          Animation, Branding and Creative Direction
+          Web Design, Digital Direction &amp; Brand Systems
         </span>
         <div className="flex items-center gap-1.5 font-mono text-[10px] sm:text-[11px] md:text-xs text-white/50 tracking-wider">
           <span>(scroll)</span>
@@ -92,9 +93,9 @@ export function Hero() {
         </div>
       </motion.div>
 
-      {/* Main Visual Arena: Big Wordmark + 3D Render Centerpiece */}
+      {/* Main Visual Arena: Big OBX Studio Wordmark + OBX Fash AVIF Showcase Centerpiece */}
       <div className="relative z-10 w-full flex-1 flex flex-col items-center justify-center -my-2 sm:-my-4">
-        {/* Massive "anima" Wordmark Header */}
+        {/* Massive "obx studio" Wordmark Header matching reference layout */}
         <motion.div
           style={{ y: yWordmark, opacity: opacityWordmark }}
           className="w-full flex justify-center items-center overflow-hidden"
@@ -105,22 +106,22 @@ export function Hero() {
             transition={{ duration: 1.1, delay: 0.1, ease: EASE }}
             className="w-full flex justify-center"
           >
-            <h1 className="font-sans font-bold text-[22vw] sm:text-[21vw] md:text-[20vw] lg:text-[19.2vw] leading-[0.76] tracking-[-0.055em] text-white lowercase text-center whitespace-nowrap">
-              anima
+            <h1 className="font-sans font-bold text-[18vw] sm:text-[17vw] md:text-[16.5vw] lg:text-[15.8vw] leading-[0.76] tracking-[-0.055em] text-white lowercase text-center whitespace-nowrap">
+              obx studio
             </h1>
           </motion.div>
         </motion.div>
 
-        {/* Glossy 3D Centerpiece Render */}
+        {/* Centerpiece Showcase using the OBX Fash AVIF asset */}
         <motion.div
           style={{
-            y: ySculpture,
-            scale: scaleSculpture,
-            opacity: opacitySculpture,
+            y: yShowcase,
+            scale: scaleShowcase,
+            opacity: opacityShowcase,
           }}
-          className="relative w-full max-w-[320px] sm:max-w-[480px] md:max-w-[620px] lg:max-w-[760px] aspect-[16/10] sm:aspect-[16/9] -mt-8 sm:-mt-14 md:-mt-20 lg:-mt-24 flex items-center justify-center [perspective:1200px]"
+          className="relative w-full max-w-[340px] sm:max-w-[500px] md:max-w-[660px] lg:max-w-[780px] -mt-6 sm:-mt-12 md:-mt-16 lg:-mt-20 flex items-center justify-center [perspective:1200px]"
         >
-          {/* Interactive Mouse Tilt & Gentle Floating Motion */}
+          {/* Interactive Mouse Tilt & Subtle Floating Physics */}
           <motion.div
             style={
               isMounted
@@ -133,28 +134,51 @@ export function Hero() {
                 : {}
             }
             animate={{
-              y: [-7, 7, -7],
+              y: [-6, 6, -6],
             }}
             transition={{
               duration: 6,
               repeat: Infinity,
               ease: 'easeInOut',
             }}
-            className="relative w-full h-full flex items-center justify-center will-change-transform"
+            className="relative w-full flex items-center justify-center will-change-transform group cursor-pointer"
           >
             {/* Subtle soft backdrop reflection bloom */}
-            <div className="absolute inset-0 bg-gradient-to-t from-white/[0.04] to-transparent rounded-full blur-3xl pointer-events-none scale-75" />
+            <div className="absolute inset-0 bg-gradient-to-t from-white/[0.08] via-purple-500/[0.04] to-transparent rounded-2xl blur-3xl pointer-events-none scale-90" />
 
-            <Image
-              src="/media/home/hero-3d.jpg"
-              alt="anima creative direction 3D sculpture"
-              width={1280}
-              height={720}
-              priority
-              quality={95}
-              className="w-full h-auto object-contain select-none pointer-events-none drop-shadow-[0_24px_60px_rgba(0,0,0,0.9)]"
-              referrerPolicy="no-referrer"
-            />
+            {/* Framed Editorial Card with OBX Fash AVIF Image */}
+            <Link
+              href="/work/obx-fash"
+              className="relative w-full block rounded-xl sm:rounded-2xl overflow-hidden border border-white/15 bg-black/60 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.95)] backdrop-blur-sm transition-all duration-500 hover:border-white/35"
+            >
+              <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden bg-[#0c0c10]">
+                <Image
+                  src="/work/obx-fash-2.avif"
+                  alt="OBX Fash editorial campaign showcase"
+                  fill
+                  priority
+                  quality={95}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 780px"
+                  className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                  referrerPolicy="no-referrer"
+                />
+
+                {/* Subtle dark vignette overlay for seamless studio blending */}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
+                <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10 rounded-xl sm:rounded-2xl" />
+
+                {/* Integrated badge in reference style */}
+                <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 z-20 flex items-center gap-2">
+                  <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-widest text-white/90 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/15">
+                    Featured Work &bull; OBX Fash
+                  </span>
+                  <span className="hidden sm:inline-flex items-center gap-1 font-sans text-xs text-white/70 bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10 group-hover:text-white transition-colors">
+                    <span>View Project</span>
+                    <ArrowUpRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </span>
+                </div>
+              </div>
+            </Link>
           </motion.div>
         </motion.div>
       </div>
@@ -166,9 +190,9 @@ export function Hero() {
         transition={{ duration: 0.8, delay: 0.6, ease: EASE }}
         className="relative z-10 w-full flex items-center justify-between text-[11px] sm:text-xs text-white/40 font-mono tracking-wider pt-2"
       >
-        <span className="hidden sm:inline">STUDIO &copy; 2026</span>
+        <span className="hidden sm:inline">OBX STUDIO &copy; 2026</span>
         <span className="text-center w-full sm:w-auto text-white/50 tracking-normal font-sans text-xs">
-          Creative studio exploring form, motion and digital identity
+          Johannesburg-based digital studio crafting bespoke web experiences
         </span>
         <span className="hidden sm:inline">SELECTED WORKS [01 &mdash; 08]</span>
       </motion.div>

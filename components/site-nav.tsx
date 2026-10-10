@@ -125,9 +125,9 @@ export function SiteNav() {
             href="/"
             onClick={() => setOpen(false)}
             className="font-sans font-bold text-xl md:text-2xl tracking-tight text-white flex items-center min-h-[44px] hover:opacity-80 transition-opacity"
-            aria-label="anima home"
+            aria-label="OBX Studio home"
           >
-            anima
+            OBX Studio
           </Link>
           <div className="flex items-center gap-6 md:gap-8">
             <div className="hidden md:flex items-center gap-7 text-sm font-sans tracking-tight text-white/85">
