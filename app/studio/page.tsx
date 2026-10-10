@@ -74,21 +74,21 @@ export default function StudioPage() {
         </div>
       </section>
 
-      {/* Studio Image Gallery */}
+      {/* Studio Work Gallery */}
       <section className="px-[5vw] md:px-[8vw]">
         <Reveal className="mx-auto max-w-[1920px]">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="relative aspect-[4/3] overflow-hidden rounded-md border border-border bg-muted">
               <ParallaxImage
-                src="/studio/studio-wire-1.avif"
-                alt="OBX Studio workspace detail 1"
+                src="/work/obx-fash-1.avif"
+                alt="OBX Fash editorial concept by OBX Studio"
                 className="object-cover opacity-90 saturate-50 transition-all duration-700 hover:scale-105 hover:saturate-100"
               />
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-md border border-border bg-muted">
               <ParallaxImage
-                src="/studio/studio-wire-2.avif"
-                alt="OBX Studio workspace detail 2"
+                src="/work/ob-law-1.avif"
+                alt="OB & Associates corporate platform by OBX Studio"
                 className="object-cover opacity-90 saturate-50 transition-all duration-700 hover:scale-105 hover:saturate-100"
               />
             </div>

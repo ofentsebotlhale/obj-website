@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Hero } from '@/components/home/hero'
 import { HomepageWorksParallax } from '@/components/homepage-works-parallax'
-import { PostWorkInterlude } from '@/components/home/post-work-interlude'
 import { StudioAbout } from '@/components/home/studio-about'
 import { WhatWeDesign } from '@/components/home/what-we-design'
 import { TheMethod } from '@/components/home/the-method'
@@ -46,7 +45,6 @@ export default function HomePage() {
       <div className="relative w-full">
         <Hero />
         <HomepageWorksParallax items={projects} />
-        <PostWorkInterlude />
         <StudioAbout />
         <WhatWeDesign />
         <TheMethod />
