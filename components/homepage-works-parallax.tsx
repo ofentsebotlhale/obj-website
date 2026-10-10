@@ -87,7 +87,7 @@ export function HomepageWorksParallax({ items }: WorksParallaxProps) {
   if (!p1) return null
 
   return (
-    <section className="bg-black text-white pt-28 pb-20 md:pt-40 md:pb-28 lg:pt-52 lg:pb-36 px-6 md:px-[6vw] lg:px-[8vw] w-full overflow-hidden">
+    <section className="bg-black text-white pt-28 pb-20 md:pt-40 md:pb-28 lg:pt-52 lg:pb-36 px-4 md:px-8 w-full overflow-hidden">
       <div className="max-w-[1920px] mx-auto w-full">
         {/* Mobile Top Statement (shows only on mobile before the cards) */}
         <div className="block md:hidden mb-16">

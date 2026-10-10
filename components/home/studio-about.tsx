@@ -44,7 +44,7 @@ export function StudioAbout() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-background text-foreground overflow-hidden pt-28 pb-24 md:pt-44 md:pb-36 lg:pt-60 lg:pb-48 xl:pt-72 xl:pb-60 px-6 md:px-[6vw] lg:px-[8vw] select-none"
+      className="relative w-full bg-background text-foreground overflow-hidden pt-28 pb-24 md:pt-44 md:pb-36 lg:pt-60 lg:pb-48 xl:pt-72 xl:pb-60 px-4 md:px-8 select-none"
     >
       <div className="max-w-[1920px] mx-auto w-full">
         

@@ -14,7 +14,7 @@ export default function TermsPage() {
   return (
     <>
       <PageHeader index="00 / 05" subtitle="Legal details" title="Terms and Conditions" />
-      <section className="px-[5vw] pb-[10vh] md:px-[8vw] md:pb-20">
+      <section className="px-4 pb-[10vh] md:px-8 md:pb-20">
         <div className="mx-auto max-w-3xl border-t border-border pt-12 md:pt-[10vh]">
           <div className="space-y-12 md:space-y-16">
             

@@ -42,7 +42,7 @@ export default function WebDesignPage() {
         title="Web Design"
       />
 
-      <section className="px-[5vw] pb-20 md:px-[8vw] md:pb-[10vh]">
+      <section className="px-4 pb-20 md:px-8 md:pb-[10vh]">
         <div className="mx-auto max-w-[1920px]">
           <div className="max-w-4xl text-pretty">
             <h2 className="font-heading text-4xl font-medium leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-6xl">
@@ -55,7 +55,7 @@ export default function WebDesignPage() {
         </div>
       </section>
 
-      <section className="border-t border-border px-[5vw] py-12 md:px-[8vw] md:py-32">
+      <section className="border-t border-border px-4 py-12 md:px-8 md:py-32">
         <div className="mx-auto max-w-[1920px]">
           <Reveal>
             <p className="font-heading text-2xl font-light leading-relaxed tracking-tight text-foreground sm:text-3xl max-w-4xl mb-24">
@@ -209,7 +209,7 @@ export default function WebDesignPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="px-[5vw] py-32 md:px-[8vw] md:py-20 bg-card/20 border-t border-border">
+      <section className="px-4 py-32 md:px-8 md:py-20 bg-card/20 border-t border-border">
         <div className="mx-auto max-w-[1920px] text-center flex flex-col items-center justify-center">
           <Reveal>
             <p className="font-mono text-sm uppercase tracking-widest text-foreground mb-6">

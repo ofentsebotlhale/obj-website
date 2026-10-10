@@ -57,7 +57,7 @@ export default async function ProjectPage({ params }: Props) {
       />
 
       {/* Main Hero Parallax */}
-      <section className="px-[2vw] md:px-[4vw] pb-16 md:pb-24">
+      <section className="px-4 md:px-8 pb-16 md:pb-24">
         <div className="mx-auto max-w-[1920px]">
           <div className="relative w-full aspect-[16/10] md:aspect-[21/9] overflow-hidden bg-muted">
             <ParallaxImage
@@ -74,7 +74,7 @@ export default async function ProjectPage({ params }: Props) {
       </section>
 
       {/* Editorial Breakdown */}
-      <section className="px-[5vw] pb-24 md:px-[8vw]">
+      <section className="px-4 pb-24 md:px-8">
         <div className="mx-auto max-w-[1920px]">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-16 lg:gap-y-0 gap-x-4 md:gap-x-12">
             
@@ -160,7 +160,7 @@ export default async function ProjectPage({ params }: Props) {
 
       {/* Additional Showcase Images if they exist */}
       {project.images && project.images.length > 0 && (
-        <section className="px-[2vw] py-12 md:px-[4vw]">
+        <section className="px-4 py-12 md:px-8">
           <div className="mx-auto max-w-[1920px] flex flex-col gap-12 md:gap-24">
             {project.images.map((img, i) => (
               <Reveal key={i} delay={0.1}>
@@ -181,7 +181,7 @@ export default async function ProjectPage({ params }: Props) {
       )}
 
       {/* Next Project CTA */}
-      <section className="px-[5vw] py-24 md:px-[8vw] mt-12 bg-foreground text-background">
+      <section className="px-4 py-24 md:px-8 mt-12 bg-foreground text-background">
         <div className="mx-auto max-w-[1920px] text-center flex flex-col items-center justify-center">
           <Reveal>
             <p className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-background/50 mb-8 block">

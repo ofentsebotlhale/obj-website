@@ -21,7 +21,7 @@ export function PageHeader({
   useEffect(() => setMounted(true), [])
 
   return (
-    <header className="relative z-10 px-4 pb-12 pt-20 md:px-6 md:pb-16 md:pt-12">
+    <header className="relative z-10 px-4 pb-12 pt-20 md:px-8 md:pb-16 md:pt-12">
       <div className="mx-auto max-w-[1920px]">
         {badge && (
           <div className="mb-4">

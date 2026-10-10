@@ -27,7 +27,7 @@ export function WhatWeDesign() {
   }, [])
 
   return (
-    <section className="px-[5vw] py-24 md:py-32 lg:py-48 bg-background text-foreground flex flex-col justify-center">
+    <section className="px-4 md:px-8 py-24 md:py-32 lg:py-48 bg-background text-foreground flex flex-col justify-center">
       <div className="mx-auto max-w-[1920px] grid grid-cols-1 md:grid-cols-12 gap-y-16 md:gap-y-24 gap-x-4 md:gap-x-8">
         
         {/* Left Column Label */}

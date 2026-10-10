@@ -50,7 +50,7 @@ export function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative flex min-h-[100svh] w-full flex-col justify-between overflow-hidden bg-[#FAFAFA] text-[#0A0A0A] pt-[calc(env(safe-area-inset-top,0px)+5rem)] md:pt-[calc(env(safe-area-inset-top,0px)+5.5rem)] pb-8 px-4 sm:px-6 md:px-10 selection:bg-black/10 select-none border-b border-black/5"
+      className="relative flex min-h-[100svh] w-full flex-col justify-between overflow-hidden bg-[#FAFAFA] text-[#0A0A0A] pt-[calc(env(safe-area-inset-top,0px)+5rem)] md:pt-[calc(env(safe-area-inset-top,0px)+5.5rem)] pb-8 px-4 md:px-8 selection:bg-black/10 select-none border-b border-black/5"
     >
       {/* Soft Light Architectural Gradient */}
       <div

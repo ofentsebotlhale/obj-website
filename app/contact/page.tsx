@@ -20,7 +20,7 @@ export default function ContactPage() {
         title="START A PROJECT." 
       />
 
-      <section className="relative px-[5vw] pb-[10vh] md:px-[8vw] md:pb-12">
+      <section className="relative px-4 pb-[10vh] md:px-8 md:pb-12">
         <div className="mx-auto max-w-4xl relative z-10 text-left">
           <h2 className="font-heading text-4xl font-medium leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-6xl text-left">
             <RevealWords
@@ -31,7 +31,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="border-t border-border px-[5vw] py-20 md:px-[8vw] md:py-32">
+      <section className="border-t border-border px-4 py-20 md:px-8 md:py-32">
         <div className="mx-auto max-w-3xl">
           <Reveal>
             <div className="w-full">

@@ -73,7 +73,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <article className="pt-[10vh] pb-12 md:pt-20 md:pb-[10vh]">
-        <div className="mx-auto max-w-[1200px] px-[5vw] sm:px-[10vw]">
+        <div className="mx-auto max-w-[1200px] px-4 md:px-8">
           
           {/* Back button link */}
           <Link

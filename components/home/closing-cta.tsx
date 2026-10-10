@@ -14,13 +14,13 @@ export function ClosingCta() {
   }
 
   return (
-    <section className="px-[2vw] md:px-[4vw] pb-12 md:pb-24">
+    <section className="px-4 md:px-8 pb-12 md:pb-24">
       <motion.div 
         initial={{ scale: 0.97 }}
         whileInView={{ scale: 1 }}
         viewport={{ once: true, margin: "-10%" }}
         transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-        className="w-full bg-foreground text-background rounded-3xl px-[5vw] py-24 md:py-32 lg:py-48 flex flex-col justify-center items-center text-center overflow-hidden"
+        className="w-full bg-foreground text-background rounded-3xl px-6 md:px-12 py-24 md:py-32 lg:py-48 flex flex-col justify-center items-center text-center overflow-hidden"
       >
         <div className="max-w-4xl mx-auto flex flex-col items-center">
           <motion.p

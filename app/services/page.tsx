@@ -46,7 +46,7 @@ export default function ServicesPage() {
         title="Services"
       />
 
-      <section className="relative px-[5vw] pb-20 md:px-[8vw] md:pb-[10vh]">
+      <section className="relative px-4 pb-20 md:px-8 md:pb-[10vh]">
         <div className="mx-auto max-w-[1920px] relative z-10">
           <div className="max-w-4xl text-pretty">
             <HeroText />
@@ -54,7 +54,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="border-t border-border px-[5vw] py-12 md:px-[8vw] md:py-32">
+      <section className="border-t border-border px-4 py-12 md:px-8 md:py-32">
         <div className="mx-auto max-w-[1920px]">
           <div className="mb-24">
             <Reveal delay={0.1}>
@@ -78,7 +78,7 @@ export default function ServicesPage() {
       <FAQ />
 
       {/* CTA Section */}
-      <section className="px-[5vw] py-32 md:px-[8vw] md:py-20 bg-card/20 border-t border-border">
+      <section className="px-4 py-32 md:px-8 md:py-20 bg-card/20 border-t border-border">
         <div className="mx-auto max-w-[1920px] text-center flex flex-col items-center justify-center">
           <Reveal>
             <p className="font-mono text-sm uppercase tracking-widest text-foreground mb-6">

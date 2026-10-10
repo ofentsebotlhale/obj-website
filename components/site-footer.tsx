@@ -6,7 +6,7 @@ export function SiteFooter() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="flex flex-col w-full bg-background text-foreground pt-24 md:pt-40 px-[5vw] pb-[5vw]">
+    <footer className="flex flex-col w-full bg-background text-foreground pt-24 md:pt-40 px-4 md:px-8 pb-12 md:pb-16">
       <div className="mx-auto w-full max-w-[1920px] flex flex-col justify-between min-h-[50svh]">
         
         {/* Top Content Grid */}

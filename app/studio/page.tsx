@@ -23,7 +23,7 @@ export default function StudioPage() {
       />
 
       {/* Hero Intro */}
-      <section className="relative px-[5vw] pb-20 md:px-[8vw] md:pb-[10vh]">
+      <section className="relative px-4 pb-20 md:px-8 md:pb-[10vh]">
         <div className="mx-auto max-w-[1920px] relative z-10">
           <div className="max-w-4xl text-pretty">
             <h2 className="font-heading text-4xl font-medium leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-6xl">
@@ -37,7 +37,7 @@ export default function StudioPage() {
       </section>
 
       {/* Narrative Section - Who We Are */}
-      <section className="border-t border-border px-[5vw] py-12 md:px-[8vw] md:py-32">
+      <section className="border-t border-border px-4 py-12 md:px-8 md:py-32">
         <div className="mx-auto grid max-w-[1920px] grid-cols-1 gap-y-12 gap-x-4 md:gap-x-8 md:grid-cols-12">
           <Reveal className="md:col-span-4">
             <div className="sticky top-28 font-mono text-[11px] uppercase tracking-widest text-foreground">
@@ -75,7 +75,7 @@ export default function StudioPage() {
       </section>
 
       {/* Studio Work Gallery */}
-      <section className="px-[5vw] md:px-[8vw]">
+      <section className="px-4 md:px-8">
         <Reveal className="mx-auto max-w-[1920px]">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="relative aspect-[4/3] overflow-hidden rounded-md border border-border bg-muted">
@@ -97,7 +97,7 @@ export default function StudioPage() {
       </section>
 
       {/* Approach (Process) */}
-      <section className="px-[5vw] py-12 md:px-[8vw] md:py-32">
+      <section className="px-4 py-12 md:px-8 md:py-32">
         <div className="mx-auto max-w-[1920px]">
           <div className="grid grid-cols-1 gap-y-12 gap-x-4 md:gap-x-8 md:grid-cols-12 mb-16">
             <Reveal className="md:col-span-4">
@@ -118,7 +118,7 @@ export default function StudioPage() {
       </section>
 
       {/* Meet the Founder */}
-      <section className="border-t border-border px-[5vw] py-12 md:px-[8vw] md:py-32">
+      <section className="border-t border-border px-4 py-12 md:px-8 md:py-32">
         <div className="mx-auto max-w-[1920px]">
           <div className="grid grid-cols-1 gap-y-12 gap-x-4 md:gap-x-8 md:grid-cols-12">
             <Reveal className="md:col-span-4">
