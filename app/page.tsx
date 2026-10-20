@@ -41,7 +41,6 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      
       <div className="relative w-full">
         <Hero />
         <HomepageWorksParallax items={projects} />

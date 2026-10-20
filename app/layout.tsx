@@ -8,6 +8,9 @@ import { CookieBanner } from '@/components/cookie-banner'
 import { LayoutWrapper } from '@/components/layout-wrapper'
 import { AnalyticsLoader } from '@/components/analytics-loader'
 import { SmoothScroll } from '@/components/smooth-scroll'
+import { MAINTENANCE_MODE } from '@/lib/maintenance'
+import { MaintenanceGate } from '@/components/maintenance-gate'
+import { MaintenanceView } from '@/components/maintenance-view'
 
 const bebas = Bebas_Neue({
   weight: '400',
@@ -90,19 +93,21 @@ export default function RootLayout({
           Skip to main content
         </a>
         
-        <SmoothScroll>
-          <LayoutWrapper>
-            <div id="smooth-scroll" className="overflow-clip w-full">
-              <SiteNav />
-              <main id="main-content" className="relative">
-                {children}
-              </main>
-              <SiteFooter />
-            </div>
-          </LayoutWrapper>
-        </SmoothScroll>
+        <MaintenanceGate>
+          <SmoothScroll>
+            <LayoutWrapper>
+              <div id="smooth-scroll" className="overflow-clip w-full">
+                <SiteNav />
+                <main id="main-content" className="relative">
+                  {children}
+                </main>
+                <SiteFooter />
+              </div>
+            </LayoutWrapper>
+          </SmoothScroll>
 
-        <CookieBanner />
+          <CookieBanner />
+        </MaintenanceGate>
       </body>
     </html>
   )
