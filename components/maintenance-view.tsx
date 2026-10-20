@@ -28,11 +28,7 @@ const SOCIAL_LINKS = [
   },
 ]
 
-interface MaintenanceViewProps {
-  onBypass?: () => void
-}
-
-export function MaintenanceView({ onBypass }: MaintenanceViewProps) {
+export function MaintenanceView() {
   return (
     <div className="relative min-h-[100svh] w-full flex flex-col justify-between items-center overflow-hidden bg-[#FAFAFA] text-[#0A0A0A] px-4 md:px-8 py-10 md:py-16 selection:bg-black/10 select-none">
       {/* Editorial Soft Light Architectural Gradient with warm glow */}
@@ -150,19 +146,7 @@ export function MaintenanceView({ onBypass }: MaintenanceViewProps) {
         <span className="text-center font-sans tracking-normal text-xs text-neutral-600">
           Johannesburg-based digital studio crafting bespoke web experiences
         </span>
-        <div className="flex items-center gap-3">
-          <span className="hidden sm:inline text-neutral-400">JOHANNESBURG &bull; ZA</span>
-          {onBypass && (
-            <button
-              type="button"
-              onClick={onBypass}
-              className="text-[10px] text-neutral-400 hover:text-black uppercase tracking-widest cursor-pointer underline underline-offset-2 transition-colors ml-2"
-              title="Preview full site"
-            >
-              Staff Preview
-            </button>
-          )}
-        </div>
+        <span className="hidden sm:inline text-neutral-400">JOHANNESBURG &bull; ZA</span>
       </footer>
     </div>
   )
